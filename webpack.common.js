@@ -15,13 +15,21 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },
+      {
+        test: /.s?css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
+    new MiniCssExtractPlugin(),
   ],
+  optimization: {
+    minimizer: [`...`, new CssMinimizerPlugin()],
+  },
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
