@@ -5,8 +5,9 @@ const createTaskList = () => {
     taskList.push(toDoObject);
   };
 
-  const printTasks = () => {
-    console.log("TO-DOS:", taskList);
+  const printTaskTitles = () => {
+    const taskTitles = taskList.map((task) => task.title);
+    console.log("Your tasks: ", taskTitles);
   };
 
   const updateTask = (index, property, updatedValue) => {
@@ -24,10 +25,10 @@ const createTaskList = () => {
     console.log(`Updating to-do: "${selectedToDo.title}"`);
     taskList[index][property] = updatedValue;
 
-    printTasks();
+    printTaskTitles();
   };
 
-  return { addTask, printTasks, updateTask };
+  return { addTask, printTaskTitles, updateTask };
 };
 
 export default createTaskList;

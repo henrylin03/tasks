@@ -18,5 +18,5 @@ const taskManager = (function () {
     createTask("Relax with your family", "Nothing else has as much meaning")
   );
 
-  taskList.printTasks();
+  taskList.printTaskTitles();
 })();
