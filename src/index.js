@@ -9,15 +9,20 @@ const taskManager = (function () {
   };
 
   // adding a bunch of test tasks - these can be deleted when we introduce localStorage management
-  addTask(createTask("Get your shit together"));
+  addTask(
+    createTask("Analyse latest news articles to find the most relevant quotes")
+  );
   addTask(
     createTask(
-      "Work hard",
-      "Do something you love and it won't really feel like work at all"
+      "Write email to Mary Jin",
+      "see earlier email from 20 March 2022 for reply"
     )
   );
   addTask(
-    createTask("Relax with your family", "Nothing else has as much meaning")
+    createTask(
+      "Automate email creation for sign-ups",
+      "see Confluence for the latest process flow"
+    )
   );
 
   // run
