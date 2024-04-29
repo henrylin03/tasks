@@ -23,6 +23,13 @@ const taskManager = (function () {
   console.log(" ~ welcome to serenity to-dos ~");
   viewTasks();
 
+  // test adding details using setter
+  taskList[0].setDetails(
+    "Start with Sydney Morning Herald, and then Financial Review"
+  );
+  console.log(taskList[0].viewDetails());
+
+  // test creating new task
   const newTask = prompt("Please add in the title of your new task");
   addTask(createTask(newTask));
   viewTasks();
