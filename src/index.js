@@ -1,18 +1,16 @@
-import createToDo from "./createToDo";
+import createTask from "./createTask";
 import createTaskList from "./createTaskList";
 
 // instantiating/testing
 const taskList = createTaskList();
-taskList.add(createToDo("Get your shit together"));
+taskList.add(createTask("Get your shit together"));
 taskList.add(
-  createToDo(
+  createTask(
     "Work hard",
     "Do something you love and it won't really feel like work at all"
   )
 );
 taskList.add(
-  createToDo("Relax with your family", "Nothing else has as much meaning")
+  createTask("Relax with your family", "Nothing else has as much meaning")
 );
 taskList.print();
-
-taskList.updateToDo(5, "title", "updated title");
