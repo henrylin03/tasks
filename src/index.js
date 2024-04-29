@@ -18,14 +18,14 @@ const taskManager = (function () {
       "see earlier email from 20 March 2022 for reply"
     )
   );
-  addTask(
-    createTask(
-      "Automate email creation for sign-ups",
-      "see Confluence for the latest process flow"
-    )
-  );
 
   // run
   console.log(" ~ welcome to serenity to-dos ~");
   viewTasks();
+
+  const newTask = prompt("Please add in the title of your new task");
+  addTask(createTask(newTask));
+  viewTasks();
+
+  return { addTask, viewTasks };
 })();
