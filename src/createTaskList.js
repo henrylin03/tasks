@@ -6,8 +6,7 @@ const createTaskList = () => {
   };
 
   const print = () => {
-    console.log("Your tasks are below:");
-    taskList.forEach((t) => console.log(t));
+    console.log("Your tasks are below:", taskList);
   };
 
   return { add, print };

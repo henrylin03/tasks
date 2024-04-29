@@ -1,6 +1,7 @@
 import createToDo from "./createToDo";
 import createTaskList from "./createTaskList";
 
+// instantiating/testing
 const toDo1 = createToDo("Get your shit together");
 const toDo2 = createToDo(
   "Work hard",
