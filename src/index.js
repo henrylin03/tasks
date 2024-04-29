@@ -19,5 +19,7 @@ const taskManager = (function () {
   console.log(" ~ welcome to serenity to-dos ~");
 
   const taskList = createTaskList();
+  taskList.printTasks();
+
   return;
 })();
