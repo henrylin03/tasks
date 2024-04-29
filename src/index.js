@@ -2,10 +2,19 @@ import createTask from "./createTask";
 
 const taskManager = (function () {
   const taskList = [];
+
   const addTask = (taskObject) => taskList.push(taskObject);
   const viewTasks = () => {
     const taskTitles = taskList.map((task) => task.title);
     console.log("Your tasks: ", taskTitles);
+  };
+  const deleteTask = (taskIndex) => {
+    if (taskList[taskIndex] === undefined)
+      throw new Error("Index does not exist in tasks");
+    console.log("Deleting task...");
+    taskList.splice(taskIndex, 1);
+    console.log("Done");
+    viewTasks();
   };
 
   // adding a bunch of test tasks - these can be deleted when we introduce localStorage management
@@ -23,16 +32,9 @@ const taskManager = (function () {
   console.log(" ~ welcome to serenity to-dos ~");
   viewTasks();
 
-  // test adding details using setter
-  taskList[0].setDetails(
-    "Start with Sydney Morning Herald, and then Financial Review"
-  );
-  console.log(taskList[0].viewDetails());
-
-  // test creating new task
   const newTask = prompt("Please add in the title of your new task");
   addTask(createTask(newTask));
   viewTasks();
 
-  return { addTask, viewTasks };
+  return { addTask, viewTasks, deleteTask };
 })();
