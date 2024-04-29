@@ -1,19 +1,5 @@
 import createToDo from "./createToDo";
-
-// a task list should be an array of objects, each object representing a todo
-const createTaskList = () => {
-  const taskList = [];
-  const add = (toDoObject) => {
-    taskList.push(toDoObject);
-  };
-
-  const print = () => {
-    console.log("Your tasks are below:");
-    taskList.forEach((t) => console.log(t));
-  };
-
-  return { add, print };
-};
+import createTaskList from "./createTaskList";
 
 const toDo1 = createToDo("Get your shit together");
 const toDo2 = createToDo(
