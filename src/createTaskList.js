@@ -6,10 +6,12 @@ const createTaskList = () => {
   };
 
   const print = () => {
-    console.log("Your tasks are below:", taskList);
+    console.log("TO-DOS:", taskList);
   };
 
-  return { add, print };
+  const updateTodo = (taskSelector) => {};
+
+  return { add, print, updateTodo };
 };
 
 export default createTaskList;
