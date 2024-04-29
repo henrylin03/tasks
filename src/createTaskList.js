@@ -9,9 +9,20 @@ const createTaskList = () => {
     console.log("TO-DOS:", taskList);
   };
 
-  const updateTodo = (taskSelector) => {};
+  const updateToDo = (index, property, updatedValue) => {
+    const selectedToDo = taskList[index];
+    if (selectedToDo[property] === undefined)
+      throw new Error(
+        "The To-Do property you are trying to modify does not exist"
+      );
 
-  return { add, print, updateTodo };
+    console.log(`Updating to-do: "${selectedToDo.title}"`);
+    taskList[index][property] = updatedValue;
+
+    print();
+  };
+
+  return { add, print, updateToDo };
 };
 
 export default createTaskList;

@@ -14,3 +14,5 @@ taskList.add(
   createToDo("Relax with your family", "Nothing else has as much meaning")
 );
 taskList.print();
+
+taskList.updateToDo(1, "title", "updated title");
