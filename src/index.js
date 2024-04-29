@@ -1,22 +1,26 @@
 import createTask from "./createTask";
-import createTaskList from "./createTaskList";
 
 const taskManager = (function () {
-  const taskList = createTaskList();
-
-  console.log(" ~ welcome to serenity to-dos ~");
+  const taskList = [];
+  const addTask = (taskObject) => taskList.push(taskObject);
+  const viewTasks = () => {
+    const taskTitles = taskList.map((task) => task.title);
+    console.log("Your tasks: ", taskTitles);
+  };
 
   // adding a bunch of test tasks - these can be deleted when we introduce localStorage management
-  taskList.addTask(createTask("Get your shit together"));
-  taskList.addTask(
+  addTask(createTask("Get your shit together"));
+  addTask(
     createTask(
       "Work hard",
       "Do something you love and it won't really feel like work at all"
     )
   );
-  taskList.addTask(
+  addTask(
     createTask("Relax with your family", "Nothing else has as much meaning")
   );
 
-  taskList.printTaskTitles();
+  // run
+  console.log(" ~ welcome to serenity to-dos ~");
+  viewTasks();
 })();
