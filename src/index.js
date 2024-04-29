@@ -16,6 +16,8 @@ import createTaskList from "./createTaskList";
 // taskList.printTask();
 
 const taskManager = (function () {
-  alert("hello world");
+  console.log(" ~ welcome to serenity to-dos ~");
+
+  const taskList = createTaskList();
   return;
 })();
