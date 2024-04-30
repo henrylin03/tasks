@@ -32,9 +32,11 @@ const taskManager = (function () {
   console.log(" ~ welcome to serenity to-dos ~");
   viewTasks();
 
-  const newTask = prompt("Please add in the title of your new task");
-  addTask(createTask(newTask));
-  viewTasks();
+  taskList[0].setDueDateAndTime(2024, 10, 4);
+  console.log(taskList[0].viewDueDateAndTime());
 
+  // const newTask = prompt("Please add in the title of your new task");
+  // addTask(createTask(newTask));
+  // viewTasks();
   return { addTask, viewTasks, deleteTask };
 })();
