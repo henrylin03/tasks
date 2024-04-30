@@ -31,15 +31,21 @@ const controller = (function () {
   };
 
   // adding a bunch of test tasks - these can be deleted when we introduce localStorage management
-  addTask(
+  // addTask(
+  //   createTask("Analyse latest news articles to find the most relevant quotes")
+  // );
+  // addTask(
+  //   createTask(
+  //     "Write email to Mary Jin",
+  //     "see earlier email from 20 March 2022 for reply"
+  //   )
+  // );
+  const uncategorisedProject = createProject("My Tasks");
+  uncategorisedProject.addTaskToProject(
     createTask("Analyse latest news articles to find the most relevant quotes")
   );
-  addTask(
-    createTask(
-      "Write email to Mary Jin",
-      "see earlier email from 20 March 2022 for reply"
-    )
-  );
+  uncategorisedProject.addTaskToProject(createTask("Write email to Mary Jin"));
+  console.log(uncategorisedProject);
 
   // run
   console.log(" ~ welcome to serenity to-dos ~");
