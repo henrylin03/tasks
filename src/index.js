@@ -44,7 +44,8 @@ const taskManager = (function () {
   console.log(" ~ welcome to serenity to-dos ~");
   viewTasks();
 
-  updateTask(0, "setDetails", "This task has been updated");
+  // updateTask(0, "setDetails", "This task has been updated");
+  // updateTask(0, "setTitle", "This is an updated title for the ticket");
   viewTasks();
 
   // taskList[0].setterHandler["setDueDateAndTime"](2024, 10, 4);

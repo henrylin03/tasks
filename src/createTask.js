@@ -2,10 +2,7 @@ import { format } from "date-fns";
 
 const createTask = (title) => {
   const viewTitle = () => title;
-  const setTitle = (updatedTitle) => {
-    this.title = updatedTitle;
-    return this;
-  };
+  const setTitle = (updatedTitle) => (title = updatedTitle);
 
   // use details to add more specific requirements and context that isn't necessarily a subtask
   let details = "";
