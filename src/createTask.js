@@ -15,6 +15,7 @@ const createTask = (title) => {
     );
   };
   const viewDueDateAndTime = () => dueDateAndTime;
+
   return {
     title,
     setDetails,
