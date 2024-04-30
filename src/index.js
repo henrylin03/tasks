@@ -43,6 +43,4 @@ const taskManager = (function () {
   // run
   console.log(" ~ welcome to serenity to-dos ~");
   viewTasks();
-
-  return { addTask, viewTasks, deleteTask, updateTask };
 })();
