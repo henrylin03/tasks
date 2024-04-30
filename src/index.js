@@ -51,5 +51,5 @@ const taskManager = (function () {
   // const newTask = prompt("Please add in the title of your new task");
   // addTask(createTask(newTask));
   // viewTasks();
-  return { addTask, viewTasks, deleteTask };
+  return { addTask, viewTasks, deleteTask, updateTask };
 })();
