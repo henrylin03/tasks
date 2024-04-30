@@ -9,21 +9,16 @@ const createTask = (title) => {
   const setDescription = (text) => (description = text);
   const viewDescription = () => description;
 
-  let dueDateAndTime = null;
-  // default to 12am of due date if user does not provide a time
-  const setDueDateAndTime = (year, month, date, time = 0) => {
-    dueDateAndTime = format(
-      new Date(year, month, date, time),
-      "dd/MM/yyyy (hh:mm aaa)"
-    );
-  };
-  const viewDueDateAndTime = () => dueDateAndTime;
+  let dueDate = null;
+  const setDueDate = (year, month, date) =>
+    (dueDate = format(new Date(year, month, date), "dd/MM/yyyy"));
+  const viewDueDate = () => dueDate;
 
-  const setterHandler = { setTitle, setDescription, setDueDateAndTime };
+  const setterHandler = { setTitle, setDescription, setDueDate };
   return {
     viewTitle,
     viewDescription,
-    viewDueDateAndTime,
+    viewDueDate,
     setterHandler,
   };
 };

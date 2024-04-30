@@ -9,7 +9,7 @@ const taskManager = (function () {
     const tasksWithPropertiesShown = taskList.map((task) => ({
       title: task.viewTitle(),
       details: task.viewDescription(),
-      due: task.viewDueDateAndTime(),
+      due: task.viewDueDate(),
     }));
     console.log("Your tasks: ", tasksWithPropertiesShown);
   };
