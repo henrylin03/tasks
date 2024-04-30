@@ -7,7 +7,7 @@ const taskManager = (function () {
 
   const viewTasks = () => {
     const tasksWithPropertiesShown = taskList.map((task) => ({
-      title: task.title,
+      title: task.viewTitle(),
       details: task.viewDetails(),
       due: task.viewDueDateAndTime(),
     }));
