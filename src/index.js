@@ -1,6 +1,6 @@
 import createTask from "./createTask";
 
-const taskManager = (function () {
+const controller = (function () {
   const taskList = [];
 
   const addTask = (taskObject) => taskList.push(taskObject);
