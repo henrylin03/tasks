@@ -1,10 +1,16 @@
 const createTask = ({
-  title,
+  title = "Unnamed task",
   description = "",
   dueDate = "",
   priority = "Medium",
   status = "To Do",
 }) => {
+  const getTitle = () => title;
+  const getDescription = () => description;
+  const getDueDate = () => dueDate;
+  const getPriority = () => priority;
+  const getStatus = () => status;
+
   return { title, description, dueDate, priority, status };
 };
 
@@ -36,6 +42,8 @@ const app = (function () {
       const status = prompt(
         "Please enter the status of this task - 'To Do', 'Doing' or 'Done'. Status will default to 'To Do' if none is entered. Press enter to continue."
       );
+
+      console.log(createTask(title, description, dueDate, priority, status));
     }
   }
 })();
