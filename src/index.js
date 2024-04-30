@@ -1,4 +1,5 @@
 import createTask from "./createTask";
+import createProject from "./createProject";
 
 const controller = (function () {
   const taskList = [];
