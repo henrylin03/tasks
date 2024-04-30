@@ -16,12 +16,12 @@ const createTask = (title) => {
   };
   const viewDueDateAndTime = () => dueDateAndTime;
 
+  const setterHandler = { setDetails, setDueDateAndTime };
   return {
     title,
-    setDetails,
     viewDetails,
-    setDueDateAndTime,
     viewDueDateAndTime,
+    setterHandler,
   };
 };
 

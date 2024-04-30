@@ -14,6 +14,12 @@ const taskManager = (function () {
     console.log("Your tasks: ", tasksWithPropertiesShown);
   };
 
+  const updateTask = (taskIndex, taskSetterCallbackFn, updatedValue) => {
+    if (taskList[taskIndex] === undefined)
+      throw new Error("Index does not exist in tasks");
+    task.setterHandler[`${taskSetterCallbackFn}`](updatedValue);
+  };
+
   const deleteTask = (taskIndex) => {
     if (taskList[taskIndex] === undefined)
       throw new Error("Index does not exist in tasks");
@@ -38,7 +44,7 @@ const taskManager = (function () {
   console.log(" ~ welcome to serenity to-dos ~");
   viewTasks();
 
-  taskList[0].setDueDateAndTime(2024, 10, 4);
+  taskList[0].setterHandler["setDueDateAndTime"](2024, 10, 4);
   console.log(taskList[0].viewDueDateAndTime());
   deleteTask(0);
 
