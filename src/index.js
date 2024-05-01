@@ -1,7 +1,15 @@
 import createTask from "./createTask";
 
+const createProject = ({ name }) => {
+  const taskList = [];
+  return { name, taskList };
+};
+
 const app = (function () {
   // show all tasks from localStorage. if none, show "no tasks yet"
+
+  // create "My Projects" project ready to 'catch all' tasks
+
   let input = prompt(
     `What would you like to do? Please enter number: 
     1: add something new, 
