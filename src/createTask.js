@@ -15,7 +15,6 @@ const createTask = ({ title, description = "" }) => {
   const setTitle = (newTitle) => (title = newTitle);
   const setDescription = (newDescription) => (description = newDescription);
 
-  //!TODO: need to fix bug when the due date entered is wrong format (maybe throw an error?) or when nothing is entered too(?)
   const setDueDate = (dueDateString) => {
     if (!dueDateString) return;
     // user is advised to input due date as format "dd/MM/YYYY" per Australian common use
