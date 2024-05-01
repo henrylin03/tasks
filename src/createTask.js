@@ -21,19 +21,17 @@ const createTask = ({ title, description = "" }) => {
   };
   const setPriority = (newPriority) => {
     const VALID_PRIORITIES = ["Low", "Medium", "High", "Urgent"];
-
-    // ? perhaps shouldn't be an error. just log it and continue.
-    if (!VALID_PRIORITIES.includes(newPriority))
-      throw new Error("Invalid priority. Defaulting to 'Medium'.");
-    priority = newPriority;
+    if (VALID_PRIORITIES.includes(newPriority)) return (priority = newPriority);
+    console.log(
+      "Invalid priority. Reverting to the last defined priority or, if this is a new task, defaulting to 'Medium' priority."
+    );
   };
   const setStatus = (newStatus) => {
     const VALID_STATUSES = ["To Do", "Doing", "Done", "Won't Do"];
-
-    // ? perhaps shouldn't be an error. just log it and continue.
-    if (!VALID_STATUSES.includes(newStatus))
-      throw new Error("Invalid status. Defaulting to 'To do'");
-    status = newStatus;
+    if (VALID_STATUSES.includes(newStatus)) return (status = newStatus);
+    console.log(
+      "Invalid status. Reverting to the last defined status or, if this is a new task, 'To Do'."
+    );
   };
 
   return {
