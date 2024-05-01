@@ -1,14 +1,17 @@
 import createTask from "./createTask";
 
-const createProject = ({ name }) => {
+const createProject = (name) => {
   const taskList = [];
-  return { name, taskList };
+
+  const addTask = (taskObject) => taskList.push(taskObject);
+
+  return { name, taskList, addTask };
 };
 
 const app = (function () {
   // show all tasks from localStorage. if none, show "no tasks yet"
 
-  // create "My Projects" project ready to 'catch all' tasks
+  const myProject = createProject("My Tasks");
 
   let input = prompt(
     `What would you like to do? Please enter number: 
@@ -43,7 +46,8 @@ const app = (function () {
         )
       );
 
-      console.log(newTask.viewDetails());
+      myProject.addTask(newTask);
+      myProject.taskList.forEach((task) => console.log(task.viewDetails()));
     }
   }
 })();
