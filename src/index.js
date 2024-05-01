@@ -19,7 +19,6 @@ const app = (function () {
         title: prompt("Please enter a title for the task"),
         description: prompt("Please enter the description of this task"),
       });
-      // ! this needs fixing. the prompt needs to be reformatted to actually interact with the setDueDate function properly
       newTask.setDueDate(
         prompt(
           "Please enter a due date for this task in the format: `dd/mm/yyyy` (eg 1/1/2025 for 2025 New Years Day). This is optional. Press enter to not include a due date."
