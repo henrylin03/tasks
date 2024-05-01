@@ -35,13 +35,7 @@ const app = (function () {
         )
       );
 
-      console.log(
-        newTask.getTitle(),
-        newTask.getDescription(),
-        newTask.getDueDate(),
-        newTask.getPriority(),
-        newTask.getStatus()
-      );
+      console.log(newTask.viewDetails());
     }
   }
 })();
