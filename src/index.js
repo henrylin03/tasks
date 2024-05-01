@@ -3,9 +3,13 @@ import createTask from "./createTask";
 const createProject = (name) => {
   const taskList = [];
 
+  const getName = () => name;
+  const getTasks = () => taskList;
+
+  const setName = (newProjectName) => (name = newProjectName);
   const addTask = (taskObject) => taskList.push(taskObject);
 
-  return { name, taskList, addTask };
+  return { getName, getTasks, setName, addTask };
 };
 
 const app = (function () {
