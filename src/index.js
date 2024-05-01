@@ -1,19 +1,8 @@
 import createTask from "./createTask";
-
-const createProject = (name) => {
-  const taskList = [];
-
-  const getName = () => name;
-  const getTasks = () => taskList;
-
-  const setName = (newProjectName) => (name = newProjectName);
-
-  const addTask = (taskObject) => taskList.push(taskObject);
-
-  return { getName, getTasks, setName, addTask };
-};
+import createProject from "./createProject";
 
 const app = (function () {
+  // localStorage.clear();
   // show all tasks from localStorage. if none, show "no tasks yet"
   const storedTasks = JSON.parse(localStorage.getItem("tasks"));
   console.log(storedTasks);
@@ -63,7 +52,7 @@ const app = (function () {
       // ask whether user wants to create new project or add to existing one
 
       // myProject.addTask(newTask);
-      console.log(myProject.getTasks());
+      // console.log(myProject.getTasks());
     }
   }
 })();
