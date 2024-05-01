@@ -11,7 +11,33 @@ const createTask = ({
   const getPriority = () => priority;
   const getStatus = () => status;
 
-  return { title, description, dueDate, priority, status };
+  const setTitle = (newTitle) => (title = newTitle);
+  const setDescription = (newDescription) => (description = newDescription);
+  // const setDueDate =
+  const setPriority = (newPriority) => {
+    const VALID_PRIORITIES = ["Low", "Medium", "High", "Urgent"];
+    if (!VALID_PRIORITIES.includes(newPriority))
+      throw new Error("Invalid priority. Defaulting to 'Medium'.");
+    priority = newPriority;
+  };
+  const setStatus = (newStatus) => {
+    const VALID_STATUSES = ["To Do", "Doing", "Done", "Won't Do"];
+    if (!VALID_STATUSES.includes(newStatus))
+      throw new Error("Invalid status. Defaulting to 'To do'");
+    status = newStatus;
+  };
+
+  return {
+    getTitle,
+    getDescription,
+    getDueDate,
+    getPriority,
+    getStatus,
+    setTitle,
+    setDescription,
+    setPriority,
+    setStatus,
+  };
 };
 
 const app = (function () {
