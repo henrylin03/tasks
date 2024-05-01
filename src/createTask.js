@@ -14,11 +14,13 @@ const createTask = ({ title, description = "" }) => {
 
   const setTitle = (newTitle) => (title = newTitle);
   const setDescription = (newDescription) => (description = newDescription);
-  const setDueDate = (year, month, date) => {
-    dueDate = dueDate
-      ? format(new Date(year, month, date), "dd/MM/yyyy")
-      : dueDate;
+  const setDueDate = (dueDateString) => {
+    // user is advised to input due date as format "dd/MM/YYYY" per Australian common use
+    const [date, month, year] = dueDateString.split("/");
+    dueDate = format(new Date(year, month, date), "dd/MM/yyyy");
   };
+
+  //todo: don't show error if user enters nothing
   const setPriority = (newPriority) => {
     const VALID_PRIORITIES = ["Low", "Medium", "High", "Urgent"];
     if (VALID_PRIORITIES.includes(newPriority)) return (priority = newPriority);
@@ -26,6 +28,8 @@ const createTask = ({ title, description = "" }) => {
       "Invalid priority. Reverting to the last defined priority or, if this is a new task, defaulting to 'Medium' priority."
     );
   };
+
+  //todo: don't show error if user enters nothing
   const setStatus = (newStatus) => {
     const VALID_STATUSES = ["To Do", "Doing", "Done", "Won't Do"];
     if (VALID_STATUSES.includes(newStatus)) return (status = newStatus);
