@@ -15,7 +15,9 @@ const createProject = (name) => {
 const app = (function () {
   // show all tasks from localStorage. if none, show "no tasks yet"
 
+  const projects = [];
   const myProject = createProject("My Tasks");
+  projects.push(myProject);
 
   let input = prompt(
     `What would you like to do? Please enter number: 
