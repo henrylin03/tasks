@@ -12,7 +12,7 @@ const storeProject = (projectsArray) =>
   localStorage.setItem("tasks", JSON.stringify(projectsArray.getTasks()));
 
 const app = (function () {
-  localStorage.clear();
+  // localStorage.clear(); comment out when you need to reset
   console.log(getStoredTasks() ? getStoredTasks() : "No tasks yet");
 
   const projects = [];
@@ -67,3 +67,5 @@ const app = (function () {
 })();
 
 //? WHAT DO WE DO IF WE NEED THE LOCALSTORAGE TO HAVE MULTIPLE PROJECTS? WOULD IT BE A DEEPLY-NESTED JSON OBJECT SUCH THAT IT IS LIKE {project1: [task1, task2, task3], project2: [task4, task5, task6]...}? NEED TO TEST THIS INSIDE OF BROWSER TO SEE IF IT CAN BE EXTRACTED LIKE SO. OTHERWISE RIGHT NOW, IT IS MERELY STORING THE PROJECT AND THEN OVERWRITING. SHOULD THE KEY BE THE PROJECT'S TITLE (LATER REQUIRING MORE LOOKUP) OR SHOULD THE KEY OF THE STORED JSON OBJECT BE THE FULL PROJECT OBJECT?
+
+//! ? todo: fix bug - i believe the myprojects project is reinitialising so you can't add two consecutive tasks to the same project and then have them both be in the localstorage. i believe we should try and implement the data structure in the above comment first. perhaps that will be easier???
