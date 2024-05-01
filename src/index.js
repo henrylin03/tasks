@@ -1,8 +1,7 @@
 import { format } from "date-fns";
 
-const createTask = (title) => {
+const createTask = ({ title, description = "" }) => {
   // default values of private properties
-  const description = "";
   const dueDate = "";
   const priority = "Medium";
   const status = "To Do";
@@ -61,7 +60,7 @@ const app = (function () {
     if (input === "1") {
       const newTask = createTask({
         title: prompt("Please enter a title for the task"),
-        status: prompt("Please enter the status of this task"),
+        description: prompt("Please enter the description of this task"),
       });
       console.log(newTask.getTitle(), newTask.getStatus());
       // console.log(createTask());
