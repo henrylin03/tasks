@@ -52,6 +52,7 @@ const app = (function () {
 
       input = prompt(`Would you like to tag this to a project? (Y / N)`);
       if (input.toLowerCase() === "n") return myProject.addTask(newTask);
+      // ask whether user wants to create new project or add to existing one
 
       // myProject.addTask(newTask);
       // myProject.taskList.forEach((task) => console.log(task.viewDetails()));
