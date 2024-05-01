@@ -14,7 +14,6 @@ const createProject = (name) => {
 
 const app = (function () {
   // show all tasks from localStorage. if none, show "no tasks yet"
-  const tasks = [];
   const projects = [];
   const myProject = createProject("My Tasks");
   projects.push(myProject);
@@ -53,7 +52,10 @@ const app = (function () {
       );
 
       input = prompt(`Would you like to tag this to a project? (Y / N)`);
-      if (input.toLowerCase() === "n") myProject.addTask(newTask.viewDetails());
+      if (input.toLowerCase() === "n") {
+        myProject.addTask(newTask.viewDetails());
+        localStorage.setItem("tasks", myProject.getTasks());
+      }
       // ask whether user wants to create new project or add to existing one
 
       // myProject.addTask(newTask);
