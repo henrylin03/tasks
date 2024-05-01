@@ -14,6 +14,9 @@ const createProject = (name) => {
 
 const app = (function () {
   // show all tasks from localStorage. if none, show "no tasks yet"
+  const storedTasks = localStorage.getItem("tasks");
+  console.log(storedTasks);
+
   const projects = [];
   const myProject = createProject("My Tasks");
   projects.push(myProject);
