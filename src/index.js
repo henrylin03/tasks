@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 const createTask = ({
   title = "Unnamed task",
   description = "",
@@ -13,7 +15,8 @@ const createTask = ({
 
   const setTitle = (newTitle) => (title = newTitle);
   const setDescription = (newDescription) => (description = newDescription);
-  // const setDueDate =
+  const setDueDate = (year, month, date) =>
+    (dueDate = format(new Date(year, month, date), "dd/MM/yyyy"));
   const setPriority = (newPriority) => {
     const VALID_PRIORITIES = ["Low", "Medium", "High", "Urgent"];
     if (!VALID_PRIORITIES.includes(newPriority))
@@ -36,6 +39,7 @@ const createTask = ({
     setTitle,
     setDescription,
     setPriority,
+    setDueDate,
     setStatus,
   };
 };
