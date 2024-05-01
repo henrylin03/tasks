@@ -1,12 +1,12 @@
 import { format } from "date-fns";
 
-const createTask = ({
-  title = "Unnamed task",
-  description = "",
-  dueDate = "",
-  priority = "Medium",
-  status = "To Do",
-}) => {
+const createTask = (title) => {
+  // default values of private properties
+  const description = "";
+  const dueDate = "";
+  const priority = "Medium";
+  const status = "To Do";
+
   const getTitle = () => title;
   const getDescription = () => description;
   const getDueDate = () => dueDate;
@@ -59,21 +59,26 @@ const app = (function () {
     2: add project`);
 
     if (input === "1") {
-      const title = prompt("Please enter a title for the task");
-      const description = prompt(
-        "Please enter a description for the task. This is optional. Press enter to continue."
-      );
-      const dueDate = prompt(
-        "Please enter a due date for this task. This is optional. Press enter to continue."
-      );
-      const priority = prompt(
-        "Please enter a priority for this task. This is optional. Priority will default to 'Medium'. Press enter to continue."
-      );
-      const status = prompt(
-        "Please enter the status of this task - 'To Do', 'Doing' or 'Done'. Status will default to 'To Do' if none is entered. Press enter to continue."
-      );
-
-      console.log(createTask(title, description, dueDate, priority, status));
+      const newTask = createTask({
+        title: prompt("Please enter a title for the task"),
+        status: prompt("Please enter the status of this task"),
+      });
+      console.log(newTask.getTitle(), newTask.getStatus());
+      // console.log(createTask());
+      // const title = prompt("Please enter a title for the task");
+      // const description = prompt(
+      //   "Please enter a description for the task. This is optional. Press enter to continue."
+      // );
+      // const dueDate = prompt(
+      //   "Please enter a due date for this task. This is optional. Press enter to continue."
+      // );
+      // const priority = prompt(
+      //   "Please enter a priority for this task. This is optional. Priority will default to 'Medium'. Press enter to continue."
+      // );
+      // const status = prompt(
+      //   "Please enter the status of this task - 'To Do', 'Doing' or 'Done'. Status will default to 'To Do' if none is entered. Press enter to continue."
+      // );
+      // console.log(createTask(title, description, dueDate, priority, status));
     }
   }
 })();
