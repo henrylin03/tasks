@@ -8,11 +8,12 @@ const getStoredTasks = () => {
   return JSON.parse(storedData);
 };
 
+const storeProject = (projectsArray) =>
+  localStorage.setItem("tasks", JSON.stringify(projectsArray.getTasks()));
+
 const app = (function () {
-  // localStorage.clear();
-  // show all tasks from localStorage. if none, show "no tasks yet"
-  const storedTasks = JSON.parse(localStorage.getItem("tasks"));
-  console.log(storedTasks);
+  localStorage.clear();
+  console.log(getStoredTasks() ? getStoredTasks() : "No tasks yet");
 
   const projects = [];
   const myProject = createProject("My Tasks");
@@ -54,7 +55,6 @@ const app = (function () {
       input = prompt(`Would you like to tag this to a project? (Y / N)`);
       if (input.toLowerCase() === "n") {
         myProject.addTask(newTask.viewDetails());
-        localStorage.setItem("tasks", JSON.stringify(myProject.getTasks()));
       }
       // ask whether user wants to create new project or add to existing one
 
