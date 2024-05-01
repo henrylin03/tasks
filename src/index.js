@@ -1,6 +1,13 @@
 import createTask from "./createTask";
 import createProject from "./createProject";
 
+// functions relating to localStorage
+const getStoredTasks = () => {
+  const storedData = localStorage.getItem("tasks");
+  if (!storedData) return;
+  return JSON.parse(storedData);
+};
+
 const app = (function () {
   // localStorage.clear();
   // show all tasks from localStorage. if none, show "no tasks yet"
