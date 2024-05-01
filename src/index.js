@@ -46,8 +46,11 @@ const app = (function () {
         )
       );
 
-      myProject.addTask(newTask);
-      myProject.taskList.forEach((task) => console.log(task.viewDetails()));
+      input = prompt(`Would you like to tag this to a project? (Y / N)`);
+      if (input.toLowerCase() === "n") return myProject.addTask(newTask);
+
+      // myProject.addTask(newTask);
+      // myProject.taskList.forEach((task) => console.log(task.viewDetails()));
     }
   }
 })();
