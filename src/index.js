@@ -9,7 +9,7 @@ import {
 const app = (function () {
   // localStorage.clear(); // comment out when you need to reset
   // console.log(getStoredTasks() ? getStoredTasks() : "No tasks yet");
-  if (noProjectsCreated) {
+  if (localStorage.length === 0) {
     const myTasksProject = createProject("My Tasks");
     storeProject(myTasksProject);
     console.log(`the id for 'My Tasks' is: `, myTasksProject.getId());
