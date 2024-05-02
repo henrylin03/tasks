@@ -5,7 +5,7 @@ const createProject = (name) => {
 
   const tasks = [];
 
-  return { name, tasks, getName, getId };
+  return { name, tasks, getId };
 };
 
 export default createProject;
