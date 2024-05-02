@@ -1,6 +1,10 @@
 import createTask from "./factories/createTask";
 import createProject from "./factories/createProject";
-import { getAllStoredTasks, storeProject } from "./utils/localStorageHelpers";
+import {
+  getAllStoredTasks,
+  storeProject,
+  getStoredProject,
+} from "./utils/localStorageHelpers";
 
 const app = (function () {
   // localStorage.clear(); // comment out when you need to reset
@@ -48,6 +52,8 @@ const app = (function () {
       input = prompt(`Would you like to tag this to a project? (Y / N)`);
       if (input.toLowerCase() === "n") {
         // #1: get the My Projects project from localStorage - specifically the task list
+        const myTasksProjectRetrieved = getStoredProject("My Tasks");
+        console.log(myTasksProjectRetrieved);
         // #2: add this newly created task's _details_ (not the object itself, as JSON can't store the methods) using the defined method for tasks into that list
         //#3: replace the tasksLists array with the new array
       }
