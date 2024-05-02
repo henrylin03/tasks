@@ -5,9 +5,17 @@ const createProject = (name) => {
 
   const tasks = [];
 
-  return { name, tasks, getName, getId };
+  const viewDetails = () => ({
+    id: getId(),
+    name,
+    tasks,
+  });
+
+  return { name, tasks, getId, viewDetails };
 };
 
 export default createProject;
 
 //! it might be dangerous to have taskList be public property that can be manipulated at will (can it potentially be reassigned too despite being a const?? probably??)
+
+// ! need to check if project name is actually unique or not. otherwise revert to a two object formation - one for lookup

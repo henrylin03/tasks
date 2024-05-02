@@ -44,9 +44,6 @@ const createTask = ({ title, description = "" }) => {
   return {
     title,
     description,
-    getDueDate,
-    getPriority,
-    getStatus,
     setPriority,
     setDueDate,
     setStatus,

@@ -1,6 +1,10 @@
 import createTask from "./factories/createTask";
 import createProject from "./factories/createProject";
-import { getAllStoredTasks, storeProject } from "./utils/localStorageHelpers";
+import {
+  getAllStoredTasks,
+  storeProject,
+  getStoredProject,
+} from "./utils/localStorageHelpers";
 
 const app = (function () {
   // localStorage.clear(); // comment out when you need to reset
@@ -46,10 +50,13 @@ const app = (function () {
       );
 
       input = prompt(`Would you like to tag this to a project? (Y / N)`);
-      // if (input.toLowerCase() === "n") {
-      //   myProject.addTask(newTask.viewDetails());
-      //   storeProjectAndTasks(myProject);
-      // }
+      if (input.toLowerCase() === "n") {
+        const myTasksProject = getStoredProject("My Tasks");
+        myTasksProject.tasks.push(newTask.viewDetails());
+        storeProject(myTasksProject);
+
+        console.log(getStoredProject("My Tasks").tasks);
+      }
     } else if (input === "2") {
       const newProject = createProject(
         prompt("Please enter a name for your project")
