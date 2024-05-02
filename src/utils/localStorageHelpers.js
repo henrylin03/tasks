@@ -11,12 +11,9 @@ const getAllStoredTasks = () => ({ ...localStorage });
 
 const storeProject = (projectObject) => {
   // const projectId = projectObject.getId();
-  const tasksInProjectAsObjects = projectObject.taskList;
+  const projectDetails = projectObject.viewDetails();
 
-  localStorage.setItem(
-    projectObject.getName(),
-    JSON.stringify(tasksInProjectAsObjects)
-  );
+  localStorage.setItem(projectObject.name, JSON.stringify(projectDetails));
 };
 
 const getStoredProject = (projectName) => {
