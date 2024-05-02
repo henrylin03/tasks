@@ -5,7 +5,13 @@ const createProject = (name) => {
 
   const tasks = [];
 
-  return { name, tasks, getId };
+  const viewDetails = () => ({
+    id: getId(),
+    name,
+    tasks,
+  });
+
+  return { name, tasks, getId, viewDetails };
 };
 
 export default createProject;
