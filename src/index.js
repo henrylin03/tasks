@@ -9,7 +9,6 @@ import {
 const app = (function () {
   // localStorage.clear(); // comment out when you need to reset
   // console.log(getStoredTasks() ? getStoredTasks() : "No tasks yet");
-  console.log("keys in localstorage: ", Object.keys(localStorage));
   if (localStorage.length === 0) {
     const myTasksProject = createProject("My Tasks");
     storeProject(myTasksProject);

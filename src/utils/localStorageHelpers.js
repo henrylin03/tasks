@@ -13,7 +13,14 @@ const storeProject = (projectObject) => {
 const retrieveProject = (projectName) =>
   JSON.parse(localStorage.getItem(projectName));
 
-const retrieveAll = () => ({ ...localStorage });
+const retrieveAllProjects = () => Object.keys(localStorage);
+
+const retrieveAll = () => {
+  const obj = {};
+  const storedProjects = retrieveAllProjects();
+  storedProjects.forEach((p) => (obj[p] = retrieveProject(p)));
+  return obj;
+};
 
 export { retrieveAll, retrieveProject, storeProject };
 
