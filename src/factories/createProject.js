@@ -5,16 +5,12 @@ const createProject = (name) => {
 
   // getters
   const getName = () => name;
-  const getTasks = () => taskList;
   const getId = () => id;
 
   // setters
   const setName = (newProjectName) => (name = newProjectName);
 
-  // other methods
-  const addTask = (taskObject) => taskList.push(taskObject);
-
-  return { getName, getTasks, getId, setName, addTask };
+  return { getName, getId, setName, taskList };
 };
 
 export default createProject;
