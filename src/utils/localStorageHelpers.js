@@ -5,7 +5,10 @@ in our localStorage, we can use .getItem(projectId) to return the project object
 const getAllStoredTasks = () => ({ ...localStorage });
 
 const storeProject = (projectObject) => {
-  const projectDetails = projectObject.viewDetails();
+  const projectIsNew = projectObject.hasOwnProperty("viewDetails");
+  const projectDetails = projectIsNew
+    ? projectObject.viewDetails()
+    : projectObject;
   localStorage.setItem(projectObject.name, JSON.stringify(projectDetails));
 };
 
