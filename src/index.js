@@ -61,7 +61,7 @@ const app = (function () {
       const newProject = createProject(
         prompt("Please enter a name for your project")
       );
-      storeProject(newProject);
+      newProject.store();
       console.log(`Your new project's ID is: `, newProject.getId());
     }
   }

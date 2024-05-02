@@ -1,3 +1,5 @@
+import { storeProject } from "../utils/localStorageHelpers";
+
 const createProject = (name) => {
   // the creation timestamp is the unique identifier of this project
   const id = Date.now();
@@ -10,8 +12,9 @@ const createProject = (name) => {
     name,
     tasks,
   });
+  const store = () => storeProject(this);
 
-  return { name, tasks, getId, viewDetails };
+  return { name, tasks, getId, viewDetails, store };
 };
 
 export default createProject;
