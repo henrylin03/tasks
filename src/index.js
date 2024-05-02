@@ -1,25 +1,20 @@
-import createTask from "./createTask";
-
-const createProject = (name) => {
-  const taskList = [];
-
-  const getName = () => name;
-  const getTasks = () => taskList;
-
-  const setName = (newProjectName) => (name = newProjectName);
-  const addTask = (taskObject) => taskList.push(taskObject);
-
-  return { getName, getTasks, setName, addTask };
-};
+import createTask from "./factories/createTask";
+import createProject from "./factories/createProject";
+import {
+  retrieveAll,
+  storeProject,
+  retrieveProject,
+} from "./utils/localStorageHelpers";
 
 const app = (function () {
-  // show all tasks from localStorage. if none, show "no tasks yet"
-
-  const projects = [];
-
-  // "catch all" project
-  const myProject = createProject("My Tasks");
-  projects.push(myProject);
+  // localStorage.clear(); // comment out when you need to reset
+  // console.log(getStoredTasks() ? getStoredTasks() : "No tasks yet");
+  if (localStorage.length === 0) {
+    const myTasksProject = createProject("My Tasks");
+    storeProject(myTasksProject);
+    console.log(`the id for 'My Tasks' is: `, myTasksProject.getId());
+  }
+  console.log(retrieveAll());
 
   let input = prompt(
     `What would you like to do? Please enter number: 
@@ -55,11 +50,20 @@ const app = (function () {
       );
 
       input = prompt(`Would you like to tag this to a project? (Y / N)`);
-      if (input.toLowerCase() === "n") return myProject.addTask(newTask);
-      // ask whether user wants to create new project or add to existing one
+      if (input.toLowerCase() === "n") {
+        const myTasksProject = retrieveProject("My Tasks");
+        myTasksProject.tasks.push(newTask.viewDetails());
+        storeProject(myTasksProject);
 
-      // myProject.addTask(newTask);
-      // myProject.taskList.forEach((task) => console.log(task.viewDetails()));
+        console.log(retrieveProject("My Tasks").tasks);
+      }
+    } else if (input === "2") {
+      const newProject = createProject(
+        prompt("Please enter a name for your project")
+      );
+      storeProject(newProject);
+      console.log(`Your new project's ID is: `, newProject.getId());
     }
   }
+  console.log(retrieveAll());
 })();

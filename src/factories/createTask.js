@@ -6,14 +6,9 @@ const createTask = ({ title, description = "" }) => {
   let priority = "Medium";
   let status = "To Do";
 
-  const getTitle = () => title;
-  const getDescription = () => description;
   const getDueDate = () => dueDate;
   const getPriority = () => priority;
   const getStatus = () => status;
-
-  const setTitle = (newTitle) => (title = newTitle);
-  const setDescription = (newDescription) => (description = newDescription);
 
   const setDueDate = (dueDateString) => {
     if (!dueDateString) return;
@@ -38,26 +33,17 @@ const createTask = ({ title, description = "" }) => {
     );
   };
 
-  const viewDetails = () => {
-    const detailsObject = {
-      title: getTitle(),
-      description: getDescription(),
-      dueDate: getDueDate(),
-      priority: getPriority(),
-      status: getStatus(),
-    };
-
-    return detailsObject;
-  };
+  const viewDetails = () => ({
+    title,
+    description,
+    dueDate: getDueDate(),
+    priority: getPriority(),
+    status: getStatus(),
+  });
 
   return {
-    getTitle,
-    getDescription,
-    getDueDate,
-    getPriority,
-    getStatus,
-    setTitle,
-    setDescription,
+    title,
+    description,
     setPriority,
     setDueDate,
     setStatus,
