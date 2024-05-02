@@ -1,14 +1,6 @@
 import createTask from "./factories/createTaskcreateTask";
 import createProject from "./factories/createProject";
-
-const getStoredTasks = () => {
-  const storedData = localStorage.getItem("tasks");
-  if (!storedData) return;
-  return JSON.parse(storedData);
-};
-
-const storeProject = (projectsArray) =>
-  localStorage.setItem("tasks", JSON.stringify(projectsArray.getTasks()));
+import { getAllTasks, storeProjectAndTasks } from "./utils/localStorageHelpers";
 
 const app = (function () {
   // localStorage.clear(); comment out when you need to reset

@@ -24,3 +24,5 @@ const storeProjectAndTasks = (projectObject) => {
 
 // const storeProject = (projectsArray) =>
 //   localStorage.setItem("tasks", JSON.stringify(projectsArray.getTasks()));
+
+export { getAllTasks, storeProjectAndTasks };
