@@ -19,7 +19,9 @@ const storeProject = (projectObject) => {
   );
 };
 
-const getStoredProject = (projectName) => {};
+const getStoredProject = (projectName) => {
+  // get project from localStorage based on name (//? what about based on id?? maybe not... but then name needs to be unique!!)
+};
 
 // function to create a new project and add task objects to its array OR update existing project with new tasks array
 // const storeProjectAndTasks = (projectObject) => {
