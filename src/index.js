@@ -48,6 +48,11 @@ const app = (function () {
       //   myProject.addTask(newTask.viewDetails());
       //   storeProjectAndTasks(myProject);
       // }
+    } else if (input === "2") {
+      const newProject = createProject(
+        prompt("Please enter a name for your project")
+      );
+      console.log(`Your new project's ID is: `, newProject.getId());
     }
   }
   console.log(getAllStoredTasks());
