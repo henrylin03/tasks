@@ -2,14 +2,18 @@ import createTask from "./factories/createTask";
 import createProject from "./factories/createProject";
 import {
   getAllStoredTasks,
-  storeProjectAndTasks,
+  storeProject,
   noProjectsCreated,
 } from "./utils/localStorageHelpers";
 
 const app = (function () {
   // localStorage.clear(); // comment out when you need to reset
   // console.log(getStoredTasks() ? getStoredTasks() : "No tasks yet");
-  if (noProjectsCreated) console.log("there is no projects created yet");
+  if (noProjectsCreated) {
+    const myTasksProject = createProject("My Tasks");
+    storeProject(myTasksProject);
+    console.log(`the id for 'My Tasks' is: `, myTasksProject.getId());
+  }
   console.log(getAllStoredTasks());
 
   let input = prompt(
