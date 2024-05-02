@@ -1,20 +1,21 @@
 import createTask from "./factories/createTask";
 import createProject from "./factories/createProject";
 import {
-  getAllStoredTasks,
+  retrieveAll,
   storeProject,
-  getStoredProject,
+  retrieveProject,
 } from "./utils/localStorageHelpers";
 
 const app = (function () {
   // localStorage.clear(); // comment out when you need to reset
   // console.log(getStoredTasks() ? getStoredTasks() : "No tasks yet");
+  console.log("keys in localstorage: ", Object.keys(localStorage));
   if (localStorage.length === 0) {
     const myTasksProject = createProject("My Tasks");
     storeProject(myTasksProject);
     console.log(`the id for 'My Tasks' is: `, myTasksProject.getId());
   }
-  console.log(getAllStoredTasks());
+  console.log(retrieveAll());
 
   let input = prompt(
     `What would you like to do? Please enter number: 
@@ -51,11 +52,11 @@ const app = (function () {
 
       input = prompt(`Would you like to tag this to a project? (Y / N)`);
       if (input.toLowerCase() === "n") {
-        const myTasksProject = getStoredProject("My Tasks");
+        const myTasksProject = retrieveProject("My Tasks");
         myTasksProject.tasks.push(newTask.viewDetails());
         storeProject(myTasksProject);
 
-        console.log(getStoredProject("My Tasks").tasks);
+        console.log(retrieveProject("My Tasks").tasks);
       }
     } else if (input === "2") {
       const newProject = createProject(
@@ -65,7 +66,7 @@ const app = (function () {
       console.log(`Your new project's ID is: `, newProject.getId());
     }
   }
-  console.log(getAllStoredTasks());
+  console.log(retrieveAll());
 })();
 
 //? WHAT DO WE DO IF WE NEED THE LOCALSTORAGE TO HAVE MULTIPLE PROJECTS? WOULD IT BE A DEEPLY-NESTED JSON OBJECT SUCH THAT IT IS LIKE {project1: [task1, task2, task3], project2: [task4, task5, task6]...}? NEED TO TEST THIS INSIDE OF BROWSER TO SEE IF IT CAN BE EXTRACTED LIKE SO. OTHERWISE RIGHT NOW, IT IS MERELY STORING THE PROJECT AND THEN OVERWRITING. SHOULD THE KEY BE THE PROJECT'S TITLE (LATER REQUIRING MORE LOOKUP) OR SHOULD THE KEY OF THE STORED JSON OBJECT BE THE FULL PROJECT OBJECT?
