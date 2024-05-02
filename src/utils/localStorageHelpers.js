@@ -19,6 +19,8 @@ const storeProject = (projectObject) => {
   );
 };
 
+const getStoredProject = (projectName) => {};
+
 // function to create a new project and add task objects to its array OR update existing project with new tasks array
 // const storeProjectAndTasks = (projectObject) => {
 //   const projectsTasksArray = projectObject.getTasks();

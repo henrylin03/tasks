@@ -46,10 +46,11 @@ const app = (function () {
       );
 
       input = prompt(`Would you like to tag this to a project? (Y / N)`);
-      // if (input.toLowerCase() === "n") {
-      //   myProject.addTask(newTask.viewDetails());
-      //   storeProjectAndTasks(myProject);
-      // }
+      if (input.toLowerCase() === "n") {
+        // #1: get the My Projects project from localStorage - specifically the task list
+        // #2: add this newly created task's _details_ (not the object itself, as JSON can't store the methods) using the defined method for tasks into that list
+        //#3: replace the tasksLists array with the new array
+      }
     } else if (input === "2") {
       const newProject = createProject(
         prompt("Please enter a name for your project")

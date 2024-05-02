@@ -33,17 +33,13 @@ const createTask = ({ title, description = "" }) => {
     );
   };
 
-  const viewDetails = () => {
-    const detailsObject = {
-      title,
-      description,
-      dueDate: getDueDate(),
-      priority: getPriority(),
-      status: getStatus(),
-    };
-
-    return detailsObject;
-  };
+  const viewDetails = () => ({
+    title,
+    description,
+    dueDate: getDueDate(),
+    priority: getPriority(),
+    status: getStatus(),
+  });
 
   return {
     title,
