@@ -6,7 +6,7 @@ import {
 } from "./utils/localStorageHelpers";
 
 const app = (function () {
-  // localStorage.clear(); comment out when you need to reset
+  // localStorage.clear(); // comment out when you need to reset
   // console.log(getStoredTasks() ? getStoredTasks() : "No tasks yet");
   console.log(getAllStoredTasks());
 
@@ -50,7 +50,7 @@ const app = (function () {
       input = prompt(`Would you like to tag this to a project? (Y / N)`);
       if (input.toLowerCase() === "n") {
         myProject.addTask(newTask.viewDetails());
-        storeProject(myProject);
+        storeProjectAndTasks(myProject);
       }
       // ask whether user wants to create new project or add to existing one
 
@@ -58,7 +58,7 @@ const app = (function () {
       // console.log(myProject.getTasks());
     }
   }
-  getAllTasks();
+  getAllStoredTasks();
 })();
 
 //? WHAT DO WE DO IF WE NEED THE LOCALSTORAGE TO HAVE MULTIPLE PROJECTS? WOULD IT BE A DEEPLY-NESTED JSON OBJECT SUCH THAT IT IS LIKE {project1: [task1, task2, task3], project2: [task4, task5, task6]...}? NEED TO TEST THIS INSIDE OF BROWSER TO SEE IF IT CAN BE EXTRACTED LIKE SO. OTHERWISE RIGHT NOW, IT IS MERELY STORING THE PROJECT AND THEN OVERWRITING. SHOULD THE KEY BE THE PROJECT'S TITLE (LATER REQUIRING MORE LOOKUP) OR SHOULD THE KEY OF THE STORED JSON OBJECT BE THE FULL PROJECT OBJECT?
