@@ -1,10 +1,14 @@
-import createTask from "./factories/createTaskcreateTask";
+import createTask from "./factories/createTask";
 import createProject from "./factories/createProject";
-import { getAllTasks, storeProjectAndTasks } from "./utils/localStorageHelpers";
+import {
+  getAllStoredTasks,
+  storeProjectAndTasks,
+} from "./utils/localStorageHelpers";
 
 const app = (function () {
   // localStorage.clear(); comment out when you need to reset
-  console.log(getStoredTasks() ? getStoredTasks() : "No tasks yet");
+  // console.log(getStoredTasks() ? getStoredTasks() : "No tasks yet");
+  console.log(getAllStoredTasks());
 
   const projects = [];
   const myProject = createProject("My Tasks");
@@ -54,7 +58,7 @@ const app = (function () {
       // console.log(myProject.getTasks());
     }
   }
-  getStoredTasks();
+  getAllTasks();
 })();
 
 //? WHAT DO WE DO IF WE NEED THE LOCALSTORAGE TO HAVE MULTIPLE PROJECTS? WOULD IT BE A DEEPLY-NESTED JSON OBJECT SUCH THAT IT IS LIKE {project1: [task1, task2, task3], project2: [task4, task5, task6]...}? NEED TO TEST THIS INSIDE OF BROWSER TO SEE IF IT CAN BE EXTRACTED LIKE SO. OTHERWISE RIGHT NOW, IT IS MERELY STORING THE PROJECT AND THEN OVERWRITING. SHOULD THE KEY BE THE PROJECT'S TITLE (LATER REQUIRING MORE LOOKUP) OR SHOULD THE KEY OF THE STORED JSON OBJECT BE THE FULL PROJECT OBJECT?

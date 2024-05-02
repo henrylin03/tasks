@@ -6,23 +6,15 @@ For each project key, the value is an array that contains tasks (objects).
 */
 
 // function to get all projects, and their tasks in a big object
-const getAllTasks = () => {
-  const allProjectsAndTasks = {};
-  return allProjectsAndTasks;
-};
+const getAllStoredTasks = () => ({ ...localStorage });
 
 // function to create a new project and add task objects to its array OR update existing project with new tasks array
 const storeProjectAndTasks = (projectObject) => {
-  return projectObject;
+  const projectsTasksArray = projectObject.getTasks();
+  localStorage.setItem(
+    JSON.stringify(projectObject),
+    JSON.stringify(projectsTasksArray)
+  );
 };
 
-// const getStoredTasks = () => {
-//   const storedData = localStorage.getItem("tasks");
-//   if (!storedData) return;
-//   return JSON.parse(storedData);
-// };
-
-// const storeProject = (projectsArray) =>
-//   localStorage.setItem("tasks", JSON.stringify(projectsArray.getTasks()));
-
-export { getAllTasks, storeProjectAndTasks };
+export { getAllStoredTasks, storeProjectAndTasks };
