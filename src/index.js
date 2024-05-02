@@ -1,10 +1,6 @@
 import createTask from "./factories/createTask";
 import createProject from "./factories/createProject";
-import {
-  getAllStoredTasks,
-  storeProject,
-  noProjectsCreated,
-} from "./utils/localStorageHelpers";
+import { getAllStoredTasks, storeProject } from "./utils/localStorageHelpers";
 
 const app = (function () {
   // localStorage.clear(); // comment out when you need to reset
@@ -58,6 +54,7 @@ const app = (function () {
       const newProject = createProject(
         prompt("Please enter a name for your project")
       );
+      storeProject(newProject);
       console.log(`Your new project's ID is: `, newProject.getId());
     }
   }

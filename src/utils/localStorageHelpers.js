@@ -10,7 +10,13 @@ in our localStorage, we can use .getItem(projectId) to return the project object
 const getAllStoredTasks = () => ({ ...localStorage });
 
 const storeProject = (projectObject) => {
-  localStorage.setItem(projectObject.getId(), JSON.stringify(projectObject));
+  const projectId = projectObject.getId();
+  const tasksInProjectAsObjects = projectObject.taskList;
+
+  localStorage.setItem(
+    projectObject.getName(),
+    JSON.stringify(tasksInProjectAsObjects)
+  );
 };
 
 // function to create a new project and add task objects to its array OR update existing project with new tasks array
