@@ -1,11 +1,12 @@
 /*
-IIUC localStorage is a big object, where keys can be called in .setItem / .getItem methods.
+in our localStorage, we will have two "objects".
 
-The structure of our localStorage should be that the keys are the projects (objects).
-For each project key, the value is an array that contains tasks (objects).
+-object #1: key = unique id of project, value = array of objects representing the projects' tasks (as objects)
+-object #2: lookup for project where key = unique id of project, value = project object
 */
 
-// function to get all projects, and their tasks in a big object
+const noProjectsCreated = localStorage.length === 0;
+
 const getAllStoredTasks = () => ({ ...localStorage });
 
 // function to create a new project and add task objects to its array OR update existing project with new tasks array
@@ -17,4 +18,4 @@ const storeProjectAndTasks = (projectObject) => {
   );
 };
 
-export { getAllStoredTasks, storeProjectAndTasks };
+export { getAllStoredTasks, storeProjectAndTasks, noProjectsCreated };

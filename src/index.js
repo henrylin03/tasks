@@ -3,11 +3,13 @@ import createProject from "./factories/createProject";
 import {
   getAllStoredTasks,
   storeProjectAndTasks,
+  noProjectsCreated,
 } from "./utils/localStorageHelpers";
 
 const app = (function () {
   // localStorage.clear(); // comment out when you need to reset
   // console.log(getStoredTasks() ? getStoredTasks() : "No tasks yet");
+  if (noProjectsCreated) console.log("there is no projects created yet");
   console.log(getAllStoredTasks());
 
   let input = prompt(
