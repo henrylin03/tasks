@@ -61,6 +61,8 @@ const app = (function () {
           const newProject = createProject(
             prompt("Please enter a name for your new project")
           );
+          newProject.tasks.push(newTask.viewDetails());
+          console.log(newProject.viewDetails());
 
           // add task to tasklist of newProject
 

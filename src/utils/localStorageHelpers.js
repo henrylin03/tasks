@@ -3,7 +3,7 @@ const storeProject = (projectObject) => {
   const projectDetails = projectIsNew
     ? projectObject.viewDetails()
     : projectObject;
-  localStorage.setItem(projectObject.name, JSON.stringify(projectDetails));
+  localStorage.setItem(projectObject.getName(), JSON.stringify(projectDetails));
 };
 
 const retrieveProject = (projectName) =>
