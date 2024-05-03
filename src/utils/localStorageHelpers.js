@@ -1,9 +1,12 @@
 const storeProject = (projectObject) => {
   const projectIsNew = projectObject.hasOwnProperty("viewDetails");
+  const projectName = projectIsNew
+    ? projectObject.getName()
+    : projectObject.name;
   const projectDetails = projectIsNew
     ? projectObject.viewDetails()
     : projectObject;
-  localStorage.setItem(projectObject.getName(), JSON.stringify(projectDetails));
+  localStorage.setItem(projectName, JSON.stringify(projectDetails));
 };
 
 const retrieveProject = (projectName) =>

@@ -64,9 +64,9 @@ const app = (function () {
           storeProject(newProject);
         }
       } else {
-        const myTasksProject = retrieveProject("My Tasks");
-        myTasksProject.addTaskDetails(newTask);
-        storeProject(myTasksProject);
+        const myTasksProjectRetrieved = retrieveProject("My Tasks");
+        myTasksProjectRetrieved.tasks.push(newTask.viewDetails());
+        storeProject(myTasksProjectRetrieved);
       }
     } else if (input === "2") {
       const newProject = createProject(
