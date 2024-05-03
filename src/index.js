@@ -7,12 +7,11 @@ import {
 } from "./utils/localStorageHelpers";
 
 const app = (function () {
-  localStorage.clear(); // comment out when you need to reset
+  // localStorage.clear(); // comment out when you need to reset
   // console.log(getStoredTasks() ? getStoredTasks() : "No tasks yet");
   if (localStorage.length === 0) {
     const myTasksProject = createProject("My Tasks");
     storeProject(myTasksProject);
-    console.log(`the id for 'My Tasks' is: `, myTasksProject.getId());
   }
   console.log(retrieveAll());
 
@@ -62,10 +61,6 @@ const app = (function () {
             prompt("Please enter a name for your new project")
           );
           newProject.tasks.push(newTask.viewDetails());
-          console.log(newProject.viewDetails());
-
-          // add task to tasklist of newProject
-
           storeProject(newProject);
         }
       } else {
