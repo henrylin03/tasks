@@ -7,6 +7,11 @@ const createProject = (name) => {
 
   const getName = () => name;
   const getId = () => id;
+  const viewDetails = () => ({
+    id,
+    name,
+    tasks,
+  });
 
   const checkIfProjectNameAlreadyExists = (projectNameForChecking) => {
     const storedProjectsArray = retrieveAllProjects();
@@ -21,16 +26,12 @@ const createProject = (name) => {
     name = newName;
   };
 
-  const viewDetails = () => ({
-    id: getId(),
-    name: getName(),
-    tasks,
-  });
+  const addTaskDetails = (taskObject) => tasks.push(taskObject.viewDetails());
 
   // run checks
   checkIfProjectNameAlreadyExists(name);
 
-  return { tasks, viewDetails, getName, getId };
+  return { addTaskDetails, viewDetails, getName, getId };
 };
 
 export default createProject;

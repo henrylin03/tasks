@@ -60,12 +60,12 @@ const app = (function () {
           const newProject = createProject(
             prompt("Please enter a name for your new project")
           );
-          newProject.tasks.push(newTask.viewDetails());
+          newProject.addTaskDetails(newTask);
           storeProject(newProject);
         }
       } else {
         const myTasksProject = retrieveProject("My Tasks");
-        myTasksProject.tasks.push(newTask.viewDetails());
+        myTasksProject.addTaskDetails(newTask);
         storeProject(myTasksProject);
       }
     } else if (input === "2") {
@@ -77,3 +77,5 @@ const app = (function () {
   }
   console.log(retrieveAll());
 })();
+
+//? should we restrict tasks to a single project? what if doing a task actually hits two projects? THEN it would mean we need to deduplicate the list of all _tasks_
