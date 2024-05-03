@@ -18,4 +18,4 @@ const retrieveAll = () => {
   return obj;
 };
 
-export { retrieveAll, retrieveProject, storeProject };
+export { retrieveAll, retrieveAllProjects, retrieveProject, storeProject };

@@ -49,20 +49,33 @@ const app = (function () {
         )
       );
 
-      input = prompt(`Would you like to tag this to a project? (Y / N)`);
-      if (input.toLowerCase() === "n") {
+      input = prompt(`Would you like to tag this to a project? (y / n)`);
+      if (input === "y") {
+        input = prompt(
+          `Would you like to add this to an existing project? (y / n)`
+        );
+
+        // create new project
+        if (input === "n") {
+          //? can this be collected up to DRY with creating new project immediately?
+          const newProject = createProject(
+            prompt("Please enter a name for your new project")
+          );
+
+          // add task to tasklist of newProject
+
+          storeProject(newProject);
+        }
+      } else {
         const myTasksProject = retrieveProject("My Tasks");
         myTasksProject.tasks.push(newTask.viewDetails());
         storeProject(myTasksProject);
-
-        console.log(retrieveProject("My Tasks").tasks);
       }
     } else if (input === "2") {
       const newProject = createProject(
         prompt("Please enter a name for your project")
       );
       storeProject(newProject);
-      console.log(`Your new project's ID is: `, newProject.getId());
     }
   }
   console.log(retrieveAll());

@@ -1,21 +1,36 @@
+import { retrieveAllProjects } from "../utils/localStorageHelpers";
+
 const createProject = (name) => {
   // the creation timestamp is the unique identifier of this project
   const id = Date.now();
+  const tasks = [];
+
+  const getName = () => name;
   const getId = () => id;
 
-  const tasks = [];
+  const checkIfProjectNameAlreadyExists = (projectNameForChecking) => {
+    const storedProjectsArray = retrieveAllProjects();
+    if (storedProjectsArray.includes(projectNameForChecking))
+      throw new Error(
+        `Project name, "${projectNameForChecking}" already exists.`
+      );
+  };
+
+  const setName = (newName) => {
+    checkIfProjectNameAlreadyExists(newName);
+    name = newName;
+  };
 
   const viewDetails = () => ({
     id: getId(),
-    name,
+    name: getName(),
     tasks,
   });
 
-  return { name, tasks, getId, viewDetails };
+  // run checks
+  checkIfProjectNameAlreadyExists(name);
+
+  return { tasks, viewDetails };
 };
 
 export default createProject;
-
-//! it might be dangerous to have taskList be public property that can be manipulated at will (can it potentially be reassigned too despite being a const?? probably??)
-
-// ! need to check if project name is actually unique or not. otherwise revert to a two object formation - one for lookup
