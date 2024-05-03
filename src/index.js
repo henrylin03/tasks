@@ -56,7 +56,6 @@ const app = (function () {
 
         // create new project
         if (input === "n") {
-          //? can this be collected up to DRY with creating new project immediately?
           const newProject = createProject(
             prompt("Please enter a name for your new project")
           );
