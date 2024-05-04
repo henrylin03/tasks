@@ -4,6 +4,7 @@ import {
   retrieveAll,
   storeProject,
   retrieveProject,
+  retrieveAllProjects,
 } from "./utils/localStorageHelpers";
 
 const app = (function () {
@@ -53,9 +54,22 @@ const app = (function () {
         input = prompt(
           `Would you like to add this to an existing project? (y / n)`
         );
-
-        // create new project
-        if (input === "n") {
+        if (input === "y") {
+          const storedProjects = retrieveAllProjects();
+          while (true) {
+            const selectedProjectName =
+              prompt(`Current projects: [${storedProjects}]
+Please type the name of the project to add this task to:`);
+            if (!storedProjects.includes(selectedProjectName)) {
+              alert("Project does not exist. Please check your project name.");
+              continue;
+            }
+            const retrievedProject = retrieveProject(selectedProjectName);
+            retrievedProject.tasks.push(newTask.viewDetails());
+            storeProject(retrievedProject);
+            break;
+          }
+        } else if (input === "n") {
           const newProject = createProject(
             prompt("Please enter a name for your new project")
           );
