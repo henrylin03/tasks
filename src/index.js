@@ -4,8 +4,9 @@ import {
   retrieveAll,
   storeProject,
   retrieveProject,
-  retrieveAllProjects,
+  retrieveAllProjectNames,
   findProjectsWithTask,
+  retrieveAllTasks,
 } from "./utils/localStorageHelpers";
 
 const app = (function () {
@@ -56,7 +57,7 @@ const app = (function () {
           `Would you like to add this to an existing project? (y / n)`
         );
         if (input === "y") {
-          const storedProjects = retrieveAllProjects();
+          const storedProjects = retrieveAllProjectNames();
           while (true) {
             const selectedProjectName =
               prompt(`Current projects: [${storedProjects}]
@@ -99,8 +100,6 @@ Please type the name of the project to add this task to:`);
       );
       storeProject(project);
     });
-
-    // todo: helper function (localstorage) that gets all of the tasks
   }
 
   console.log(retrieveAll());

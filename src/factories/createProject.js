@@ -1,4 +1,4 @@
-import { retrieveAllProjects } from "../utils/localStorageHelpers";
+import { retrieveAllProjectNames } from "../utils/localStorageHelpers";
 
 const createProject = (name) => {
   // the creation timestamp is the unique identifier of this project
@@ -14,17 +14,17 @@ const createProject = (name) => {
   });
 
   const checkIfProjectNameAlreadyExists = (projectNameForChecking) => {
-    const storedProjectsArray = retrieveAllProjects();
+    const storedProjectsArray = retrieveAllProjectNames();
     if (storedProjectsArray.includes(projectNameForChecking))
       throw new Error(
         `Project name, "${projectNameForChecking}" already exists.`
       );
   };
 
-  const setName = (newName) => {
-    checkIfProjectNameAlreadyExists(newName);
-    name = newName;
-  };
+  // const setName = (newName) => {
+  //   checkIfProjectNameAlreadyExists(newName);
+  //   name = newName;
+  // };
 
   const addTaskDetails = (taskObject) => tasks.push(taskObject.viewDetails());
 
