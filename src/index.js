@@ -92,18 +92,15 @@ Please type the name of the project to add this task to:`);
     const selectedTaskName = prompt(
       "Please enter the name of the task you would like to delete:"
     );
-    const matchedProjectsArray = findProjectsWithTask(selectedTaskName);
-    console.log(matchedProjectsArray);
-
-    // retrieve those projects
-
-    // remove that task from those projects' arrays
-
-    // then push all projects back.
+    const matchedProjects = findProjectsWithTask(selectedTaskName);
+    matchedProjects.forEach((project) => {
+      project.tasks = project.tasks.filter(
+        (task) => task.title != selectedTaskName
+      );
+      storeProject(project);
+    });
 
     // todo: helper function (localstorage) that gets all of the tasks
-    //? should we change the strucutre of localstorage so that tasks are also objects (not array) where key/value pairs are taskName : {taskDetails etc etc}, taskName2: {taskDetails 2 etc etc} - this would make it easier to identify the tasks within each of the projects.
-    //? additionally, should we _tag the project name as an attribute of the task as well_? this makes the reverse lookup easier too, although might introduce more work when we need to update project name of tasks?? not sure. but at the moment, feels unlikely
   }
 
   console.log(retrieveAll());
