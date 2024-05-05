@@ -15,15 +15,14 @@ const retrieveProject = (projectName) =>
 const retrieveAllProjects = () => Object.keys(localStorage);
 
 const findProjectsWithTask = (taskName) => {
-  const projectsArray = Object.values(retrieveAll());
-  console.log("projects array", projectsArray);
-  const projectsWithInputtedTaskName = projectsArray.filter((project) =>
+  const storedProjectsArray = Object.values(retrieveAll());
+  const projectsWithInputtedTaskName = storedProjectsArray.filter((project) =>
     project.tasks.some((task) => task.title == taskName)
   );
+  if (!projectsWithInputtedTaskName.length)
+    throw new Error("That task name was not found.");
   return projectsWithInputtedTaskName;
 };
-
-//todo: handle when user input does not actually exist as a task
 
 const retrieveAll = () => {
   const obj = {};
