@@ -14,6 +14,17 @@ const retrieveProject = (projectName) =>
 
 const retrieveAllProjects = () => Object.keys(localStorage);
 
+const findProjectsWithTask = (taskName) => {
+  const projectsArray = Object.values(retrieveAll());
+  console.log("projects array", projectsArray);
+  const projectsWithInputtedTaskName = projectsArray.filter((project) =>
+    project.tasks.some((task) => task.title == taskName)
+  );
+  return projectsWithInputtedTaskName;
+};
+
+//todo: handle when user input does not actually exist as a task
+
 const retrieveAll = () => {
   const obj = {};
   const storedProjects = retrieveAllProjects();
@@ -21,4 +32,10 @@ const retrieveAll = () => {
   return obj;
 };
 
-export { retrieveAll, retrieveAllProjects, retrieveProject, storeProject };
+export {
+  retrieveAll,
+  retrieveAllProjects,
+  retrieveProject,
+  findProjectsWithTask,
+  storeProject,
+};
