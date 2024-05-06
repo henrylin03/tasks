@@ -132,7 +132,7 @@ Please type the name of the project to add this task to:`);
       "Please enter the name of the project you would like to modify:"
     );
     if (selectedProjectName === "My Tasks")
-      throw new Error(`Cannot delete "My Tasks" project.`);
+      throw new Error(`Cannot modify "My Tasks" project.`);
 
     // check project actually exists. throw error if not. also prevent user from deleting the 'My Tasks' project
 
