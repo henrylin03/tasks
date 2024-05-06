@@ -98,16 +98,20 @@ Please type the name of the project to add this task to:`);
       "Please enter the name of the task you would like to delete:"
     );
     checkTaskExists(selectedTaskName);
+    input = prompt(`What would you like to do with task, "${selectedTaskName}"?
+    1: modify task
+    2: delete task`);
 
     // check if user wants to delete the task. if yes, then do the bottom:
-
-    const matchedProjects = findProjectsWithTask(selectedTaskName);
-    matchedProjects.forEach((project) => {
-      project.tasks = project.tasks.filter(
-        (task) => task.title != selectedTaskName
-      );
-      storeProject(project);
-    });
+    if (input === "2") {
+      const matchedProjects = findProjectsWithTask(selectedTaskName);
+      matchedProjects.forEach((project) => {
+        project.tasks = project.tasks.filter(
+          (task) => task.title != selectedTaskName
+        );
+        storeProject(project);
+      });
+    }
 
     // if user instead wants to modify the task, then ask for the attribute they would like to change, request for the new value
 
