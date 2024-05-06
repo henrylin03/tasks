@@ -13,6 +13,9 @@ const createTask = ({ title, description = "" }) => {
     status,
   });
 
+  const setTitle = (newTitle) => (title = newTitle);
+  const setDescription = (newDescription) => (description = newDescription);
+
   const setDueDate = (dueDateString) => {
     if (!dueDateString) return;
     // user is advised to input due date as format "dd/MM/YYYY" per Australian common use
@@ -42,14 +45,14 @@ const createTask = ({ title, description = "" }) => {
 
   // setters for private properties
   const set = {
+    title: setTitle,
+    description: setDescription,
     dueDate: setDueDate,
     priority: setPriority,
     status: setStatus,
   };
 
   return {
-    title,
-    description,
     set,
     viewDetails,
   };
@@ -64,9 +67,6 @@ const createTaskFromJSON = (retrievedTask) => {
   for (const [retrievedProperty, retrievedValue] of Object.entries(
     retrievedTask
   )) {
-    const isPrivateProperty =
-      reconstructedTask.set.hasOwnProperty(retrievedProperty);
-    if (!isPrivateProperty) continue;
     reconstructedTask.set[retrievedProperty](retrievedValue);
   }
 

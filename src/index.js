@@ -122,6 +122,7 @@ Please type the name of the project to add this task to:`);
         ? reconstructedTask.set[propertyToModify](updatedValue)
         : (reconstructedTask[propertyToModify] = updatedValue);
 
+      // add to localStorage
       console.log(reconstructedTask.viewDetails());
 
       // ask for attribute for changing and value (use factory method i think better)
