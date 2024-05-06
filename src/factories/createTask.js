@@ -1,14 +1,9 @@
 import { format } from "date-fns";
 
 const createTask = ({ title, description = "" }) => {
-  // default values of private properties
   let dueDate = "";
   let priority = "Medium";
   let status = "To Do";
-
-  const getDueDate = () => dueDate;
-  const getPriority = () => priority;
-  const getStatus = () => status;
 
   const setDueDate = (dueDateString) => {
     if (!dueDateString) return;
