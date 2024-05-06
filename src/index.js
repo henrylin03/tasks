@@ -131,6 +131,7 @@ Please type the name of the project to add this task to:`);
     const selectedProjectName = prompt(
       "Please enter the name of the project you would like to modify:"
     );
+    checkProjectExists(selectedProjectName);
     if (selectedProjectName === "My Tasks")
       throw new Error(`Cannot modify "My Tasks" project.`);
 
