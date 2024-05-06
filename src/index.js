@@ -13,11 +13,11 @@ import {
 
 const app = (function () {
   // localStorage.clear(); // comment out when you need to reset
+  console.log(retrieveAll());
   if (localStorage.length === 0) {
     const myTasksProject = createProject("My Tasks");
     storeProject(myTasksProject);
   }
-  console.log(retrieveAll());
 
   let input = prompt(
     `What would you like to do? Please enter number: 
@@ -116,13 +116,7 @@ Please type the name of the project to add this task to:`);
       const updatedValue = prompt("Please enter the updated value: ");
 
       reconstructedTask.set[propertyToModify](updatedValue);
-
-      // add to localStorage
       storeTask(reconstructedTask);
-
-      console.log(reconstructedTask.viewDetails());
-
-      // ask for attribute for changing and value (use factory method i think better)
     } else if (input === "2") {
       const matchedProjects = findProjectsWithTask(selectedTaskName);
       matchedProjects.forEach((project) => {
