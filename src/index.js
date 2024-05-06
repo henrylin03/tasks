@@ -14,7 +14,6 @@ import {
 
 const app = (function () {
   console.log(retrieveAllTasks());
-  console.log(retrieveAllTaskNames());
   // localStorage.clear(); // comment out when you need to reset
   // console.log(getStoredTasks() ? getStoredTasks() : "No tasks yet");
   if (localStorage.length === 0) {
@@ -104,9 +103,9 @@ Please type the name of the project to add this task to:`);
     2: delete task`);
 
     if (input === "1") {
-      console.log(selectedTaskName);
       // reconstruct task to restore methods
-      const selectedTask = retrieveTask(selectedTaskName);
+      const selectedTask = createTaskFromJSON(retrieveTask(selectedTaskName));
+
       console.log(selectedTask);
 
       // ask for attribute for changing and value (use factory method i think better)

@@ -49,7 +49,15 @@ const createTask = ({ title, description = "" }) => {
 };
 
 const createTaskFromJSON = (retrievedTask) => {
-  return retrievedTask;
+  const reconstructedTask = createTask({
+    title: retrievedTask.title,
+    description: retrievedTask.description,
+  });
+  reconstructedTask.setPriority(retrievedTask.priority);
+  reconstructedTask.setDueDate(retrievedTask.dueDate);
+  reconstructedTask.setStatus(retrievedTask.status);
+
+  return reconstructedTask.viewDetails();
 };
 
 export { createTask, createTaskFromJSON };
