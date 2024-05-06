@@ -6,7 +6,6 @@ const createProject = (name) => {
   const tasks = [];
 
   const getName = () => name;
-  const getId = () => id;
   const viewDetails = () => ({
     id,
     name,
@@ -31,7 +30,7 @@ const createProject = (name) => {
   // run checks
   checkIfProjectNameAlreadyExists(name);
 
-  return { addTaskDetails, viewDetails, getName, getId };
+  return { addTaskDetails, viewDetails, getName };
 };
 
 export default createProject;
