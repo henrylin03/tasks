@@ -63,6 +63,7 @@ export {
   findProjectsWithTask,
   storeProject,
   retrieveAllTaskNames,
+  checkTaskExists,
 };
 
 // ? should these localstorage helpers actually just be methods inside the objects? probably not, because they aren't called on an object but on the app. maybe then in the app controller?

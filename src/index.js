@@ -8,6 +8,7 @@ import {
   retrieveAllTaskNames,
   storeProject,
   findProjectsWithTask,
+  checkTaskExists,
 } from "./utils/localStorageHelpers";
 
 const app = (function () {
@@ -96,8 +97,7 @@ Please type the name of the project to add this task to:`);
     const selectedTaskName = prompt(
       "Please enter the name of the task you would like to delete:"
     );
-
-    // check if task actually exists. if no, then throw error currently in .findProjectsWithTask().
+    checkTaskExists(selectedTaskName);
 
     // check if user wants to delete the task. if yes, then do the bottom:
 
