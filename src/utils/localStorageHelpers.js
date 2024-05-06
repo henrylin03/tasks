@@ -30,6 +30,13 @@ const retrieveAllTasks = () => {
 const retrieveAllTaskNames = () =>
   [...retrieveAllTasks()].map((task) => task.title);
 
+const checkTaskExists = (taskName) => {
+  const retrievedTaskNames = retrieveAllTaskNames();
+  if (!retrievedTaskNames.includes(taskName))
+    throw new Error(`Task name, "${taskName}", does not exist.`);
+  return true;
+};
+
 const retrieveAll = () => {
   const obj = {};
   const storedProjects = retrieveAllProjectNames();
@@ -38,12 +45,13 @@ const retrieveAll = () => {
 };
 
 const findProjectsWithTask = (taskName) => {
+  checkTaskExists(taskName);
+
   const storedProjectsArray = retrieveAllProjects();
   const projectsWithInputtedTaskName = storedProjectsArray.filter((project) =>
     project.tasks.some((task) => task.title == taskName)
   );
-  if (!projectsWithInputtedTaskName.length)
-    throw new Error("That task name was not found.");
+
   return projectsWithInputtedTaskName;
 };
 
@@ -56,3 +64,5 @@ export {
   storeProject,
   retrieveAllTaskNames,
 };
+
+// ? should these localstorage helpers actually just be methods inside the objects? probably not, because they aren't called on an object but on the app. maybe then in the app controller?
