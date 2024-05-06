@@ -15,6 +15,7 @@ const checkProjectExists = (projectName) => {
 
 // storers into localStorage
 const storeProject = (projectObject) => {
+  // "old" (i.e. projects retrieved from storage as JSON) do not have methods
   const projectIsNew = projectObject.hasOwnProperty("viewDetails");
   const projectName = projectIsNew
     ? projectObject.getName()

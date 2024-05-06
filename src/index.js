@@ -140,9 +140,15 @@ Please type the name of the project to add this task to:`);
     2: delete project`
     );
 
-    // if project exists, as what user would like to do
+    // rename project
+    if (input === "1") {
+      // rename project
+    }
 
-    // if user wishes to delete project, then get the list of tasks assigned to that project (as objects)
+    // delete project
+    else if (input === "2") {
+      // get list of tasks assigned to that project
+    }
   }
 
   console.log(retrieveAll());

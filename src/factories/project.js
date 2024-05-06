@@ -35,3 +35,5 @@ const createProject = (name) => {
 };
 
 export default createProject;
+
+// todo: align pattern w/ task for a separate factory to recreate project object with all of its methods from retrieved json. explore benefits of having a setter object (maybe not here)
