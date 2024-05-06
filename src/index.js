@@ -13,11 +13,11 @@ import {
 
 const app = (function () {
   // localStorage.clear(); // comment out when you need to reset
+  console.log(retrieveAll());
   if (localStorage.length === 0) {
     const myTasksProject = createProject("My Tasks");
     storeProject(myTasksProject);
   }
-  console.log(retrieveAll());
 
   let input = prompt(
     `What would you like to do? Please enter number: 
