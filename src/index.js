@@ -6,7 +6,6 @@ import {
   retrieveProject,
   retrieveAllProjectNames,
   findProjectsWithTask,
-  retrieveAllTasks,
 } from "./utils/localStorageHelpers";
 
 const app = (function () {
