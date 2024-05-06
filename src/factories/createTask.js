@@ -11,6 +11,7 @@ const createTask = ({ title, description = "" }) => {
     const [date, month, year] = dueDateString.split("/");
     dueDate = format(new Date(year, month, date), "dd/MM/yyyy");
   };
+
   const setPriority = (newPriority) => {
     if (!newPriority) return;
     const VALID_PRIORITIES = ["Low", "Medium", "High", "Urgent"];
@@ -19,6 +20,7 @@ const createTask = ({ title, description = "" }) => {
       "Invalid priority. Reverting to the last defined priority or, if this is a new task, defaulting to 'Medium' priority."
     );
   };
+
   const setStatus = (newStatus) => {
     if (!newStatus) return;
     const VALID_STATUSES = ["To Do", "Doing", "Done", "Won't Do"];

@@ -24,7 +24,7 @@ const retrieveAllTasks = () => {
     retrievedTasks.push(...project.tasks);
   });
 
-  return new Set(retrievedTasks);
+  return [...new Set(retrievedTasks)];
 };
 
 const retrieveAllTaskNames = () =>

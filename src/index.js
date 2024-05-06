@@ -102,8 +102,12 @@ Please type the name of the project to add this task to:`);
     1: modify task
     2: delete task`);
 
-    // if user instead wants to modify the task, then ask for the attribute they would like to change, request for the new value
     if (input === "1") {
+      console.log(selectedTaskName);
+      // reconstruct task to restore methods
+      const allTasks = retrieveAllTasks();
+
+      // ask for attribute for changing and value (use factory method i think better)
       alert("modifying");
     } else if (input === "2") {
       const matchedProjects = findProjectsWithTask(selectedTaskName);
