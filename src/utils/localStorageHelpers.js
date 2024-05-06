@@ -11,17 +11,17 @@ const storeProject = (projectObject) => {
 
 const retrieveProject = (projectName) =>
   JSON.parse(localStorage.getItem(projectName));
-
-const retrieveAllProjectNames = () => Object.keys(localStorage);
 const retrieveAllProjects = () => Object.values(retrieveAll());
+const retrieveAllProjectNames = () => Object.keys(localStorage);
 
-// returns a set of tasks (objects)
 const retrieveAllTasks = () => {
   const set = new Set();
   const storedProjectsArray = retrieveAllProjects();
-
-  storedProjectsArray.forEach((project) => set.add(...project.tasks));
-
+  storedProjectsArray.forEach((project) => {
+    const taskList = project.tasks;
+    if (Array.isArray(taskList) && !taskList.length) return;
+    set.add(...taskList);
+  });
   return set;
 };
 
@@ -46,7 +46,7 @@ export {
   retrieveAll,
   retrieveAllProjectNames,
   retrieveProject,
+  retrieveAllTasks,
   findProjectsWithTask,
   storeProject,
-  retrieveAllTasks,
 };

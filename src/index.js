@@ -2,13 +2,15 @@ import createTask from "./factories/createTask";
 import createProject from "./factories/createProject";
 import {
   retrieveAll,
-  storeProject,
-  retrieveProject,
   retrieveAllProjectNames,
+  retrieveProject,
+  retrieveAllTasks,
+  storeProject,
   findProjectsWithTask,
 } from "./utils/localStorageHelpers";
 
 const app = (function () {
+  console.log(retrieveAllTasks());
   // localStorage.clear(); // comment out when you need to reset
   // console.log(getStoredTasks() ? getStoredTasks() : "No tasks yet");
   if (localStorage.length === 0) {
@@ -105,3 +107,4 @@ Please type the name of the project to add this task to:`);
 })();
 
 //? should we restrict tasks to a single project? what if doing a task actually hits two projects? THEN it would mean we need to deduplicate the list of all _tasks_
+//todo: need to refactor the app here so it's not spaghetti code - package into different functions (methods of an 'app controller')
