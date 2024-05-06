@@ -7,6 +7,7 @@ import {
   storeProject,
   findProjectsWithTask,
   checkTaskExists,
+  checkProjectExists,
   retrieveTask,
   storeTask,
 } from "./utils/localStorageHelpers";
@@ -130,6 +131,9 @@ Please type the name of the project to add this task to:`);
     const selectedProjectName = prompt(
       "Please enter the name of the project you would like to modify:"
     );
+    if (selectedProjectName === "My Tasks")
+      throw new Error(`Cannot delete "My Tasks" project.`);
+
     // check project actually exists. throw error if not. also prevent user from deleting the 'My Tasks' project
 
     // if project exists, as what user would like to do
