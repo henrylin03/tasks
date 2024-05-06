@@ -42,7 +42,7 @@ const createTask = ({ title, description = "" }) => {
 
   // setters for private properties
   const set = {
-    "due date": setDueDate,
+    dueDate: setDueDate,
     priority: setPriority,
     status: setStatus,
   };
@@ -67,7 +67,7 @@ const createTaskFromJSON = (retrievedTask) => {
     const isPrivateProperty =
       reconstructedTask.set.hasOwnProperty(retrievedProperty);
     if (!isPrivateProperty) continue;
-    reconstructedTask.set[retrievedProperty] = retrievedValue;
+    reconstructedTask.set[retrievedProperty](retrievedValue);
   }
 
   return reconstructedTask;

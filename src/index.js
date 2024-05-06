@@ -101,10 +101,9 @@ Please type the name of the project to add this task to:`);
     2: delete task`);
 
     if (input === "1") {
-      const taskProperties = Object.keys(selectedTaskName);
-      const reconstructedTask = createTaskFromJSON(
-        retrieveTask(selectedTaskName)
-      );
+      const retrievedTaskObject = retrieveTask(selectedTaskName);
+      const taskProperties = Object.keys(retrievedTaskObject);
+      const reconstructedTask = createTaskFromJSON(retrievedTaskObject);
 
       const propertyToModify = prompt(
         "Please enter the property name you would like to change (title, description, dueDate, priority, status): "
@@ -121,9 +120,9 @@ Please type the name of the project to add this task to:`);
         reconstructedTask.set.hasOwnProperty(propertyToModify);
       isPrivateProperty
         ? reconstructedTask.set[propertyToModify](updatedValue)
-        : (reconstructedTask.propertyToModify = updatedValue);
+        : (reconstructedTask[propertyToModify] = updatedValue);
 
-      console.log(selectedTaskReconstructed);
+      console.log(reconstructedTask.viewDetails());
 
       // ask for attribute for changing and value (use factory method i think better)
     } else if (input === "2") {
