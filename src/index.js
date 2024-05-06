@@ -5,12 +5,14 @@ import {
   retrieveAllProjectNames,
   retrieveProject,
   retrieveAllTasks,
+  retrieveAllTaskNames,
   storeProject,
   findProjectsWithTask,
 } from "./utils/localStorageHelpers";
 
 const app = (function () {
   console.log(retrieveAllTasks());
+  console.log(retrieveAllTaskNames());
   // localStorage.clear(); // comment out when you need to reset
   // console.log(getStoredTasks() ? getStoredTasks() : "No tasks yet");
   if (localStorage.length === 0) {
@@ -94,6 +96,11 @@ Please type the name of the project to add this task to:`);
     const selectedTaskName = prompt(
       "Please enter the name of the task you would like to delete:"
     );
+
+    // check if task actually exists. if no, then throw error currently in .findProjectsWithTask().
+
+    // check if user wants to delete the task. if yes, then do the bottom:
+
     const matchedProjects = findProjectsWithTask(selectedTaskName);
     matchedProjects.forEach((project) => {
       project.tasks = project.tasks.filter(
@@ -101,6 +108,10 @@ Please type the name of the project to add this task to:`);
       );
       storeProject(project);
     });
+
+    // if user instead wants to modify the task, then ask for the attribute they would like to change, request for the new value
+
+    // then update localStorage
   }
 
   console.log(retrieveAll());

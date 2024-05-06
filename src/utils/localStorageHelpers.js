@@ -15,15 +15,20 @@ const retrieveAllProjects = () => Object.values(retrieveAll());
 const retrieveAllProjectNames = () => Object.keys(localStorage);
 
 const retrieveAllTasks = () => {
-  const set = new Set();
   const storedProjectsArray = retrieveAllProjects();
+  const retrievedTasks = [];
+
   storedProjectsArray.forEach((project) => {
     const taskList = project.tasks;
     if (Array.isArray(taskList) && !taskList.length) return;
-    set.add(...taskList);
+    retrievedTasks.push(...project.tasks);
   });
-  return set;
+
+  return new Set(retrievedTasks);
 };
+
+const retrieveAllTaskNames = () =>
+  [...retrieveAllTasks()].map((task) => task.title);
 
 const retrieveAll = () => {
   const obj = {};
@@ -49,4 +54,5 @@ export {
   retrieveAllTasks,
   findProjectsWithTask,
   storeProject,
+  retrieveAllTaskNames,
 };
