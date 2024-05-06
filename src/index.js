@@ -103,9 +103,11 @@ Please type the name of the project to add this task to:`);
 
     if (input === "1") {
       // reconstruct task to restore methods
-      const selectedTask = createTaskFromJSON(retrieveTask(selectedTaskName));
+      const selectedTaskReconstructed = createTaskFromJSON(
+        retrieveTask(selectedTaskName)
+      );
 
-      console.log(selectedTask);
+      console.log(selectedTaskReconstructed);
 
       // ask for attribute for changing and value (use factory method i think better)
     } else if (input === "2") {
