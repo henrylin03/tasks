@@ -95,7 +95,7 @@ Please type the name of the project to add this task to:`);
     }
   } else if (input === "2") {
     const selectedTaskName = prompt(
-      "Please enter the name of the task you would like to delete:"
+      "Please enter the name of the task you would like to modify:"
     );
     checkTaskExists(selectedTaskName);
     input = prompt(`What would you like to do with task, "${selectedTaskName}"?
@@ -106,6 +106,10 @@ Please type the name of the project to add this task to:`);
       console.log(selectedTaskName);
       // reconstruct task to restore methods
       const allTasks = retrieveAllTasks();
+      const selectedTaskObject = allTasks.filter(
+        (task) => task.title === selectedTaskName
+      );
+      console.log(selectedTaskObject);
 
       // ask for attribute for changing and value (use factory method i think better)
       alert("modifying");
