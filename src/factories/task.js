@@ -59,7 +59,7 @@ const createTaskFromJSON = (retrievedTask) => {
   reconstructedTask.setDueDate(retrievedTask.dueDate);
   reconstructedTask.setStatus(retrievedTask.status);
 
-  return reconstructedTask.viewDetails();
+  return reconstructedTask;
 };
 
 export { createTask, createTaskFromJSON };
