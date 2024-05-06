@@ -30,7 +30,7 @@ const createProject = (name) => {
   // run checks
   checkIfProjectNameAlreadyExists(name);
 
-  return { addTaskDetails, viewDetails, getName };
+  return { getName, viewDetails, addTaskDetails };
 };
 
 export default createProject;
