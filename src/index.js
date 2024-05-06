@@ -4,15 +4,14 @@ import {
   retrieveAll,
   retrieveAllProjectNames,
   retrieveProject,
-  retrieveAllTasks,
   storeProject,
   findProjectsWithTask,
   checkTaskExists,
   retrieveTask,
+  storeTask,
 } from "./utils/localStorageHelpers";
 
 const app = (function () {
-  console.log(retrieveAllTasks());
   // localStorage.clear(); // comment out when you need to reset
   if (localStorage.length === 0) {
     const myTasksProject = createProject("My Tasks");
@@ -119,6 +118,8 @@ Please type the name of the project to add this task to:`);
       reconstructedTask.set[propertyToModify](updatedValue);
 
       // add to localStorage
+      storeTask(reconstructedTask);
+
       console.log(reconstructedTask.viewDetails());
 
       // ask for attribute for changing and value (use factory method i think better)

@@ -9,6 +9,17 @@ const storeProject = (projectObject) => {
   localStorage.setItem(projectName, JSON.stringify(projectDetails));
 };
 
+const storeTask = (taskObject) => {
+  const taskName = taskObject.viewDetails().title;
+  const projectsWithTask = findProjectsWithTask(taskName);
+
+  projectsWithTask.forEach((project) => {
+    project.tasks = project.tasks.filter((task) => task.title != taskName);
+    project.tasks.push(taskObject.viewDetails());
+    storeProject(project);
+  });
+};
+
 const retrieveProject = (projectName) =>
   JSON.parse(localStorage.getItem(projectName));
 const retrieveAllProjects = () => Object.values(retrieveAll());
@@ -67,6 +78,7 @@ export {
   retrieveAllTasks,
   findProjectsWithTask,
   storeProject,
+  storeTask,
   checkTaskExists,
   retrieveTask,
 };
