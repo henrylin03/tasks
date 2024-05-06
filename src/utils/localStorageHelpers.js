@@ -1,3 +1,12 @@
+// checks
+const checkTaskExists = (taskName) => {
+  const retrievedTaskNames = retrieveAllTaskNames();
+  if (!retrievedTaskNames.includes(taskName))
+    throw new Error(`Task name, "${taskName}", does not exist.`);
+  return true;
+};
+
+// storers into localStorage
 const storeProject = (projectObject) => {
   const projectIsNew = projectObject.hasOwnProperty("viewDetails");
   const projectName = projectIsNew
@@ -20,6 +29,7 @@ const storeTask = (taskObject) => {
   });
 };
 
+// retrievers from localStorage
 const retrieveProject = (projectName) =>
   JSON.parse(localStorage.getItem(projectName));
 const retrieveAllProjects = () => Object.values(retrieveAll());
@@ -46,13 +56,6 @@ const retrieveAllTasks = () => {
 const retrieveAllTaskNames = () =>
   [...retrieveAllTasks()].map((task) => task.title);
 
-const checkTaskExists = (taskName) => {
-  const retrievedTaskNames = retrieveAllTaskNames();
-  if (!retrievedTaskNames.includes(taskName))
-    throw new Error(`Task name, "${taskName}", does not exist.`);
-  return true;
-};
-
 const retrieveAll = () => {
   const obj = {};
   const storedProjects = retrieveAllProjectNames();
@@ -60,6 +63,7 @@ const retrieveAll = () => {
   return obj;
 };
 
+// identifier methods
 const findProjectsWithTask = (taskName) => {
   checkTaskExists(taskName);
 

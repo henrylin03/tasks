@@ -126,8 +126,10 @@ Please type the name of the project to add this task to:`);
         storeProject(project);
       });
     }
-
-    // then update localStorage
+  } else if (input === "3") {
+    const selectedProjectName = prompt(
+      "Please enter the name of the project you would like to modify:"
+    );
   }
 
   console.log(retrieveAll());
