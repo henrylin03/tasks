@@ -5,7 +5,6 @@ import {
   retrieveAllProjectNames,
   retrieveProject,
   retrieveAllTasks,
-  retrieveAllTaskNames,
   storeProject,
   findProjectsWithTask,
   checkTaskExists,
@@ -102,10 +101,22 @@ Please type the name of the project to add this task to:`);
     2: delete task`);
 
     if (input === "1") {
-      // reconstruct task to restore methods
-      const selectedTaskReconstructed = createTaskFromJSON(
+      const reconstructedTask = createTaskFromJSON(
         retrieveTask(selectedTaskName)
       );
+
+      const propertyToModify = prompt(
+        "Please enter the property name you would like to change (title, description, dueDate, priority, status): "
+      );
+      const updatedValue = prompt(
+        "Please enter the value you would like to change the property to: "
+      );
+
+      const isPrivateProperty =
+        reconstructedTask.set.hasOwnProperty(propertyToModify);
+      isPrivateProperty
+        ? reconstructedTask.set[propertyToModify](updatedValue)
+        : (reconstructedTask.propertyToModify = updatedValue);
 
       console.log(selectedTaskReconstructed);
 

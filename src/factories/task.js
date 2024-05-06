@@ -42,7 +42,7 @@ const createTask = ({ title, description = "" }) => {
 
   // setters for private properties
   const set = {
-    dueDate: setDueDate,
+    "due date": setDueDate,
     priority: setPriority,
     status: setStatus,
   };

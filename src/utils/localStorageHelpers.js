@@ -67,7 +67,6 @@ export {
   retrieveAllTasks,
   findProjectsWithTask,
   storeProject,
-  retrieveAllTaskNames,
   checkTaskExists,
   retrieveTask,
 };
