@@ -1,5 +1,5 @@
-import createTask from "./factories/createTask";
-import createProject from "./factories/createProject";
+import createTask from "./factories/task";
+import createProject from "./factories/project";
 import {
   retrieveAll,
   retrieveAllProjectNames,
@@ -9,6 +9,7 @@ import {
   storeProject,
   findProjectsWithTask,
   checkTaskExists,
+  retrieveTask,
 } from "./utils/localStorageHelpers";
 
 const app = (function () {
@@ -105,11 +106,8 @@ Please type the name of the project to add this task to:`);
     if (input === "1") {
       console.log(selectedTaskName);
       // reconstruct task to restore methods
-      const allTasks = retrieveAllTasks();
-      const selectedTaskObject = allTasks.filter(
-        (task) => task.title === selectedTaskName
-      );
-      console.log(selectedTaskObject);
+      const selectedTask = retrieveTask(selectedTaskName);
+      console.log(selectedTask);
 
       // ask for attribute for changing and value (use factory method i think better)
       alert("modifying");
