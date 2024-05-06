@@ -116,13 +116,7 @@ Please type the name of the project to add this task to:`);
       const updatedValue = prompt("Please enter the updated value: ");
 
       reconstructedTask.set[propertyToModify](updatedValue);
-
-      // add to localStorage
       storeTask(reconstructedTask);
-
-      console.log(reconstructedTask.viewDetails());
-
-      // ask for attribute for changing and value (use factory method i think better)
     } else if (input === "2") {
       const matchedProjects = findProjectsWithTask(selectedTaskName);
       matchedProjects.forEach((project) => {
