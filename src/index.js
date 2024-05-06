@@ -116,11 +116,7 @@ Please type the name of the project to add this task to:`);
 
       const updatedValue = prompt("Please enter the updated value: ");
 
-      const isPrivateProperty =
-        reconstructedTask.set.hasOwnProperty(propertyToModify);
-      isPrivateProperty
-        ? reconstructedTask.set[propertyToModify](updatedValue)
-        : (reconstructedTask[propertyToModify] = updatedValue);
+      reconstructedTask.set[propertyToModify](updatedValue);
 
       // add to localStorage
       console.log(reconstructedTask.viewDetails());
