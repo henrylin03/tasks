@@ -153,12 +153,10 @@ Please type the name of the project to add this task to:`);
 
       // for each of the tasks in the selected project...
       // add them to the list of myTasks
-      const myTasksProjectRetrieved = retrieveProject("My Tasks");
-      selectedProject.tasks.forEach((task) =>
-        myTasksProjectRetrieved.tasks.push(task)
-      );
+      const myTasksProject = retrieveProject("My Tasks");
+      myTasksProject.tasks.push(...selectedProject.tasks);
 
-      console.log(myTasksProjectRetrieved.tasks);
+      console.log(myTasksProject.tasks);
       console.log(selectedProject.tasks);
 
       // delete that project from localStorage
