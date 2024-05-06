@@ -8,8 +8,10 @@ const createTask = ({ title, description = "" }) => {
   const setDueDate = (dueDateString) => {
     if (!dueDateString) return;
     // user is advised to input due date as format "dd/MM/YYYY" per Australian common use
-    const [date, month, year] = dueDateString.split("/");
-    dueDate = format(new Date(year, month, date), "dd/MM/yyyy");
+    const [day, month, year] = dueDateString.split("/");
+
+    // month is zero-indexed
+    dueDate = format(new Date(year, month - 1, day), "dd/MM/yyyy");
   };
 
   const setPriority = (newPriority) => {
