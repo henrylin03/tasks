@@ -17,7 +17,7 @@ const retrieveAllProjectNames = () => Object.keys(localStorage);
 const retrieveTask = (taskName) => {
   checkTaskExists(taskName);
   const storedTasks = retrieveAllTasks();
-  return storedTasks.filter((task) => task.title === taskName);
+  return storedTasks.filter((task) => task.title === taskName)[0];
 };
 const retrieveAllTasks = () => {
   const storedProjectsArray = retrieveAllProjects();

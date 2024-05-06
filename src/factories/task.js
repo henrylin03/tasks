@@ -48,4 +48,8 @@ const createTask = ({ title, description = "" }) => {
   };
 };
 
-export default createTask;
+const createTaskFromJSON = (retrievedTask) => {
+  return retrievedTask;
+};
+
+export { createTask, createTaskFromJSON };

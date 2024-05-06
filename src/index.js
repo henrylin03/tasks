@@ -1,4 +1,4 @@
-import createTask from "./factories/task";
+import { createTask, createTaskFromJSON } from "./factories/task";
 import createProject from "./factories/project";
 import {
   retrieveAll,
@@ -110,7 +110,6 @@ Please type the name of the project to add this task to:`);
       console.log(selectedTask);
 
       // ask for attribute for changing and value (use factory method i think better)
-      alert("modifying");
     } else if (input === "2") {
       const matchedProjects = findProjectsWithTask(selectedTaskName);
       matchedProjects.forEach((project) => {
