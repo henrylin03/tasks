@@ -134,8 +134,11 @@ Please type the name of the project to add this task to:`);
     checkProjectExists(selectedProjectName);
     if (selectedProjectName === "My Tasks")
       throw new Error(`Cannot modify "My Tasks" project.`);
-
-    // check project actually exists. throw error if not. also prevent user from deleting the 'My Tasks' project
+    input = prompt(
+      `What would you like to do with project, "${selectedProjectName}"?
+    1: rename project
+    2: delete project`
+    );
 
     // if project exists, as what user would like to do
 
