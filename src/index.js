@@ -101,6 +101,7 @@ Please type the name of the project to add this task to:`);
     2: delete task`);
 
     if (input === "1") {
+      const taskProperties = Object.keys(selectedTaskName);
       const reconstructedTask = createTaskFromJSON(
         retrieveTask(selectedTaskName)
       );
@@ -108,9 +109,13 @@ Please type the name of the project to add this task to:`);
       const propertyToModify = prompt(
         "Please enter the property name you would like to change (title, description, dueDate, priority, status): "
       );
-      const updatedValue = prompt(
-        "Please enter the value you would like to change the property to: "
-      );
+      if (!taskProperties.includes(propertyToModify))
+        throw new Error(
+          `A task does not have that property. Please select from the following: 
+    title, description, dueDate, priority, status`
+        );
+
+      const updatedValue = prompt("Please enter the updated value: ");
 
       const isPrivateProperty =
         reconstructedTask.set.hasOwnProperty(propertyToModify);
