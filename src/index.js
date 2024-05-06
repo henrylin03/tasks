@@ -102,8 +102,10 @@ Please type the name of the project to add this task to:`);
     1: modify task
     2: delete task`);
 
-    // check if user wants to delete the task. if yes, then do the bottom:
-    if (input === "2") {
+    // if user instead wants to modify the task, then ask for the attribute they would like to change, request for the new value
+    if (input === "1") {
+      alert("modifying");
+    } else if (input === "2") {
       const matchedProjects = findProjectsWithTask(selectedTaskName);
       matchedProjects.forEach((project) => {
         project.tasks = project.tasks.filter(
@@ -112,8 +114,6 @@ Please type the name of the project to add this task to:`);
         storeProject(project);
       });
     }
-
-    // if user instead wants to modify the task, then ask for the attribute they would like to change, request for the new value
 
     // then update localStorage
   }
