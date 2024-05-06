@@ -15,7 +15,6 @@ import {
 const app = (function () {
   console.log(retrieveAllTasks());
   // localStorage.clear(); // comment out when you need to reset
-  // console.log(getStoredTasks() ? getStoredTasks() : "No tasks yet");
   if (localStorage.length === 0) {
     const myTasksProject = createProject("My Tasks");
     storeProject(myTasksProject);
@@ -39,17 +38,17 @@ const app = (function () {
         title: prompt("Please enter a title for the task"),
         description: prompt("Please enter the description of this task"),
       });
-      newTask.setDueDate(
+      newTask.set.dueDate(
         prompt(
           "Please enter a due date for this task in the format: `dd/mm/yyyy` (eg 1/1/2025 for 2025 New Years Day). This is optional. Press enter to not include a due date."
         )
       );
-      newTask.setPriority(
+      newTask.set.priority(
         prompt(
           "Please enter a priority for this task. This is optional. Priority will default to 'Medium'. Press enter to continue."
         )
       );
-      newTask.setStatus(
+      newTask.set.status(
         prompt(
           "Please enter the status of this task - 'To Do', 'Doing' or 'Done'. Status will default to 'To Do' if none is entered. Press enter to continue."
         )
