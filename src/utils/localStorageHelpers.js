@@ -7,11 +7,16 @@ const taskExists = (taskName) => {
 const projectExists = (projectName) => !!localStorage.getItem(projectName);
 
 // storers into localStorage
-const storeProject = (projectObject) =>
-  localStorage.setItem(
-    projectObject.getName(),
-    JSON.stringify(projectObject.viewDetails())
-  );
+const storeProject = (projectObject) => {
+  const name = projectObject.hasOwnProperty("getName")
+    ? projectObject.getName()
+    : projectObject.name;
+  const details = projectObject.hasOwnProperty("viewDetails")
+    ? projectObject.viewDetails()
+    : projectObject;
+
+  localStorage.setItem(name, JSON.stringify(details));
+};
 
 const storeTask = (taskObject) => {
   const taskName = taskObject.viewDetails().title;
