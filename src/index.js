@@ -76,7 +76,7 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
             prompt("Please enter a name for your new project")
           );
           newProject.addTasks(newTask);
-          retrievedProject.store();
+          newProject.store();
         }
       } else if (input === "n") {
         const myTasksProject = createProjectFromJSON(
