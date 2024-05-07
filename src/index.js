@@ -6,7 +6,7 @@ import {
   retrieveProject,
   storeProject,
   findProjectsWithTask,
-  checkTaskExists,
+  taskExists,
   projectExists,
   retrieveTask,
   storeTask,
@@ -95,7 +95,8 @@ Please type the name of the project to add this task to:`);
     const selectedTaskName = prompt(
       "Please enter the name of the task you would like to modify:"
     );
-    checkTaskExists(selectedTaskName);
+    if (!taskExists(selectedTaskName))
+      throw new Error(`Task name, "${taskName}", does not exist.`);
     input = prompt(`What would you like to do with task, "${selectedTaskName}"?
     1: modify task
     2: delete task`);

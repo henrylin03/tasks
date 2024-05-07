@@ -1,17 +1,8 @@
 // checks
-const checkTaskExists = (taskName) => {
+const taskExists = (taskName) => {
   const retrievedTaskNames = retrieveAllTaskNames();
-  if (!retrievedTaskNames.includes(taskName))
-    throw new Error(`Task name, "${taskName}", does not exist.`);
-  return true;
+  return retrievedTaskNames.includes(taskName);
 };
-
-// const checkProjectExists = (projectName) => {
-//   const retrievedProjectsNames = retrieveAllProjectNames();
-//   if (!retrievedProjectsNames.includes(projectName))
-//     throw new Error(`Project name, "${projectName}", does not exist.`);
-//   return true;
-// };
 
 const projectExists = (projectName) => {
   const retrievedProjectsNames = retrieveAllProjectNames();
@@ -96,7 +87,7 @@ export {
   findProjectsWithTask,
   storeProject,
   storeTask,
-  checkTaskExists,
+  taskExists,
   projectExists,
   retrieveTask,
 };
