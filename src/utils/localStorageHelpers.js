@@ -4,10 +4,7 @@ const taskExists = (taskName) => {
   return retrievedTaskNames.includes(taskName);
 };
 
-const projectExists = (projectName) => {
-  const retrievedProjectsNames = retrieveAllProjectNames();
-  return retrievedProjectsNames.includes(projectName);
-};
+const projectExists = (projectName) => !!localStorage.getItem(projectName);
 
 // storers into localStorage
 const storeProject = (projectObject) => {
