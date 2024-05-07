@@ -132,6 +132,8 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
       input = prompt(
         `Would you like to move this task to an existing project? (y / n)`
       );
+
+      // move task into existing project
       if (input === "y") {
         const selectedProjectName =
           prompt(`Please type the name of the project to add this task to:
@@ -144,20 +146,24 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
         );
         reconstructedDestinationProject.addTasks(retrievedTaskObject);
         reconstructedDestinationProject.store();
-
-        matchedProjects.forEach((retrievedProject) => {
-          const reconstructedProject = createProjectFromJSON(retrievedProject);
-          const taskList = retrievedProject.tasks;
-          const taskListWithoutSelectedTask = taskList.filter(
-            (task) => task.title != selectedTaskName
-          );
-          reconstructedProject.replaceTasks(taskListWithoutSelectedTask);
-          reconstructedProject.store();
-        });
-      } else if (input === "n") {
-        // create new project to add this task to. then delete this task from the current project.
       }
-      // then, finally, delete task from current projects
+      // new project created to move this task to
+      else if (input === "n") {
+        const newProject = createProject(
+          prompt("Please enter a name for your new project")
+        );
+        newProject.addTasks(retrievedTaskObject);
+        newProject.store();
+      }
+      matchedProjects.forEach((retrievedProject) => {
+        const reconstructedProject = createProjectFromJSON(retrievedProject);
+        const taskList = retrievedProject.tasks;
+        const taskListWithoutSelectedTask = taskList.filter(
+          (task) => task.title != selectedTaskName
+        );
+        reconstructedProject.replaceTasks(taskListWithoutSelectedTask);
+        reconstructedProject.store();
+      });
     }
 
     // delete task
