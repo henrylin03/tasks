@@ -125,6 +125,8 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
       storeTask(reconstructedTask);
     } else if (input === "2") {
       const matchedProjects = findProjectsWithTask(selectedTaskName);
+
+      // ! TODO: NEED TO RECONSTRUCT THESE AND CALL THE PROPER METHOD
       matchedProjects.forEach((project) => {
         project.tasks = project.tasks.filter(
           (task) => task.title != selectedTaskName
@@ -153,9 +155,7 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
 
     // delete project
     else if (input === "2") {
-      const selectedProject = createProjectFromJSON(
-        retrieveProject(selectedProjectName)
-      );
+      const selectedProject = retrieveProject(selectedProjectName);
       const myTasksProject = createProjectFromJSON(retrieveProject("My Tasks"));
 
       myTasksProject.addTasks(selectedProject.tasks);
