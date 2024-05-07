@@ -20,7 +20,6 @@ const createProject = (name, isNewlyCreated = true) => {
     // ? should we reconstruct every task object first so this check is no longer required + we get to actually ensure the properties are private and only manipulable through defined methods?
 
     taskObjects.forEach((t) => {
-      if (t === undefined) return;
       const taskDetails = t.hasOwnProperty("viewDetails") ? t.viewDetails() : t;
       tasks.push(taskDetails);
     });
