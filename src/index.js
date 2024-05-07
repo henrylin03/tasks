@@ -77,7 +77,7 @@ Please type the name of the project to add this task to:`);
           const newProject = createProject(
             prompt("Please enter a name for your new project")
           );
-          newProject.addTaskDetails(newTask);
+          newProject.addTasks(newTask);
           storeProject(newProject);
         }
       } else {
