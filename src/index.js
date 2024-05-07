@@ -148,22 +148,19 @@ Please type the name of the project to add this task to:`);
     // delete project
     else if (input === "2") {
       const selectedProject = retrieveProject(selectedProjectName);
-
-      // for each of the tasks in the selected project...
-      // add them to the list of myTasks
       const myTasksProject = retrieveProject("My Tasks");
+
       myTasksProject.tasks.push(...selectedProject.tasks);
 
-      console.log(myTasksProject.tasks);
-      console.log(selectedProject.tasks);
-
-      // delete that project from localStorage
+      localStorage.removeItem(selectedProjectName);
       storeProject(myTasksProject);
     }
   }
 
   console.log(retrieveAll());
 })();
+
+//TODO: deduplicate tasks within a project
 
 //? should we restrict tasks to a single project? what if doing a task actually hits two projects? THEN it would mean we need to deduplicate the list of all _tasks_
 //todo: need to refactor the app here so it's not spaghetti code - package into different functions (methods of an 'app controller')

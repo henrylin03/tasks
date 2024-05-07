@@ -83,11 +83,6 @@ const findProjectsWithTask = (taskName) => {
   return projectsWithInputtedTaskName;
 };
 
-// deleters
-const deleteProject = (projectObject) => {
-  return;
-};
-
 export {
   retrieveAll,
   retrieveAllProjectNames,
