@@ -15,15 +15,13 @@ const createProject = (name, isNewlyCreated = true) => {
 
   // accepts 1+ task objects. we only need tasks' details in project, not
   const addTasks = (...taskObjectsForAdding) => {
-    console.log(taskObjectsForAdding);
     const taskObjects = taskObjectsForAdding.flat(1);
-    console.log(taskObjects);
+    // ? should we reconstruct every task object first so this check is no longer required + we get to actually ensure the properties are private and only manipulable through defined methods?
+
     taskObjects.forEach((t) => {
       const taskDetails = t.hasOwnProperty("viewDetails") ? t.viewDetails() : t;
-      if (tasks.includes(taskDetails)) return;
       tasks.push(taskDetails);
     });
-    console.log(tasks);
   };
 
   return { viewDetails, getName, getTasks, addTasks };
@@ -36,7 +34,5 @@ const createProjectFromJSON = (retrievedProject) => {
 };
 
 export { createProject, createProjectFromJSON };
-
-//todo: once we have cerate project factory from json, adjust localstorage helpers - it should reduce linecount there
 
 //TODO: deduplicate tasks within a project

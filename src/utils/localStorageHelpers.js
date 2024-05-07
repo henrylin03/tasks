@@ -7,17 +7,11 @@ const taskExists = (taskName) => {
 const projectExists = (projectName) => !!localStorage.getItem(projectName);
 
 // storers into localStorage
-const storeProject = (projectObject) => {
-  // "old" (i.e. projects retrieved from storage as JSON) do not have methods
-  const projectIsNew = projectObject.hasOwnProperty("viewDetails");
-  const projectName = projectIsNew
-    ? projectObject.getName()
-    : projectObject.name;
-  const projectDetails = projectIsNew
-    ? projectObject.viewDetails()
-    : projectObject;
-  localStorage.setItem(projectName, JSON.stringify(projectDetails));
-};
+const storeProject = (projectObject) =>
+  localStorage.setItem(
+    projectObject.getName(),
+    JSON.stringify(projectObject.viewDetails())
+  );
 
 const storeTask = (taskObject) => {
   const taskName = taskObject.viewDetails().title;
