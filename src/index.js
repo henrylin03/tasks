@@ -153,7 +153,13 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
 
     // rename project
     if (input === "1") {
-      // rename project
+      const newProjectName = prompt(
+        `What should be the new name for your project, "${selectedProjectName}"?`
+      );
+      const renamedProject = createProject(newProjectName);
+      renamedProject.replaceTasks(selectedProject.tasks);
+      renamedProject.store();
+      localStorage.removeItem(selectedProjectName);
     }
 
     // delete project

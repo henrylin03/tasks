@@ -34,7 +34,7 @@ const createProject = (name, isNewlyCreated = true) => {
 
 const createProjectFromJSON = (retrievedProject) => {
   const reconstructedProject = createProject(retrievedProject.name, false);
-  reconstructedProject.addTasks(retrievedProject.tasks);
+  reconstructedProject.replaceTasks(retrievedProject.tasks);
   return reconstructedProject;
 };
 
