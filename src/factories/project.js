@@ -16,9 +16,7 @@ const createProject = (name, isNewlyCreated = true) => {
 
   // accepts 1+ task objects. we only need tasks' details in project, not
   const addTasks = (...taskObjectsForAdding) => {
-    console.log(taskObjectsForAdding);
     const taskObjects = taskObjectsForAdding.flat(Infinity);
-    console.log(taskObjects);
     // ? should we reconstruct every task object first so this check is no longer required + we get to actually ensure the properties are private and only manipulable through defined methods?
 
     taskObjects.forEach((t) => {
