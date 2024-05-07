@@ -52,10 +52,7 @@ const createTask = ({ title, description = "" }) => {
     status: setStatus,
   };
 
-  return {
-    set,
-    viewDetails,
-  };
+  return { set, viewDetails };
 };
 
 const createTaskFromJSON = (retrievedTask) => {
