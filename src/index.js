@@ -64,7 +64,7 @@ const app = (function () {
               prompt(`Please type the name of the project to add this task to:
 
 Current projects: [ ${retrieveAllProjectNames()} ]`);
-            if (!projectExists) {
+            if (!projectExists(selectedProjectName)) {
               alert("Project does not exist. Please check your project name.");
               continue;
             }
