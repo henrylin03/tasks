@@ -143,6 +143,8 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
       throw new Error(`Project name, "${projectName}", does not exist.`);
     if (selectedProjectName === "My Tasks")
       throw new Error(`Cannot modify "My Tasks" project.`);
+    const selectedProject = retrieveProject(selectedProjectName);
+
     input = prompt(
       `What would you like to do with project, "${selectedProjectName}"?
     1: rename project
@@ -156,7 +158,6 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
 
     // delete project
     else if (input === "2") {
-      const selectedProject = retrieveProject(selectedProjectName);
       const myTasksProject = createProjectFromJSON(retrieveProject("My Tasks"));
 
       myTasksProject.addTasks(selectedProject.tasks);
