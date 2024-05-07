@@ -4,7 +4,6 @@ import {
   retrieveAll,
   retrieveAllProjectNames,
   retrieveProject,
-  storeProject,
   findProjectsWithTask,
   taskExists,
   projectExists,
@@ -15,10 +14,7 @@ import {
 const app = (function () {
   // localStorage.clear(); // comment out when you need to reset
   console.log(retrieveAll());
-  if (localStorage.length === 0) {
-    const myTasksProject = createProject("My Tasks");
-    storeProject(myTasksProject);
-  }
+  if (localStorage.length === 0) createProject("My Tasks").store();
 
   let input = prompt(
     `What would you like to do? Please enter number: 
@@ -72,7 +68,7 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
               retrieveProject(selectedProjectName)
             );
             retrievedProject.addTasks(newTask);
-            storeProject(retrievedProject);
+            retrievedProject.store();
             break;
           }
         } else if (input === "n") {
@@ -80,20 +76,20 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
             prompt("Please enter a name for your new project")
           );
           newProject.addTasks(newTask);
-          storeProject(newProject);
+          retrievedProject.store();
         }
       } else if (input === "n") {
         const myTasksProject = createProjectFromJSON(
           retrieveProject("My Tasks")
         );
         myTasksProject.addTasks(newTask);
-        storeProject(myTasksProject);
+        myTasksProject.store();
       }
     } else if (input === "2") {
       const newProject = createProject(
         prompt("Please enter a name for your project")
       );
-      storeProject(newProject);
+      newProject.store();
     }
   } else if (input === "2") {
     const selectedTaskName = prompt(
@@ -136,7 +132,7 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
           (task) => task.title != selectedTaskName
         );
         reconstructedProject.replaceTasks(taskListWithoutSelectedTask);
-        storeProject(reconstructedProject);
+        reconstructedProject.store();
       });
     }
   } else if (input === "3") {
@@ -164,9 +160,9 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
       const myTasksProject = createProjectFromJSON(retrieveProject("My Tasks"));
 
       myTasksProject.addTasks(selectedProject.tasks);
+      myTasksProject.store();
 
       localStorage.removeItem(selectedProjectName);
-      storeProject(myTasksProject);
     }
   }
 

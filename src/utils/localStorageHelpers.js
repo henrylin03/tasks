@@ -7,17 +7,6 @@ const taskExists = (taskName) => {
 const projectExists = (projectName) => !!localStorage.getItem(projectName);
 
 // storers into localStorage
-const storeProject = (projectObject) => {
-  const name = projectObject.hasOwnProperty("getName")
-    ? projectObject.getName()
-    : projectObject.name;
-  const details = projectObject.hasOwnProperty("viewDetails")
-    ? projectObject.viewDetails()
-    : projectObject;
-
-  localStorage.setItem(name, JSON.stringify(details));
-};
-
 const storeTask = (taskObject) => {
   const taskName = taskObject.viewDetails().title;
   const projectsWithTask = findProjectsWithTask(taskName);
@@ -78,7 +67,6 @@ export {
   retrieveProject,
   retrieveAllTasks,
   findProjectsWithTask,
-  storeProject,
   storeTask,
   taskExists,
   projectExists,

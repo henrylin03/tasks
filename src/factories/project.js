@@ -27,7 +27,9 @@ const createProject = (name, isNewlyCreated = true) => {
 
   const replaceTasks = (tasksArray) => (tasks = tasksArray);
 
-  return { viewDetails, getName, getTasks, addTasks, replaceTasks };
+  const store = () => localStorage.setItem(name, JSON.stringify(viewDetails()));
+
+  return { viewDetails, getName, getTasks, addTasks, replaceTasks, store };
 };
 
 const createProjectFromJSON = (retrievedProject) => {
