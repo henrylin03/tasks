@@ -1,3 +1,4 @@
+import { uniq, isEqual } from "lodash";
 import { projectExists } from "../utils/localStorageHelpers";
 
 const createProject = (name, isNewlyCreated = true) => {
@@ -5,11 +6,12 @@ const createProject = (name, isNewlyCreated = true) => {
     throw new Error(`Project with name, "${name}" already exists`);
 
   const tasks = [];
+  const getTasks = () => _.uniqWith(tasks, _.isEqual);
 
   const getName = () => name;
   const viewDetails = () => ({
     name,
-    tasks,
+    tasks: getTasks(),
   });
 
   // accepts 1+ task objects. we only need tasks' details in project, not
