@@ -13,12 +13,7 @@ module.exports = {
       },
       {
         test: /.s?css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "style-loader",
-          "css-loader",
-          "sass-loader",
-        ],
+        use: [MiniCssExtractPlugin.loader, "style-loader", "css-loader"],
       },
     ],
   },
