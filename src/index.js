@@ -1,5 +1,5 @@
 import { createTask, createTaskFromJSON } from "./factories/task";
-import createProject from "./factories/project";
+import { createProject, createProjectFromJSON } from "./factories/project";
 import {
   retrieveAll,
   retrieveAllProjectNames,
@@ -159,8 +159,6 @@ Please type the name of the project to add this task to:`);
 
   console.log(retrieveAll());
 })();
-
-//TODO: deduplicate tasks within a project
 
 //? should we restrict tasks to a single project? what if doing a task actually hits two projects? THEN it would mean we need to deduplicate the list of all _tasks_
 //todo: need to refactor the app here so it's not spaghetti code - package into different functions (methods of an 'app controller')
