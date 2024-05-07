@@ -144,20 +144,34 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
         );
         reconstructedDestinationProject.addTasks(retrievedTaskObject);
         reconstructedDestinationProject.store();
+
+        matchedProjects.forEach((retrievedProject) => {
+          const reconstructedProject = createProjectFromJSON(retrievedProject);
+          const taskList = retrievedProject.tasks;
+          const taskListWithoutSelectedTask = taskList.filter(
+            (task) => task.title != selectedTaskName
+          );
+          reconstructedProject.replaceTasks(taskListWithoutSelectedTask);
+          reconstructedProject.store();
+        });
       } else if (input === "n") {
-        // create new project to add this task to. then delete this task from the current projects.
+        // create new project to add this task to. then delete this task from the current project.
       }
       // then, finally, delete task from current projects
     }
-    matchedProjects.forEach((retrievedProject) => {
-      const reconstructedProject = createProjectFromJSON(retrievedProject);
-      const taskList = retrievedProject.tasks;
-      const taskListWithoutSelectedTask = taskList.filter(
-        (task) => task.title != selectedTaskName
-      );
-      reconstructedProject.replaceTasks(taskListWithoutSelectedTask);
-      reconstructedProject.store();
-    });
+
+    // delete task
+    else if (input === "3") {
+      matchedProjects.forEach((retrievedProject) => {
+        const reconstructedProject = createProjectFromJSON(retrievedProject);
+        const taskList = retrievedProject.tasks;
+        const taskListWithoutSelectedTask = taskList.filter(
+          (task) => task.title != selectedTaskName
+        );
+        reconstructedProject.replaceTasks(taskListWithoutSelectedTask);
+        reconstructedProject.store();
+      });
+    }
   } else if (input === "3") {
     const selectedProjectName = prompt(
       "Please enter the name of the project you would like to modify:"
