@@ -97,15 +97,19 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
     );
     if (!taskExists(selectedTaskName))
       throw new Error(`Task name, "${taskName}", does not exist.`);
-    input = prompt(`What would you like to do with task, "${selectedTaskName}"?
-    1: modify task
-    2: delete task`);
 
-    // modify existing task
+    const retrievedTaskObject = retrieveTask(selectedTaskName);
+    const reconstructedTask = createTaskFromJSON(retrievedTaskObject);
+    const matchedProjects = findProjectsWithTask(selectedTaskName);
+
+    input = prompt(`What would you like to do with task, "${selectedTaskName}"?
+    1: modify task attributes,
+    2: move to different project,
+    3: delete task`);
+
+    // modify existing task attributes
     if (input === "1") {
-      const retrievedTaskObject = retrieveTask(selectedTaskName);
       const taskProperties = Object.keys(retrievedTaskObject);
-      const reconstructedTask = createTaskFromJSON(retrievedTaskObject);
 
       const propertyToModify = prompt(
         "Please enter the property name you would like to change (title, description, dueDate, priority, status): "
@@ -121,20 +125,39 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
       reconstructedTask.set[propertyToModify](updatedValue);
       storeTask(reconstructedTask);
     }
-    // delete task
-    else if (input === "2") {
-      const matchedProjects = findProjectsWithTask(selectedTaskName);
 
-      matchedProjects.forEach((retrievedProject) => {
-        const reconstructedProject = createProjectFromJSON(retrievedProject);
-        const taskList = retrievedProject.tasks;
-        const taskListWithoutSelectedTask = taskList.filter(
-          (task) => task.title != selectedTaskName
+    // move task to a different project
+    // todo: potentially to do is to enable user to add the task to another project (as a task can be in multiple, other than in My Tasks), or completely move it to a single project
+    else if (input === "2") {
+      input = prompt(
+        `Would you like to move this task to an existing project? (y / n)`
+      );
+      if (input === "y") {
+        const selectedProjectName =
+          prompt(`Please type the name of the project to add this task to:
+
+    Current projects: [ ${retrieveAllProjectNames()} ]`);
+        if (!projectExists(selectedProjectName))
+          throw new Error(`Project, "${selectedProjectName}" does not exist.`);
+        const reconstructedDestinationProject = createProjectFromJSON(
+          retrieveProject(selectedProjectName)
         );
-        reconstructedProject.replaceTasks(taskListWithoutSelectedTask);
-        reconstructedProject.store();
-      });
+        reconstructedDestinationProject.addTasks(retrievedTaskObject);
+        reconstructedDestinationProject.store();
+      } else if (input === "n") {
+        // create new project to add this task to. then delete this task from the current projects.
+      }
+      // then, finally, delete task from current projects
     }
+    matchedProjects.forEach((retrievedProject) => {
+      const reconstructedProject = createProjectFromJSON(retrievedProject);
+      const taskList = retrievedProject.tasks;
+      const taskListWithoutSelectedTask = taskList.filter(
+        (task) => task.title != selectedTaskName
+      );
+      reconstructedProject.replaceTasks(taskListWithoutSelectedTask);
+      reconstructedProject.store();
+    });
   } else if (input === "3") {
     const selectedProjectName = prompt(
       "Please enter the name of the project you would like to modify:"
