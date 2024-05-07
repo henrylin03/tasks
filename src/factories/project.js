@@ -1,6 +1,9 @@
-import { retrieveAllProjectNames } from "../utils/localStorageHelpers";
+import { projectExists } from "../utils/localStorageHelpers";
 
 const createProject = (name) => {
+  if (projectExists(name))
+    throw new Error(`Project with name, "${name}" already exists`);
+
   const tasks = [];
   const getTasks = () => [...new Set(tasks)];
 
@@ -9,14 +12,6 @@ const createProject = (name) => {
     name,
     tasks: getTasks(),
   });
-
-  const checkIfProjectNameAlreadyExists = (projectNameForChecking) => {
-    const storedProjectsArray = retrieveAllProjectNames();
-    if (storedProjectsArray.includes(projectNameForChecking))
-      throw new Error(
-        `Project name, "${projectNameForChecking}" already exists.`
-      );
-  };
 
   // accepts 1+ task objects
   const addTasks = (...taskObjects) =>
@@ -29,9 +24,6 @@ const createProject = (name) => {
       if (tasks.includes(taskDetails)) return;
       tasks.push(taskDetails);
     });
-
-  // run checks
-  checkIfProjectNameAlreadyExists(name);
 
   return { viewDetails, getName, getTasks, addTasks };
 };

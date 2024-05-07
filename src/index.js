@@ -60,7 +60,6 @@ const app = (function () {
         );
         if (input === "y") {
           while (true) {
-            // TODO!: REPLACE WITH CHECK FROM HELPER
             const selectedProjectName =
               prompt(`Please type the name of the project to add this task to:
 
