@@ -105,7 +105,10 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
     1: modify task
     2: delete task`);
 
+    // modify existing task
     if (input === "1") {
+      // !TODO: FIX!!!! - ERROR BECAUSE NOT RECONSTRUCTED??
+
       const retrievedTaskObject = retrieveTask(selectedTaskName);
       const taskProperties = Object.keys(retrievedTaskObject);
       const reconstructedTask = createTaskFromJSON(retrievedTaskObject);
@@ -123,15 +126,19 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
 
       reconstructedTask.set[propertyToModify](updatedValue);
       storeTask(reconstructedTask);
-    } else if (input === "2") {
+    }
+    // delete task
+    else if (input === "2") {
       const matchedProjects = findProjectsWithTask(selectedTaskName);
 
-      // ! TODO: NEED TO RECONSTRUCT THESE AND CALL THE PROPER METHOD
-      matchedProjects.forEach((project) => {
-        project.tasks = project.tasks.filter(
+      matchedProjects.forEach((retrievedProject) => {
+        const reconstructedProject = createProjectFromJSON(retrievedProject);
+        const taskList = retrievedProject.tasks;
+        const taskListWithoutSelectedTask = taskList.filter(
           (task) => task.title != selectedTaskName
         );
-        storeProject(project);
+        reconstructedProject.replaceTasks(taskListWithoutSelectedTask);
+        storeProject(reconstructedProject);
       });
     }
   } else if (input === "3") {

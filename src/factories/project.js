@@ -5,7 +5,7 @@ const createProject = (name, isNewlyCreated = true) => {
   if (isNewlyCreated && projectExists(name))
     throw new Error(`Project with name, "${name}" already exists`);
 
-  const tasks = [];
+  let tasks = [];
   const getTasks = () => _.uniqWith(tasks, _.isEqual);
 
   const getName = () => name;
@@ -14,7 +14,7 @@ const createProject = (name, isNewlyCreated = true) => {
     tasks: getTasks(),
   });
 
-  // accepts 1+ task objects. we only need tasks' details in project, not
+  // accepts 1+ task objects for adding. we only need tasks' details in project, not
   const addTasks = (...taskObjectsForAdding) => {
     const taskObjects = taskObjectsForAdding.flat(Infinity);
     // ? should we reconstruct every task object first so this check is no longer required + we get to actually ensure the properties are private and only manipulable through defined methods?
@@ -25,7 +25,9 @@ const createProject = (name, isNewlyCreated = true) => {
     });
   };
 
-  return { viewDetails, getName, getTasks, addTasks };
+  const replaceTasks = (tasksArray) => (tasks = tasksArray);
+
+  return { viewDetails, getName, getTasks, addTasks, replaceTasks };
 };
 
 const createProjectFromJSON = (retrievedProject) => {
