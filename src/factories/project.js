@@ -3,9 +3,11 @@ import { retrieveAllProjectNames } from "../utils/localStorageHelpers";
 const createProject = (name) => {
   const tasks = [];
 
+  const getTasks = () => [...new Set(tasks)];
+
   const viewDetails = () => ({
     name,
-    tasks,
+    tasks: getTasks(),
   });
 
   const checkIfProjectNameAlreadyExists = (projectNameForChecking) => {
@@ -31,7 +33,7 @@ const createProject = (name) => {
   // run checks
   checkIfProjectNameAlreadyExists(name);
 
-  return { viewDetails, addTasks };
+  return { viewDetails, getTasks, addTasks };
 };
 
 const createProjectFromJSON = (retrievedProject) => {

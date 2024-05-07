@@ -147,10 +147,12 @@ Please type the name of the project to add this task to:`);
 
     // delete project
     else if (input === "2") {
-      const selectedProject = retrieveProject(selectedProjectName);
-      const myTasksProject = retrieveProject("My Tasks");
+      const selectedProject = createProjectFromJSON(
+        retrieveProject(selectedProjectName)
+      );
+      const myTasksProject = createProjectFromJSON(retrieveProject("My Tasks"));
 
-      myTasksProject.tasks.push(...selectedProject.tasks);
+      myTasksProject.addTasks(selectedProject.tasks);
 
       localStorage.removeItem(selectedProjectName);
       storeProject(myTasksProject);
@@ -162,5 +164,5 @@ Please type the name of the project to add this task to:`);
 
 //? should we restrict tasks to a single project? what if doing a task actually hits two projects? THEN it would mean we need to deduplicate the list of all _tasks_
 //todo: need to refactor the app here so it's not spaghetti code - package into different functions (methods of an 'app controller')
-//? explore using unique ids of tasks and projects to establish relations rather than manipulating arrays and objects etc...
+//? explore using unique ids of tasks and projects to establish relations rather than manipulating arrays and objects etc... it is quite good to have a unique identifier i think. better performance?
 // ! right now, there might be a potential issue whereby once a project is retrieved, we're not reconstructing it BEFORE just pushing things to its supposedly private properties (eg the tasks assigned to the project). this mixes and matches public / private might become an issue...
