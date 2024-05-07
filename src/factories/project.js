@@ -1,13 +1,9 @@
 import { retrieveAllProjectNames } from "../utils/localStorageHelpers";
 
 const createProject = (name) => {
-  // the creation timestamp is the unique identifier of this project
-  const id = Date.now();
   const tasks = [];
 
-  const getName = () => name;
   const viewDetails = () => ({
-    id,
     name,
     tasks,
   });
@@ -20,19 +16,29 @@ const createProject = (name) => {
       );
   };
 
-  // const setName = (newName) => {
-  //   checkIfProjectNameAlreadyExists(newName);
-  //   name = newName;
-  // };
-
   const addTaskDetails = (taskObject) => tasks.push(taskObject.viewDetails());
 
   // run checks
   checkIfProjectNameAlreadyExists(name);
 
-  return { getName, viewDetails, addTaskDetails };
+  return { viewDetails, addTaskDetails };
 };
 
-export default createProject;
+// const createProjectFromJSON = (retrievedProject) => {
+//   const reconstructedProject = createTask({
+//     title: retrievedProject.name,
+//     description: retrievedProject.description,
+//   });
+
+//   for (const [retrievedProperty, retrievedValue] of Object.entries(
+//     retrievedTask
+//   )) {
+//     reconstructedTask.set[retrievedProperty](retrievedValue);
+//   }
+
+//   return reconstructedTask;
+// };
+
+export { createProject };
 
 // todo: align pattern w/ task for a separate factory to recreate project object with all of its methods from retrieved json. explore benefits of having a setter object (maybe not here)
