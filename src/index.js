@@ -59,13 +59,13 @@ const app = (function () {
           `Would you like to add this to an existing project? (y / n)`
         );
         if (input === "y") {
-          const storedProjects = retrieveAllProjectNames();
           while (true) {
             // TODO!: REPLACE WITH CHECK FROM HELPER
             const selectedProjectName =
-              prompt(`Current projects: [${storedProjects}]
-Please type the name of the project to add this task to:`);
-            if (!storedProjects.includes(selectedProjectName)) {
+              prompt(`Please type the name of the project to add this task to:
+
+Current projects: [ ${retrieveAllProjectNames()} ]`);
+            if (!projectExists) {
               alert("Project does not exist. Please check your project name.");
               continue;
             }
