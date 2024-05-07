@@ -107,8 +107,6 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
 
     // modify existing task
     if (input === "1") {
-      // !TODO: FIX!!!! - ERROR BECAUSE NOT RECONSTRUCTED??
-
       const retrievedTaskObject = retrieveTask(selectedTaskName);
       const taskProperties = Object.keys(retrievedTaskObject);
       const reconstructedTask = createTaskFromJSON(retrievedTaskObject);
