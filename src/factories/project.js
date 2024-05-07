@@ -44,8 +44,6 @@ const createProjectFromJSON = (retrievedProject) => {
 
 export { createProject, createProjectFromJSON };
 
-// todo: align pattern w/ task for a separate factory to recreate project object with all of its methods from retrieved json. explore benefits of having a setter object (maybe not here)
-
 //todo: once we have cerate project factory from json, adjust localstorage helpers - it should reduce linecount there
 
 //TODO: deduplicate tasks within a project

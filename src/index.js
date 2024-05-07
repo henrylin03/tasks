@@ -61,6 +61,7 @@ const app = (function () {
         if (input === "y") {
           const storedProjects = retrieveAllProjectNames();
           while (true) {
+            // TODO!: REPLACE WITH CHECK FROM HELPER
             const selectedProjectName =
               prompt(`Current projects: [${storedProjects}]
 Please type the name of the project to add this task to:`);
@@ -68,8 +69,10 @@ Please type the name of the project to add this task to:`);
               alert("Project does not exist. Please check your project name.");
               continue;
             }
-            const retrievedProject = retrieveProject(selectedProjectName);
-            retrievedProject.tasks.push(newTask.viewDetails());
+            const retrievedProject = createProjectFromJSON(
+              retrieveProject(selectedProjectName)
+            );
+            retrievedProject.addTasks(newTask);
             storeProject(retrievedProject);
             break;
           }
@@ -80,9 +83,11 @@ Please type the name of the project to add this task to:`);
           newProject.addTasks(newTask);
           storeProject(newProject);
         }
-      } else {
-        const myTasksProjectRetrieved = retrieveProject("My Tasks");
-        myTasksProjectRetrieved.tasks.push(newTask.viewDetails());
+      } else if (input === "n") {
+        const myTasksProject = createProjectFromJSON(
+          retrieveProject("My Tasks")
+        );
+        myTasksProject.addTasks(newTask);
         storeProject(myTasksProjectRetrieved);
       }
     } else if (input === "2") {
