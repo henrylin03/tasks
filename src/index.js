@@ -149,8 +149,6 @@ Please type the name of the project to add this task to:`);
     else if (input === "2") {
       const selectedProject = retrieveProject(selectedProjectName);
 
-      console.log(selectedProject);
-
       // for each of the tasks in the selected project...
       // add them to the list of myTasks
       const myTasksProject = retrieveProject("My Tasks");
@@ -160,7 +158,7 @@ Please type the name of the project to add this task to:`);
       console.log(selectedProject.tasks);
 
       // delete that project from localStorage
-      // re-store my tasks project
+      storeProject(myTasksProject);
     }
   }
 
