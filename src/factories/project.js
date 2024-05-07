@@ -5,12 +5,11 @@ const createProject = (name, isNewlyCreated = true) => {
     throw new Error(`Project with name, "${name}" already exists`);
 
   const tasks = [];
-  const getTasks = () => [...new Set(tasks)];
 
   const getName = () => name;
   const viewDetails = () => ({
     name,
-    tasks: getTasks(),
+    tasks,
   });
 
   // accepts 1+ task objects. we only need tasks' details in project, not
@@ -24,12 +23,14 @@ const createProject = (name, isNewlyCreated = true) => {
     });
   };
 
-  return { viewDetails, getName, getTasks, addTasks };
+  return { viewDetails, getName, addTasks };
 };
 
 const createProjectFromJSON = (retrievedProject) => {
   const reconstructedProject = createProject(retrievedProject.name, false);
   reconstructedProject.addTasks(retrievedProject.tasks);
+  console.log(reconstructedProject.viewDetails());
+
   return reconstructedProject;
 };
 
