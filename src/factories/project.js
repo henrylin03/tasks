@@ -36,7 +36,7 @@ const createProject = (name) => {
 
 const createProjectFromJSON = (retrievedProject) => {
   const reconstructedProject = createProject(retrievedProject.name);
-
+  reconstructedProject.addTasks(retrievedProject.tasks);
   return reconstructedProject;
 };
 
