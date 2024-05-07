@@ -6,11 +6,16 @@ const checkTaskExists = (taskName) => {
   return true;
 };
 
-const checkProjectExists = (projectName) => {
+// const checkProjectExists = (projectName) => {
+//   const retrievedProjectsNames = retrieveAllProjectNames();
+//   if (!retrievedProjectsNames.includes(projectName))
+//     throw new Error(`Project name, "${projectName}", does not exist.`);
+//   return true;
+// };
+
+const projectExists = (projectName) => {
   const retrievedProjectsNames = retrieveAllProjectNames();
-  if (!retrievedProjectsNames.includes(projectName))
-    throw new Error(`Project name, "${projectName}", does not exist.`);
-  return true;
+  return retrievedProjectsNames.includes(projectName);
 };
 
 // storers into localStorage
@@ -92,7 +97,7 @@ export {
   storeProject,
   storeTask,
   checkTaskExists,
-  checkProjectExists,
+  projectExists,
   retrieveTask,
 };
 
