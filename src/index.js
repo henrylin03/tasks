@@ -87,7 +87,7 @@ Current projects: [ ${retrieveAllProjectNames()} ]`);
           retrieveProject("My Tasks")
         );
         myTasksProject.addTasks(newTask);
-        storeProject(myTasksProjectRetrieved);
+        storeProject(myTasksProject);
       }
     } else if (input === "2") {
       const newProject = createProject(
