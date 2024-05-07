@@ -13,17 +13,18 @@ const createProject = (name, isNewlyCreated = true) => {
     tasks: getTasks(),
   });
 
-  // accepts 1+ task objects
-  const addTasks = (...taskObjects) =>
-    // we do not need the tasks' methods, so we only add tasks' details to project
-    taskObjects.forEach((task) => {
-      // ? we may wish to ensure all tasks are also reconstructed to avoid manipulating properties that were intended to be private upon creation, just because we've retrieved from localStorage
-
-      const isReconstructedTask = task.hasOwnProperty("viewDetails");
-      const taskDetails = isReconstructedTask ? task.viewDetails() : task;
+  // accepts 1+ task objects. we only need tasks' details in project, not
+  const addTasks = (...taskObjectsForAdding) => {
+    console.log(taskObjectsForAdding);
+    const taskObjects = taskObjectsForAdding.flat(1);
+    console.log(taskObjects);
+    taskObjects.forEach((t) => {
+      const taskDetails = t.hasOwnProperty("viewDetails") ? t.viewDetails() : t;
       if (tasks.includes(taskDetails)) return;
       tasks.push(taskDetails);
     });
+    console.log(tasks);
+  };
 
   return { viewDetails, getName, getTasks, addTasks };
 };
