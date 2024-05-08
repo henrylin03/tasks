@@ -1,7 +1,5 @@
-console.log(
-  "in build of html. switching this js off because of all the alerts / prompts in this pre-ui version."
-);
-
+import "./styles/normalise.css";
+import "./styles/style.css";
 // import { createTask, createTaskFromJSON } from "./factories/task";
 // import { createProject, createProjectFromJSON } from "./factories/project";
 // import {
@@ -14,6 +12,10 @@ console.log(
 //   retrieveTask,
 //   storeTask,
 // } from "./utils/localStorageHelpers";
+
+console.log(
+  "in build of html. switching this js off because of all the alerts / prompts in this pre-ui version."
+);
 
 // const app = (function () {
 //   // localStorage.clear(); // comment out when you need to reset
