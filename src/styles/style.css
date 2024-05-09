@@ -2,8 +2,8 @@
 
 :root {
     --primary-clr: hsl(209, 100%, 50%);
-    --lighter-primary-clr: hsl(220, 100%, 95%);
-    --lightest-primary-clr: hsl(216, 100%, 98%);
+    --lighter-primary-clr: hsl(209, 100%, 95%);
+    --lightest-primary-clr: hsl(209, 100%, 98%);
     --highlight-clr: hsl(22, 96%, 48%);
     --warning-clr: hsl(340, 100%, 35%);
     --dimmed: hsl(0, 0%, 64%);
