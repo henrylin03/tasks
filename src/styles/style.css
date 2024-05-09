@@ -85,6 +85,13 @@ hr {
     color: var(--primary-clr)
 }
 
+.links-container .selected {
+    background-color: var(--lighter-primary-clr);
+    color: var(--primary-clr);
+    font-weight: 800;
+    border-radius: 8px;
+}
+
 /* header */
 header {
     padding: 20px 50px;
