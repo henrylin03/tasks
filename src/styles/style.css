@@ -50,12 +50,6 @@ h1 {
     gap: 10px;
 }
 
-.links-container a {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
 .logo {
     font-family: "Sacramento", cursive;
     font-size: 50px;
@@ -69,8 +63,18 @@ h1 {
     margin: 0 0 5px 2.5px;
 }
 
-.links-container .add-project {
+.links-container a {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.links-container a.add-project {
     color: var(--primary-clr)
+}
+
+.add-project figure {
+    width: 24px;
 }
 
 /* header */
