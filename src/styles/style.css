@@ -39,7 +39,7 @@ h1 {
 /* sidebar */
 .sidebar {
     grid-row: 1 / -1;
-    padding: 25px 15px;
+    padding: 25px 10px;
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -48,7 +48,10 @@ h1 {
 .sidebar .links-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+}
+
+.sidebar .link {
+    padding: 10px 15px;
 }
 
 .logo {
@@ -65,7 +68,7 @@ h1 {
 
 hr {
     width: 15%;
-    border-color: 1px solid var(--lightgrey-clr);
+    border-color: 2px solid var(--lightgrey-clr);
 }
 
 .sidebar h2 {
