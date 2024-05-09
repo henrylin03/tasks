@@ -67,8 +67,9 @@ h1 {
 }
 
 hr {
+    border: none;
+    border-top: 2px solid var(--lightgrey-clr);
     width: 15%;
-    border-color: 2px solid var(--lightgrey-clr);
 }
 
 .sidebar h2 {
