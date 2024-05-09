@@ -16,14 +16,23 @@
     font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
+h1 {
+    color: var(--primary-clr);
+}
+
+/* sidebar */
 .logo {
     font-family: "Sacramento", cursive;
     font-size: 50px;
-    color: var(--primary-clr);
 }
 
 h2 {
     color: var(--dimmed);
     font-size: 0.8rem;
     font-weight: normal;
+}
+
+/* header */
+header .right {
+    color: var(--dimmed);
 }
