@@ -31,7 +31,7 @@ h1 {
 .grid {
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 6fr;
+    grid-template-columns: 1fr 7fr;
     grid-template-rows: 1fr 10fr;
 }
 
