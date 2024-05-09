@@ -12,8 +12,8 @@ module.exports = {
         type: "asset/resource",
       },
       {
-        test: /.s?css$/,
-        use: [MiniCssExtractPlugin.loader, "style-loader", "css-loader"],
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader", MiniCssExtractPlugin.loader],
       },
     ],
   },
@@ -21,10 +21,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css",
+    }),
   ],
   optimization: {
-    minimizer: [`...`, new CssMinimizerPlugin()],
+    minimizer: [new CssMinimizerPlugin()],
   },
   output: {
     filename: "main.js",
