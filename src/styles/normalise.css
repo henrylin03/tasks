@@ -77,12 +77,18 @@ pre {
    ========================================================================== */
 
 /**
- * Remove the gray background on active links in IE 10.
+ * Remove the gray background on active links in IE 10. Remove underlines. Remove colours to links once visited.
  */
 
 a {
     background-color: transparent;
+    text-decoration: none;
 }
+
+a:visited {
+    color: inherit;
+}
+
 
 /**
  * 1. Remove the bottom border in Chrome 57-
