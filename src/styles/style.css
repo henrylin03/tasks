@@ -24,6 +24,14 @@ h1 {
     color: var(--primary-clr);
 }
 
+/* overall layout */
+.grid {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr 10fr;
+}
+
 /* sidebar */
 .logo {
     font-family: "Sacramento", cursive;
