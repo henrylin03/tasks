@@ -16,6 +16,10 @@
     font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
+body {
+    height: 100dvh;
+}
+
 h1 {
     color: var(--primary-clr);
 }
