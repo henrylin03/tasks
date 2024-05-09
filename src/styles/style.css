@@ -39,7 +39,7 @@ h1 {
 /* sidebar */
 .sidebar {
     grid-row: 1 / -1;
-    padding: 25px 30px;
+    padding: 25px 15px;
     display: flex;
     flex-direction: column;
     gap: 25px;
