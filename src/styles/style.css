@@ -20,6 +20,7 @@
 body {
     height: 100dvh;
     color: var(--black-clr);
+    font-size: .95rem;
 }
 
 h1 {
