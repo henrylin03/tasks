@@ -8,6 +8,7 @@
     --highlight-clr: hsl(22, 96%, 48%);
     --warning-clr: hsl(340, 100%, 35%);
     --dimmed: hsl(0, 0%, 64%);
+    --lightgrey-clr: hsl(0, 0%, 79%);
 }
 
 * {
@@ -56,6 +57,11 @@ h1 {
     text-align: center;
 }
 
+hr {
+    width: 15%;
+    border-top: 1px solid var(--lightgrey-clr);
+}
+
 .sidebar h2 {
     color: var(--dimmed);
     font-size: 0.8rem;
@@ -71,10 +77,6 @@ h1 {
 
 .links-container a.add-project {
     color: var(--primary-clr)
-}
-
-.add-project figure {
-    width: 24px;
 }
 
 /* header */
