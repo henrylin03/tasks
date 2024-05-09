@@ -38,6 +38,7 @@ h1 {
     padding: 30px 10px;
     display: flex;
     flex-direction: column;
+    gap: 30px;
 }
 
 .logo {
