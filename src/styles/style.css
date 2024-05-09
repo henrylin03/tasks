@@ -37,7 +37,7 @@ h1 {
 /* sidebar */
 .sidebar {
     grid-row: 1 / -1;
-    padding: 20px 30px;
+    padding: 25px 30px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -66,6 +66,10 @@ h1 {
     font-size: 0.8rem;
     font-weight: normal;
     margin: 0 0 5px 2.5px;
+}
+
+.links-container .add-project {
+    color: var(--primary-clr)
 }
 
 /* header */
