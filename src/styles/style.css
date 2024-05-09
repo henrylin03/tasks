@@ -50,6 +50,10 @@ h2 {
 }
 
 /* header */
+header {
+    padding: 20px 50px;
+}
+
 header .right {
     color: var(--dimmed);
 }
