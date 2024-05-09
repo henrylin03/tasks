@@ -37,7 +37,7 @@ h1 {
 /* sidebar */
 .sidebar {
     grid-row: 1 / -1;
-    padding: 30px 20px;
+    padding: 20px 30px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -51,7 +51,7 @@ h1 {
 
 .links-container a {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     align-items: center;
 }
 
@@ -65,6 +65,7 @@ h1 {
     color: var(--dimmed);
     font-size: 0.8rem;
     font-weight: normal;
+    margin: 0 0 5px 2.5px;
 }
 
 /* header */
