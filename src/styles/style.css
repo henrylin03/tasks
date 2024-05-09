@@ -4,6 +4,7 @@
     --primary-clr: hsl(209, 100%, 50%);
     --lighter-primary-clr: hsl(209, 100%, 95%);
     --lightest-primary-clr: hsl(209, 100%, 98%);
+    --black-clr: hsl(209, 100%, 7%);
     --highlight-clr: hsl(22, 96%, 48%);
     --warning-clr: hsl(340, 100%, 35%);
     --dimmed: hsl(0, 0%, 64%);
@@ -18,6 +19,7 @@
 
 body {
     height: 100dvh;
+    color: var(--black-clr);
 }
 
 h1 {
@@ -39,6 +41,12 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 30px;
+}
+
+.sidebar .links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .links-container a {
