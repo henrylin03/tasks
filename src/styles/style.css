@@ -28,13 +28,14 @@ h1 {
 .grid {
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr 6fr;
     grid-template-rows: 1fr 10fr;
 }
 
 /* sidebar */
 .sidebar {
     grid-row: 1 / -1;
+    padding: 30px 10px;
 }
 
 .logo {
