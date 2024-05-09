@@ -52,6 +52,7 @@ h2 {
 /* header */
 header {
     padding: 20px 50px;
+    background-color: var(--lightest-primary-clr);
 }
 
 header .right {
@@ -59,3 +60,7 @@ header .right {
 }
 
 /* main */
+main {
+    padding: 50px;
+    background-color: var(--lightest-primary-clr);
+}
