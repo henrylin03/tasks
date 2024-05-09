@@ -92,7 +92,7 @@ hr {
 .links-container .selected {
     background-color: var(--lighter-primary-clr);
     color: var(--primary-clr);
-    font-weight: 800;
+    font-weight: bold;
     border-radius: 8px;
 }
 
