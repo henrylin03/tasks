@@ -130,6 +130,5 @@ header .right {
 
 /* main */
 main {
-    padding: 50px;
     background-color: var(--lightest-primary-clr);
 }
