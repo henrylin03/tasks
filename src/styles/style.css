@@ -106,7 +106,7 @@ hr {
 
 /* header */
 header {
-    padding: 20px 50px;
+    padding: 30px 100px;
     background-color: var(--lightest-primary-clr);
     display: flex;
     align-items: center;
