@@ -138,3 +138,8 @@ main {
     border-radius: 20px;
     padding: 20px;
 }
+
+.task-attributes {
+    color: var(--dimmed);
+    font-size: .8rem;
+}
