@@ -140,6 +140,8 @@ main>.container {
     gap: 15px;
 }
 
+/* ? how to make the main section scrollable when overflow? */
+
 .task {
     background-color: white;
     border-radius: 20px;
@@ -155,3 +157,5 @@ main>.container {
     display: flex;
     gap: 15px;
 }
+
+/* ? how to truncate string of the task name (on narrower screens) as well as task description? */
