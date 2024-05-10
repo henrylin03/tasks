@@ -22,6 +22,7 @@ body {
     height: 100dvh;
     color: var(--black-clr);
     font-size: .95rem;
+    background-color: var(--lightest-primary-clr);
 }
 
 h1 {
@@ -38,6 +39,7 @@ h1 {
 
 /* sidebar */
 .sidebar {
+    background-color: white;
     grid-row: 1 / -1;
     padding: 25px 10px;
     display: flex;
@@ -106,8 +108,9 @@ hr {
 
 /* header */
 header {
-    padding: 30px 100px;
-    background-color: var(--lightest-primary-clr);
+    padding: 30px 0;
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -129,8 +132,9 @@ header .right {
 }
 
 /* main */
-main {
-    background-color: var(--lightest-primary-clr);
+main>.container {
+    width: 90%;
+    margin: 0 auto;
 }
 
 .task {
