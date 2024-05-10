@@ -132,3 +132,9 @@ header .right {
 main {
     background-color: var(--lightest-primary-clr);
 }
+
+.task {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
