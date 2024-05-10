@@ -51,7 +51,7 @@ h1 {
 }
 
 .sidebar .link {
-    padding: 10px 15px;
+    padding: 10px;
 }
 
 .logo {
@@ -76,7 +76,7 @@ hr {
     color: var(--dimmed);
     font-size: 0.8rem;
     font-weight: normal;
-    padding: 10px 15px;
+    margin: 0 0 5px 20px;
 }
 
 .links-container a {
