@@ -142,4 +142,6 @@ main {
 .task-attributes {
     color: var(--dimmed);
     font-size: .8rem;
+    display: flex;
+    gap: 15px;
 }
