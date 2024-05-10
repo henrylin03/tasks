@@ -108,6 +108,9 @@ hr {
 header {
     padding: 20px 50px;
     background-color: var(--lightest-primary-clr);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 header .right {
