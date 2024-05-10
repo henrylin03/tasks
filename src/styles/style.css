@@ -145,10 +145,16 @@ main>.container {
 .task {
     background-color: white;
     border-radius: 20px;
-    padding: 20px;
+    padding: 15px;
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+.task .right {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .task-attributes {
