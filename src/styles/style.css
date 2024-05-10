@@ -85,6 +85,14 @@ hr {
     align-items: center;
 }
 
+.links-container a svg {
+    flex: 1;
+}
+
+.links-container a p {
+    flex: 3;
+}
+
 .links-container a.add-project {
     color: var(--primary-clr)
 }
