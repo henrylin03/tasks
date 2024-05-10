@@ -137,6 +137,9 @@ main {
     background-color: white;
     border-radius: 20px;
     padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .task-attributes {
