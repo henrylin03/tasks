@@ -164,7 +164,7 @@ main>.container {
     color: var(--dimmed);
     font-size: .8rem;
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 /* ? how to truncate string of the task name (on narrower screens) as well as task description? */
