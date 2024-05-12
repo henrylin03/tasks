@@ -152,6 +152,30 @@ main>.container {
     gap: 20px;
 }
 
+.task>.checkbox-container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+
+.task .checkbox {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid var(--lightgrey-clr);
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.task .checkbox:checked {
+    background-color: var(--primary-clr);
+    appearance: auto;
+    clip-path: circle(50% at 50% 50%);
+}
+
 .task .right {
     display: flex;
     flex-direction: column;
