@@ -189,8 +189,16 @@ main>.container {
     gap: 25px;
 }
 
+.task-attributes li::marker {
+    color: var(--dimmed);
+}
+
 .task-attributes li:first-child {
     list-style-type: none;
+}
+
+.due-date-container.today {
+    color: var(--primary-clr)
 }
 
 /* ? how to truncate string of the task name (on narrower screens) as well as task description? */
