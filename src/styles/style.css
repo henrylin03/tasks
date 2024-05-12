@@ -159,6 +159,8 @@ main>.container {
 }
 
 .task-attributes {
+    list-style-type: none;
+    display: inline;
     color: var(--dimmed);
     font-size: .8rem;
     display: flex;
