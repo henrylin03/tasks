@@ -189,6 +189,12 @@ main>.container {
     gap: 25px;
 }
 
+.task-attributes li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 .task-attributes li::marker {
     color: var(--dimmed);
 }
@@ -200,5 +206,12 @@ main>.container {
 .due-date-container.today {
     color: var(--primary-clr)
 }
+
+.urgent-container {
+    color: var(--highlight-clr);
+    font-weight: bold;
+}
+
+/* todo: if urgent but also done, then colour is forced to be gray, not orange */
 
 /* ? how to truncate string of the task name (on narrower screens) as well as task description? */
