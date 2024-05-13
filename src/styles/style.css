@@ -263,3 +263,5 @@ main>.container {
 .task.completed .task-name {
     text-decoration: line-through;
 }
+
+/* todo: consider using components due to the large nature of this css style sheet now! */
