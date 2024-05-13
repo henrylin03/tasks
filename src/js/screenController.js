@@ -1,4 +1,4 @@
-const createDOMController = () => {
+const createScreenController = () => {
   const sidebar = document.querySelector(".sidebar");
   const projectsLinksContainer = document.querySelector(".projects");
 
@@ -31,4 +31,4 @@ const addProject = () => {
   form.submit();
 };
 
-export default createDOMController;
+export { createScreenController };

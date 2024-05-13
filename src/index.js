@@ -1,7 +1,7 @@
 import "./styles/normalise.css";
 import "./styles/style.css";
-import "./js/factories/DOMController";
-import createDOMController from "./js/factories/DOMController";
+import "./js/screenController";
+import { createScreenController } from "./js/screenController";
 // import { createTask, createTaskFromJSON } from "./factories/task";
 // import { createProject, createProjectFromJSON } from "./factories/project";
 // import {
@@ -15,11 +15,7 @@ import createDOMController from "./js/factories/DOMController";
 //   storeTask,
 // } from "./utils/localStorageHelpers";
 
-console.log(
-  "in build of html. switching this js off because of all the alerts / prompts in this pre-ui version."
-);
-
-createDOMController();
+createScreenController();
 
 // const app = (function () {
 //   // localStorage.clear(); // comment out when you need to reset
