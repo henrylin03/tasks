@@ -10,7 +10,6 @@ const createAppController = () => {
   };
 
   // WHAT CAN AN APP DO?
-  // an app should be able to add a project first and foremost
   return { addProject };
 };
 
