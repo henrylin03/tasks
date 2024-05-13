@@ -1,8 +1,9 @@
 import { createAppController } from "./appController";
 
+const app = createAppController();
+
 const createScreenController = () => {
   // instantiate the "app" - created by a factory that contains all app-level logic, like interacting with localStorage, and outputting (returning) required things to update DOM in this function
-  const app = createAppController();
 
   // select required dom elements here
 
@@ -24,12 +25,10 @@ const addProject = () => {
   const input = form.querySelector("#new-project-name");
   const cancelBtn = form.querySelector(".cancel-btn");
 
-  let newProjectName = "";
-
   function handleSubmit(e) {
     e.preventDefault();
-    newProjectName = input.value;
-    alert(newProjectName);
+    app.addProject(input.value);
+    dialog.close();
   }
 
   form.addEventListener("submit", handleSubmit);
