@@ -182,19 +182,25 @@ main>.container {
     gap: 2px;
 }
 
-ul.task-attributes {
+.task-attributes {
     color: var(--dimmed);
     font-size: .8rem;
     display: flex;
-    gap: 30px;
+    gap: 1rem;
 }
 
-.task-attributes li::marker {
-    color: var(--dimmed);
+.task-attributes li {
+    display: flex;
+    align-items: center;
 }
 
-.task-attributes li:first-child {
-    list-style-type: none;
+.task-attributes li:not(:first-child)::before {
+    content: "";
+    width: 0.25rem;
+    height: 0.25rem;
+    border-radius: 50%;
+    background-color: var(--dimmed);
+    margin-right: 1rem;
 }
 
 .attribute-container {
