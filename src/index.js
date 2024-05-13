@@ -1,5 +1,7 @@
 import "./styles/normalise.css";
 import "./styles/style.css";
+import "./js/factories/DOMController";
+import createDOMController from "./js/factories/DOMController";
 // import { createTask, createTaskFromJSON } from "./factories/task";
 // import { createProject, createProjectFromJSON } from "./factories/project";
 // import {
@@ -16,6 +18,8 @@ import "./styles/style.css";
 console.log(
   "in build of html. switching this js off because of all the alerts / prompts in this pre-ui version."
 );
+
+createDOMController();
 
 // const app = (function () {
 //   // localStorage.clear(); // comment out when you need to reset
