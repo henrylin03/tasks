@@ -237,7 +237,3 @@ main>.container {
 .task.completed .task-name {
     text-decoration: line-through;
 }
-
-
-
-/* ? how to truncate string of the task name (on narrower screens) as well as task description? */
