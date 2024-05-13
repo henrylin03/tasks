@@ -218,10 +218,18 @@ main>.container {
     font-weight: bold;
 }
 
+/* completed task */
 .task.completed {
     background-color: var(--lightest-primary-clr);
+    color: var(--dimmed);
 }
 
-/* todo: if urgent but also done, then colour is forced to be gray, not orange */
+.task.completed figure,
+.task.completed p {
+    color: var(--dimmed);
+    font-weight: normal;
+}
+
+
 
 /* ? how to truncate string of the task name (on narrower screens) as well as task description? */
