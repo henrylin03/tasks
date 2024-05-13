@@ -211,6 +211,10 @@ main>.container {
     color: var(--primary-clr)
 }
 
+.overdue {
+    color: var(--highlight-clr);
+}
+
 /* urgent task */
 .task.urgent {
     border-left: 10px solid var(--highlight-clr);
