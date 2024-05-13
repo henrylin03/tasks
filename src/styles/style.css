@@ -63,8 +63,12 @@ h1 {
     background-color: var(--lightest-primary-clr);
 }
 
-.link>*:active {
-    transform: scale(.98);
+.link svg {
+    flex: 1;
+}
+
+.link p {
+    flex: 3;
 }
 
 .logo {
@@ -96,14 +100,6 @@ hr {
     display: flex;
     gap: 20px;
     align-items: center;
-}
-
-.links-container a svg {
-    flex: 1;
-}
-
-.links-container a p {
-    flex: 3;
 }
 
 .add-project {
