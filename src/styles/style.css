@@ -182,17 +182,11 @@ main>.container {
     gap: 2px;
 }
 
-.task-attributes {
+ul.task-attributes {
     color: var(--dimmed);
     font-size: .8rem;
     display: flex;
-    gap: 25px;
-}
-
-.task-attributes li {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    gap: 30px;
 }
 
 .task-attributes li::marker {
@@ -203,11 +197,17 @@ main>.container {
     list-style-type: none;
 }
 
-.due-date-container.today {
+.attribute-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.today {
     color: var(--primary-clr)
 }
 
-.urgent-container {
+.urgent {
     color: var(--highlight-clr);
     font-weight: bold;
 }
