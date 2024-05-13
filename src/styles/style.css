@@ -52,8 +52,10 @@ h1 {
     flex-direction: column;
 }
 
-.sidebar .link {
+.link {
     padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .logo {
@@ -99,11 +101,14 @@ hr {
     color: var(--primary-clr)
 }
 
-.links-container .selected {
+.link:hover {
+    background-color: red;
+}
+
+.link.selected {
     background-color: var(--lighter-primary-clr);
     color: var(--primary-clr);
     font-weight: bold;
-    border-radius: 8px;
 }
 
 /* header */
