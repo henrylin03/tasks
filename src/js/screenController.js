@@ -3,8 +3,6 @@ import { createAppController } from "./appController";
 const app = createAppController();
 
 const createScreenController = () => {
-  // instantiate the "app" - created by a factory that contains all app-level logic, like interacting with localStorage, and outputting (returning) required things to update DOM in this function
-
   // select required dom elements here
 
   // add required event listeners
