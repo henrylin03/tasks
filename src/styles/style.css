@@ -127,12 +127,12 @@ header .left figure {
     height: 35px;
 }
 
-header .right {
+.add-task {
     color: var(--dimmed);
     transition: color .25s;
 }
 
-header .right:hover {
+.add-task:hover {
     color: var(--primary-clr);
 }
 
