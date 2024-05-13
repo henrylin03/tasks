@@ -136,6 +136,10 @@ header .left figure {
     color: var(--primary-clr);
 }
 
+.add-task:active {
+    transform: scale(.97);
+}
+
 
 /* main */
 main>.container {
