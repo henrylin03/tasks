@@ -157,12 +157,12 @@ main>.container {
 }
 
 .task .checkbox {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     background-color: white;
     border-radius: 50%;
     vertical-align: middle;
-    border: 1px solid var(--lightgrey-clr);
+    border: 1px solid var(--primary-clr);
     appearance: none;
     -webkit-appearance: none;
     cursor: pointer;
@@ -218,6 +218,10 @@ main>.container {
 /* urgent task */
 .task.urgent {
     border-left: 10px solid var(--highlight-clr);
+}
+
+.task.urgent .checkbox-container {
+    margin-left: -10px;
 }
 
 .attribute-container.urgent {
