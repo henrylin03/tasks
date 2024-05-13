@@ -22,6 +22,7 @@ body {
     height: 100dvh;
     color: var(--black-clr);
     font-size: .95rem;
+    background-color: var(--lightest-primary-clr);
 }
 
 h1 {
@@ -38,6 +39,7 @@ h1 {
 
 /* sidebar */
 .sidebar {
+    background-color: white;
     grid-row: 1 / -1;
     padding: 25px 10px;
     display: flex;
@@ -106,8 +108,9 @@ hr {
 
 /* header */
 header {
-    padding: 30px 100px;
-    background-color: var(--lightest-primary-clr);
+    padding: 30px 0;
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -129,7 +132,112 @@ header .right {
 }
 
 /* main */
-main {
-    padding: 50px;
+main>.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 1px 2px 8px -3px var(--dimmed);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.task>.checkbox-container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+
+.task .checkbox {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid var(--lightgrey-clr);
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.task .checkbox:checked {
+    background-color: var(--primary-clr);
+    appearance: auto;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.task .right {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.task-attributes {
+    color: var(--dimmed);
+    font-size: .8rem;
+    display: flex;
+    gap: 0.75rem;
+}
+
+.task-attributes li {
+    display: flex;
+    align-items: center;
+}
+
+.task-attributes li:not(:first-child)::before {
+    content: "";
+    width: 0.25rem;
+    height: 0.25rem;
+    border-radius: 50%;
+    background-color: var(--dimmed);
+    margin-right: 0.75rem;
+}
+
+.attribute-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.today {
+    color: var(--primary-clr)
+}
+
+.overdue {
+    color: var(--highlight-clr);
+}
+
+/* urgent task */
+.task.urgent {
+    border-left: 10px solid var(--highlight-clr);
+}
+
+.attribute-container.urgent {
+    color: var(--highlight-clr);
+    font-weight: bold;
+}
+
+
+/* completed task */
+.task.completed {
     background-color: var(--lightest-primary-clr);
+    color: var(--dimmed);
+}
+
+.task.completed figure,
+.task.completed p {
+    color: var(--dimmed);
+    font-weight: normal;
+}
+
+.task.completed .task-name {
+    text-decoration: line-through;
 }
