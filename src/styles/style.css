@@ -56,6 +56,11 @@ h1 {
     padding: 10px;
     border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.link:hover {
+    background-color: var(--lightest-primary-clr);
 }
 
 .logo {
@@ -99,10 +104,6 @@ hr {
 
 .links-container a.add-project {
     color: var(--primary-clr)
-}
-
-.link:hover {
-    background-color: red;
 }
 
 .link.selected {
