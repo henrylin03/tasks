@@ -286,4 +286,69 @@ main>.container {
     text-decoration: line-through;
 }
 
+/* dialogs */
+::backdrop {
+    background-color: gray;
+    opacity: .7;
+}
+
+dialog {
+    margin: auto;
+    border: none;
+    border-radius: 10px;
+    padding: 30px 25px;
+    width: 30vw;
+    background-color: var(--lightest-primary-clr)
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#new-project-name {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid var(--lightest-primary-clr);
+}
+
+#new-project-name:focus {
+    border: 2px solid var(--primary-clr);
+    box-shadow: 4px 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+dialog .btn-group {
+    display: flex;
+    justify-content: end;
+    gap: 15px;
+}
+
+dialog button {
+    padding: 8px 25px;
+    border-radius: 10px;
+    width: 100px;
+    transition: filter .18s;
+}
+
+dialog button:hover {
+    filter: brightness(1.05);
+}
+
+dialog button:active {
+    filter: brightness(.98);
+    transform: scale(.99);
+}
+
+.confirm-add-project-btn {
+    color: white;
+    background-color: var(--highlight-clr);
+}
+
+.cancel-btn {
+    color: #595959;
+    background-color: #dedede;
+}
+
 /* todo: consider using components due to the large nature of this css style sheet now! */
