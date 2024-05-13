@@ -155,6 +155,12 @@ main>.container {
     align-items: center;
     gap: 20px;
     cursor: pointer;
+    transition: all .2s;
+}
+
+.task:hover {
+    background-color: var(--lightest-primary-clr);
+    filter: brightness(.99) saturate(1.2)
 }
 
 .task>.checkbox-container {
