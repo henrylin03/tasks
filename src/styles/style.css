@@ -106,9 +106,10 @@ hr {
     flex: 3;
 }
 
-.links-container a.add-project {
-    color: var(--primary-clr)
+.add-project {
+    color: var(--primary-clr);
 }
+
 
 .link.selected {
     background-color: var(--lighter-primary-clr);
