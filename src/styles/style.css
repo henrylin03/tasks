@@ -240,6 +240,13 @@ main>.container {
     gap: 5px;
 }
 
+.description {
+    max-width: 20vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .today {
     color: var(--primary-clr)
 }
