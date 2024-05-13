@@ -172,6 +172,11 @@ main>.container {
     appearance: none;
     -webkit-appearance: none;
     cursor: pointer;
+    transition: background-color .15s;
+}
+
+.task .checkbox:hover {
+    background-color: var(--lighter-primary-clr);
 }
 
 .task .checkbox:checked {
