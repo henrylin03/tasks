@@ -63,6 +63,10 @@ h1 {
     background-color: var(--lightest-primary-clr);
 }
 
+.link>*:active {
+    transform: scale(.98);
+}
+
 .logo {
     font-family: "Sacramento", cursive;
     font-size: 50px;
