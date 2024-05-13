@@ -131,6 +131,10 @@ header .right {
     color: var(--dimmed);
 }
 
+header .right:hover {
+    color: var(--primary-clr);
+}
+
 /* main */
 main>.container {
     width: 90%;
