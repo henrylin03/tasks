@@ -211,12 +211,15 @@ main>.container {
     color: var(--primary-clr)
 }
 
+/* urgent task */
+.task.urgent {
+    border-left: 10px solid var(--highlight-clr);
+}
+
 .attribute-container.urgent {
     color: var(--highlight-clr);
     font-weight: bold;
 }
-
-/* urgent task */
 
 
 /* completed task */
