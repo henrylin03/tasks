@@ -15,7 +15,7 @@ import { createScreenController } from "./js/screenController";
 //   storeTask,
 // } from "./utils/localStorageHelpers";
 
-localStorage.clear(); // comment out when you need to reset
+// localStorage.clear(); // comment out when you need to reset
 createScreenController();
 
 // const app = (function () {

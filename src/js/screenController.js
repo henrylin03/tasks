@@ -28,6 +28,7 @@ const addProject = () => {
   function handleSubmit(e) {
     e.preventDefault();
     app.addProject(input.value);
+    form.reset();
     dialog.close();
   }
 
