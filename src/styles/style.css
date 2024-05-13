@@ -129,11 +129,13 @@ header .left figure {
 
 header .right {
     color: var(--dimmed);
+    transition: color .25s;
 }
 
 header .right:hover {
     color: var(--primary-clr);
 }
+
 
 /* main */
 main>.container {
