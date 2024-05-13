@@ -140,13 +140,11 @@ main>.container {
     gap: 15px;
 }
 
-/* ? how to make the main section scrollable when overflow? */
-
 .task {
     background-color: white;
     border-radius: 10px;
     padding: 15px;
-    box-shadow: 1px 2px 9px -5px var(--dimmed);
+    box-shadow: 1px 2px 8px -3px var(--dimmed);
     display: flex;
     align-items: center;
     gap: 20px;
@@ -213,10 +211,13 @@ main>.container {
     color: var(--primary-clr)
 }
 
-.urgent {
+.attribute-container.urgent {
     color: var(--highlight-clr);
     font-weight: bold;
 }
+
+/* urgent task */
+
 
 /* completed task */
 .task.completed {
