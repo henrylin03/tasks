@@ -33,7 +33,7 @@ h1 {
 .grid {
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 7fr;
+    grid-template-columns: 1fr 8fr;
     grid-template-rows: 1fr 10fr;
 }
 
@@ -63,12 +63,22 @@ h1 {
     background-color: var(--lightest-primary-clr);
 }
 
+.links-container a {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
 .link svg {
     flex: 1;
 }
 
 .link p {
     flex: 3;
+    max-width: max(20ch, 12vw);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .logo {
@@ -94,12 +104,6 @@ hr {
     font-size: 0.8rem;
     font-weight: normal;
     margin: 0 0 5px 20px;
-}
-
-.links-container a {
-    display: flex;
-    gap: 20px;
-    align-items: center;
 }
 
 .add-project {
