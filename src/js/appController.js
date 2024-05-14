@@ -1,13 +1,7 @@
 import { createProject } from "./factories/project";
 
 const createAppController = () => {
-  const addProject = (newProjectName) => {
-    const project = createProject(newProjectName);
-    project.store();
-    alert("project created and stored.");
-    console.log(project.viewDetails());
-    return;
-  };
+  const addProject = (newProjectName) => createProject(newProjectName).store();
 
   const getProjects = () => {};
 
