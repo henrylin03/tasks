@@ -4,13 +4,14 @@ const app = createAppController();
 
 const createScreenController = () => {
   // select required dom elements here
+  const navProjectsContainer = document.querySelector(".projects");
+  console.log(navProjectsContainer);
 
   // add required event listeners
 
   // add anything that needs to be run
 
   const sidebar = document.querySelector(".sidebar");
-  const projectsLinksContainer = document.querySelector(".projects");
 
   const addProjectBtn = document.querySelector("#add-project");
 
