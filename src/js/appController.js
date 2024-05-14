@@ -1,4 +1,5 @@
 import { createProject } from "./factories/project";
+import { retrieveAllProjectNames } from "./utils/localStorageHelpers";
 
 const createAppController = () => {
   const addProject = (newProjectName) => createProject(newProjectName).store();

@@ -46,8 +46,8 @@ const retrieveAllTaskNames = () =>
 
 const retrieveAll = () => {
   const obj = {};
-  const storedProjects = retrieveAllProjectNames();
-  storedProjects.forEach((p) => (obj[p] = retrieveProject(p)));
+  const storedProjectNames = Object.keys(localStorage);
+  storedProjectNames.forEach((p) => (obj[p] = retrieveProject(p)));
   return obj;
 };
 
