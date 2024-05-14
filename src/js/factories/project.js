@@ -2,6 +2,7 @@ import { uniq, isEqual } from "lodash";
 import { projectExists } from "../utils/localStorageHelpers";
 
 const createProject = (name, isNewlyCreated = true) => {
+  if (!name) return;
   if (isNewlyCreated && projectExists(name))
     throw new Error(`Project with name, "${name}" already exists`);
 
