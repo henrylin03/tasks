@@ -42,9 +42,11 @@ const displayProjects = () => {
     ".current-projects-container"
   );
 
-  const projectNamesArray = app
+  const projectsArray = app
     .getProjectNames()
     .map((p) => createProjectLinkInNav(p));
+
+  navProjectsContainer.replaceChildren(...projectsArray);
 
   function createProjectLinkInNav(projectName) {
     const linkDiv = document.createElement("div");
@@ -71,12 +73,6 @@ const displayProjects = () => {
 
     return linkDiv;
   }
-
-  console.log(projectNamesArray);
-
-  // for each of the project names, generate dom elements and then add it as child to navProjectsContainer. we want to complete remove what's in there though. html will thus have an empty current-projects-container (or not at all if it causes issues with spacing)
-
-  alert(projectNames);
 };
 
 export { createScreenController };
