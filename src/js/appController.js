@@ -5,6 +5,9 @@ const createAppController = () => {
 
   const getProjects = () => {};
 
+  // run
+  if (localStorage.length === 0) createProject("INBOX").store();
+
   // WHAT CAN AN APP DO?
   return { addProject, getProjects };
 };
