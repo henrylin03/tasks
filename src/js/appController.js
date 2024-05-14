@@ -9,8 +9,12 @@ const createAppController = () => {
     return;
   };
 
+  const getProjects = () => {};
+
   // WHAT CAN AN APP DO?
-  return { addProject };
+  return { addProject, getProjects };
 };
 
 export { createAppController };
+
+// NEED TO CREATE MY PROJECTS IF NOT ALREADY THERE! THIS IS THE INBOX
