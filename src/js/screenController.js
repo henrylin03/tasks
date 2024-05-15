@@ -49,10 +49,6 @@ const createScreenController = () => {
   //     displayProjectPage(div.dataset.project);
   //   })
   // );
-
-  function clearAllSelectedProjectNavLinks() {
-    projectsIncludingInbox.forEach((div) => div.classList.remove("selected"));
-  }
 };
 
 const addProject = () => {
@@ -89,9 +85,15 @@ const displayProjectsInNav = () => {
   navProjectsContainer.replaceChildren(...projectsArray);
 
   function createProjectLinkInNav(projectName) {
+    // create DOM elements from top down
     const linkDiv = document.createElement("div");
     linkDiv.classList.add("link");
     linkDiv.setAttribute("data-project", projectName);
+    linkDiv.addEventListener("click", () => {
+      clearAllSelectedProjectNavLinks();
+      displayProjectPage(projectName);
+    });
+
     const linkAnchor = document.createElement("a");
     const iconContainer = document.createElement("figure");
     iconContainer.classList.add("icon-container");
@@ -123,6 +125,13 @@ const displayProjectPage = (projectName) => {
 
   return;
 };
+
+function clearAllSelectedProjectNavLinks() {
+  const projectsIncludingInbox = document.querySelectorAll(
+    "div[class=link], div.link.selected"
+  );
+  projectsIncludingInbox.forEach((div) => div.classList.remove("selected"));
+}
 
 export { createScreenController };
 
