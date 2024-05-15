@@ -125,5 +125,4 @@ function handleNavLinkClicks(projectName) {
 
 export { createScreenController };
 
-// ? likely will need a factory to create inbox page and a "project" page that then gets populated via js
 //todo: fix errors for project name existing - make those not as thrown errors but actually in the DOM. toggle using js and css class for error (have a look at the signup form project you did)
