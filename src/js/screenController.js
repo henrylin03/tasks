@@ -35,18 +35,24 @@ const createScreenController = () => {
 
   // add required event listeners
   addProjectBtn.addEventListener("click", addProject);
-  brandingInSidebar.addEventListener("click", displayProjectPage("Inbox"));
+  brandingInSidebar.addEventListener("click", () => {
+    clearAllSelectedProjectNavLinks();
+    displayProjectPage("Inbox");
+  });
 
   const projectsIncludingInbox = document.querySelectorAll(
     "div[class=link], div.link.selected"
   );
-
   projectsIncludingInbox.forEach((div) =>
     div.addEventListener("click", () => {
-      projectsIncludingInbox.forEach((div) => div.classList.remove("selected"));
+      clearAllSelectedProjectNavLinks();
       displayProjectPage(div.dataset.project);
     })
   );
+
+  function clearAllSelectedProjectNavLinks() {
+    projectsIncludingInbox.forEach((div) => div.classList.remove("selected"));
+  }
 };
 
 const addProject = () => {
