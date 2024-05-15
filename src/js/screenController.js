@@ -89,10 +89,7 @@ const displayProjectsInNav = () => {
     const linkDiv = document.createElement("div");
     linkDiv.classList.add("link");
     linkDiv.setAttribute("data-project", projectName);
-    linkDiv.addEventListener("click", () => {
-      clearAllSelectedProjectNavLinks();
-      displayProjectPage(projectName);
-    });
+    linkDiv.addEventListener("click", () => handleNavLinkClicks(projectName));
 
     const linkAnchor = document.createElement("a");
     const iconContainer = document.createElement("figure");
@@ -126,11 +123,14 @@ const displayProjectPage = (projectName) => {
   return;
 };
 
-function clearAllSelectedProjectNavLinks() {
+// event handler for clicking project links (including inbox) on the side
+function handleNavLinkClicks(projectName) {
   const projectsIncludingInbox = document.querySelectorAll(
     "div[class=link], div.link.selected"
   );
+  // clear all previously selected pages (link has '.selected' attached)
   projectsIncludingInbox.forEach((div) => div.classList.remove("selected"));
+  displayProjectPage(projectName);
 }
 
 export { createScreenController };
