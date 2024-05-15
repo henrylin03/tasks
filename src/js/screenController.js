@@ -11,6 +11,7 @@ const createScreenController = () => {
 
   // add anything that needs to be run
   displayProjectsInNav();
+  // todo: on initial load (and when clicked on the logo as well as the "Inbox"), the Inbox page shows
 
   return;
 };
@@ -73,6 +74,20 @@ const displayProjectsInNav = () => {
 
     return linkDiv;
   }
+};
+
+// when user clicks on a project in navbar, js will generate that page, including all of its tasks.
+const displayProjectPage = (projectName) => {
+  // dom elements as variables declared
+  const headerLeftContainer = document.querySelector("header .left");
+  const pageIcon = headerLeftContainer.querySelector("figure");
+  const pageTitle = headerLeftContainer.querySelector(".page-title");
+
+  // header changes (icon changes too)
+
+  // all tasks are populated (? might need to come back to this later on once i've built tasks in ui)
+
+  return;
 };
 
 export { createScreenController };
