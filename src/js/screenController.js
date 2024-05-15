@@ -27,6 +27,7 @@ const svgs = {
 const createScreenController = () => {
   // select required dom elements here
   const brandingInSidebar = document.querySelector(".branding");
+  const inboxLinkInSidebar = document.querySelector("#inbox-link");
   const addProjectBtn = document.querySelector(".add-project");
 
   // add anything that needs to be run
@@ -35,20 +36,9 @@ const createScreenController = () => {
 
   // add required event listeners
   addProjectBtn.addEventListener("click", addProject);
-  // brandingInSidebar.addEventListener("click", () => {
-  //   clearAllSelectedProjectNavLinks();
-  //   displayProjectPage("Inbox");
-  // });
-
-  // const projectsIncludingInbox = document.querySelectorAll(
-  //   "div[class=link], div.link.selected"
-  // );
-  // projectsIncludingInbox.forEach((div) =>
-  //   div.addEventListener("click", () => {
-  //     clearAllSelectedProjectNavLinks();
-  //     displayProjectPage(div.dataset.project);
-  //   })
-  // );
+  [brandingInSidebar, inboxLinkInSidebar].forEach((elem) =>
+    elem.addEventListener("click", () => handleNavLinkClicks("Inbox"))
+  );
 };
 
 const addProject = () => {
