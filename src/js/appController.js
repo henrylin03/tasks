@@ -1,5 +1,5 @@
 import { createProject } from "./factories/project";
-import { retrieveAllProjectNames } from "./utils/localStorageHelpers";
+import { retrieveAllProjects } from "./utils/localStorageHelpers";
 
 const createAppController = () => {
   const addProject = (newProjectName) => {
@@ -8,16 +8,16 @@ const createAppController = () => {
     newProject.store();
   };
 
-  const getProjectNames = () =>
+  const getProjects = () =>
     // exclude inbox, which is a project object behind the scenes
-    retrieveAllProjectNames()
-      .filter((projectName) => projectName != "INBOX")
-      .sort((a, b) => a.id - b.id);
+    retrieveAllProjects()
+      .filter((project) => project.name != "INBOX")
+      .sort((projectA, projectB) => projectA.id - projectB.id);
 
   // run
   if (localStorage.length === 0) createProject("INBOX").store();
 
-  return { addProject, getProjectNames };
+  return { addProject, getProjects };
 };
 
 export { createAppController };

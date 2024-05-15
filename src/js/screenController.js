@@ -43,8 +43,8 @@ const displayProjects = () => {
   );
 
   const projectsArray = app
-    .getProjectNames()
-    .map((p) => createProjectLinkInNav(p));
+    .getProjects()
+    .map((p) => createProjectLinkInNav(p.name));
 
   navProjectsContainer.replaceChildren(...projectsArray);
 

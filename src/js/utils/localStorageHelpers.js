@@ -63,7 +63,7 @@ const findProjectsWithTask = (taskName) => {
 
 export {
   retrieveAll,
-  retrieveAllProjectNames,
+  retrieveAllProjects,
   retrieveProject,
   retrieveAllTasks,
   findProjectsWithTask,
