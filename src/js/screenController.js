@@ -42,18 +42,28 @@ const createScreenController = () => {
 };
 
 const addProject = () => {
-  const dialog = document.querySelector("dialog.new-project");
-  const form = dialog.querySelector("form");
-  const input = form.querySelector("#new-project-name");
-  const cancelBtn = form.querySelector(".cancel-btn");
+  const dialog = document.querySelector(".new-project");
+  const InputAndErrorMessageElements =
+    document.querySelector(".new-project .top").children;
+  const form = document.querySelector(".new-project form");
+  const input = document.querySelector("#new-project-name");
+  const cancelBtn = document.querySelector(".new-project .cancel-btn");
 
   // event listeners and handlers
   function handleSubmit(e) {
     e.preventDefault();
-    app.addProject(input.value);
-    form.reset();
-    dialog.close();
-    displayProjectsInNav();
+
+    // dealing with errors when project already exists
+    try {
+      app.addProject(input.value);
+      form.reset();
+      dialog.close();
+      displayProjectsInNav();
+    } catch {
+      [...InputAndErrorMessageElements].forEach((elem) =>
+        elem.classList.add("error")
+      );
+    }
   }
 
   form.addEventListener("submit", handleSubmit);
