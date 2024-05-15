@@ -2,7 +2,11 @@ import { createProject } from "./factories/project";
 import { retrieveAllProjectNames } from "./utils/localStorageHelpers";
 
 const createAppController = () => {
-  const addProject = (newProjectName) => createProject(newProjectName).store();
+  const addProject = (newProjectName) => {
+    if (!newProjectName) return;
+    const newProject = createProject(newProjectName);
+    newProject.store();
+  };
 
   const getProjectNames = () =>
     // we exclude "INBOX", which is a project object
@@ -15,3 +19,5 @@ const createAppController = () => {
 };
 
 export { createAppController };
+
+// todo: make sure that the latest added project is at the bottom of the list
