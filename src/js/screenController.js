@@ -95,11 +95,9 @@ const displayProjectPage = (projectName) => {
   const pageIcon = headerLeftContainer.querySelector("figure");
   const pageTitle = headerLeftContainer.querySelector(".page-title");
 
-  const isInbox = projectName === "Inbox";
-
   // header changes (icon changes too)
   pageTitle.textContent = projectName;
-  pageIcon.innerHTML = isInbox ? svgs.inbox : svgs.project;
+  pageIcon.innerHTML = projectName === "Inbox" ? svgs.inbox : svgs.project;
 
   // all tasks are populated (? might need to come back to this later on once i've built tasks in ui)
 
