@@ -1,5 +1,6 @@
 import { createProject } from "./factories/project";
 import {
+  projectExists,
   retrieveAllProjects,
   retrieveProject,
 } from "./utils/localStorageHelpers";
@@ -7,8 +8,10 @@ import {
 const createAppController = () => {
   const addProject = (newProjectName) => {
     if (!newProjectName) return;
+    if (projectExists) return false;
     const newProject = createProject(newProjectName);
     newProject.store();
+    return;
   };
 
   const getProjects = () =>
