@@ -42,12 +42,13 @@ const createScreenController = () => {
 };
 
 const addProject = () => {
-  const dialog = document.querySelector(".new-project");
-  const InputAndErrorMessageElements =
-    document.querySelector(".new-project .top").children;
-  const form = document.querySelector(".new-project form");
+  const dialog = document.querySelector(".new-project-modal");
+  const InputAndErrorMessageElements = document.querySelector(
+    ".new-project-modal .top"
+  ).children;
+  const form = document.querySelector(".new-project-modal form");
   const input = document.querySelector("#new-project-name");
-  const cancelBtn = document.querySelector(".new-project .cancel-btn");
+  const cancelBtn = document.querySelector(".new-project-modal .cancel-btn");
 
   // event listeners and handlers
   function handleSubmit(e) {
