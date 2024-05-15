@@ -1,8 +1,8 @@
 import { uniq, isEqual } from "lodash";
 import { projectExists } from "../utils/localStorageHelpers";
 
-const createProject = (name, isNewlyCreated = true) => {
-  if (isNewlyCreated && projectExists(name))
+const createProject = (name) => {
+  if (projectExists(name))
     throw new Error(`Project with name, "${name}" already exists`);
 
   // we presume you can't create a project at the exact same time
@@ -39,10 +39,4 @@ const createProject = (name, isNewlyCreated = true) => {
   };
 };
 
-const createProjectFromJSON = (retrievedProject) => {
-  const reconstructedProject = createProject(retrievedProject.name, false);
-  reconstructedProject.replaceTasks(retrievedProject.tasks);
-  return reconstructedProject;
-};
-
-export { createProject, createProjectFromJSON };
+export { createProject };

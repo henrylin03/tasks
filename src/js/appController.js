@@ -1,4 +1,4 @@
-import { createProject } from "./factories/project";
+import { createProject } from "./factories/createProject";
 import {
   retrieveAllProjects,
   retrieveProject,
