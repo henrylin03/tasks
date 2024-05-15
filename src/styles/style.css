@@ -321,13 +321,14 @@ dialog .top {
     border: 2px solid var(--lightest-primary-clr);
 }
 
+#new-project-name.error {
+    border: 2px solid var(--warning-clr);
+}
+
+
 #new-project-name:focus {
     border: 2px solid var(--primary-clr);
     box-shadow: 4px 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-#new-project-name.error {
-    border: 2px solid var(--warning-clr);
 }
 
 .error-message {
