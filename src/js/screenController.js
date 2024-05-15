@@ -43,19 +43,9 @@ const createScreenController = () => {
     div.addEventListener("click", () => {
       projectsIncludingInbox.forEach((div) => div.classList.remove("selected"));
       div.classList.add("selected");
-
-      alert(div.dataset.project);
-
-      // console.log(div);
-
-      // alert(e.target.dataset.project);
+      displayProjectPage(div.dataset.project);
     })
   );
-  //#1: it is the _only_ link that has selected class
-
-  //#2: the project page needs to be displayed
-
-  return;
 };
 
 const addProject = () => {
