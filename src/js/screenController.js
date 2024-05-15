@@ -66,13 +66,18 @@ const addProject = () => {
     }
   }
 
-  form.addEventListener("submit", handleSubmit);
-  input.addEventListener("input", () =>
+  function clearErrorMessage() {
     [...InputAndErrorMessageElements].forEach((elem) =>
       elem.classList.remove("error")
-    )
-  );
-  cancelBtn.addEventListener("click", () => dialog.close());
+    );
+  }
+
+  form.addEventListener("submit", handleSubmit);
+  input.addEventListener("input", clearErrorMessage);
+  cancelBtn.addEventListener("click", () => {
+    clearErrorMessage();
+    dialog.close();
+  });
 
   // run
   dialog.showModal();
