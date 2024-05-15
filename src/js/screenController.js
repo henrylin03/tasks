@@ -36,7 +36,7 @@ const createScreenController = () => {
   // add required event listeners
   addProjectBtn.addEventListener("click", addProject);
 
-  const projectsIncludingInbox = sidebar.querySelectorAll(".link");
+  const projectsIncludingInbox = document.querySelectorAll("div[class=link]");
   console.log(projectsIncludingInbox);
   // when a project link is clicked...
   //#1: it is the _only_ link that has selected class
