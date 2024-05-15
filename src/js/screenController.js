@@ -67,6 +67,11 @@ const addProject = () => {
   }
 
   form.addEventListener("submit", handleSubmit);
+  input.addEventListener("input", () =>
+    [...InputAndErrorMessageElements].forEach((elem) =>
+      elem.classList.remove("error")
+    )
+  );
   cancelBtn.addEventListener("click", () => dialog.close());
 
   // run
