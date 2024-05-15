@@ -9,8 +9,10 @@ const createAppController = () => {
   };
 
   const getProjectNames = () =>
-    // we exclude "INBOX", which is a project object
-    retrieveAllProjectNames().filter((projectName) => projectName != "INBOX");
+    // exclude inbox, which is a project object behind the scenes
+    retrieveAllProjectNames()
+      .filter((projectName) => projectName != "INBOX")
+      .sort((a, b) => a.id - b.id);
 
   // run
   if (localStorage.length === 0) createProject("INBOX").store();
