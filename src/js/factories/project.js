@@ -5,17 +5,16 @@ const createProject = (name, isNewlyCreated = true) => {
   if (isNewlyCreated && projectExists(name))
     throw new Error(`Project with name, "${name}" already exists`);
 
+  // GETTERS
   const id = Date.now();
+  const getId = () => id;
 
   let tasks = [];
-  // tasks are deduplicated
-  const getTasks = () => _.uniqWith(tasks, _.isEqual);
+  const getTasks = () => _.uniqWith(tasks, _.isEqual); // tasks are deduplicated
   const getName = () => name;
-  const viewDetails = () => ({
-    name,
-    tasks: getTasks(),
-  });
+  const viewDetails = () => ({ id, name, tasks: getTasks() });
 
+  // SETTERS (kind of)
   const addTasks = (...taskObjectsForAdding) => {
     const taskObjects = taskObjectsForAdding.flat(Infinity);
 
@@ -27,6 +26,7 @@ const createProject = (name, isNewlyCreated = true) => {
 
   const replaceTasks = (tasksArray) => (tasks = tasksArray);
 
+  // STORER INTO LOCALSTORAGE
   const store = () => localStorage.setItem(name, JSON.stringify(viewDetails()));
 
   return {
