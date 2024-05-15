@@ -107,7 +107,7 @@ hr {
     margin: 0 0 5px 20px;
 }
 
-#add-project {
+.add-project {
     color: var(--primary-clr);
 }
 

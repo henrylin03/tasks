@@ -1,5 +1,7 @@
 import { createAppController } from "./appController";
 
+//todo: make svg imported - there is too much markup here...
+
 const app = createAppController();
 const svgs = {
   project: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none"
@@ -24,20 +26,22 @@ const svgs = {
 
 const createScreenController = () => {
   // select required dom elements here
-  const addProjectBtn = document.querySelector("#add-project");
+  const addProjectBtn = document.querySelector(".add-project");
+
+  // add anything that needs to be run
+  displayProjectsInNav();
+  displayProjectPage("Inbox"); //todo: when a page is displayed, its equivalent nav link is highlighted
+  // todo: when clicked on the logo, the Inbox page shows
 
   // add required event listeners
   addProjectBtn.addEventListener("click", addProject);
 
-  // const handleNavLinkClicks = (e) => {
-  //   console.log(e.target.textContent);
-  // };
+  const projectsIncludingInbox = sidebar.querySelectorAll(".link");
+  console.log(projectsIncludingInbox);
+  // when a project link is clicked...
+  //#1: it is the _only_ link that has selected class
 
-  // add anything that needs to be run
-  displayProjectPage("Inbox"); //todo: when a page is displayed, its equivalent nav link is highlighted
-  displayProjectsInNav();
-  // todo: when clicked on the logo, the Inbox page shows
-  // todo: when user
+  //#2: the project page needs to be displayed
 
   return;
 };
