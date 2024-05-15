@@ -320,8 +320,14 @@ dialog form {
     box-shadow: 4px 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
+dialog .top {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .error-message {
-    margin: -10px 0 0 10px;
+    margin-left: 10px;
     color: var(--warning-clr);
     display: none;
 }
