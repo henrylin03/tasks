@@ -305,7 +305,7 @@ dialog {
 dialog form {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 25px;
 }
 
 #new-project-name {
@@ -318,6 +318,10 @@ dialog form {
 #new-project-name:focus {
     border: 2px solid var(--primary-clr);
     box-shadow: 4px 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+    margin: -10px 0 0 10px;
 }
 
 dialog .btn-group {
