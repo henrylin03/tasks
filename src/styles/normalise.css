@@ -174,8 +174,7 @@ img {
  * 2. Remove the margin in Firefox and Safari.
  */
 
-button,
-a {
+button {
     border: none;
     outline: none;
     cursor: pointer;
