@@ -7,7 +7,6 @@ const createProject = (name, isNewlyCreated = true) => {
 
   let tasks = [];
   const getTasks = () => _.uniqWith(tasks, _.isEqual);
-
   const getName = () => name;
   const viewDetails = () => ({
     name,
@@ -27,7 +26,14 @@ const createProject = (name, isNewlyCreated = true) => {
 
   const store = () => localStorage.setItem(name, JSON.stringify(viewDetails()));
 
-  return { viewDetails, getName, getTasks, addTasks, replaceTasks, store };
+  return {
+    viewDetails,
+    getName,
+    getTasks,
+    addTasks,
+    replaceTasks,
+    store,
+  };
 };
 
 const createProjectFromJSON = (retrievedProject) => {

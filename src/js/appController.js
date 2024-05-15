@@ -19,5 +19,3 @@ const createAppController = () => {
 };
 
 export { createAppController };
-
-// todo: make sure that the latest added project is at the bottom of the list
