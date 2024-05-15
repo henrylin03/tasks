@@ -29,10 +29,15 @@ const createScreenController = () => {
   // add required event listeners
   addProjectBtn.addEventListener("click", addProject);
 
+  // const handleNavLinkClicks = (e) => {
+  //   console.log(e.target.textContent);
+  // };
+
   // add anything that needs to be run
-  displayProjectPage("Inbox");
+  displayProjectPage("Inbox"); //todo: when a page is displayed, its equivalent nav link is highlighted
   displayProjectsInNav();
-  // todo: on initial load (and when clicked on the logo as well as the "Inbox"), the Inbox page shows
+  // todo: when clicked on the logo, the Inbox page shows
+  // todo: when user
 
   return;
 };
@@ -73,6 +78,7 @@ const displayProjectsInNav = () => {
   function createProjectLinkInNav(projectName) {
     const linkDiv = document.createElement("div");
     linkDiv.classList.add("link");
+    linkDiv.setAttribute("data-project", projectName);
     const linkAnchor = document.createElement("a");
     const iconContainer = document.createElement("figure");
     iconContainer.classList.add("icon-container");
@@ -88,15 +94,12 @@ const displayProjectsInNav = () => {
   }
 };
 
-// when user clicks on a project in navbar, js will generate that page, including all of its tasks.
 const displayProjectPage = (projectName) => {
-  // retrieve the project object
-  const project = app.getProject(projectName);
-
   const headerLeftContainer = document.querySelector("header .left");
   const pageIcon = headerLeftContainer.querySelector("figure");
   const pageTitle = headerLeftContainer.querySelector(".page-title");
 
+  const project = app.getProject(projectName);
   const isInbox = projectName === "Inbox";
 
   // header changes (icon changes too)
