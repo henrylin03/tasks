@@ -2,6 +2,9 @@ import { uniq, isEqual } from "lodash";
 import { projectExists } from "../utils/localStorageHelpers";
 
 const createProject = (name) => {
+  if (projectExists(name))
+    throw new Error(`Project with name, "${name}" already exists`);
+
   // we presume you can't create a project at the exact same time
   const id = Date.now();
 
