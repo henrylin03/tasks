@@ -36,12 +36,16 @@ const createScreenController = () => {
   // add required event listeners
   addProjectBtn.addEventListener("click", addProject);
 
-  const projectsIncludingInbox = document.querySelectorAll("div[class=link]");
-  console.log(projectsIncludingInbox); //todo: remove
-  // when a project link is clicked...
+  const projectsIncludingInbox = document.querySelectorAll(
+    "div[class=link], div.link.selected"
+  );
   projectsIncludingInbox.forEach((div) =>
     div.addEventListener("click", () => {
-      alert(div.dataset.project);
+      projectsIncludingInbox.forEach((div) => div.classList.remove("selected"));
+
+      // console.log(div);
+
+      // alert(e.target.dataset.project);
     })
   );
   //#1: it is the _only_ link that has selected class
