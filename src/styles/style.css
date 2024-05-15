@@ -69,7 +69,8 @@ h1 {
     align-items: center;
 }
 
-.link svg {
+.link .icon-container {
+    height: 24px;
     flex: 1;
 }
 
