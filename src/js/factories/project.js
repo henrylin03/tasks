@@ -5,8 +5,7 @@ const createProject = (name, isNewlyCreated = true) => {
   if (isNewlyCreated && projectExists(name))
     throw new Error(`Project with name, "${name}" already exists`);
 
-  const creationTimestamp = Date.now();
-  console.log(creationTimestamp);
+  const id = Date.now();
 
   let tasks = [];
   // tasks are deduplicated
