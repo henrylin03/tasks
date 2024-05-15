@@ -308,6 +308,12 @@ dialog form {
     gap: 25px;
 }
 
+dialog .top {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 #new-project-name {
     width: 100%;
     padding: 15px;
@@ -320,10 +326,8 @@ dialog form {
     box-shadow: 4px 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-dialog .top {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+#new-project-name.error {
+    border: 2px solid var(--warning-clr);
 }
 
 .error-message {
