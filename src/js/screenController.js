@@ -26,15 +26,16 @@ const svgs = {
 
 const createScreenController = () => {
   // select required dom elements here
+  const brandingInSidebar = document.querySelector(".branding");
   const addProjectBtn = document.querySelector(".add-project");
 
   // add anything that needs to be run
   displayProjectsInNav();
-  displayProjectPage("Inbox"); //todo: when a page is displayed, its equivalent nav link is highlighted
-  // todo: when clicked on the logo, the Inbox page shows
+  displayProjectPage("Inbox");
 
   // add required event listeners
   addProjectBtn.addEventListener("click", addProject);
+  brandingInSidebar.addEventListener("click", displayProjectPage("Inbox"));
 
   const projectsIncludingInbox = document.querySelectorAll(
     "div[class=link], div.link.selected"
