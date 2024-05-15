@@ -10,7 +10,7 @@ const createScreenController = () => {
   addProjectBtn.addEventListener("click", addProject);
 
   // add anything that needs to be run
-  displayProjects();
+  displayProjectsInNav();
 
   return;
 };
@@ -27,7 +27,7 @@ const addProject = () => {
     app.addProject(input.value);
     form.reset();
     dialog.close();
-    displayProjects();
+    displayProjectsInNav();
   }
 
   form.addEventListener("submit", handleSubmit);
@@ -37,7 +37,7 @@ const addProject = () => {
   dialog.showModal();
 };
 
-const displayProjects = () => {
+const displayProjectsInNav = () => {
   const navProjectsContainer = document.querySelector(
     ".current-projects-container"
   );
