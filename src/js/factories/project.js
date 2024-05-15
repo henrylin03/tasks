@@ -6,6 +6,8 @@ const createProject = (name, isNewlyCreated = true) => {
     throw new Error(`Project with name, "${name}" already exists`);
 
   let tasks = [];
+
+  // tasks are deduplicated
   const getTasks = () => _.uniqWith(tasks, _.isEqual);
   const getName = () => name;
   const viewDetails = () => ({
