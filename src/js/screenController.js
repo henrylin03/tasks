@@ -30,6 +30,7 @@ const createScreenController = () => {
   addProjectBtn.addEventListener("click", addProject);
 
   // add anything that needs to be run
+  displayProjectPage("Inbox");
   displayProjectsInNav();
   // todo: on initial load (and when clicked on the logo as well as the "Inbox"), the Inbox page shows
 
@@ -73,7 +74,6 @@ const displayProjectsInNav = () => {
     const linkDiv = document.createElement("div");
     linkDiv.classList.add("link");
     const linkAnchor = document.createElement("a");
-    linkAnchor.setAttribute("href", "#");
     const iconContainer = document.createElement("figure");
     iconContainer.classList.add("icon-container");
     const projectNameText = document.createElement("p");
