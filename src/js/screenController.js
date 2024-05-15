@@ -40,10 +40,10 @@ const createScreenController = () => {
   const projectsIncludingInbox = document.querySelectorAll(
     "div[class=link], div.link.selected"
   );
+
   projectsIncludingInbox.forEach((div) =>
     div.addEventListener("click", () => {
       projectsIncludingInbox.forEach((div) => div.classList.remove("selected"));
-      div.classList.add("selected");
       displayProjectPage(div.dataset.project);
     })
   );
@@ -105,13 +105,13 @@ const displayProjectPage = (projectName) => {
   const headerLeftContainer = document.querySelector("header .left");
   const pageIcon = headerLeftContainer.querySelector("figure");
   const pageTitle = headerLeftContainer.querySelector(".page-title");
+  const navbarLink = document.querySelector(`[data-project="${projectName}"]`);
 
   const project = app.getProject(projectName);
-  const isInbox = projectName === "Inbox";
 
-  // header changes (icon changes too)
+  navbarLink.classList.add("selected");
   pageTitle.textContent = project.name;
-  pageIcon.innerHTML = isInbox ? svgs.inbox : svgs.project;
+  pageIcon.innerHTML = projectName === "Inbox" ? svgs.inbox : svgs.project;
 
   // all tasks are populated (? might need to come back to this later on once i've built tasks in ui)
 
