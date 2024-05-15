@@ -57,6 +57,7 @@ const addProject = () => {
     try {
       app.addProject(input.value);
       form.reset();
+      clearErrorMessage();
       dialog.close();
       displayProjectsInNav();
     } catch {
@@ -77,6 +78,13 @@ const addProject = () => {
   cancelBtn.addEventListener("click", () => {
     clearErrorMessage();
     dialog.close();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      form.reset();
+      clearErrorMessage();
+      dialog.close();
+    }
   });
 
   // run
