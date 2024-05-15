@@ -42,6 +42,9 @@ const createScreenController = () => {
   projectsIncludingInbox.forEach((div) =>
     div.addEventListener("click", () => {
       projectsIncludingInbox.forEach((div) => div.classList.remove("selected"));
+      div.classList.add("selected");
+
+      alert(div.dataset.project);
 
       // console.log(div);
 
