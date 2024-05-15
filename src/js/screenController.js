@@ -37,8 +37,13 @@ const createScreenController = () => {
   addProjectBtn.addEventListener("click", addProject);
 
   const projectsIncludingInbox = document.querySelectorAll("div[class=link]");
-  console.log(projectsIncludingInbox);
+  console.log(projectsIncludingInbox); //todo: remove
   // when a project link is clicked...
+  projectsIncludingInbox.forEach((div) =>
+    div.addEventListener("click", () => {
+      alert(div.dataset.project);
+    })
+  );
   //#1: it is the _only_ link that has selected class
 
   //#2: the project page needs to be displayed
