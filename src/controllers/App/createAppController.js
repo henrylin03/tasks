@@ -5,6 +5,10 @@ import {
 } from "../../helpers/localStorageHelpers";
 
 const createAppController = () => {
+  const addTask = (newTaskName) => {
+    alert(newTaskName);
+  };
+
   const addProject = (newProjectName) => {
     if (!newProjectName) return;
     const newProject = createProject(newProjectName);
@@ -22,7 +26,7 @@ const createAppController = () => {
   // run
   if (localStorage.length === 0) createProject("Inbox").store();
 
-  return { addProject, getProjects, getProject };
+  return { addTask, addProject, getProjects, getProject };
 };
 
 export { createAppController };

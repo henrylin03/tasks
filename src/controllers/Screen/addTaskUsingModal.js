@@ -9,4 +9,5 @@ const addTaskUsingModal = () => {
 };
 
 const toggleUrgency = () => modal.classList.toggle("is-urgent");
+
 export default addTaskUsingModal;
