@@ -386,6 +386,17 @@ dialog button:active {
     gap: 15px;
 }
 
+.task-name-input-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.toggle-urgent-btn {
+    mask-image: url("../icons/alert-circle-outline.svg");
+    background-color: var(--highlight-clr);
+    mask-repeat: no-repeat;
+}
+
 .input-container {
     display: flex;
     gap: 15px;
