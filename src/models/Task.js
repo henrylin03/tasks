@@ -1,12 +1,13 @@
 import { format } from "date-fns";
 
-const createTask = ({ title, description = "" }) => {
+const createTask = (name) => {
+  let description = "";
   let dueDate = "";
   let priority = "Medium";
   let status = "To Do";
 
   const viewDetails = () => ({
-    title,
+    name,
     description,
     dueDate,
     priority,
