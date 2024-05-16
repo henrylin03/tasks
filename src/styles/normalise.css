@@ -181,7 +181,9 @@ a {
     cursor: pointer;
 }
 
-input {
+input,
+textarea,
+select {
     border: none;
     outline: none;
     font: inherit;
