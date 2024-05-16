@@ -1,3 +1,6 @@
+import { createAppController } from "../App/createAppController";
+import displayProjectsInNav from "./displayProjectsInNav";
+
 const dialog = document.querySelector(".new-project-modal");
 const InputAndErrorMessageElements = document.querySelector(
   ".new-project-modal .top"
@@ -27,6 +30,7 @@ const addProject = () => {
 
 function handleSubmit(e) {
   e.preventDefault();
+  const app = createAppController();
 
   // dealing with errors when project already exists
   try {
