@@ -24,7 +24,6 @@ const createTask = (name) => {
   const toggleUrgency = () => (urgency = !urgency);
   const toggleCompleted = () => (completed = !completed);
 
-  // setters for private properties
   const set = {
     name: setName,
     description: setDescription,
