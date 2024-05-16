@@ -17,7 +17,7 @@ const createTask = (name) => {
   const setName = (newName) => (name = newName);
   const setDescription = (newDescription) => (description = newDescription);
   const setDueDate = (dueDateString) => {
-    const [day, month, year] = dueDateString.split("/");
+    const [year, month, day] = dueDateString.split("-");
     // month is zero-indexed
     dueDate = format(new Date(year, month - 1, day), "dd/MM/yyyy");
   };
