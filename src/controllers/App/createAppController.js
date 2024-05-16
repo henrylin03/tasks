@@ -6,14 +6,14 @@ import {
 } from "../../helpers/localStorageHelpers";
 
 const createAppController = () => {
-  const addTask = ({ name, description, dueDate, urgency, completed }) => {
+  const addTask = ({ name, description, dueDate, urgency, status }) => {
     if (!name) return;
     const newTask = createTask(name);
     newTask.setDescription(description);
-    newTask.setUrgency(urgency);
-
     console.log(dueDate);
     // newTask.set.dueDate = dueDate;
+    newTask.setUrgency(urgency);
+    newTask.setCompletion(status);
   };
 
   const addProject = (newProjectName) => {

@@ -25,7 +25,7 @@ const createTask = (name) => {
     if (typeof bool != "boolean") return;
     urgency = bool;
   };
-  const setComplete = (bool) => {
+  const setCompletion = (bool) => {
     if (typeof bool != "boolean") return;
     completed = bool;
   };
@@ -35,7 +35,7 @@ const createTask = (name) => {
     setDescription,
     setDueDate,
     setAsUrgent,
-    setComplete,
+    setCompletion,
   };
 };
 
