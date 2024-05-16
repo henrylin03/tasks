@@ -1,5 +1,5 @@
 import { uniq, isEqual } from "lodash";
-import { projectExists } from "../utils/localStorageHelpers";
+import { projectExists } from "../helpers/localStorageHelpers";
 
 const createProject = (name) => {
   if (projectExists(name))
