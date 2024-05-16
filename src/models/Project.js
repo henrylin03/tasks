@@ -47,8 +47,6 @@ const recreateRetrievedProject = ({ id, name, tasks }) => {
   project.setId(id);
   project.replaceTasks(tasks);
 
-  console.log(project);
-
   return project;
 };
 

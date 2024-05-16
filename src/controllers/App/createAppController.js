@@ -13,11 +13,7 @@ const createAppController = () => {
     newTask.setDueDate(dueDate);
     newTask.setUrgency(urgency);
 
-    // find out which project it should be tagged to
-    const project = recreateRetrievedProject(getProject(projectName));
-
-    console.log(retrievedProjectObject);
-    console.log();
+    const project = recreateRetrievedProject(retrieveProject(projectName));
     // store into localStorage based on project
     // OR is there a way to store the task FIRST into a "tasks" storage, and then added to project later on? i guess, is there a way to not know its project first?
   };
