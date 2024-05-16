@@ -1,4 +1,4 @@
-import { createAppController } from "../App";
+import { createAppController } from "../App/createAppController";
 
 //todo: make svg imported - there is too much markup here...
 
