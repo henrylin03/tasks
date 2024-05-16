@@ -1,4 +1,3 @@
-import { uniq, isEqual } from "lodash";
 import { projectExists } from "../helpers/localStorageHelpers";
 
 const createProject = (name, recreatingFromJSON = false) => {
@@ -10,21 +9,14 @@ const createProject = (name, recreatingFromJSON = false) => {
   let tasks = [];
 
   // GETTERS
-  const getTasks = () => _.uniqWith(tasks, _.isEqual); // tasks are deduplicated
+  const getTasks = () => tasks; // tasks are deduplicated
   const getName = () => name;
-  const viewDetails = () => ({ id, name, tasks: getTasks() });
+  const viewDetails = () => ({ id, name, tasks });
 
   // SETTERS (kind of)
   // don't use this setter for id unless you're reconstructing from json
   const setId = (newId) => (id = newId);
-  const addTasks = (...taskObjectsForAdding) => {
-    const taskObjects = taskObjectsForAdding.flat(Infinity);
-
-    taskObjects.forEach((t) => {
-      const taskDetails = t.hasOwnProperty("viewDetails") ? t.viewDetails() : t;
-      tasks.push(taskDetails);
-    });
-  };
+  const addTask = (taskObject) => tasks.push(taskObject.viewDetails());
 
   const replaceTasks = (tasksArray) => (tasks = tasksArray);
 
@@ -36,7 +28,7 @@ const createProject = (name, recreatingFromJSON = false) => {
     getName,
     getTasks,
     setId,
-    addTasks,
+    addTask,
     replaceTasks,
     store,
   };
