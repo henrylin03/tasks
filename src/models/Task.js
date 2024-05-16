@@ -21,8 +21,14 @@ const createTask = (name) => {
     // month is zero-indexed
     dueDate = format(new Date(year, month - 1, day), "dd/MM/yyyy");
   };
-  const setAsUrgent = () => (urgency = true);
-  const setComplete = () => (completed = true);
+  const setAsUrgent = (bool) => {
+    if (typeof bool != "boolean") return;
+    urgency = bool;
+  };
+  const setComplete = (bool) => {
+    if (typeof bool != "boolean") return;
+    completed = bool;
+  };
 
   return {
     viewDetails,
