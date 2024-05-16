@@ -378,4 +378,13 @@ dialog button:active {
     background-color: #dedede;
 }
 
+.new-task-modal form {
+    gap: 15px;
+}
+
+.input-container {
+    display: flex;
+    gap: 15px;
+}
+
 /* todo: consider using components due to the large nature of this css style sheet now! */

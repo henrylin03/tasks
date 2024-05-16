@@ -181,7 +181,7 @@
         <small class="error-message">Project name exists. Please choose a different project name.</small>
       </div>
       <div class="btn-group">
-        <button class="confirm-btn add-project-btn" type="submit">Add</button>
+        <button class="confirm-add-project-btn" type="submit">Add</button>
         <button class="cancel-btn" type="reset">Cancel</button>
       </div>
     </form>
@@ -191,13 +191,15 @@
     <form>
       <input type="text" id="new-task-name" placeholder="*Task name" required>
       <textarea id="new-task-description" cols="30" rows="5" placeholder="Description"></textarea>
-      <input type="text" id="new-task-due-date" placeholder="Due date" onfocus="(this.type='date')"
-        onblur="(this.type='text')">
-      <select id="project-of-new-task">
-        <option value="Inbox">Inbox</option>
-        <option value="Another project">Another project</option>
-        <option value="Project 3 (this is not linked up yet)">Project 3 (this is not linked up yet)</option>
-      </select>
+      <div class="input-container">
+        <input type="text" id="new-task-due-date" placeholder="Due date" onfocus="(this.type='date')"
+          onblur="(this.type='text')">
+        <select id="project-of-new-task">
+          <option value="Inbox">Inbox</option>
+          <option value="Another project">Another project</option>
+          <option value="Project 3 (this is not linked up yet)">Project 3 (this is not linked up yet)</option>
+        </select>
+      </div>
       <div class="btn-group">
         <button class="confirm-btn add-task-btn" type="submit">Add</button>
         <button class="cancel-btn" type="reset">Cancel</button>
