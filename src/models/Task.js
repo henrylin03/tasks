@@ -10,7 +10,7 @@ const createTask = (name) => {
     name,
     description,
     dueDate,
-    urgent,
+    urgency,
     completed,
   });
 
@@ -29,7 +29,7 @@ const createTask = (name) => {
     name: setName,
     description: setDescription,
     dueDate: setDueDate,
-    urgent: toggleUrgency,
+    urgency: toggleUrgency,
     completed: toggleCompleted,
   };
 

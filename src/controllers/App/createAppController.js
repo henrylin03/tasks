@@ -7,7 +7,9 @@ import {
 
 const createAppController = () => {
   const addTask = (newTaskName) => {
-    alert(newTaskName);
+    if (!newTaskName) return;
+    const newTask = createTask(newTaskName);
+    console.log(newTask.viewDetails());
   };
 
   const addProject = (newProjectName) => {
