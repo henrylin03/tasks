@@ -317,6 +317,10 @@ select {
     border: 2px solid var(--lighter-primary-clr);
 }
 
+select {
+    padding-left: 10px;
+}
+
 dialog .top {
     display: flex;
     flex-direction: column;
