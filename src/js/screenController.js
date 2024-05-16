@@ -153,5 +153,3 @@ function handleNavLinkClicks(projectName) {
 }
 
 export { createScreenController };
-
-//todo: fix errors for project name existing - make those not as thrown errors but actually in the DOM. toggle using js and css class for error (have a look at the signup form project you did)
