@@ -154,4 +154,4 @@ function handleNavLinkClicks(projectName) {
 
 export { createScreenController };
 
-//todo: need to break this code down - it is getting too long. perhaps separate sub-modules in subfolders
+//todo: need to break this code down - it is getting too long. perhaps separate sub-modules in subfolders. screenController is used to attach event listeners at the top level. but individual modules control functionalities.
