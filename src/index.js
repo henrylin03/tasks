@@ -1,5 +1,5 @@
-import "./styles/normalise.css";
-import "./styles/style.css";
+import "./assets/styles/normalise.css";
+import "./assets/styles/global.css";
 import "./js/screenController";
 import { createScreenController } from "./js/screenController";
 
