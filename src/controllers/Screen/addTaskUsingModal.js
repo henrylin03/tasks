@@ -29,11 +29,15 @@ const handleSubmit = (e) => {
     description: descriptionInput.value,
     dueDate: dueDateInput.value,
     urgency: modal.classList.contains("is-urgent"),
+    projectName: taggedProject.value,
   };
 
+  console.log(taggedProject.value);
   console.log(newTaskObject);
 
   app.addTask(newTaskObject);
+
+  //   lastly, close the modal, and clear everything
 };
 
 const toggleUrgency = () => modal.classList.toggle("is-urgent");
