@@ -33,16 +33,4 @@ const createTask = (name) => {
   };
 };
 
-const createTaskFromJSON = (retrievedTask) => {
-  const reconstructedTask = createTask(retrievedTask.name);
-
-  for (const [retrievedProperty, retrievedValue] of Object.entries(
-    retrievedTask
-  )) {
-    reconstructedTask.set[retrievedProperty](retrievedValue);
-  }
-
-  return reconstructedTask;
-};
-
-export { createTask, createTaskFromJSON };
+export { createTask };

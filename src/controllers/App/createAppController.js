@@ -9,6 +9,9 @@ const createAppController = () => {
   const addTask = ({ name, description, dueDate, urgency, completed }) => {
     if (!name) return;
     const newTask = createTask(name);
+
+    console.log(dueDate);
+    // newTask.set.dueDate = dueDate;
   };
 
   const addProject = (newProjectName) => {
