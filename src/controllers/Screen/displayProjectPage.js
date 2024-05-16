@@ -1,4 +1,5 @@
 import { createAppController } from "../App/createAppController";
+import displayTasks from "./displayTasks";
 
 //todo: make svg imported - there is too much markup here...
 const SVGS = {
@@ -36,8 +37,7 @@ const displayProjectPage = (projectName) => {
   pageIcon.innerHTML = projectName === "Inbox" ? SVGS.inbox : SVGS.project;
 
   // all tasks are populated (? might need to come back to this later on once i've built tasks in ui)
-
-  return;
+  displayTasks();
 };
 
 export default displayProjectPage;
