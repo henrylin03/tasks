@@ -1,9 +1,8 @@
-import { createProject, recreateRetrievedProject } from "../../models/Project";
+import * as Project from "../../models/Project";
 import { createTask } from "../../models/Task";
 import {
   retrieveAllProjects,
   retrieveProject,
-  storeTask,
 } from "../../helpers/localStorageHelpers";
 
 const createAppController = () => {
@@ -14,15 +13,14 @@ const createAppController = () => {
     newTask.setDueDate(dueDate);
     newTask.setUrgency(urgency);
 
-    const project = recreateRetrievedProject(retrieveProject(projectName));
-    // store into localStorage based on project
-    storeTask(newTask, project);
-    // OR is there a way to store the task FIRST into a "tasks" storage, and then added to project later on? i guess, is there a way to not know its project first?
+    const project = Project.recreateFromJSON(retrieveProject(projectName));
+    project.addTask(newTask);
+    project.store();
   };
 
   const addProject = (newProjectName) => {
     if (!newProjectName) return;
-    createProject(newProjectName).store();
+    Project.create(newProjectName).store();
   };
 
   const getProjects = () =>
@@ -34,7 +32,7 @@ const createAppController = () => {
   const getProject = (projectName) => retrieveProject(projectName);
 
   // run
-  if (localStorage.length === 0) createProject("Inbox").store();
+  if (localStorage.length === 0) Project.create("Inbox").store();
 
   return { addTask, addProject, getProjects, getProject };
 };
