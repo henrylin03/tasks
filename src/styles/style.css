@@ -308,17 +308,19 @@ dialog form {
     gap: 25px;
 }
 
+dialog input,
+textarea,
+select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid var(--lighter-primary-clr);
+}
+
 dialog .top {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-#new-project-name {
-    width: 100%;
-    padding: 15px;
-    border-radius: 10px;
-    border: 2px solid var(--lightest-primary-clr);
 }
 
 #new-project-name:focus {
