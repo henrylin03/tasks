@@ -14,8 +14,8 @@ const addTaskUsingModal = () => {
   form.addEventListener("submit", handleSubmit);
   cancelBtn.addEventListener("click", () => modal.close());
 
+  // run
   modal.showModal();
-  return;
 };
 
 const handleSubmit = (e) => {
