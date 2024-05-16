@@ -8,8 +8,5 @@ const addTaskUsingModal = () => {
   return;
 };
 
-const toggleUrgency = () => {
-  urgentBtn.classList.toggle("is-urgent");
-};
-
+const toggleUrgency = () => modal.classList.toggle("is-urgent");
 export default addTaskUsingModal;

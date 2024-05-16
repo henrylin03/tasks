@@ -382,6 +382,10 @@ dialog button:active {
     background-color: #dedede;
 }
 
+.new-task-modal.is-urgent {
+    border-left: 10px solid var(--highlight-clr);
+}
+
 .new-task-modal form {
     gap: 15px;
 }
@@ -403,7 +407,7 @@ dialog button:active {
 
 }
 
-.toggle-urgent-btn.is-urgent {
+.is-urgent .toggle-urgent-btn {
     mask-image: url("../icons/alert-circle-filled.svg")
 }
 
