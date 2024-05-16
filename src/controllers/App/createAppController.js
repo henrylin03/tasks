@@ -1,4 +1,4 @@
-import { createProject } from "../../models/Project";
+import { createProject, recreateRetrievedProject } from "../../models/Project";
 import { createTask } from "../../models/Task";
 import {
   retrieveAllProjects,
@@ -14,8 +14,10 @@ const createAppController = () => {
     newTask.setUrgency(urgency);
 
     // find out which project it should be tagged to
-    const retrievedProjectObject = getProject(projectName);
+    const project = recreateRetrievedProject(getProject(projectName));
+
     console.log(retrievedProjectObject);
+    console.log();
     // store into localStorage based on project
     // OR is there a way to store the task FIRST into a "tasks" storage, and then added to project later on? i guess, is there a way to not know its project first?
   };
