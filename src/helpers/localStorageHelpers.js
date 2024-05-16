@@ -2,10 +2,10 @@
 const projectExists = (projectName) => !!localStorage.getItem(projectName);
 
 // storers into localStorage
-const storeTask = (taskObject) => {
+const storeTask = (taskObject, taggedProjectObject) => {
   const taskName = taskObject.viewDetails().name;
-
-  // identify project of task
+  const taggedProjectName = taggedProjectObject.name;
+  const taggedProjectTasks = taggedProjectObject.tasks;
 
   // replace task in project's task
 };
