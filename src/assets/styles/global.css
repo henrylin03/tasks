@@ -359,6 +359,7 @@ dialog .top {
     display: flex;
     justify-content: end;
     gap: 15px;
+    margin-top: 13px;
 }
 
 dialog button {
