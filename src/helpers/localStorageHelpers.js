@@ -8,14 +8,11 @@ const projectExists = (projectName) => !!localStorage.getItem(projectName);
 
 // storers into localStorage
 const storeTask = (taskObject) => {
-  const taskName = taskObject.viewDetails().title;
-  const projectsWithTask = findProjectsWithTask(taskName);
+  const taskName = taskObject.viewDetails().name;
 
-  projectsWithTask.forEach((project) => {
-    project.tasks = project.tasks.filter((task) => task.title != taskName);
-    project.tasks.push(taskObject.viewDetails());
-    storeProject(project);
-  });
+  // identify project of task
+
+  // replace task in project's task
 };
 
 // retrievers from localStorage
@@ -61,17 +58,7 @@ const findProjectsWithTask = (taskName) => {
   return projectsWithInputtedTaskName;
 };
 
-export {
-  retrieveAll,
-  retrieveAllProjects,
-  retrieveProject,
-  retrieveAllTasks,
-  findProjectsWithTask,
-  storeTask,
-  taskExists,
-  projectExists,
-  retrieveTask,
-};
+export { retrieveAllProjects, retrieveProject, storeTask, projectExists };
 
 // ? should these localstorage helpers actually just be methods inside the objects? probably not, because they aren't called on an object but on the app. maybe then in the app controller?
 
