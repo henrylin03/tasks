@@ -5,10 +5,15 @@ const cancelBtn = document.querySelector(".new-task-modal .cancel-btn");
 
 const addTaskUsingModal = () => {
   urgentBtn.addEventListener("mousedown", toggleUrgency);
+  form.addEventListener("submit", handleSubmit);
   cancelBtn.addEventListener("click", () => modal.close());
 
   modal.showModal();
   return;
+};
+
+const handleSubmit = (e) => {
+  e.preventDefault();
 };
 
 const toggleUrgency = () => modal.classList.toggle("is-urgent");
