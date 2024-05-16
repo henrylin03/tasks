@@ -11,8 +11,7 @@ const createAppController = () => {
 
   const addProject = (newProjectName) => {
     if (!newProjectName) return;
-    const newProject = createProject(newProjectName);
-    newProject.store();
+    createProject(newProjectName).store();
   };
 
   const getProjects = () =>
