@@ -37,10 +37,7 @@ const createTask = (name) => {
 };
 
 const createTaskFromJSON = (retrievedTask) => {
-  const reconstructedTask = createTask({
-    title: retrievedTask.title,
-    description: retrievedTask.description,
-  });
+  const reconstructedTask = createTask(retrievedTask.name);
 
   for (const [retrievedProperty, retrievedValue] of Object.entries(
     retrievedTask
