@@ -1,7 +1,6 @@
-import "./styles/normalise.css";
-import "./styles/style.css";
-import "./js/screenController";
-import { createScreenController } from "./js/screenController";
+import "./assets/styles/normalise.css";
+import "./assets/styles/global.css";
+import createScreenController from "./controllers/Screen";
 
 // localStorage.clear(); // comment out when you need to reset
 createScreenController();

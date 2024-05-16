@@ -1,8 +1,8 @@
-import { createProject } from "./factories/createProject";
+import { createProject } from "../../models/Project";
 import {
   retrieveAllProjects,
   retrieveProject,
-} from "./utils/localStorageHelpers";
+} from "../../helpers/localStorageHelpers";
 
 const createAppController = () => {
   const addProject = (newProjectName) => {
