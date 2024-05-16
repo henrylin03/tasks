@@ -389,12 +389,22 @@ dialog button:active {
 .task-name-input-wrapper {
     position: relative;
     display: inline-block;
+    overflow: hidden;
 }
 
 .toggle-urgent-btn {
     mask-image: url("../icons/alert-circle-outline.svg");
     background-color: var(--highlight-clr);
     mask-repeat: no-repeat;
+    position: absolute;
+    top: 12px;
+    right: -50px;
+    height: 50%;
+
+}
+
+.toggle-urgent-btn.is-urgent {
+    mask-image: url("../icons/alert-circle-filled.svg")
 }
 
 .input-container {
