@@ -24,12 +24,16 @@ const handleSubmit = (e) => {
   e.preventDefault();
 
   // capture all properties required to create task from form
-  //   const newTaskObjectFromForm = {
-  //     name: taskNameInput.value,
-  //     description:
-  //   };
+  const newTaskObject = {
+    name: taskNameInput.value,
+    description: descriptionInput.value,
+    dueDate: dueDateInput.value,
+    urgency: modal.classList.contains("is-urgent"),
+  };
 
-  //   app.addTask(taskNameInput.value);
+  console.log(newTaskObject);
+
+  app.addTask(newTaskObject);
 };
 
 const toggleUrgency = () => modal.classList.toggle("is-urgent");
