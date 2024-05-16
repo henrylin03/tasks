@@ -336,6 +336,11 @@ dialog .top {
     gap: 10px;
 }
 
+#new-project-name,
+#new-task-name {
+    font-size: 1.1rem;
+}
+
 #new-project-name.error {
     border: 2px solid var(--warning-clr);
 }
