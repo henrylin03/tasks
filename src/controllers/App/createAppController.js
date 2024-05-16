@@ -1,5 +1,5 @@
 import * as Project from "../../models/Project";
-import { createTask } from "../../models/Task";
+import * as Task from "../../models/Task";
 import {
   retrieveAllProjects,
   retrieveProject,
@@ -8,7 +8,7 @@ import {
 const createAppController = () => {
   const addTask = ({ name, description, dueDate, urgency, projectName }) => {
     if (!name) return;
-    const newTask = createTask(name);
+    const newTask = Task.create(name);
     newTask.setDescription(description);
     newTask.setDueDate(dueDate);
     newTask.setUrgency(urgency);

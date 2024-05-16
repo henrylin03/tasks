@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 
-const createTask = (name) => {
+const create = (name) => {
   let description = "";
   let dueDate = "";
   let urgency = false;
@@ -42,4 +42,4 @@ const createTask = (name) => {
   };
 };
 
-export { createTask };
+export { create };
