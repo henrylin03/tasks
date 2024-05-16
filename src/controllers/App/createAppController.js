@@ -6,10 +6,9 @@ import {
 } from "../../helpers/localStorageHelpers";
 
 const createAppController = () => {
-  const addTask = (newTaskName) => {
-    if (!newTaskName) return;
-    const newTask = createTask(newTaskName);
-    console.log(newTask.viewDetails());
+  const addTask = ({ name, description, dueDate, urgency, completed }) => {
+    if (!name) return;
+    const newTask = createTask(name);
   };
 
   const addProject = (newProjectName) => {

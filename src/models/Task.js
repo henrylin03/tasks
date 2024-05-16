@@ -21,18 +21,16 @@ const createTask = (name) => {
     // month is zero-indexed
     dueDate = format(new Date(year, month - 1, day), "dd/MM/yyyy");
   };
-  const toggleUrgency = () => (urgency = !urgency);
-  const toggleCompleted = () => (completed = !completed);
+  const setAsUrgent = () => (urgency = true);
+  const setComplete = () => (completed = true);
 
-  const set = {
-    name: setName,
-    description: setDescription,
-    dueDate: setDueDate,
-    urgency: toggleUrgency,
-    completed: toggleCompleted,
+  return {
+    viewDetails,
+    setDescription,
+    setDueDate,
+    setAsUrgent,
+    setComplete,
   };
-
-  return { set, viewDetails };
 };
 
 const createTaskFromJSON = (retrievedTask) => {
