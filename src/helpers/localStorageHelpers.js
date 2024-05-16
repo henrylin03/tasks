@@ -1,9 +1,4 @@
 // checks
-const taskExists = (taskName) => {
-  const retrievedTaskNames = retrieveAllTaskNames();
-  return retrievedTaskNames.includes(taskName);
-};
-
 const projectExists = (projectName) => !!localStorage.getItem(projectName);
 
 // storers into localStorage
@@ -19,43 +14,12 @@ const storeTask = (taskObject) => {
 const retrieveProject = (projectName) =>
   JSON.parse(localStorage.getItem(projectName));
 const retrieveAllProjects = () => Object.values(retrieveAll());
-const retrieveAllProjectNames = () => Object.keys(localStorage);
-
-const retrieveTask = (taskName) => {
-  const storedTasks = retrieveAllTasks();
-  return storedTasks.filter((task) => task.title === taskName)[0];
-};
-const retrieveAllTasks = () => {
-  const storedProjectsArray = retrieveAllProjects();
-  const retrievedTasks = [];
-
-  storedProjectsArray.forEach((project) => {
-    const taskList = project.tasks;
-    if (Array.isArray(taskList) && !taskList.length) return;
-    retrievedTasks.push(...project.tasks);
-  });
-
-  return [...new Set(retrievedTasks)];
-};
-
-const retrieveAllTaskNames = () =>
-  [...retrieveAllTasks()].map((task) => task.title);
 
 const retrieveAll = () => {
   const obj = {};
   const storedProjectNames = Object.keys(localStorage);
   storedProjectNames.forEach((p) => (obj[p] = retrieveProject(p)));
   return obj;
-};
-
-// identifier methods
-const findProjectsWithTask = (taskName) => {
-  const storedProjectsArray = retrieveAllProjects();
-  const projectsWithInputtedTaskName = storedProjectsArray.filter((project) =>
-    project.tasks.some((task) => task.title == taskName)
-  );
-
-  return projectsWithInputtedTaskName;
 };
 
 export { retrieveAllProjects, retrieveProject, storeTask, projectExists };
