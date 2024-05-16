@@ -9,7 +9,7 @@ const form = document.querySelector(".new-project-modal form");
 const input = document.querySelector("#new-project-name");
 const cancelBtn = document.querySelector(".new-project-modal .cancel-btn");
 
-const addProject = () => {
+const addProjectUsingModal = () => {
   form.addEventListener("submit", handleSubmit);
   input.addEventListener("input", clearErrorMessage);
   cancelBtn.addEventListener("click", () => {
@@ -52,4 +52,4 @@ function clearErrorMessage() {
   );
 }
 
-export default addProject;
+export default addProjectUsingModal;

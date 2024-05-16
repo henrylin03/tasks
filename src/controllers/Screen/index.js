@@ -1,4 +1,4 @@
-import addProject from "./addProject";
+import addProjectUsingModal from "./addProjectUsingModal";
 import displayProjectsInNav from "./displayProjectsInNav";
 import displayProjectPage from "./displayProjectPage";
 import handleNavLinkClicks from "./handleNavLinkClicks";
@@ -14,7 +14,7 @@ const createScreenController = () => {
   displayProjectPage("Inbox");
 
   // add required event listeners
-  addProjectBtn.addEventListener("click", addProject);
+  addProjectBtn.addEventListener("click", addProjectUsingModal);
   [brandingInSidebar, inboxLinkInSidebar].forEach((elem) =>
     elem.addEventListener("click", () => handleNavLinkClicks("Inbox"))
   );
