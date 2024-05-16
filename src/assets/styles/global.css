@@ -288,6 +288,8 @@ main>.container {
 }
 
 /* dialogs */
+/* todo: add custom error message for required fields not being filled in */
+
 ::backdrop {
     background-color: gray;
     opacity: .7;
