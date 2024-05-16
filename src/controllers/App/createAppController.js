@@ -1,4 +1,4 @@
-import { createProject } from "../../objects/Project";
+import { createProject } from "../../models/Project";
 import {
   retrieveAllProjects,
   retrieveProject,
