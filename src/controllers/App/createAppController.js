@@ -31,7 +31,8 @@ const createAppController = () => {
       .filter((project) => project.name != "Inbox")
       .sort((projectA, projectB) => projectA.id - projectB.id);
 
-  const getProject = (projectName) => retrieveProject(projectName);
+  const getProject = (projectName) =>
+    Project.recreateFromJSON(retrieveProject(projectName));
 
   // run
   if (localStorage.length === 0) Project.create("Inbox").store();
