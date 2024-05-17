@@ -41,10 +41,17 @@ const generateTaskDiv = (task) => {
   taskAttributes.classList.add("task-attributes");
 
   for (const attribute in taskDetails) {
-    if (attribute === "name" || attribute === "completed") continue;
+    if (
+      attribute === "name" ||
+      attribute === "completed" ||
+      !taskDetails[attribute]
+    )
+      continue;
 
-    console.log(taskDetails[attribute]);
+    console.log(attribute, taskDetails[attribute]);
   }
+
+  //todo: use css (mask-image probably) to add the svg (locally-stored) based on the class (eg for dueDate, need to have the svg for the calendar)
 
   // for each attribute (other than completed), generate its div
 
