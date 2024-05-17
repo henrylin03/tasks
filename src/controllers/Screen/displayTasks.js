@@ -1,6 +1,6 @@
 const displayTasks = (project) => {
   // #1: for given project object (argument), get all of the task objects. clear the main section of all cards.
-  const tasks = project.getTasks();
+  const tasks = project.getTaskDetails();
   console.log(tasks); //todo: remove
 
   // #2: for each task object, generate a task card

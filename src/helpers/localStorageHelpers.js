@@ -4,6 +4,7 @@ const projectExists = (projectName) => !!localStorage.getItem(projectName);
 // retrievers from localStorage
 const retrieveProject = (projectName) =>
   JSON.parse(localStorage.getItem(projectName));
+
 const retrieveAllProjects = () => Object.values(retrieveAll());
 
 const retrieveAll = () => {

@@ -32,6 +32,7 @@ const createProject = (name, recreatingFromJSON = false) => {
   return {
     viewDetails,
     getName,
+    getTaskDetails,
     getTasksAsObjects,
     setId,
     addTask,
@@ -40,11 +41,11 @@ const createProject = (name, recreatingFromJSON = false) => {
   };
 };
 
-const recreateProjectFromJSON = ({ id, name, tasksArray }) => {
+const recreateProjectFromJSON = ({ id, name, tasks }) => {
   const project = createProject(name, true);
   project.setId(id);
 
-  const tasksReconstructed = tasksArray.map((t) => recreateTaskFromJSON(t));
+  const tasksReconstructed = tasks.map((t) => recreateTaskFromJSON(t));
   project.replaceTasks(tasksReconstructed);
 
   return project;
