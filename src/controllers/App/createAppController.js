@@ -1,5 +1,5 @@
-import * as Project from "../../models/Project";
-import * as Task from "../../models/Task";
+import { createProject, recreateProjectFromJSON } from "../../models/Project";
+import { createTask } from "../../models/Task";
 import {
   retrieveAllProjects,
   retrieveProject,
@@ -8,21 +8,19 @@ import {
 const createAppController = () => {
   const addTask = ({ name, description, dueDate, urgency, projectName }) => {
     if (!name) return;
-    const newTask = Task.create(name);
+    const newTask = createTask(name);
     newTask.setDescription(description);
     newTask.setDueDate(dueDate);
     newTask.setUrgency(urgency);
 
-    const project = Project.recreateFromJSON(retrieveProject(projectName));
+    const project = recreateProjectFromJSON(retrieveProject(projectName));
     project.addTask(newTask);
     project.store();
-
-    console.log(getProjects());
   };
 
   const addProject = (newProjectName) => {
     if (!newProjectName) return;
-    Project.create(newProjectName).store();
+    createProject(newProjectName).store();
   };
 
   const getProjects = () =>
@@ -32,10 +30,10 @@ const createAppController = () => {
       .sort((projectA, projectB) => projectA.id - projectB.id);
 
   const getProject = (projectName) =>
-    Project.recreateFromJSON(retrieveProject(projectName));
+    recreateProjectFromJSON(retrieveProject(projectName));
 
   // run
-  if (localStorage.length === 0) Project.create("Inbox").store();
+  if (localStorage.length === 0) createProject("Inbox").store();
 
   return { addTask, addProject, getProjects, getProject };
 };

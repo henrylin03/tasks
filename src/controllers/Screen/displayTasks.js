@@ -12,7 +12,7 @@ const displayTasks = (project) => {
 };
 
 const generateTaskDiv = (task) => {
-  console.log(task.viewDetails());
+  console.log(task);
 };
 
 export default displayTasks;

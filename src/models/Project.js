@@ -1,6 +1,7 @@
 import { projectExists } from "../helpers/localStorageHelpers";
+import { recreateFromJSON } from "./Task";
 
-const create = (name, recreatingFromJSON = false) => {
+const createProject = (name, recreatingFromJSON = false) => {
   if (!recreatingFromJSON && projectExists(name))
     throw new Error(`Project with name, "${name}" already exists`);
 
@@ -34,12 +35,12 @@ const create = (name, recreatingFromJSON = false) => {
   };
 };
 
-const recreateFromJSON = ({ id, name, tasks }) => {
-  const project = create(name, true);
+const recreateProjectFromJSON = ({ id, name, tasks }) => {
+  const project = createProject(name, true);
   project.setId(id);
   project.replaceTasks(tasks);
 
   return project;
 };
 
-export { create, recreateFromJSON };
+export { createProject, recreateProjectFromJSON };

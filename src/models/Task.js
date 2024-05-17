@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 
-const create = (name) => {
+const createTask = (name) => {
   let description = "";
   let dueDate = "";
   let urgency = false;
@@ -41,7 +41,7 @@ const create = (name) => {
   };
 };
 
-const recreateFromJSON = ({
+const recreateTaskFromJSON = ({
   name,
   description,
   dueDate,
@@ -57,4 +57,4 @@ const recreateFromJSON = ({
   return task;
 };
 
-export { create, recreateFromJSON };
+export { createTask, recreateTaskFromJSON };
