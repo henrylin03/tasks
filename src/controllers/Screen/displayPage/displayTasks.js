@@ -40,7 +40,11 @@ const generateTaskDiv = (task) => {
   const taskAttributes = document.createElement("ul");
   taskAttributes.classList.add("task-attributes");
 
-  // loop through each attribute of a task's details (no "name" nor "completed")
+  for (const attribute in taskDetails) {
+    if (attribute === "name" || attribute === "completed") continue;
+
+    console.log(taskDetails[attribute]);
+  }
 
   // for each attribute (other than completed), generate its div
 
