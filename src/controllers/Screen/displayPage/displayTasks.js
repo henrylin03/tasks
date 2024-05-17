@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 // todo: make svgs easier to manipulate (we need to be able to colour them, but also center them (mask-image didn't work with flexbox - so maybe grid if we pursue that?)) - otherwise, maybe a JSON with all the SVGs inside would be good in like a data/ folder!
 const SVGS = {
   dueDate: `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
@@ -35,6 +37,7 @@ const displayTasks = (project) => {
 
 const generateTaskDiv = (task) => {
   const taskDetails = task.viewDetails();
+  taskDetails.dueDate = formatDueDate(taskDetails.dueDate);
 
   const article = document.createElement("article");
   article.classList.add("task");
@@ -93,7 +96,6 @@ const generateTaskAttributes = (taskDetails) => {
     text.textContent =
       attribute === "urgency" ? "Urgent" : taskDetails[attribute];
     item.appendChild(text);
-    // todo: format the date here probably (unless we do it way before?)
     // todo: style dates (today and overdue)
     attributeListItems.push(item);
   }
@@ -101,6 +103,15 @@ const generateTaskAttributes = (taskDetails) => {
   console.log(attributeListItems);
 
   return attributeListItems;
+};
+
+const formatDueDate = (dateString) => {
+  console.log(dateString);
+  if (!dateString) return;
+  const [year, month, day] = dateString.split("-");
+
+  // month is zero-indexed
+  return format(new Date(year, month - 1, day), "dd/MM/yyyy");
 };
 
 export default displayTasks;
