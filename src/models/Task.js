@@ -1,5 +1,3 @@
-import { format } from "date-fns";
-
 const createTask = (name) => {
   let description = "";
   let dueDate = "";
@@ -17,9 +15,7 @@ const createTask = (name) => {
   const setDescription = (newDescription) => (description = newDescription);
   const setDueDate = (dueDateString) => {
     if (!dueDateString) return;
-    const [year, month, day] = dueDateString.split("-");
-    // month is zero-indexed
-    dueDate = format(new Date(year, month - 1, day), "dd/MM/yyyy");
+    dueDate = dueDateString;
   };
   const setUrgency = (bool) => {
     if (typeof bool != "boolean") return;
