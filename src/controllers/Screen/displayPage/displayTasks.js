@@ -1,4 +1,4 @@
-import { format } from "date-fns";
+import { format, isToday } from "date-fns";
 
 // todo: make svgs easier to manipulate (we need to be able to colour them, but also center them (mask-image didn't work with flexbox - so maybe grid if we pursue that?)) - otherwise, maybe a JSON with all the SVGs inside would be good in like a data/ folder!
 const SVGS = {
@@ -37,7 +37,6 @@ const displayTasks = (project) => {
 
 const generateTaskDiv = (task) => {
   const taskDetails = task.viewDetails();
-  taskDetails.dueDate = formatAndStyleDueDate(taskDetails.dueDate);
 
   const article = document.createElement("article");
   article.classList.add("task");
@@ -92,28 +91,25 @@ const generateTaskAttributes = (taskDetails) => {
       icon.innerHTML = SVGS[attribute];
       item.appendChild(icon);
     }
+
     const text = document.createElement("p");
-    text.textContent =
-      attribute === "urgency" ? "Urgent" : taskDetails[attribute];
+    if (attribute === "urgency") text.textContent = "Urgent";
+    else if (attribute === "dueDate") {
+      const [year, month, day] = taskDetails[attribute].split("-");
+      const dueDate = new Date(year, month - 1, day); // month is zero-indexed
+      if (isToday(dueDate)) {
+        item.classList.add("today");
+        text.textContent = "Today";
+      } else text.textContent = format(dueDate, "dd/MM/yyyy");
+    } else text.textContent = taskDetails[attribute];
+
     item.appendChild(text);
-    // todo: style dates (today and overdue)
     attributeListItems.push(item);
   }
 
   console.log(attributeListItems);
 
   return attributeListItems;
-};
-
-// returns formatted due date for display IF it isn't 'today'
-const formatAndStyleDueDate = (dateString) => {
-  if (!dateString) return;
-
-  // if due date is "today", then make blue (see html dummy tasks)
-
-  const [year, month, day] = dateString.split("-");
-  // month is zero-indexed
-  return format(new Date(year, month - 1, day), "dd/MM/yyyy");
 };
 
 export default displayTasks;
