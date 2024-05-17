@@ -18,16 +18,15 @@ const SVGS = {
 const tasksContainer = document.querySelector("main .container");
 
 const displayTasks = (project) => {
-  // #1: for given project object (argument), get all of the task objects. clear the main section of all cards.
+  // todo: clear the main section of all cards
   const taskObjects = project.getTasksAsObjects();
 
-  // #2: for each task object, generate a task card
   taskObjects.forEach((t) => {
     const taskArticle = generateTaskDiv(t);
     tasksContainer.appendChild(taskArticle);
   });
 
-  // #3 each task card can be opened and enable modification/deletion (this might have to be done later in a separate pr)
+  // todo: each task card can be opened and enable modification/deletion (this might have to be done later in a separate pr)
 
   return;
 };
