@@ -1,5 +1,6 @@
 import { createAppController } from "../App/createAppController";
 import displayProjectsInNav from "./displayProjectsInNav";
+import displayPage from "./displayPage";
 
 const dialog = document.querySelector(".new-project-modal");
 const InputAndErrorMessageElements = document.querySelector(
@@ -34,11 +35,14 @@ function handleSubmit(e) {
 
   // dealing with errors when project already exists
   try {
-    app.addProject(input.value);
+    const newProjectName = input.value;
+
+    app.addProject(newProjectName);
     form.reset();
     clearErrorMessage();
     dialog.close();
     displayProjectsInNav();
+    displayPage(newProjectName);
   } catch {
     [...InputAndErrorMessageElements].forEach((elem) =>
       elem.classList.add("error")
