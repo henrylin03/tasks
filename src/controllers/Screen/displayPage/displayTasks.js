@@ -28,6 +28,8 @@ const displayTasks = (project) => {
 
   // todo: each task card can be opened and enable modification/deletion (this might have to be done later in a separate pr)
 
+  //todo: sort tasks
+
   return;
 };
 
@@ -82,13 +84,14 @@ const generateTaskAttributes = (taskDetails) => {
 
     const item = document.createElement("li");
     item.classList.add(attribute);
-    const icon = document.createElement("figure");
-    icon.innerHTML = SVGS[attribute];
+    if (SVGS.hasOwnProperty(attribute)) {
+      const icon = document.createElement("figure");
+      icon.innerHTML = SVGS[attribute];
+      item.appendChild(icon);
+    }
     const text = document.createElement("p");
     text.textContent =
       attribute === "urgency" ? "Urgent" : taskDetails[attribute];
-
-    item.appendChild(icon);
     item.appendChild(text);
     // todo: format the date here probably (unless we do it way before?)
     // todo: style dates (today and overdue)
