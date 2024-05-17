@@ -64,6 +64,11 @@ const generateTaskDiv = (task) => {
     )
       continue;
 
+    const item = document.createElement("li");
+    item.classList.add(attribute);
+    const icon = document.createElement("figure");
+    icon.innerHTML = SVGS[attribute];
+
     console.log(attribute, taskDetails[attribute]);
   }
 
