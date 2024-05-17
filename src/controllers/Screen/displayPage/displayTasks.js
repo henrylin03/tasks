@@ -37,7 +37,7 @@ const displayTasks = (project) => {
 
 const generateTaskDiv = (task) => {
   const taskDetails = task.viewDetails();
-  taskDetails.dueDate = formatDueDate(taskDetails.dueDate);
+  taskDetails.dueDate = formatAndStyleDueDate(taskDetails.dueDate);
 
   const article = document.createElement("article");
   article.classList.add("task");
@@ -105,11 +105,13 @@ const generateTaskAttributes = (taskDetails) => {
   return attributeListItems;
 };
 
-const formatDueDate = (dateString) => {
-  console.log(dateString);
+// returns formatted due date for display IF it isn't 'today'
+const formatAndStyleDueDate = (dateString) => {
   if (!dateString) return;
-  const [year, month, day] = dateString.split("-");
 
+  // if due date is "today", then make blue (see html dummy tasks)
+
+  const [year, month, day] = dateString.split("-");
   // month is zero-indexed
   return format(new Date(year, month - 1, day), "dd/MM/yyyy");
 };
