@@ -15,7 +15,6 @@ const create = (name) => {
     completed,
   });
 
-  const setName = (newName) => (name = newName);
   const setDescription = (newDescription) => (description = newDescription);
   const setDueDate = (dueDateString) => {
     if (!dueDateString) return;
@@ -42,4 +41,20 @@ const create = (name) => {
   };
 };
 
-export { create };
+const recreateFromJSON = ({
+  name,
+  description,
+  dueDate,
+  urgency,
+  completed,
+}) => {
+  const task = create(name);
+  task.setDescription(description);
+  task.setDueDate(dueDate);
+  task.setUrgency(urgency);
+  task.setCompletion(completed);
+
+  return task;
+};
+
+export { create, recreateFromJSON };

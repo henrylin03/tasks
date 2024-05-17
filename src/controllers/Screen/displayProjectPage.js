@@ -28,7 +28,6 @@ const displayProjectPage = (projectName) => {
   const project = app.getProject(projectName);
 
   updateHeader(project);
-  // all tasks are populated (? might need to come back to this later on once i've built tasks in ui)
   displayTasks(project);
 };
 
