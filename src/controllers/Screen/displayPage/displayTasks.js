@@ -20,8 +20,10 @@ const SVGS = {
 const tasksContainer = document.querySelector("main .container");
 
 const displayTasks = (project) => {
-  // todo: clear the main section of all cards
   const taskObjects = project.getTasksAsObjects();
+
+  // clear everything
+  tasksContainer.replaceChildren();
 
   taskObjects.forEach((t) => {
     const taskArticle = generateTaskDiv(t);
