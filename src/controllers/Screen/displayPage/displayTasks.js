@@ -22,7 +22,10 @@ const displayTasks = (project) => {
   const taskObjects = project.getTasksAsObjects();
 
   // #2: for each task object, generate a task card
-  taskObjects.forEach((t) => generateTaskDiv(t));
+  taskObjects.forEach((t) => {
+    const taskArticle = generateTaskDiv(t);
+    tasksContainer.appendChild(taskArticle);
+  });
 
   // #3 each task card can be opened and enable modification/deletion (this might have to be done later in a separate pr)
 
@@ -55,13 +58,16 @@ const generateTaskDiv = (task) => {
 
   const taskAttributes = document.createElement("ul");
   taskAttributes.classList.add("task-attributes");
+  const taskAttributeChildren = generateTaskAttributes();
+  taskAttributeChildren.forEach((c) => taskAttributes.appendChild(c));
 
   checkboxDiv.appendChild(checkbox);
   rightDiv.appendChild(taskName);
+  rightDiv.appendChild(taskAttributes);
   article.appendChild(checkboxDiv);
   article.appendChild(rightDiv);
 
-  console.log(task.viewDetails());
+  return article;
 };
 
 const generateTaskAttributes = (taskDetails) => {
