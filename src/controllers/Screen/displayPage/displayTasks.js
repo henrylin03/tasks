@@ -14,11 +14,14 @@ const displayTasks = (project) => {
 };
 
 const generateTaskDiv = (task) => {
+  const taskDetails = task.viewDetails();
+
   const article = document.createElement("article");
   article.classList.add("task");
-  if (task.urgency) article.classList.add("urgent");
-  if (task.completed) article.classList.add("completed");
+  if (taskDetails.urgency) article.classList.add("urgent");
+  if (taskDetails.completed) article.classList.add("completed");
 
+  // left-side
   const checkboxDiv = document.createElement("div");
   checkboxDiv.classList.add("checkbox-container");
 
@@ -26,15 +29,22 @@ const generateTaskDiv = (task) => {
   checkbox.setAttribute("type", "checkbox");
   checkbox.classList.add("checkbox");
 
+  // right-side
   const rightDiv = document.createElement("div");
   rightDiv.classList.add("right");
 
   const taskName = document.createElement("p");
   taskName.classList.add("task-name");
-  taskName.textContent = task.getName();
+  taskName.textContent = taskDetails.name;
 
   const taskAttributes = document.createElement("ul");
   taskAttributes.classList.add("task-attributes");
+
+  // loop through each attribute of a task's details (no "name" nor "completed")
+
+  // for each attribute (other than completed), generate its div
+
+  // todo: style dates (today and overdue)
 
   checkboxDiv.appendChild(checkbox);
   rightDiv.appendChild(taskName);

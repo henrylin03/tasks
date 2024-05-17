@@ -6,7 +6,6 @@ const createTask = (name) => {
   let urgency = false;
   let completed = false;
 
-  const getName = () => name;
   const viewDetails = () => ({
     name,
     description,
@@ -32,7 +31,6 @@ const createTask = (name) => {
   };
 
   return {
-    getName,
     viewDetails,
     setDescription,
     setDueDate,
