@@ -1,4 +1,4 @@
-import displayProjectPage from "./displayProjectPage";
+import displayProjectPage from "./displayPage";
 
 function handleNavLinkClicks(projectName) {
   const projectsIncludingInbox = document.querySelectorAll(

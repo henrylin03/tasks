@@ -1,14 +1,26 @@
-import { createProject } from "../../models/Project";
+import { createProject, recreateProjectFromJSON } from "../../models/Project";
+import { createTask } from "../../models/Task";
 import {
   retrieveAllProjects,
   retrieveProject,
 } from "../../helpers/localStorageHelpers";
 
 const createAppController = () => {
+  const addTask = ({ name, description, dueDate, urgency, projectName }) => {
+    if (!name) return;
+    const newTask = createTask(name);
+    newTask.setDescription(description);
+    newTask.setDueDate(dueDate);
+    newTask.setUrgency(urgency);
+
+    const project = recreateProjectFromJSON(retrieveProject(projectName));
+    project.addTask(newTask);
+    project.store();
+  };
+
   const addProject = (newProjectName) => {
     if (!newProjectName) return;
-    const newProject = createProject(newProjectName);
-    newProject.store();
+    createProject(newProjectName).store();
   };
 
   const getProjects = () =>
@@ -17,12 +29,15 @@ const createAppController = () => {
       .filter((project) => project.name != "Inbox")
       .sort((projectA, projectB) => projectA.id - projectB.id);
 
-  const getProject = (projectName) => retrieveProject(projectName);
+  const getProject = (projectName) =>
+    recreateProjectFromJSON(retrieveProject(projectName));
 
   // run
   if (localStorage.length === 0) createProject("Inbox").store();
 
-  return { addProject, getProjects, getProject };
+  return { addTask, addProject, getProjects, getProject };
 };
 
 export { createAppController };
+
+// TODO: DO NOT STORE TASKS UNLESS VIEWDETAILS HAVE BEEN CALLED ON IT. BECAUSE THEN IT LIKELY MEANS THAT IT WASN'T RECONSTRUCTED FIRST BEFORE MANIPULATION AND THUS INVALID.

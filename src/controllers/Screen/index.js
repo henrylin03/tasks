@@ -1,6 +1,7 @@
-import addProject from "./addProject";
+import addTaskUsingModal from "./addTaskUsingModal";
+import addProjectUsingModal from "./addProjectUsingModal";
 import displayProjectsInNav from "./displayProjectsInNav";
-import displayProjectPage from "./displayProjectPage";
+import displayProjectPage from "./displayPage";
 import handleNavLinkClicks from "./handleNavLinkClicks";
 
 const createScreenController = () => {
@@ -8,13 +9,15 @@ const createScreenController = () => {
   const brandingInSidebar = document.querySelector(".branding");
   const inboxLinkInSidebar = document.querySelector("#inbox-link");
   const addProjectBtn = document.querySelector(".add-project");
+  const addTaskBtn = document.querySelector(".add-task");
 
   // add anything that needs to be run
   displayProjectsInNav();
   displayProjectPage("Inbox");
 
   // add required event listeners
-  addProjectBtn.addEventListener("click", addProject);
+  addTaskBtn.addEventListener("click", addTaskUsingModal);
+  addProjectBtn.addEventListener("click", addProjectUsingModal);
   [brandingInSidebar, inboxLinkInSidebar].forEach((elem) =>
     elem.addEventListener("click", () => handleNavLinkClicks("Inbox"))
   );

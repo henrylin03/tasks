@@ -1,5 +1,3 @@
-import { createAppController } from "../App/createAppController";
-
 //todo: make svg imported - there is too much markup here...
 const SVGS = {
   project: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none"
@@ -22,22 +20,16 @@ const SVGS = {
           </svg>`,
 };
 
-const displayProjectPage = (projectName) => {
-  const headerLeftContainer = document.querySelector("header .left");
-  const pageIcon = headerLeftContainer.querySelector("figure");
-  const pageTitle = headerLeftContainer.querySelector(".page-title");
+const updateHeader = (project) => {
+  const projectName = project.getName();
+
+  const pageIcon = document.querySelector("header .left figure");
+  const pageTitle = document.querySelector(".page-title");
   const navbarLink = document.querySelector(`[data-project="${projectName}"]`);
 
-  const app = createAppController();
-  const project = app.getProject(projectName);
-
   navbarLink.classList.add("selected");
-  pageTitle.textContent = project.name;
+  pageTitle.textContent = project.getName();
   pageIcon.innerHTML = projectName === "Inbox" ? SVGS.inbox : SVGS.project;
-
-  // all tasks are populated (? might need to come back to this later on once i've built tasks in ui)
-
-  return;
 };
 
-export default displayProjectPage;
+export default updateHeader;

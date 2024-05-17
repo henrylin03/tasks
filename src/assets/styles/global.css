@@ -159,7 +159,7 @@ main>.container {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 .task {
@@ -218,12 +218,14 @@ main>.container {
     color: var(--dimmed);
     font-size: .8rem;
     display: flex;
+    align-items: center;
     gap: 0.75rem;
 }
 
 .task-attributes li {
     display: flex;
     align-items: center;
+    gap: 5px;
 }
 
 .task-attributes li:not(:first-child)::before {
@@ -232,13 +234,7 @@ main>.container {
     height: 0.25rem;
     border-radius: 50%;
     background-color: var(--dimmed);
-    margin-right: 0.75rem;
-}
-
-.attribute-container {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    margin-right: 0.5rem;
 }
 
 .description {
@@ -265,7 +261,7 @@ main>.container {
     margin-left: -10px;
 }
 
-.attribute-container.urgent {
+.task.urgent .urgency {
     color: var(--highlight-clr);
     font-weight: bold;
 }
@@ -288,6 +284,8 @@ main>.container {
 }
 
 /* dialogs */
+/* todo: add custom error message for required fields not being filled in */
+
 ::backdrop {
     background-color: gray;
     opacity: .7;
@@ -308,7 +306,7 @@ dialog form {
     gap: 25px;
 }
 
-dialog input,
+input,
 textarea,
 select {
     width: 100%;
@@ -321,15 +319,22 @@ select {
     padding-left: 10px;
 }
 
+input:focus,
+textarea:focus,
+select:focus {
+    border: 2px solid var(--primary-clr);
+    box-shadow: 4px 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
 dialog .top {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-#new-project-name:focus {
-    border: 2px solid var(--primary-clr);
-    box-shadow: 4px 4px 6px -1px rgba(0, 0, 0, 0.1);
+#new-project-name,
+#new-task-name {
+    font-size: 1.1rem;
 }
 
 #new-project-name.error {
@@ -350,6 +355,7 @@ dialog .top {
     display: flex;
     justify-content: end;
     gap: 15px;
+    margin-top: 13px;
 }
 
 dialog button {
@@ -378,8 +384,33 @@ dialog button:active {
     background-color: #dedede;
 }
 
+.new-task-modal.is-urgent {
+    border-left: 10px solid var(--highlight-clr);
+}
+
 .new-task-modal form {
     gap: 15px;
+}
+
+.task-name-input-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.toggle-urgent-btn {
+    mask-image: url("../icons/alert-circle-outline.svg");
+    background-color: var(--highlight-clr);
+    mask-repeat: no-repeat;
+    position: absolute;
+    top: 12px;
+    right: -50px;
+    height: 50%;
+
+}
+
+.is-urgent .toggle-urgent-btn {
+    mask-image: url("../icons/alert-circle-filled.svg")
 }
 
 .input-container {
