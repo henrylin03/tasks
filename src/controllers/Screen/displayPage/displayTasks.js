@@ -100,7 +100,7 @@ const generateTaskAttributes = (taskDetails) => {
       if (isToday(dueDate)) {
         item.classList.add("today");
         text.textContent = "Today";
-      } else text.textContent = format(dueDate, "dd/MM/yyyy");
+      } else text.textContent = format(dueDate, "d/M/yyyy");
     } else text.textContent = taskDetails[attribute];
 
     item.appendChild(text);
