@@ -39,6 +39,7 @@ const handleSubmit = (e) => {
 };
 
 const toggleUrgency = () => modal.classList.toggle("is-urgent");
+
 const generateProjectOptions = () => {
   const projectNames = app.getProjects().map((p) => p.name);
 

@@ -16,7 +16,7 @@ const createProject = (name, recreatingFromJSON = false) => {
   const viewDetails = () => ({
     id,
     name,
-    taskObjects: getTaskDetails(),
+    tasks: getTaskDetails(),
   });
 
   // SETTERS (kind of)
