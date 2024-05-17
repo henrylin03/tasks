@@ -1,4 +1,4 @@
-import { format, isToday } from "date-fns";
+import { format, isToday, isPast } from "date-fns";
 
 // todo: make svgs easier to manipulate (we need to be able to colour them, but also center them (mask-image didn't work with flexbox - so maybe grid if we pursue that?)) - otherwise, maybe a JSON with all the SVGs inside would be good in like a data/ folder!
 const SVGS = {
@@ -100,14 +100,15 @@ const generateTaskAttributes = (taskDetails) => {
       if (isToday(dueDate)) {
         item.classList.add("today");
         text.textContent = "Today";
-      } else text.textContent = format(dueDate, "d/M/yyyy");
+      } else {
+        text.textContent = format(dueDate, "d/M/yyyy");
+        if (isPast(dueDate)) item.classList.add("overdue");
+      }
     } else text.textContent = taskDetails[attribute];
 
     item.appendChild(text);
     attributeListItems.push(item);
   }
-
-  console.log(attributeListItems);
 
   return attributeListItems;
 };
