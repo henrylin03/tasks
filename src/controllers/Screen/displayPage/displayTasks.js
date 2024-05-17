@@ -3,7 +3,6 @@ const tasksContainer = document.querySelector("main .container");
 const displayTasks = (project) => {
   // #1: for given project object (argument), get all of the task objects. clear the main section of all cards.
   const taskObjects = project.getTasksAsObjects();
-  console.log(taskObjects); //todo: remove
 
   // #2: for each task object, generate a task card
   taskObjects.forEach((t) => generateTaskDiv(t));
