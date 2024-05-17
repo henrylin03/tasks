@@ -35,7 +35,7 @@ const displayProjectPage = (projectName) => {
   //TODO: project needs to be reconstructed NOT here!!!
 
   navbarLink.classList.add("selected");
-  pageTitle.textContent = project.name;
+  pageTitle.textContent = project.getName();
   pageIcon.innerHTML = projectName === "Inbox" ? SVGS.inbox : SVGS.project;
 
   // all tasks are populated (? might need to come back to this later on once i've built tasks in ui)
