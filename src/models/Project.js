@@ -1,4 +1,5 @@
 import { projectExists } from "../helpers/localStorageHelpers";
+import { recreateTaskFromJSON } from "./Task";
 
 const createProject = (name, recreatingFromJSON = false) => {
   if (!recreatingFromJSON && projectExists(name))
@@ -39,10 +40,12 @@ const createProject = (name, recreatingFromJSON = false) => {
   };
 };
 
-const recreateProjectFromJSON = ({ id, name, tasks }) => {
+const recreateProjectFromJSON = ({ id, name, tasksArray }) => {
   const project = createProject(name, true);
   project.setId(id);
-  project.replaceTasks(tasks);
+
+  const tasksReconstructed = tasksArray.map((t) => recreateTaskFromJSON(t));
+  project.replaceTasks(tasksReconstructed);
 
   return project;
 };
