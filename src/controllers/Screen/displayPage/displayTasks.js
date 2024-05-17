@@ -56,6 +56,17 @@ const generateTaskDiv = (task) => {
   const taskAttributes = document.createElement("ul");
   taskAttributes.classList.add("task-attributes");
 
+  checkboxDiv.appendChild(checkbox);
+  rightDiv.appendChild(taskName);
+  article.appendChild(checkboxDiv);
+  article.appendChild(rightDiv);
+
+  console.log(task.viewDetails());
+};
+
+const generateTaskAttributes = (taskDetails) => {
+  const attributeListItems = [];
+
   for (const attribute in taskDetails) {
     if (
       attribute === "name" ||
@@ -75,16 +86,11 @@ const generateTaskDiv = (task) => {
     item.appendChild(icon);
     item.appendChild(text);
     // todo: format the date here probably (unless we do it way before?)
+    // todo: style dates (today and overdue)
+    attributeListItems.push(item);
   }
 
-  // todo: style dates (today and overdue)
-
-  checkboxDiv.appendChild(checkbox);
-  rightDiv.appendChild(taskName);
-  article.appendChild(checkboxDiv);
-  article.appendChild(rightDiv);
-
-  console.log(task.viewDetails());
+  return attributeListItems;
 };
 
 export default displayTasks;
