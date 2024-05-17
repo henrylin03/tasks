@@ -1,5 +1,4 @@
 import { projectExists } from "../helpers/localStorageHelpers";
-import { recreateFromJSON } from "./Task";
 
 const createProject = (name, recreatingFromJSON = false) => {
   if (!recreatingFromJSON && projectExists(name))
@@ -7,19 +6,24 @@ const createProject = (name, recreatingFromJSON = false) => {
 
   // we presume you can't create a project at the exact same time
   let id = Date.now();
-  let tasks = [];
+  let taskObjects = [];
 
   // GETTERS
-  const getTasks = () => tasks; // tasks are deduplicated
+  const getTasksAsObjects = () => taskObjects;
+  const getTaskDetails = () => taskObjects.map((t) => t.viewDetails());
   const getName = () => name;
-  const viewDetails = () => ({ id, name, tasks });
+  const viewDetails = () => ({
+    id,
+    name,
+    taskObjects: getTaskDetails(),
+  });
 
   // SETTERS (kind of)
-  // don't use this setter for id unless you're reconstructing from json
+  //! don't use this setter for id unless you're reconstructing from json
   const setId = (newId) => (id = newId);
-  const addTask = (taskObject) => tasks.push(taskObject.viewDetails());
-
-  const replaceTasks = (tasksArray) => (tasks = tasksArray);
+  const addTask = (taskObject) => taskObjects.push(taskObject);
+  const replaceTasks = (newArrayOfTaskObjects) =>
+    (taskObjects = newArrayOfTaskObjects);
 
   // STORER INTO LOCALSTORAGE
   const store = () => localStorage.setItem(name, JSON.stringify(viewDetails()));
@@ -27,7 +31,7 @@ const createProject = (name, recreatingFromJSON = false) => {
   return {
     viewDetails,
     getName,
-    getTasks,
+    getTasksAsObjects,
     setId,
     addTask,
     replaceTasks,
