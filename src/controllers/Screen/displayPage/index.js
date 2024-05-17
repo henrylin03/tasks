@@ -2,7 +2,7 @@ import { createAppController } from "../../App/createAppController";
 import displayTasks from "./displayTasks";
 import updateHeader from "./updateHeader";
 
-const displayProjectPage = (projectName) => {
+const displayPage = (projectName) => {
   const app = createAppController();
   const project = app.getProject(projectName);
 
@@ -10,4 +10,4 @@ const displayProjectPage = (projectName) => {
   displayTasks(project);
 };
 
-export default displayProjectPage;
+export default displayPage;

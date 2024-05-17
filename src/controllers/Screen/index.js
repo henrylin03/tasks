@@ -1,7 +1,7 @@
 import addTaskUsingModal from "./addTaskUsingModal";
 import addProjectUsingModal from "./addProjectUsingModal";
 import displayProjectsInNav from "./displayProjectsInNav";
-import displayProjectPage from "./displayPage";
+import displayPage from "./displayPage";
 import handleNavLinkClicks from "./handleNavLinkClicks";
 
 const createScreenController = () => {
@@ -13,7 +13,7 @@ const createScreenController = () => {
 
   // add anything that needs to be run
   displayProjectsInNav();
-  displayProjectPage("Inbox");
+  displayPage("Inbox");
 
   // add required event listeners
   addTaskBtn.addEventListener("click", addTaskUsingModal);
