@@ -1,6 +1,3 @@
-import { createAppController } from "../App/createAppController";
-import displayTasks from "./displayTasks";
-
 //todo: make svg imported - there is too much markup here...
 const SVGS = {
   project: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none"
@@ -23,14 +20,6 @@ const SVGS = {
           </svg>`,
 };
 
-const displayProjectPage = (projectName) => {
-  const app = createAppController();
-  const project = app.getProject(projectName);
-
-  updateHeader(project);
-  displayTasks(project);
-};
-
 const updateHeader = (project) => {
   const projectName = project.getName();
 
@@ -43,4 +32,4 @@ const updateHeader = (project) => {
   pageIcon.innerHTML = projectName === "Inbox" ? SVGS.inbox : SVGS.project;
 };
 
-export default displayProjectPage;
+export default updateHeader;

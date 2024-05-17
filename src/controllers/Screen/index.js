@@ -1,7 +1,7 @@
 import addTaskUsingModal from "./addTaskUsingModal";
 import addProjectUsingModal from "./addProjectUsingModal";
 import displayProjectsInNav from "./displayProjectsInNav";
-import displayProjectPage from "./displayProjectPage";
+import displayProjectPage from "./displayPage";
 import handleNavLinkClicks from "./handleNavLinkClicks";
 
 const createScreenController = () => {
