@@ -68,13 +68,14 @@ const generateTaskDiv = (task) => {
     item.classList.add(attribute);
     const icon = document.createElement("figure");
     icon.innerHTML = SVGS[attribute];
+    const text = document.createElement("p");
+    text.textContent =
+      attribute === "urgency" ? "Urgent" : taskDetails[attribute];
 
-    console.log(attribute, taskDetails[attribute]);
+    item.appendChild(icon);
+    item.appendChild(text);
+    // todo: format the date here probably (unless we do it way before?)
   }
-
-  //todo: use css (mask-image probably) to add the svg (locally-stored) based on the class (eg for dueDate, need to have the svg for the calendar)
-
-  // for each attribute (other than completed), generate its div
 
   // todo: style dates (today and overdue)
 
