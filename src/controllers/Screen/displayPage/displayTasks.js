@@ -1,6 +1,6 @@
 // todo: make svgs easier to manipulate (we need to be able to colour them, but also center them (mask-image didn't work with flexbox - so maybe grid if we pursue that?)) - otherwise, maybe a JSON with all the SVGs inside would be good in like a data/ folder!
 const SVGS = {
-  date: `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
+  dueDate: `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-due">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -58,7 +58,7 @@ const generateTaskDiv = (task) => {
 
   const taskAttributes = document.createElement("ul");
   taskAttributes.classList.add("task-attributes");
-  const taskAttributeChildren = generateTaskAttributes();
+  const taskAttributeChildren = generateTaskAttributes(taskDetails);
   taskAttributeChildren.forEach((c) => taskAttributes.appendChild(c));
 
   checkboxDiv.appendChild(checkbox);
@@ -95,6 +95,8 @@ const generateTaskAttributes = (taskDetails) => {
     // todo: style dates (today and overdue)
     attributeListItems.push(item);
   }
+
+  console.log(attributeListItems);
 
   return attributeListItems;
 };
