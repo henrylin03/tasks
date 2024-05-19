@@ -122,6 +122,32 @@
     </form>
   </dialog>
 
+  <dialog class="task-details-modal" open>
+    <form>
+      <div class="checkbox-container">
+        <input type="checkbox" class="checkbox">
+      </div>
+      <div class="right">
+        <div class="task-name-input-wrapper">
+          <input type="text" id="task-name-in-modal" placeholder="Task name" required>
+          <button type="button" class="toggle-urgent-btn"></button>
+        </div>
+        <textarea id="task-description-in-modal" cols="30" rows="5" placeholder="Description"></textarea>
+        <div class="input-container">
+          <input type="text" id="task-due-date-in-modal" placeholder="Due date" onfocus="(this.type='date')"
+            onblur="(this.type='text')">
+          <select id="task-project-in-modal">
+            <option value="Inbox">Inbox</option>
+          </select>
+        </div>
+        <div class="btn-group">
+          <button class="confirm-btn save-changes-to-task" type="submit">Save</button>
+          <button class="cancel-btn" type="reset">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
 
 
 </body>
