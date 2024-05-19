@@ -191,8 +191,6 @@ main>.container {
 }
 
 .checkbox {
-    width: 15px;
-    height: 15px;
     background-color: white;
     border-radius: 50%;
     vertical-align: middle;
@@ -211,6 +209,11 @@ main>.container {
     background-color: var(--primary-clr);
     appearance: auto;
     clip-path: circle(50% at 50% 50%);
+}
+
+.task .checkbox {
+    width: 15px;
+    height: 15px;
 }
 
 .task .right {
@@ -421,6 +424,11 @@ dialog button:active {
 .input-container {
     display: flex;
     gap: 15px;
+}
+
+.task-details-modal .checkbox {
+    width: 20px;
+    height: 20px;
 }
 
 /* todo: consider using components due to the large nature of this css style sheet now! */
