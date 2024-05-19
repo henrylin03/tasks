@@ -439,7 +439,7 @@ dialog button:active {
 .task-details-modal .checkbox {
     width: 20px;
     height: 20px;
-    margin-top: 15px;
+    margin: 15px -10px 0 -10px;
 }
 
 .task-details-modal .task-details-fields {
