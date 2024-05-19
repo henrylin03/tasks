@@ -428,7 +428,7 @@ dialog button:active {
 
 /* modal for details of tasks */
 .task-details-modal {
-    width: 40vw;
+    width: 35vw;
 }
 
 .task-details-modal form {
