@@ -427,14 +427,25 @@ dialog button:active {
 }
 
 /* modal for details of tasks */
-.task-details-modal .checkbox {
-    width: 20px;
-    height: 20px;
-    margin-top: 5px;
+.task-details-modal {
+    width: 40vw;
 }
 
 .task-details-modal form {
     flex-direction: row;
+    width: 100%;
+}
+
+.task-details-modal .checkbox {
+    width: 20px;
+    height: 20px;
+    margin-top: 15px;
+}
+
+.task-details-modal .task-details-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 /* todo: consider using components due to the large nature of this css style sheet now! */
