@@ -30,10 +30,6 @@ const displayTasks = (project) => {
     tasksContainer.appendChild(taskArticle);
   });
 
-  // todo: each task card can be opened and enable modification/deletion (this might have to be done later in a separate pr)
-
-  //todo: sort tasks
-
   return;
 };
 
