@@ -1,5 +1,5 @@
-import addTaskUsingModal from "./modals/addTask";
-import addProjectUsingModal from "./modals/addProject";
+import addTaskUsingModal from "./modals/addTaskUsingModal";
+import addProjectUsingModal from "./modals/addProjectUsingModal";
 import displayProjectsInNav from "./nav/displayProjectsInNav";
 import displayPage from "./displayPage";
 import handleNavLinkClicks from "./nav/handleNavLinkClicks";
