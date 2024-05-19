@@ -42,7 +42,6 @@ function handleSubmit(e) {
     clearErrorMessage();
     dialog.close();
     displayProjectsInNav();
-    displayPage(newProjectName);
   } catch {
     [...InputAndErrorMessageElements].forEach((elem) =>
       elem.classList.add("error")
