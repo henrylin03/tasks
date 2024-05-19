@@ -1,8 +1,8 @@
-import addTaskUsingModal from "./addTaskUsingModal";
-import addProjectUsingModal from "./addProjectUsingModal";
-import displayProjectsInNav from "./displayProjectsInNav";
+import addTaskUsingModal from "./modals/addTask";
+import addProjectUsingModal from "./modals/addProject";
+import displayProjectsInNav from "./nav/displayProjectsInNav";
 import displayPage from "./displayPage";
-import handleNavLinkClicks from "./handleNavLinkClicks";
+import handleNavLinkClicks from "./nav/handleNavLinkClicks";
 
 const createScreenController = () => {
   // select required dom elements here

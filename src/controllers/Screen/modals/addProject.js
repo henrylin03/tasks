@@ -1,6 +1,6 @@
-import { createAppController } from "../App/createAppController";
-import displayProjectsInNav from "./displayProjectsInNav";
-import displayPage from "./displayPage";
+import { createAppController } from "../../App/createAppController";
+import displayProjectsInNav from "../nav/displayProjectsInNav";
+import displayPage from "../displayPage";
 
 const dialog = document.querySelector(".new-project-modal");
 const InputAndErrorMessageElements = document.querySelector(

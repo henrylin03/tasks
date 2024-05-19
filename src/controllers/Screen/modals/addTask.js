@@ -1,5 +1,5 @@
-import { createAppController } from "../App/createAppController";
-import displayPage from "./displayPage";
+import { createAppController } from "../../App/createAppController";
+import displayPage from "../displayPage";
 
 const app = createAppController();
 

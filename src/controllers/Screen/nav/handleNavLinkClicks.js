@@ -1,4 +1,4 @@
-import displayProjectPage from "./displayPage";
+import displayPage from "../displayPage";
 
 function handleNavLinkClicks(projectName) {
   const projectsIncludingInbox = document.querySelectorAll(
@@ -6,7 +6,7 @@ function handleNavLinkClicks(projectName) {
   );
   // clear all previously selected pages (link has '.selected' attached)
   projectsIncludingInbox.forEach((div) => div.classList.remove("selected"));
-  displayProjectPage(projectName);
+  displayPage(projectName);
 }
 
 export default handleNavLinkClicks;

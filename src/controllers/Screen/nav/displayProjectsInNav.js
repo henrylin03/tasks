@@ -1,4 +1,4 @@
-import { createAppController } from "../App/createAppController";
+import { createAppController } from "../../App/createAppController";
 import handleNavLinkClicks from "./handleNavLinkClicks";
 
 const displayProjectsInNav = () => {
