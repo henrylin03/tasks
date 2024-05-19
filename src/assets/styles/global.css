@@ -29,6 +29,11 @@ h1 {
     color: var(--primary-clr);
 }
 
+textarea {
+    resize: none;
+}
+
+
 /* overall layout */
 .grid {
     height: 100%;
