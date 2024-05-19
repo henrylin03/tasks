@@ -426,6 +426,7 @@ dialog button:active {
     gap: 15px;
 }
 
+/* modal for details of tasks */
 .task-details-modal .checkbox {
     width: 20px;
     height: 20px;
