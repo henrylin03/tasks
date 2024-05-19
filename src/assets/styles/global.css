@@ -433,7 +433,6 @@ dialog button:active {
 
 .task-details-modal form {
     flex-direction: row;
-    gap: 15px;
     width: 100%;
 }
 
@@ -447,4 +446,5 @@ dialog button:active {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    width: 100%;
 }
