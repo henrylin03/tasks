@@ -184,13 +184,13 @@ main>.container {
     filter: brightness(.99) saturate(1.2)
 }
 
-.task>.checkbox-container {
+.checkbox-container {
     display: block;
     position: relative;
     cursor: pointer;
 }
 
-.task .checkbox {
+.checkbox {
     width: 15px;
     height: 15px;
     background-color: white;
@@ -203,11 +203,11 @@ main>.container {
     transition: background-color .15s;
 }
 
-.task .checkbox:hover {
+.checkbox:hover {
     background-color: var(--lighter-primary-clr);
 }
 
-.task .checkbox:checked {
+.checkbox:checked {
     background-color: var(--primary-clr);
     appearance: auto;
     clip-path: circle(50% at 50% 50%);
