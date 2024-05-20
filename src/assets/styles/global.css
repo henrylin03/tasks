@@ -369,7 +369,7 @@ dialog .top {
     display: flex;
     justify-content: end;
     gap: 15px;
-    margin-top: 13px;
+    margin-top: 15px;
 }
 
 dialog button {
