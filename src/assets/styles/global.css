@@ -189,6 +189,7 @@ main>.container {
     display: block;
     position: relative;
     cursor: pointer;
+    z-index: 99;
 }
 
 .checkbox {
