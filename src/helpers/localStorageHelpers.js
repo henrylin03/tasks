@@ -22,17 +22,17 @@ const retrieveProjectByName = (projectName) => {
   )[0];
 };
 
-// const retrieveProject = (projectName) =>
-//   JSON.parse(localStorage.getItem(projectName));
+const retrieveTasks = () => {
+  try {
+    return Object.values(JSON.parse(localStorage.getItem("tasks")));
+  } catch (TypeError) {
+    return [];
+  }
+};
 
-// const retrieveAllProjects = () => Object.values(retrieveAll());
-
-// const retrieveAll = () => {
-//   const obj = {};
-//   const storedProjectNames = Object.keys(localStorage);
-//   storedProjectNames.forEach((p) => (obj[p] = retrieveProject(p)));
-//   return obj;
-// };
-
-// export { retrieveAllProjects, retrieveProject, projectExists };
-export { projectExists, retrieveProjectByName, retrieveProjects };
+export {
+  projectExists,
+  retrieveProjectByName,
+  retrieveProjects,
+  retrieveTasks,
+};
