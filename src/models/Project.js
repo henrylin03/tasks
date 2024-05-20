@@ -13,7 +13,6 @@ const createProject = (name, recreatingFromJSON = false) => {
   let tasks = [];
 
   // GETTERS
-  const getTasks = () => tasks;
   const getName = () => name;
   const viewDetails = () => ({ id, name, tasks });
 
@@ -49,7 +48,6 @@ const createProject = (name, recreatingFromJSON = false) => {
   return {
     viewDetails,
     getName,
-    getTasks,
     setId,
     addTask,
     replaceTasks,
