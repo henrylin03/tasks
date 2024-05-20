@@ -4,7 +4,7 @@ import {
   closeModal,
 } from "./taskModalsHandlers";
 
-const viewAndEditTaskDetails = (e) => {
+const viewAndEditTaskDetails = () => {
   const taskDetailsModal = generateTaskDetailsModal();
 
   taskDetailsModal.addEventListener("keydown", (e) => {
