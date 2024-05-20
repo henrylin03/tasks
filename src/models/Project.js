@@ -2,14 +2,15 @@ import {
   retrieveProjects,
   projectExists,
 } from "../helpers/localStorageHelpers";
-import { recreateTaskFromJSON } from "./Task";
 
 const createProject = (name, recreatingFromJSON = false) => {
   if (!recreatingFromJSON && projectExists(name))
     throw new Error(`Project with name, "${name}" already exists`);
 
+  const isInitialLoadOfApp = localStorage.length === 0 || name === "Inbox";
+
   // we presume you can't create a project at the exact same time
-  let id = name === "Inbox" ? "inbox" : `P${Date.now()}`;
+  let id = isInitialLoadOfApp ? "inbox" : `P${Date.now()}`;
   let tasks = [];
 
   // GETTERS
@@ -25,8 +26,7 @@ const createProject = (name, recreatingFromJSON = false) => {
     id = retrievedId;
   };
   const addTask = (newTask) => tasks.push(newTask);
-  const replaceTasks = (newArrayOfTaskObjects) =>
-    (tasks = newArrayOfTaskObjects);
+  const replaceTasks = (newTasks) => (tasks = newTasks);
 
   // STORER INTO LOCALSTORAGE
   const store = () => {
@@ -34,14 +34,12 @@ const createProject = (name, recreatingFromJSON = false) => {
     const storedProjectIds = storedProjectsArray.map((p) => p.id);
 
     // checks
-    const isInitialLoadOfApp = localStorage.length === 0 || name === "Inbox";
     const isExistingProject = storedProjectIds.includes(id);
 
-    if (isInitialLoadOfApp)
-      localStorage.setItem("projects", JSON.stringify([]));
-    if (isExistingProject) storedProjectsArray.filter((p) => p.id !== id);
+    if (isExistingProject) storedProjectsArray.filter((p) => p.id != id);
 
     storedProjectsArray.push(viewDetails());
+    console.log("storedProjectsArray", storedProjectsArray);
     localStorage.setItem("projects", JSON.stringify(storedProjectsArray));
   };
 
@@ -58,9 +56,7 @@ const createProject = (name, recreatingFromJSON = false) => {
 const recreateProjectFromJSON = ({ id, name, tasks }) => {
   const project = createProject(name, true);
   project.setId(id);
-
-  // const tasksReconstructed = tasks.map((t) => recreateTaskFromJSON(t));
-  // project.replaceTasks(tasksReconstructed);
+  project.replaceTasks(tasks);
 
   return project;
 };

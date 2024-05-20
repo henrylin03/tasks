@@ -12,12 +12,12 @@ const createAppController = () => {
     newTask.setDescription(description);
     newTask.setDueDate(dueDate);
     newTask.setUrgency(urgency);
+    newTask.store();
 
     const project = recreateProjectFromJSON(retrieveProjectByName(projectName));
     project.addTask(newTask.getId());
-    console.log(project.viewDetails());
-    console.log(newTask.viewDetails());
-    // project.store();
+    console.log(project);
+    project.store();
   };
 
   const addProject = (newProjectName) => {
