@@ -398,7 +398,7 @@ dialog button:active {
     background-color: #dedede;
 }
 
-.new-task-modal.is-urgent {
+dialog.is-urgent {
     border-left: 10px solid var(--highlight-clr);
 }
 
