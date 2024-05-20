@@ -9,7 +9,7 @@ const createProject = (name, recreatingFromJSON = false) => {
     throw new Error(`Project with name, "${name}" already exists`);
 
   // we presume you can't create a project at the exact same time
-  let id = Date.now();
+  let id = name === "Inbox" ? "inbox" : `P${Date.now()}`;
   let tasks = [];
 
   // GETTERS

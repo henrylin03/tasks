@@ -1,5 +1,7 @@
+import { retrieveTasks } from "../helpers/localStorageHelpers";
+
 const createTask = (name, recreatingFromJSON = false) => {
-  let id = Date.now();
+  let id = `T${Date.now()}`;
   let description = "";
   let dueDate = "";
   let urgency = false;
@@ -37,6 +39,21 @@ const createTask = (name, recreatingFromJSON = false) => {
     completed = bool;
   };
 
+  const store = () => {
+    const storedTasksArray = retrieveTasks();
+    const isFirstTask = storedTasksArray.length === 0;
+
+    // check if task is existing
+
+    // if task is existing, remove original
+
+    // if task is not existing, just continue
+
+    // finally, even if it is existing or not, just set it (replacing it or adding it for the first time)
+
+    if (isFirstTask) localStorage.setItem("tasks", JSON.stringify([]));
+  };
+
   return {
     getId,
     viewDetails,
@@ -45,6 +62,7 @@ const createTask = (name, recreatingFromJSON = false) => {
     setDueDate,
     setUrgency,
     setCompletion,
+    store,
   };
 };
 
