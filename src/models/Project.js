@@ -1,9 +1,9 @@
-import { projectExists } from "../helpers/localStorageHelpers";
+// import { projectExists } from "../helpers/localStorageHelpers";
 import { recreateTaskFromJSON } from "./Task";
 
 const createProject = (name, recreatingFromJSON = false) => {
-  if (!recreatingFromJSON && projectExists(name))
-    throw new Error(`Project with name, "${name}" already exists`);
+  // if (!recreatingFromJSON && projectExists(name))
+  //   throw new Error(`Project with name, "${name}" already exists`);
 
   // we presume you can't create a project at the exact same time
   let id = Date.now();
@@ -13,11 +13,7 @@ const createProject = (name, recreatingFromJSON = false) => {
   const getTasksAsObjects = () => taskObjects;
   const getTaskDetails = () => taskObjects.map((t) => t.viewDetails());
   const getName = () => name;
-  const viewDetails = () => ({
-    id,
-    name,
-    tasks: getTaskDetails(),
-  });
+  const viewDetails = () => ({ name, tasks: getTaskDetails() });
 
   // SETTERS (kind of)
   const setId = (retrievedId) => {
@@ -32,7 +28,8 @@ const createProject = (name, recreatingFromJSON = false) => {
     (taskObjects = newArrayOfTaskObjects);
 
   // STORER INTO LOCALSTORAGE
-  const store = () => localStorage.setItem(name, JSON.stringify(viewDetails()));
+  const store = () =>
+    localStorage.setItem("projects", JSON.stringify({ [id]: viewDetails() }));
 
   return {
     viewDetails,

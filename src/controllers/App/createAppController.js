@@ -24,16 +24,17 @@ const createAppController = () => {
   };
 
   const getProjects = (excludeInbox = true) => {
-    let retrievedProjects = retrieveAllProjects();
+    // let retrievedProjects = retrieveAllProjects();
 
-    if (excludeInbox)
-      retrievedProjects = retrievedProjects.filter(
-        (project) => project.name !== "Inbox"
-      );
+    // if (excludeInbox)
+    //   retrievedProjects = retrievedProjects.filter(
+    //     (project) => project.name !== "Inbox"
+    //   );
 
-    return retrievedProjects.sort(
-      (projectA, projectB) => projectA.id - projectB.id
-    );
+    // return retrievedProjects.sort(
+    //   (projectA, projectB) => projectA.id - projectB.id
+    // );
+    return;
   };
 
   const getProject = (projectName) =>

@@ -1,17 +1,18 @@
-// checks
-const projectExists = (projectName) => !!localStorage.getItem(projectName);
+// // checks
+// const projectExists = (projectName) => !!localStorage.getItem(projectName);
 
-// retrievers from localStorage
-const retrieveProject = (projectName) =>
-  JSON.parse(localStorage.getItem(projectName));
+// // retrievers from localStorage
 
-const retrieveAllProjects = () => Object.values(retrieveAll());
+// const retrieveProject = (projectName) =>
+//   JSON.parse(localStorage.getItem(projectName));
 
-const retrieveAll = () => {
-  const obj = {};
-  const storedProjectNames = Object.keys(localStorage);
-  storedProjectNames.forEach((p) => (obj[p] = retrieveProject(p)));
-  return obj;
-};
+// const retrieveAllProjects = () => Object.values(retrieveAll());
 
-export { retrieveAllProjects, retrieveProject, projectExists };
+// const retrieveAll = () => {
+//   const obj = {};
+//   const storedProjectNames = Object.keys(localStorage);
+//   storedProjectNames.forEach((p) => (obj[p] = retrieveProject(p)));
+//   return obj;
+// };
+
+// export { retrieveAllProjects, retrieveProject, projectExists };
