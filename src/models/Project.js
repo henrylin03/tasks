@@ -1,4 +1,7 @@
-import { projectExists } from "../helpers/localStorageHelpers";
+import {
+  retrieveProjects,
+  projectExists,
+} from "../helpers/localStorageHelpers";
 import { recreateTaskFromJSON } from "./Task";
 
 const createProject = (name, recreatingFromJSON = false) => {
@@ -28,8 +31,16 @@ const createProject = (name, recreatingFromJSON = false) => {
     (taskObjects = newArrayOfTaskObjects);
 
   // STORER INTO LOCALSTORAGE
-  const store = () =>
-    localStorage.setItem("projects", JSON.stringify({ [id]: viewDetails() }));
+  const store = () => {
+    const isInitialLoadOfApp = localStorage.length === 0 || name === "Inbox";
+
+    if (isInitialLoadOfApp)
+      localStorage.setItem("projects", JSON.stringify([]));
+
+    const storedProjectsArray = retrieveProjects();
+    storedProjectsArray.push(viewDetails());
+    localStorage.setItem("projects", JSON.stringify(storedProjectsArray));
+  };
 
   return {
     viewDetails,

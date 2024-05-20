@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-05-20T06:10:58.601Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="MYciQhImi27Rd7CCzhh2" version="24.4.0" type="device">
+<mxfile host="app.diagrams.net" modified="2024-05-20T06:26:20.165Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="ExsTmq8gvoyNWlfPGCH5" version="24.4.0" type="device">
   <diagram name="Page-1" id="iCd83VONYyglG_LTdbsO">
     <mxGraphModel dx="840" dy="494" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
@@ -19,20 +19,11 @@
         <mxCell id="WSc9oac2RAKXXEn_DxE--6" value="&lt;b&gt;&lt;font face=&quot;Roboto&quot;&gt;&quot;tasks&quot;:&lt;/font&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;strokeColor=#d79b00;align=left;verticalAlign=bottom;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=12;fillColor=#ffe6cc;arcSize=7;labelPosition=center;verticalLabelPosition=top;" vertex="1" parent="1">
           <mxGeometry x="870" y="80" width="590" height="740" as="geometry" />
         </mxCell>
-        <mxCell id="WSc9oac2RAKXXEn_DxE--7" value="" style="labelPosition=right;align=left;strokeWidth=1;shape=mxgraph.mockup.markup.curlyBrace;html=1;shadow=0;dashed=0;strokeColor=#999999;direction=north;rounded=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;verticalAlign=middle;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
-          <mxGeometry x="140" y="100" width="20" height="690" as="geometry" />
-        </mxCell>
         <mxCell id="WSc9oac2RAKXXEn_DxE--8" value="" style="labelPosition=right;align=left;strokeWidth=1;shape=mxgraph.mockup.markup.curlyBrace;html=1;shadow=0;dashed=0;strokeColor=#999999;direction=north;rounded=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;verticalAlign=middle;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
           <mxGeometry x="890" y="100" width="20" height="700" as="geometry" />
         </mxCell>
         <mxCell id="WSc9oac2RAKXXEn_DxE--9" value="" style="labelPosition=right;align=left;strokeWidth=1;shape=mxgraph.mockup.markup.curlyBrace;html=1;shadow=0;dashed=0;strokeColor=#999999;direction=north;rounded=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;verticalAlign=middle;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=12;fontColor=default;fillColor=default;rotation=-180;" vertex="1" parent="1">
           <mxGeometry x="1420" y="110" width="20" height="690" as="geometry" />
-        </mxCell>
-        <mxCell id="WSc9oac2RAKXXEn_DxE--10" value="" style="labelPosition=right;align=left;strokeWidth=1;shape=mxgraph.mockup.markup.curlyBrace;html=1;shadow=0;dashed=0;strokeColor=#999999;direction=north;rounded=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;verticalAlign=middle;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=12;fontColor=default;fillColor=default;rotation=-180;" vertex="1" parent="1">
-          <mxGeometry x="670" y="100" width="20" height="700" as="geometry" />
-        </mxCell>
-        <mxCell id="WSc9oac2RAKXXEn_DxE--11" value="&lt;i&gt;17043423:&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Roboto;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto;fontSize=12;fontColor=default;" vertex="1" parent="1">
-          <mxGeometry x="170" y="135" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="WSc9oac2RAKXXEn_DxE--12" value="" style="labelPosition=right;align=left;strokeWidth=1;shape=mxgraph.mockup.markup.curlyBrace;html=1;shadow=0;dashed=0;strokeColor=#999999;direction=north;rounded=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;verticalAlign=middle;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
           <mxGeometry x="240" y="100" width="20" height="100" as="geometry" />
@@ -78,6 +69,12 @@
         </mxCell>
         <mxCell id="WSc9oac2RAKXXEn_DxE--29" value="" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Roboto;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656;opacity=50;" vertex="1" parent="1">
           <mxGeometry x="367" y="165" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WSc9oac2RAKXXEn_DxE--33" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/phosphor-duotone-vol-1/256/brackets-square-duotone-128.png;rounded=0;align=center;fontFamily=Roboto;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;clipPath=inset(10.94% 54.69% 10.94% 10.94%);" vertex="1" parent="1">
+          <mxGeometry x="173.68" y="87.5" width="56.32" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="WSc9oac2RAKXXEn_DxE--36" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/phosphor-duotone-vol-1/256/brackets-square-duotone-128.png;rounded=0;align=center;fontFamily=Roboto;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;clipPath=inset(10.94% 54.69% 10.94% 10.94%);rotation=-180;" vertex="1" parent="1">
+          <mxGeometry x="610" y="300" width="56.32" height="128" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
