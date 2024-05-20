@@ -17,6 +17,12 @@ const retrieveAllProjectNames = () => {
 //! project names must be unique
 const retrieveProjectByName = (projectName) => {
   const storedProjectsArray = retrieveProjects();
+
+  console.log("storedProjectsArray", storedProjectsArray);
+  console.log(
+    storedProjectsArray.filter((project) => project.name === projectName)
+  );
+
   return storedProjectsArray.filter(
     (project) => project.name === projectName
   )[0];

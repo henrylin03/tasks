@@ -36,7 +36,9 @@ const createProject = (name, recreatingFromJSON = false) => {
     // checks
     const isExistingProject = storedProjectIds.includes(id);
 
-    if (isExistingProject) storedProjectsArray.filter((p) => p.id != id);
+    if (isExistingProject) storedProjectsArray.filter((p) => p.id == id);
+
+    console.log(storedProjectsArray, "after filtering");
 
     storedProjectsArray.push(viewDetails());
     console.log("storedProjectsArray", storedProjectsArray);
