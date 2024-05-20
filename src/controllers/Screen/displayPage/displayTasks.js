@@ -75,15 +75,12 @@ const generateTaskDiv = (task) => {
 };
 
 const generateTaskAttributes = (taskDetails) => {
-  const attributeListItems = [];
+  const ATTRIBUTES_NOT_GENERATED = ["id", "name", "completed"];
+  ATTRIBUTES_NOT_GENERATED.forEach((a) => delete taskDetails[a]);
 
+  const attributeListItems = [];
   for (const attribute in taskDetails) {
-    if (
-      attribute === "name" ||
-      attribute === "completed" ||
-      !taskDetails[attribute]
-    )
-      continue;
+    if (!taskDetails[attribute]) continue;
 
     const item = document.createElement("li");
     item.classList.add(attribute);
