@@ -30,4 +30,4 @@ const retrieveProjectByName = (projectName) => {
 // };
 
 // export { retrieveAllProjects, retrieveProject, projectExists };
-export { projectExists, retrieveProjectByName };
+export { projectExists, retrieveProjectByName, retrieveAllProjectsAsArray };

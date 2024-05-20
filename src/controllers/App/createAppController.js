@@ -1,6 +1,9 @@
 import { createProject, recreateProjectFromJSON } from "../../models/Project";
 import { createTask } from "../../models/Task";
-import { retrieveProjectByName } from "../../helpers/localStorageHelpers";
+import {
+  retrieveAllProjectsAsArray,
+  retrieveProjectByName,
+} from "../../helpers/localStorageHelpers";
 // import {
 //   retrieveAllProjects,
 //   retrieveProject,
@@ -25,17 +28,12 @@ const createAppController = () => {
   };
 
   const getProjects = (excludeInbox = true) => {
-    // let retrievedProjects = retrieveAllProjects();
+    let projects = retrieveAllProjectsAsArray();
 
-    // if (excludeInbox)
-    //   retrievedProjects = retrievedProjects.filter(
-    //     (project) => project.name !== "Inbox"
-    //   );
+    if (excludeInbox)
+      projects = projects.filter((project) => project.name !== "Inbox");
 
-    // return retrievedProjects.sort(
-    //   (projectA, projectB) => projectA.id - projectB.id
-    // );
-    return;
+    return projects.sort((projectA, projectB) => projectA.id - projectB.id);
   };
 
   const getProject = (projectName) =>
