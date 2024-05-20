@@ -2,7 +2,7 @@ import { createAppController } from "../../App/createAppController";
 import { clearFormErrorMessages, closeModal } from "./taskModalsHandlers";
 import displayProjectsInNav from "../nav/displayProjectsInNav";
 
-const dialog = document.querySelector(".new-project-modal");
+const modal = document.querySelector(".new-project-modal");
 const inputAndErrorMessageElements = document.querySelector(
   ".new-project-modal .top"
 ).children;
@@ -16,13 +16,13 @@ const addProjectUsingModal = () => {
     "input",
     clearFormErrorMessages(inputAndErrorMessageElements)
   );
-  cancelBtn.addEventListener("click", () => closeModal(dialog));
+  cancelBtn.addEventListener("click", () => closeModal(modal));
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeModal(dialog);
+    if (e.key === "Escape") closeModal(modal);
   });
 
   // run
-  dialog.showModal();
+  modal.showModal();
 };
 
 function handleSubmit(e) {
@@ -33,7 +33,7 @@ function handleSubmit(e) {
   // dealing with errors when project already exists
   try {
     app.addProject(input.value);
-    closeModal(dialog);
+    closeModal(modal);
     displayProjectsInNav();
   } catch {
     [...inputAndErrorMessageElements].forEach((elem) =>

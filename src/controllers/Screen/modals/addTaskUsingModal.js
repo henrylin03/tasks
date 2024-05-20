@@ -1,6 +1,10 @@
 import { createAppController } from "../../App/createAppController";
 import displayPage from "../displayPage";
-import { toggleUrgency, generateProjectOptions } from "./taskModalsHandlers";
+import {
+  toggleUrgency,
+  generateProjectOptions,
+  closeModal,
+} from "./taskModalsHandlers";
 
 const app = createAppController();
 
@@ -16,7 +20,10 @@ const cancelBtn = document.querySelector(".new-task-modal .cancel-btn");
 const addTaskUsingModal = () => {
   urgentBtn.addEventListener("mousedown", () => toggleUrgency(modal));
   form.addEventListener("submit", handleSubmit);
-  cancelBtn.addEventListener("click", () => modal.close());
+  cancelBtn.addEventListener("click", () => closeModal(modal));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal(modal);
+  });
 
   // run
   modal.showModal();
