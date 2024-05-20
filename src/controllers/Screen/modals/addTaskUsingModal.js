@@ -1,5 +1,6 @@
 import { createAppController } from "../../App/createAppController";
 import displayPage from "../displayPage";
+import { toggleUrgency, generateProjectOptions } from "./taskModalsHandlers";
 
 const app = createAppController();
 
@@ -13,13 +14,13 @@ const urgentBtn = document.querySelector(".toggle-urgent-btn");
 const cancelBtn = document.querySelector(".new-task-modal .cancel-btn");
 
 const addTaskUsingModal = () => {
-  urgentBtn.addEventListener("mousedown", toggleUrgency);
+  urgentBtn.addEventListener("mousedown", () => toggleUrgency(modal));
   form.addEventListener("submit", handleSubmit);
   cancelBtn.addEventListener("click", () => modal.close());
 
   // run
   modal.showModal();
-  generateProjectOptions();
+  generateProjectOptions(projectDropdown);
 };
 
 const handleSubmit = (e) => {
@@ -38,20 +39,6 @@ const handleSubmit = (e) => {
   form.reset();
   modal.close();
   displayPage(newTaskObject.projectName);
-};
-
-const toggleUrgency = () => modal.classList.toggle("is-urgent");
-
-const generateProjectOptions = () => {
-  const projectNames = app.getProjects().map((p) => p.name);
-
-  projectNames.forEach((p) => {
-    const option = document.createElement("option");
-    option.setAttribute("value", p);
-    option.textContent = p;
-
-    projectDropdown.appendChild(option);
-  });
 };
 
 export default addTaskUsingModal;
