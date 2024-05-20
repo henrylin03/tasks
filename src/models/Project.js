@@ -20,12 +20,12 @@ const createProject = (name, recreatingFromJSON = false) => {
   });
 
   // SETTERS (kind of)
-  const setId = (newId) => {
+  const setId = (retrievedId) => {
     if (!recreatingFromJSON)
       throw new Error(
         "Cannot update the ID of a project unless you're recreating it from localStorage in JSON format."
       );
-    id = newId;
+    id = retrievedId;
   };
   const addTask = (taskObject) => taskObjects.push(taskObject);
   const replaceTasks = (newArrayOfTaskObjects) =>

@@ -1,5 +1,5 @@
-const createTask = (name) => {
-  const id = Date.now();
+const createTask = (name, recreatingFromJSON = false) => {
+  let id = Date.now();
   let description = "";
   let dueDate = "";
   let urgency = false;
@@ -14,6 +14,14 @@ const createTask = (name) => {
     urgency,
     completed,
   });
+
+  const setId = (retrievedId) => {
+    if (!recreatingFromJSON)
+      throw new Error(
+        "Cannot update the ID of a task unless you're recreating it from localStorage in JSON format."
+      );
+    id = retrievedId;
+  };
 
   const setDescription = (newDescription) => (description = newDescription);
   const setDueDate = (dueDateString) => {
@@ -32,6 +40,7 @@ const createTask = (name) => {
   return {
     getId,
     viewDetails,
+    setId,
     setDescription,
     setDueDate,
     setUrgency,
@@ -40,13 +49,15 @@ const createTask = (name) => {
 };
 
 const recreateTaskFromJSON = ({
+  id,
   name,
   description,
   dueDate,
   urgency,
   completed,
 }) => {
-  const task = createTask(name);
+  const task = createTask(name, true);
+  task.setId(id);
   task.setDescription(description);
   task.setDueDate(dueDate);
   task.setUrgency(urgency);
