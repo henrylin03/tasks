@@ -1,13 +1,11 @@
 import { generateProjectOptions, toggleUrgency } from "./taskModalsHandlers";
 
-const taskDetailsModalsSection = document.querySelector(".task-details-modals");
-
 const viewAndEditTaskDetails = (e) => {
   const taskDetailsModal = generateTaskDetailsModal();
   const cancelBtn = document.querySelector(".task-details-modal .cancel-btn");
 
   cancelBtn.addEventListener("click", () => {
-    taskDetailsModalsSection.removeChild(taskDetailsModal);
+    document.body.removeChild(taskDetailsModal);
     taskDetailsModal.close();
   });
 
@@ -92,7 +90,7 @@ const generateTaskDetailsModal = () => {
 
   modal.appendChild(form);
 
-  taskDetailsModalsSection.appendChild(modal);
+  document.body.appendChild(modal);
 
   return modal;
 };
