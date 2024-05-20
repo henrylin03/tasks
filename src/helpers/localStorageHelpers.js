@@ -2,11 +2,17 @@
 // const projectExists = (projectName) => !!localStorage.getItem(projectName);
 
 // RETRIEVERS
-const retrieveAllProjects = () => JSON.parse(localStorage.getItem("projects"));
-
+const retrieveAllProjectsAsObjects = () =>
+  JSON.parse(localStorage.getItem("projects"));
+const retrieveAllProjectsAsArray = () =>
+  Object.values(retrieveAllProjectsAsObjects());
+const retrieveAllProjectNames = () => {
+  const storedProjectsArray = retrieveAllProjectsAsArray();
+  return storedProjectsArray.map((project) => project.name);
+};
 //! project names must be unique
 const retrieveProjectByName = (projectName) => {
-  const storedProjectsArray = Object.values(retrieveAllProjects());
+  const storedProjectsArray = retrieveAllProjectsAsArray();
   return storedProjectsArray.filter((project) => project.name === projectName);
 };
 
@@ -23,4 +29,4 @@ const retrieveProjectByName = (projectName) => {
 // };
 
 // export { retrieveAllProjects, retrieveProject, projectExists };
-export { retrieveProjectByName };
+export { retrieveProjectByName, retrieveAllProjectNames };
