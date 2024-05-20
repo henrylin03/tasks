@@ -6,7 +6,7 @@ const displayPage = (projectName) => {
   const app = createAppController();
   const project = app.getProject(projectName);
 
-  // updateHeader(project);
+  updateHeader(project);
   // displayTasks(project);
 };
 

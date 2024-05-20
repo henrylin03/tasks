@@ -9,11 +9,11 @@ const createProject = (name, recreatingFromJSON = false) => {
 
   const isInitialLoadOfApp = localStorage.length === 0 || name === "Inbox";
 
-  // we presume you can't create a project at the exact same time
   let id = isInitialLoadOfApp ? "inbox" : `P${Date.now()}`;
   let tasks = [];
 
   // GETTERS
+  const getId = () => id;
   const getName = () => name;
   const viewDetails = () => ({ id, name, tasks });
 
@@ -37,8 +37,9 @@ const createProject = (name, recreatingFromJSON = false) => {
   };
 
   return {
-    viewDetails,
+    getId,
     getName,
+    viewDetails,
     setId,
     addTask,
     replaceTasks,
