@@ -42,17 +42,11 @@ const createTask = (name, recreatingFromJSON = false) => {
   const store = () => {
     const storedTasksArray = retrieveTasks();
     const storedTaskIds = storedTasksArray.map((t) => t.id);
-
-    const isFirstTask = storedTasksArray.length === 0;
     const isExistingTask = storedTaskIds.includes(id);
 
-    // if task is existing, remove original
-
-    // if task is not existing, just continue
-
-    // finally, even if it is existing or not, just set it (replacing it or adding it for the first time)
-
-    if (isFirstTask) localStorage.setItem("tasks", JSON.stringify([]));
+    if (isExistingTask) storedTasksArray.filter((t) => t.id !== id);
+    storedTasksArray.push(viewDetails());
+    localStorage.setItem("tasks", JSON.stringify(storedTasksArray));
   };
 
   return {

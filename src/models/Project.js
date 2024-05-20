@@ -39,7 +39,7 @@ const createProject = (name, recreatingFromJSON = false) => {
 
     if (isInitialLoadOfApp)
       localStorage.setItem("projects", JSON.stringify([]));
-    if (isExistingProject) storedProjectsArray.filter((p) => p.id != id);
+    if (isExistingProject) storedProjectsArray.filter((p) => p.id !== id);
 
     storedProjectsArray.push(viewDetails());
     localStorage.setItem("projects", JSON.stringify(storedProjectsArray));
