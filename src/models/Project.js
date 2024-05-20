@@ -14,9 +14,8 @@ const createProject = (name, recreatingFromJSON = false) => {
 
   // GETTERS
   const getTasks = () => tasks;
-  // const getTaskDetails = () => taskObjects.map((t) => t.viewDetails());
   const getName = () => name;
-  const viewDetails = () => ({ id, name, tasks: getTaskDetails() });
+  const viewDetails = () => ({ id, name, tasks });
 
   // SETTERS (kind of)
   const setId = (retrievedId) => {
@@ -32,12 +31,20 @@ const createProject = (name, recreatingFromJSON = false) => {
 
   // STORER INTO LOCALSTORAGE
   const store = () => {
+    const storedProjectsArray = retrieveProjects();
+    const storedProjectIds = storedProjectsArray.map((p) => p.id);
+
+    // checks
     const isInitialLoadOfApp = localStorage.length === 0 || name === "Inbox";
+    const isExistingProject = storedProjectIds.includes(id);
 
     if (isInitialLoadOfApp)
       localStorage.setItem("projects", JSON.stringify([]));
 
-    const storedProjectsArray = retrieveProjects();
+    // if the project id already exists, ...
+
+    // if the project id does not exist yet, then you can just push it
+
     storedProjectsArray.push(viewDetails());
     localStorage.setItem("projects", JSON.stringify(storedProjectsArray));
   };
@@ -57,8 +64,8 @@ const recreateProjectFromJSON = ({ id, name, tasks }) => {
   const project = createProject(name, true);
   project.setId(id);
 
-  const tasksReconstructed = tasks.map((t) => recreateTaskFromJSON(t));
-  project.replaceTasks(tasksReconstructed);
+  // const tasksReconstructed = tasks.map((t) => recreateTaskFromJSON(t));
+  // project.replaceTasks(tasksReconstructed);
 
   return project;
 };

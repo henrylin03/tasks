@@ -14,7 +14,8 @@ const createAppController = () => {
     newTask.setUrgency(urgency);
 
     const project = recreateProjectFromJSON(retrieveProjectByName(projectName));
-    project.addTask(newTask);
+    project.addTask(newTask.getId());
+    console.log(newTask.getId());
     project.store();
   };
 
