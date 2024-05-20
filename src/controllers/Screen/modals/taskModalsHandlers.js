@@ -8,6 +8,7 @@ const generateProjectOptions = (projectDropdownElement) => {
 
   projectDropdownElement.replaceChildren();
 
+  // false argument means we are not excluding 'Inbox' project here
   const projectNames = app.getProjects(false).map((p) => p.name);
   projectNames.forEach((p) => {
     const option = document.createElement("option");

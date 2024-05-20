@@ -1,19 +1,97 @@
 import { generateProjectOptions, toggleUrgency } from "./taskModalsHandlers";
 
-const modal = document.querySelector(".task-details-modal");
-const urgentBtn = document.querySelector(
-  ".task-details-modal .toggle-urgent-btn"
-);
-const projectDropdown = document.querySelector("#task-project-in-modal");
-const cancelBtn = document.querySelector(".task-details-modal .cancel-btn");
-
 const viewAndEditTaskDetails = (e) => {
+  const modal = document.querySelector(".task-details-modal");
+  const urgentBtn = document.querySelector(
+    ".task-details-modal .toggle-urgent-btn"
+  );
+  const projectDropdown = document.querySelector("#task-project-in-modal");
+  const cancelBtn = document.querySelector(".task-details-modal .cancel-btn");
+
   urgentBtn.addEventListener("mousedown", () => toggleUrgency(modal));
   cancelBtn.addEventListener("click", () => modal.close());
 
   // run
+  generateTaskDetailsModal();
   modal.showModal();
-  generateProjectOptions(projectDropdown);
+};
+
+const generateTaskDetailsModal = () => {
+  const modal = document.createElement("dialog");
+  modal.classList.add("task-details-modal");
+
+  const form = document.createElement("form");
+
+  // checkbox (left-side of modal)
+  const checkboxContainer = document.createElement("div");
+  checkboxContainer.classList.add("checkbox-container");
+
+  const checkbox = document.createElement("input");
+  checkbox.setAttribute("type", "checkbox");
+  checkbox.classList.add("checkbox");
+
+  // task details (right-side of modal)
+  const taskDetailsDiv = document.createElement("div");
+  taskDetailsDiv.classList.add("task-details-fields");
+
+  const taskNameAndUrgencyWrapper = document.createElement("div");
+  taskNameAndUrgencyWrapper.classList.add("task-name-input-wrapper");
+  const taskName = document.createElement("input");
+  taskName.setAttribute("type", "text");
+  taskName.setAttribute("id", "task-name-in-modal");
+  taskName.setAttribute("placeholder", "Task name");
+  taskName.required = true;
+  const toggleUrgentBtn = document.createElement("button");
+  toggleUrgentBtn.setAttribute("type", "button");
+  toggleUrgentBtn.classList.add("toggle-urgent-btn");
+
+  const taskDescription = document.createElement("textarea");
+  taskDescription.setAttribute("id", "task-description-in-modal");
+  taskDescription.setAttribute("cols", "30");
+  taskDescription.setAttribute("rows", "5");
+  taskDescription.setAttribute("placeholder", "Description");
+
+  const dueDateAndProjectContainer = document.createElement("div");
+  dueDateAndProjectContainer.classList.add("input-container");
+  const dueDate = document.createElement("input");
+  dueDate.setAttribute("input", "text");
+  dueDate.setAttribute("id", "task-due-date-in-modal");
+  dueDate.setAttribute("placeholder", "Due date");
+  dueDate.setAttribute("onfocus", "(this.type='date')");
+  dueDate.setAttribute("onblur", "(this.type='text')");
+  const projects = document.createElement("select");
+  projects.setAttribute("id", "task-project-in-modal");
+  generateProjectOptions(projects);
+
+  const buttons = document.createElement("div");
+  buttons.classList.add("btn-group");
+  const saveBtn = document.createElement("button");
+  saveBtn.type = "submit";
+  saveBtn.classList.add("confirm-btn");
+  saveBtn.classList.add("save-changes-to-task");
+  saveBtn.textContent = "Save";
+  const cancelBtn = document.createElement("button");
+  cancelBtn.type = "reset";
+  cancelBtn.classList.add("cancel-btn");
+  cancelBtn.textContent = "Cancel";
+
+  checkboxContainer.appendChild(checkbox);
+  taskNameAndUrgencyWrapper.appendChild(taskName);
+  taskNameAndUrgencyWrapper.appendChild(toggleUrgentBtn);
+  dueDateAndProjectContainer.appendChild(dueDate);
+  dueDateAndProjectContainer.appendChild(projects);
+  buttons.appendChild(saveBtn);
+  buttons.appendChild(cancelBtn);
+
+  taskDetailsDiv.appendChild(taskNameAndUrgencyWrapper);
+  taskDetailsDiv.appendChild(taskDescription);
+  taskDetailsDiv.appendChild(dueDateAndProjectContainer);
+  taskDetailsDiv.appendChild(buttons);
+
+  form.appendChild(checkboxContainer);
+  form.appendChild(taskDetailsDiv);
+
+  return;
 };
 
 export default viewAndEditTaskDetails;
