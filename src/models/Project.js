@@ -1,9 +1,9 @@
-// import { projectExists } from "../helpers/localStorageHelpers";
+import { projectExists } from "../helpers/localStorageHelpers";
 import { recreateTaskFromJSON } from "./Task";
 
 const createProject = (name, recreatingFromJSON = false) => {
-  // if (!recreatingFromJSON && projectExists(name))
-  //   throw new Error(`Project with name, "${name}" already exists`);
+  if (!recreatingFromJSON && projectExists(name))
+    throw new Error(`Project with name, "${name}" already exists`);
 
   // we presume you can't create a project at the exact same time
   let id = Date.now();

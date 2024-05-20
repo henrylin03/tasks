@@ -1,16 +1,12 @@
 import { createProject, recreateProjectFromJSON } from "../../models/Project";
 import { createTask } from "../../models/Task";
-import {
-  retrieveProjectByName,
-  retrieveAllProjectNames,
-} from "../../helpers/localStorageHelpers";
+import { retrieveProjectByName } from "../../helpers/localStorageHelpers";
 // import {
 //   retrieveAllProjects,
 //   retrieveProject,
 // } from "../../helpers/localStorageHelpers";
 
 const createAppController = () => {
-  console.log(retrieveAllProjectNames());
   const addTask = ({ name, description, dueDate, urgency, projectName }) => {
     if (!name) return;
     const newTask = createTask(name);

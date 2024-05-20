@@ -1,5 +1,6 @@
 // CHECKS
-// const projectExists = (projectName) => !!localStorage.getItem(projectName);
+const projectExists = (projectName) =>
+  retrieveAllProjectNames().includes(projectName);
 
 // RETRIEVERS
 const retrieveAllProjectsAsObjects = () =>
@@ -29,4 +30,4 @@ const retrieveProjectByName = (projectName) => {
 // };
 
 // export { retrieveAllProjects, retrieveProject, projectExists };
-export { retrieveProjectByName, retrieveAllProjectNames };
+export { projectExists, retrieveProjectByName };
