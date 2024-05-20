@@ -45,7 +45,6 @@ const handleSubmit = (e) => {
   app.addTask(newTaskObject);
   form.reset();
   modal.close();
-  displayPage(newTaskObject.projectName);
 };
 
 export default addTaskUsingModal;
