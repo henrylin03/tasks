@@ -6,3 +6,4 @@ import createScreenController from "./controllers/Screen";
 createScreenController();
 console.log(localStorage);
 console.log(JSON.parse(localStorage.getItem("projects")));
+// console.log(Object.keys(JSON.parse(localStorage.getItem("projects"))));

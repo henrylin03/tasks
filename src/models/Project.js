@@ -13,7 +13,7 @@ const createProject = (name, recreatingFromJSON = false) => {
   const getTasksAsObjects = () => taskObjects;
   const getTaskDetails = () => taskObjects.map((t) => t.viewDetails());
   const getName = () => name;
-  const viewDetails = () => ({ name, tasks: getTaskDetails() });
+  const viewDetails = () => ({ id, name, tasks: getTaskDetails() });
 
   // SETTERS (kind of)
   const setId = (retrievedId) => {
