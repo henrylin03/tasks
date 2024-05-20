@@ -1,8 +1,9 @@
 const modal = document.querySelector(".task-details-modal");
 
-const viewAndEditTaskDetails = () => {
+const viewAndEditTaskDetails = (e) => {
+  e.stopPropagation();
+
   modal.showModal();
-  return;
 };
 
 export default viewAndEditTaskDetails;
