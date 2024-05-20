@@ -341,7 +341,8 @@ dialog .top {
 }
 
 #new-project-name,
-#new-task-name {
+#new-task-name,
+#task-name-in-modal {
     font-size: 1.1rem;
 }
 
