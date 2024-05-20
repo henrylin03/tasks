@@ -4,10 +4,6 @@ import {
   retrieveAllProjectsAsArray,
   retrieveProjectByName,
 } from "../../helpers/localStorageHelpers";
-// import {
-//   retrieveAllProjects,
-//   retrieveProject,
-// } from "../../helpers/localStorageHelpers";
 
 const createAppController = () => {
   const addTask = ({ name, description, dueDate, urgency, projectName }) => {
@@ -37,7 +33,7 @@ const createAppController = () => {
   };
 
   const getProject = (projectName) =>
-    recreateProjectFromJSON(retrieveProject(projectName));
+    recreateProjectFromJSON(retrieveProjectByName(projectName));
 
   // run
   if (localStorage.length === 0) createProject("Inbox").store();
@@ -46,5 +42,3 @@ const createAppController = () => {
 };
 
 export { createAppController };
-
-// TODO: DO NOT STORE TASKS UNLESS VIEWDETAILS HAVE BEEN CALLED ON IT. BECAUSE THEN IT LIKELY MEANS THAT IT WASN'T RECONSTRUCTED FIRST BEFORE MANIPULATION AND THUS INVALID.
