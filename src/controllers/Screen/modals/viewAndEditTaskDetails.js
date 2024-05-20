@@ -1,12 +1,15 @@
-import { generateProjectOptions, toggleUrgency } from "./taskModalsHandlers";
+import {
+  generateProjectOptions,
+  toggleUrgency,
+  closeModal,
+} from "./taskModalsHandlers";
 
 const viewAndEditTaskDetails = (e) => {
   const taskDetailsModal = generateTaskDetailsModal();
 
-  //   cancelBtn.addEventListener("click", () => {
-  //     document.body.removeChild(taskDetailsModal);
-  //     taskDetailsModal.close();
-  //   });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal(taskDetailsModal);
+  });
 
   taskDetailsModal.showModal();
 };
@@ -70,6 +73,7 @@ const generateTaskDetailsModal = () => {
   cancelBtn.type = "reset";
   cancelBtn.classList.add("cancel-btn");
   cancelBtn.textContent = "Cancel";
+  cancelBtn.addEventListener("mousedown", () => closeModal(modal));
 
   checkboxContainer.appendChild(checkbox);
   taskNameAndUrgencyWrapper.appendChild(taskName);

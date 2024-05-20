@@ -31,6 +31,7 @@ const closeModal = (modalElement) => {
     modalElement.classList.contains("new-project-modal");
 
   if (isNewProjectModal) clearFormErrorMessages(modalElement.children);
+  if (isTaskDetailsModal) document.body.removeChild(modalElement);
 
   form.reset();
   modalElement.close();
