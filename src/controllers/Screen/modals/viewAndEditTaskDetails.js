@@ -1,19 +1,15 @@
 import { generateProjectOptions, toggleUrgency } from "./taskModalsHandlers";
 
 const viewAndEditTaskDetails = (e) => {
-  const modal = document.querySelector(".task-details-modal");
-  const urgentBtn = document.querySelector(
-    ".task-details-modal .toggle-urgent-btn"
-  );
-  const projectDropdown = document.querySelector("#task-project-in-modal");
-  const cancelBtn = document.querySelector(".task-details-modal .cancel-btn");
-
-  urgentBtn.addEventListener("mousedown", () => toggleUrgency(modal));
-  cancelBtn.addEventListener("click", () => modal.close());
-
   // run
   generateTaskDetailsModal();
-  modal.showModal();
+
+  const taskDetailsModal = document.querySelector(".task-details-modal");
+  const cancelBtn = document.querySelector(".task-details-modal .cancel-btn");
+
+  cancelBtn.addEventListener("click", () => taskDetailsModal.close());
+
+  taskDetailsModal.showModal();
 };
 
 const generateTaskDetailsModal = () => {
@@ -44,6 +40,7 @@ const generateTaskDetailsModal = () => {
   const toggleUrgentBtn = document.createElement("button");
   toggleUrgentBtn.setAttribute("type", "button");
   toggleUrgentBtn.classList.add("toggle-urgent-btn");
+  toggleUrgentBtn.addEventListener("mousedown", () => toggleUrgency(modal));
 
   const taskDescription = document.createElement("textarea");
   taskDescription.setAttribute("id", "task-description-in-modal");
@@ -91,7 +88,9 @@ const generateTaskDetailsModal = () => {
   form.appendChild(checkboxContainer);
   form.appendChild(taskDetailsDiv);
 
-  return;
+  modal.appendChild(form);
+
+  document.body.appendChild(modal);
 };
 
 export default viewAndEditTaskDetails;
