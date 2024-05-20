@@ -21,19 +21,15 @@ const SVGS = {
 };
 
 const updateHeader = (project) => {
-  // const projectName = project.getName();
   const projectId = project.getId();
-  console.log(projectId);
 
   const pageIcon = document.querySelector("header .left figure");
   const pageTitle = document.querySelector(".page-title");
-  // const navbarLink = document.querySelector(
-  //   `[data-project-name="${projectName}"]`
-  // );
+  const navbarLink = document.querySelector(`[data-project-id="${projectId}"]`);
 
-  // navbarLink.classList.add("selected");
-  // pageTitle.textContent = project.getName();
-  // pageIcon.innerHTML = projectName === "Inbox" ? SVGS.inbox : SVGS.project;
+  navbarLink.classList.add("selected");
+  pageTitle.textContent = project.getName();
+  pageIcon.innerHTML = projectId === "inbox" ? SVGS.inbox : SVGS.project;
 };
 
 export default updateHeader;

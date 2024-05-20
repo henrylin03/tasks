@@ -18,6 +18,7 @@ const createProjectLinkInNav = (project) => {
   const linkDiv = document.createElement("div");
   linkDiv.classList.add("link");
   linkDiv.setAttribute("data-project-name", projectName);
+  console.log(projectId);
   linkDiv.setAttribute("data-project-id", projectId);
 
   linkDiv.addEventListener("click", () => handleNavLinkClicks(projectName));
