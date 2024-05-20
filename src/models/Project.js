@@ -40,10 +40,7 @@ const createProject = (name, recreatingFromJSON = false) => {
 
     if (isInitialLoadOfApp)
       localStorage.setItem("projects", JSON.stringify([]));
-
-    // if the project id already exists, ...
-
-    // if the project id does not exist yet, then you can just push it
+    if (isExistingProject) storedProjectsArray.filter((p) => p.id != id);
 
     storedProjectsArray.push(viewDetails());
     localStorage.setItem("projects", JSON.stringify(storedProjectsArray));
