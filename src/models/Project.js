@@ -31,18 +31,9 @@ const createProject = (name, recreatingFromJSON = false) => {
   // STORER INTO LOCALSTORAGE
   const store = () => {
     const storedProjectsArray = retrieveProjects();
-    const storedProjectIds = storedProjectsArray.map((p) => p.id);
-
-    // checks
-    const isExistingProject = storedProjectIds.includes(id);
-
-    if (isExistingProject) storedProjectsArray.filter((p) => p.id == id);
-
-    console.log(storedProjectsArray, "after filtering");
-
-    storedProjectsArray.push(viewDetails());
-    console.log("storedProjectsArray", storedProjectsArray);
-    localStorage.setItem("projects", JSON.stringify(storedProjectsArray));
+    const newProjectsArray = storedProjectsArray.filter((p) => p.id != id);
+    newProjectsArray.push(viewDetails());
+    localStorage.setItem("projects", JSON.stringify(newProjectsArray));
   };
 
   return {

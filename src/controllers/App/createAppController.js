@@ -16,8 +16,6 @@ const createAppController = () => {
 
     const project = recreateProjectFromJSON(retrieveProjectByName(projectName));
     project.addTask(newTask.getId());
-
-    console.log(project.viewDetails());
     project.store();
   };
 
