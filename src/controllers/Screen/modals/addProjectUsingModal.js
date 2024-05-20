@@ -1,9 +1,9 @@
 import { createAppController } from "../../App/createAppController";
+import { clearFormErrorMessages } from "./taskModalsHandlers";
 import displayProjectsInNav from "../nav/displayProjectsInNav";
-import displayPage from "../displayPage";
 
 const dialog = document.querySelector(".new-project-modal");
-const InputAndErrorMessageElements = document.querySelector(
+const inputAndErrorMessageElements = document.querySelector(
   ".new-project-modal .top"
 ).children;
 const form = document.querySelector(".new-project-modal form");
@@ -14,13 +14,13 @@ const addProjectUsingModal = () => {
   form.addEventListener("submit", handleSubmit);
   input.addEventListener("input", clearErrorMessage);
   cancelBtn.addEventListener("click", () => {
-    clearErrorMessage();
+    clearFormErrorMessages(inputAndErrorMessageElements);
     dialog.close();
   });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       form.reset();
-      clearErrorMessage();
+      clearFormErrorMessages(inputAndErrorMessageElements);
       dialog.close();
     }
   });
@@ -39,20 +39,14 @@ function handleSubmit(e) {
 
     app.addProject(newProjectName);
     form.reset();
-    clearErrorMessage();
+    clearFormErrorMessages(inputAndErrorMessageElements);
     dialog.close();
     displayProjectsInNav();
   } catch {
-    [...InputAndErrorMessageElements].forEach((elem) =>
+    [...inputAndErrorMessageElements].forEach((elem) =>
       elem.classList.add("error")
     );
   }
-}
-
-function clearErrorMessage() {
-  [...InputAndErrorMessageElements].forEach((elem) =>
-    elem.classList.remove("error")
-  );
 }
 
 export default addProjectUsingModal;

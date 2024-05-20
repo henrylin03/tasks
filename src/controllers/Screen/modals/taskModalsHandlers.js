@@ -19,4 +19,18 @@ const generateProjectOptions = (projectDropdownElement) => {
   });
 };
 
-export { toggleUrgency, generateProjectOptions };
+const clearFormErrorMessages = (inputElements) =>
+  [...inputElements].forEach((elem) => elem.classList.remove("error"));
+
+const closeModal = (modalElement) => {
+  const isTaskDetailsModal =
+    modalElement.classList.contains("task-details-modal");
+  modalElement.close();
+};
+
+export {
+  toggleUrgency,
+  generateProjectOptions,
+  clearFormErrorMessages,
+  closeModal,
+};
