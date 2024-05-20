@@ -37,7 +37,6 @@ const handleSubmit = (e) => {
   app.addTask(newTaskObject);
   form.reset();
   modal.close();
-  displayPage(newTaskObject.projectName);
 };
 
 const toggleUrgency = () => modal.classList.toggle("is-urgent");
