@@ -41,9 +41,10 @@ const createTask = (name, recreatingFromJSON = false) => {
 
   const store = () => {
     const storedTasksArray = retrieveTasks();
-    const isFirstTask = storedTasksArray.length === 0;
+    const storedTaskIds = storedTasksArray.map((t) => t.id);
 
-    // check if task is existing
+    const isFirstTask = storedTasksArray.length === 0;
+    const isExistingTask = storedTaskIds.includes(id);
 
     // if task is existing, remove original
 
