@@ -1,10 +1,13 @@
 const createTask = (name) => {
+  const id = Date.now();
   let description = "";
   let dueDate = "";
   let urgency = false;
   let completed = false;
 
+  const getId = () => id;
   const viewDetails = () => ({
+    id,
     name,
     description,
     dueDate,
@@ -27,6 +30,7 @@ const createTask = (name) => {
   };
 
   return {
+    getId,
     viewDetails,
     setDescription,
     setDueDate,
