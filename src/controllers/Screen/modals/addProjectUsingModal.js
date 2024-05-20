@@ -17,7 +17,7 @@ const addProjectUsingModal = () => {
     clearFormErrorMessages(inputAndErrorMessageElements)
   );
   cancelBtn.addEventListener("click", () => closeModal(modal));
-  document.addEventListener("keydown", (e) => {
+  modal.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal(modal);
   });
 

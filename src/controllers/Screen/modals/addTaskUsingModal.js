@@ -21,7 +21,7 @@ const addTaskUsingModal = () => {
   urgentBtn.addEventListener("mousedown", () => toggleUrgency(modal));
   form.addEventListener("submit", handleSubmit);
   cancelBtn.addEventListener("click", () => closeModal(modal));
-  document.addEventListener("keydown", (e) => {
+  modal.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal(modal);
   });
 

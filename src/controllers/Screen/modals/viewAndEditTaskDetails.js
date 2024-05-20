@@ -7,7 +7,7 @@ import {
 const viewAndEditTaskDetails = (e) => {
   const taskDetailsModal = generateTaskDetailsModal();
 
-  document.addEventListener("keydown", (e) => {
+  taskDetailsModal.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal(taskDetailsModal);
   });
 
