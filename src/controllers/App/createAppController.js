@@ -23,11 +23,18 @@ const createAppController = () => {
     createProject(newProjectName).store();
   };
 
-  const getProjects = () =>
-    // exclude inbox, which is a project object behind the scenes
-    retrieveAllProjects()
-      .filter((project) => project.name != "Inbox")
-      .sort((projectA, projectB) => projectA.id - projectB.id);
+  const getProjects = (excludeInbox = true) => {
+    let retrievedProjects = retrieveAllProjects();
+
+    if (excludeInbox)
+      retrievedProjects = retrievedProjects.filter(
+        (project) => project.name !== "Inbox"
+      );
+
+    return retrievedProjects.sort(
+      (projectA, projectB) => projectA.id - projectB.id
+    );
+  };
 
   const getProject = (projectName) =>
     recreateProjectFromJSON(retrieveProject(projectName));

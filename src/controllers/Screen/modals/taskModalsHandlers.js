@@ -6,8 +6,9 @@ const toggleUrgency = (modalElement) =>
 const generateProjectOptions = (projectDropdownElement) => {
   const app = createAppController();
 
-  const projectNames = app.getProjects().map((p) => p.name);
+  projectDropdownElement.replaceChildren();
 
+  const projectNames = app.getProjects(false).map((p) => p.name);
   projectNames.forEach((p) => {
     const option = document.createElement("option");
     option.setAttribute("value", p);
