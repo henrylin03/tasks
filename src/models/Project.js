@@ -10,11 +10,11 @@ const createProject = (name, recreatingFromJSON = false) => {
 
   // we presume you can't create a project at the exact same time
   let id = Date.now();
-  let taskObjects = [];
+  let tasks = [];
 
   // GETTERS
-  const getTasksAsObjects = () => taskObjects;
-  const getTaskDetails = () => taskObjects.map((t) => t.viewDetails());
+  const getTasks = () => tasks;
+  // const getTaskDetails = () => taskObjects.map((t) => t.viewDetails());
   const getName = () => name;
   const viewDetails = () => ({ id, name, tasks: getTaskDetails() });
 
@@ -26,9 +26,9 @@ const createProject = (name, recreatingFromJSON = false) => {
       );
     id = retrievedId;
   };
-  const addTask = (taskObject) => taskObjects.push(taskObject);
+  const addTask = (newTask) => tasks.push(newTask);
   const replaceTasks = (newArrayOfTaskObjects) =>
-    (taskObjects = newArrayOfTaskObjects);
+    (tasks = newArrayOfTaskObjects);
 
   // STORER INTO LOCALSTORAGE
   const store = () => {
@@ -45,8 +45,7 @@ const createProject = (name, recreatingFromJSON = false) => {
   return {
     viewDetails,
     getName,
-    getTaskDetails,
-    getTasksAsObjects,
+    getTasks,
     setId,
     addTask,
     replaceTasks,
