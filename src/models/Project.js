@@ -10,12 +10,12 @@ const createProject = (name, recreatingFromJSON = false) => {
   const isInitialLoadOfApp = localStorage.length === 0 || name === "Inbox";
 
   let id = isInitialLoadOfApp ? "inbox" : `P${Date.now()}`;
-  let tasks = [];
+  let taskIds = [];
 
   // GETTERS
   const getId = () => id;
   const getName = () => name;
-  const viewDetails = () => ({ id, name, tasks });
+  const viewDetails = () => ({ id, name, taskIds });
 
   // SETTERS (kind of)
   const setId = (retrievedId) => {
@@ -25,8 +25,8 @@ const createProject = (name, recreatingFromJSON = false) => {
       );
     id = retrievedId;
   };
-  const addTask = (newTask) => tasks.push(newTask);
-  const replaceTasks = (newTasks) => (tasks = newTasks);
+  const addTask = (newTaskId) => taskIds.push(newTaskId);
+  const replaceTasks = (newTaskIds) => (taskIds = newTaskIds);
 
   // STORER INTO LOCALSTORAGE
   const store = () => {
