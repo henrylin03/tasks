@@ -97,6 +97,7 @@ const recreateTaskFromJSON = ({
   dueDate,
   urgency,
   completed,
+  projectId,
 }) => {
   const task = createTask(name, true);
   task.setId(id);
@@ -104,6 +105,7 @@ const recreateTaskFromJSON = ({
   task.setDueDate(dueDate);
   task.setUrgency(urgency);
   task.setCompletion(completed);
+  task.setProjectId(projectId);
 
   return task;
 };
