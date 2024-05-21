@@ -63,6 +63,10 @@ const createAppController = () => {
 
     // make modifications
     task.setName(name);
+    task.setDescription(description);
+    task.setDueDate(dueDate);
+    task.setUrgency(urgency);
+    task.setCompletion(completed);
 
     // re-store task from localStorage
   };
