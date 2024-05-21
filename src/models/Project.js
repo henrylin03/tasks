@@ -12,14 +12,13 @@ const createProject = (name, recreatingFromJSON = false) => {
   // GETTERS
   const getId = () => id;
   const getName = () => name;
-
   const getTasksAsObjects = () => {
     if (!taskIds) return;
     return taskIds.map((id) => recreateTaskFromJSON(retrieveTaskById(id)));
   };
   const viewDetails = () => ({ id, name, taskIds });
 
-  // SETTERS (kind of)
+  // SETTERS
   const setId = (retrievedId) => {
     if (!recreatingFromJSON)
       throw new Error(
@@ -37,6 +36,12 @@ const createProject = (name, recreatingFromJSON = false) => {
     newProjectsArray.push(viewDetails());
     localStorage.setItem("projects", JSON.stringify(newProjectsArray));
   };
+
+  // RUN
+  // append number in parentheses to project name if name already exists
+  // in localstorage, the name will be the same (so that we can count how many there are)
+  // however, the display depends on how many there are already
+  // the display of the project name should be `project duplicated name (_number of existing projects with same name_)`
 
   return {
     getId,

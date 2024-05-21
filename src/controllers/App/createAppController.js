@@ -36,11 +36,6 @@ const createAppController = () => {
   const getProject = (projectId) =>
     recreateProjectFromJSON(retrieveProjectById(projectId));
 
-  // append number in parentheses to project name if name already exists
-  // in localstorage, the name will be the same (so that we can count how many there are)
-  // however, the display depends on how many there are already
-  // the display of the project name should be `project duplicated name (_number of existing projects with same name_)`
-
   // run
   if (localStorage.length === 0) createProject("Inbox").store();
 
