@@ -15,8 +15,6 @@ const modifyTask = (taskObject, modalElement) => {
   );
   const taskCompletionCheckbox = modalElement.querySelector(".checkbox");
 
-  console.log(taskObject.viewDetails());
-
   // gather all required details for the app.updateTask() method
   const updatedTaskDetails = {
     id: taskObject.getId(),
@@ -29,7 +27,7 @@ const modifyTask = (taskObject, modalElement) => {
   };
 
   console.log(updatedTaskDetails);
-  // app.updateTask(updatedTaskDetails)
+  app.updateTask(updatedTaskDetails);
 
   // call the app.updateTask() method
 
