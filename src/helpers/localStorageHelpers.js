@@ -7,11 +7,7 @@ const retrieveProjects = () => {
   }
 };
 
-const retrieveProjectNames = () => {
-  const storedProjectsArray = retrieveProjects();
-  return storedProjectsArray.map((project) => project.name);
-};
-
+const retrieveProjectNames = () => retrieveProjects().map((p) => p.name);
 const retrieveProjectById = (projectId) =>
   retrieveProjects().find((project) => project.id === projectId);
 const retrieveProjectByName = (projectName) =>
