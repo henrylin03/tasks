@@ -1,5 +1,6 @@
 import {
   retrieveProjectById,
+  retrieveProjectIds,
   retrieveTasks,
 } from "../helpers/localStorageHelpers";
 import { recreateProjectFromJSON } from "./Project";
@@ -52,6 +53,12 @@ const createTask = (name, recreatingFromJSON = false) => {
   const setCompletion = (bool) => {
     if (typeof bool != "boolean") return;
     completed = bool;
+  };
+
+  const setProjectId = (newProjectId) => {
+    const storedProjectIds = retrieveProjectIds();
+    if (!storedProjectIds.includes(newProjectId))
+      return console.log("project Id does not exist.");
   };
 
   const store = () => {
