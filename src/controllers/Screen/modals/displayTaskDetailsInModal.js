@@ -47,7 +47,7 @@ const generateTaskDetailsModal = (taskObject) => {
   taskName.value = taskObject.getName();
 
   const toggleUrgentBtn = document.createElement("button");
-  toggleUrgentBtn.setAttribute("type", "button");
+  toggleUrgentBtn.type = "button";
   toggleUrgentBtn.classList.add("toggle-urgent-btn");
   toggleUrgentBtn.addEventListener("mousedown", () => toggleUrgency(modal));
 
