@@ -1,8 +1,3 @@
-// import {
-//   retrieveProjectById,
-//   retrieveProjectIds,
-// } from "../../../helpers/localStorageHelpers";
-
 import { createAppController } from "../../App/createAppController";
 
 const toggleUrgency = (modalElement) =>
@@ -17,13 +12,9 @@ const generateProjectOptions = (projectDropdownElement) => {
   const storedProjects = app.getProjects(false);
 
   storedProjects.forEach((project) => {
-    const projectName = project.getName();
-    const projectId = project.getId();
-
     const optionElement = document.createElement("option");
-    optionElement.setAttribute("value", projectName);
-    optionElement.setAttribute("data-projectId", projectId);
-    optionElement.textContent = projectName;
+    optionElement.setAttribute("value", project.getId());
+    optionElement.textContent = project.getName();
 
     projectDropdownElement.appendChild(optionElement);
   });

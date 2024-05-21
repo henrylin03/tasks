@@ -42,7 +42,7 @@ const handleSubmit = (e) => {
     description: descriptionInput.value,
     dueDate: dueDateInput.value,
     urgency: modal.classList.contains("is-urgent"),
-    projectName: projectDropdown.value,
+    projectId: projectDropdown.value,
   };
 
   app.addTask(newTaskObject);
