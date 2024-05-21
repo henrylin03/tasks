@@ -3,6 +3,7 @@ import {
   toggleUrgency,
   closeModal,
 } from "./taskModalsHandlers";
+import modifyTask from "./modifyTask";
 
 const displayTaskDetailsInModal = (taskObject) => {
   const taskDetailsModal = generateTaskDetailsModal(taskObject);
@@ -22,6 +23,7 @@ const generateTaskDetailsModal = (taskObject) => {
   if (taskObject.getUrgency()) modal.classList.add("is-urgent");
 
   const form = document.createElement("form");
+  form.addEventListener("submit", modifyTask);
 
   // checkbox (left-side of modal)
   const checkboxContainer = document.createElement("div");
