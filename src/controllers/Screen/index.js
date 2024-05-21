@@ -11,7 +11,7 @@ const createScreenController = () => {
   const addTaskBtn = document.querySelector(".add-task");
 
   displayProjectsInNav();
-  displayPage("Inbox");
+  displayPage("inbox");
 
   //event listeners
   addTaskBtn.addEventListener("click", addTaskUsingModal);
