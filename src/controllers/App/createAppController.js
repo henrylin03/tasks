@@ -32,7 +32,9 @@ const createAppController = () => {
     let projects = retrieveProjects();
     if (excludeInbox)
       projects = projects.filter((project) => project.name !== "Inbox");
-    return projects.sort((projectA, projectB) => projectA.id - projectB.id);
+    return projects
+      .map((project) => recreateProjectFromJSON(project))
+      .sort((projectA, projectB) => projectA.getId() - projectB.getId());
   };
 
   const getProject = (projectId) =>

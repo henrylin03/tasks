@@ -1,23 +1,31 @@
-import { retrieveProjectNames } from "../../../helpers/localStorageHelpers";
+// import {
+//   retrieveProjectById,
+//   retrieveProjectIds,
+// } from "../../../helpers/localStorageHelpers";
+
+import { createAppController } from "../../App/createAppController";
 
 const toggleUrgency = (modalElement) =>
   modalElement.classList.toggle("is-urgent");
 
 const generateProjectOptions = (projectDropdownElement) => {
+  const app = createAppController();
+
   // clear all options
   projectDropdownElement.replaceChildren();
 
-  // get all project Ids
+  const storedProjects = app.getProjects(false);
 
-  //! WORK ON HERE!!!
+  storedProjects.forEach((project) => {
+    const projectName = project.getName();
+    const projectId = project.getId();
 
-  const projectNames = retrieveProjectNames();
-  projectNames.forEach((p) => {
-    const option = document.createElement("option");
-    option.setAttribute("value", p);
-    option.textContent = p;
+    const optionElement = document.createElement("option");
+    optionElement.setAttribute("value", projectName);
+    optionElement.setAttribute("data-projectId", projectId);
+    optionElement.textContent = projectName;
 
-    projectDropdownElement.appendChild(option);
+    projectDropdownElement.appendChild(optionElement);
   });
 };
 
