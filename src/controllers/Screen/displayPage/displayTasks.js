@@ -34,9 +34,11 @@ const displayTasks = (project) => {
 
 const generateTaskDiv = (task) => {
   const taskDetails = task.viewDetails();
+  const taskId = task.getId();
 
   const article = document.createElement("article");
   article.classList.add("task");
+  article.setAttribute("data-id", taskId);
   if (taskDetails.urgency) article.classList.add("urgent");
   if (taskDetails.completed) article.classList.add("completed");
 
