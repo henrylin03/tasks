@@ -7,9 +7,6 @@ const displayProjectsInNav = () => {
     ".current-projects-container"
   );
 
-  const storedProjectObjects = app.getProjects(false);
-  console.log(storedProjectObjects);
-
   const projectsArray = app
     .getProjects()
     .map((getProjectObject) => createProjectLinkInNav(getProjectObject));
