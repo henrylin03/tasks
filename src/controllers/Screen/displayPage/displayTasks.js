@@ -22,16 +22,14 @@ const tasksContainer = document.querySelector("main .container");
 
 const displayTasks = (project) => {
   const taskObjects = project.getTasksAsObjects();
+  if (!taskObjects) return;
 
-  // clear everything
   tasksContainer.replaceChildren();
 
   taskObjects.forEach((t) => {
-    const taskArticle = generateTaskDiv(t);
-    tasksContainer.appendChild(taskArticle);
+    const taskArticleElement = generateTaskDiv(t);
+    tasksContainer.appendChild(taskArticleElement);
   });
-
-  return;
 };
 
 const generateTaskDiv = (task) => {
