@@ -20,6 +20,7 @@ const generateTaskDetailsModal = (taskObject) => {
 
   const modal = document.createElement("dialog");
   modal.classList.add("task-details-modal");
+  if (taskObject.getUrgency()) modal.classList.add("is-urgent");
 
   const form = document.createElement("form");
 
