@@ -33,8 +33,8 @@ const displayTasks = (project) => {
 };
 
 const generateTaskDiv = (task) => {
-  const taskDetails = task.viewDetails();
   const taskId = task.getId();
+  const taskDetails = task.viewDetails();
 
   const article = document.createElement("article");
   article.classList.add("task");

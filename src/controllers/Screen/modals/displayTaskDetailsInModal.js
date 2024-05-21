@@ -5,8 +5,8 @@ import {
 } from "./taskModalsHandlers";
 import { createAppController } from "../../App/createAppController";
 
-const displayTaskDetailsInModal = (task) => {
-  const taskDetailsModal = generateTaskDetailsModal(task);
+const displayTaskDetailsInModal = (taskObject) => {
+  const taskDetailsModal = generateTaskDetailsModal(taskObject);
 
   taskDetailsModal.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal(taskDetailsModal);
@@ -15,7 +15,7 @@ const displayTaskDetailsInModal = (task) => {
   taskDetailsModal.showModal();
 };
 
-const generateTaskDetailsModal = (task) => {
+const generateTaskDetailsModal = (taskObject) => {
   const modal = document.createElement("dialog");
   modal.classList.add("task-details-modal");
 
