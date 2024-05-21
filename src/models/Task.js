@@ -59,6 +59,7 @@ const createTask = (name, recreatingFromJSON = false) => {
     const storedProjectIds = retrieveProjectIds();
     if (!storedProjectIds.includes(newProjectId))
       return console.log("project Id does not exist.");
+    projectId = newProjectId;
   };
 
   const store = () => {
@@ -84,6 +85,7 @@ const createTask = (name, recreatingFromJSON = false) => {
     setDueDate,
     setUrgency,
     setCompletion,
+    setProjectId,
     store,
   };
 };
