@@ -1,5 +1,5 @@
 import { format, isToday, isPast } from "date-fns";
-import viewAndEditTaskDetails from "../modals/viewAndEditTaskDetails";
+import displayTaskDetailsInModal from "../modals/displayTaskDetailsInModal";
 
 // todo: make svgs easier to manipulate (we need to be able to colour them, but also center them (mask-image didn't work with flexbox - so maybe grid if we pursue that?)) - otherwise, maybe a JSON with all the SVGs inside would be good in like a data/ folder!
 const SVGS = {
@@ -22,23 +22,24 @@ const tasksContainer = document.querySelector("main .container");
 
 const displayTasks = (project) => {
   const taskObjects = project.getTasksAsObjects();
+  if (!taskObjects) return;
 
-  // clear everything
   tasksContainer.replaceChildren();
 
   taskObjects.forEach((t) => {
-    const taskArticle = generateTaskDiv(t);
-    tasksContainer.appendChild(taskArticle);
+    const taskArticleElement = generateTaskDiv(t);
+    tasksContainer.appendChild(taskArticleElement);
   });
-
-  return;
 };
 
 const generateTaskDiv = (task) => {
   const taskDetails = task.viewDetails();
+  const taskId = task.getId();
 
   const article = document.createElement("article");
   article.classList.add("task");
+  article.setAttribute("data-id", taskId);
+  article.addEventListener("mousedown", () => displayTaskDetailsInModal(task));
   if (taskDetails.urgency) article.classList.add("urgent");
   if (taskDetails.completed) article.classList.add("completed");
 
@@ -69,21 +70,16 @@ const generateTaskDiv = (task) => {
   article.appendChild(checkboxDiv);
   article.appendChild(rightDiv);
 
-  article.addEventListener("mousedown", viewAndEditTaskDetails);
-
   return article;
 };
 
 const generateTaskAttributes = (taskDetails) => {
-  const attributeListItems = [];
+  const ATTRIBUTES_NOT_GENERATED = ["id", "name", "completed"];
+  ATTRIBUTES_NOT_GENERATED.forEach((a) => delete taskDetails[a]);
 
+  const attributeListItems = [];
   for (const attribute in taskDetails) {
-    if (
-      attribute === "name" ||
-      attribute === "completed" ||
-      !taskDetails[attribute]
-    )
-      continue;
+    if (!taskDetails[attribute]) continue;
 
     const item = document.createElement("li");
     item.classList.add(attribute);

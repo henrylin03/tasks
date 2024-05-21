@@ -1,57 +1,83 @@
-import { projectExists } from "../helpers/localStorageHelpers";
+import {
+  getCleanedProjectNames,
+  retrieveProjectNames,
+  retrieveProjects,
+  retrieveTaskById,
+} from "../helpers/localStorageHelpers";
 import { recreateTaskFromJSON } from "./Task";
 
-const createProject = (name, recreatingFromJSON = false) => {
-  if (!recreatingFromJSON && projectExists(name))
-    throw new Error(`Project with name, "${name}" already exists`);
-
-  // we presume you can't create a project at the exact same time
-  let id = Date.now();
-  let taskObjects = [];
+const createProject = (recreatingFromJSON = false) => {
+  let name = "";
+  let id = localStorage.length === 0 ? "inbox" : `P${Date.now()}`;
+  let taskIds = [];
 
   // GETTERS
-  const getTasksAsObjects = () => taskObjects;
-  const getTaskDetails = () => taskObjects.map((t) => t.viewDetails());
+  const getId = () => id;
   const getName = () => name;
-  const viewDetails = () => ({
-    id,
-    name,
-    tasks: getTaskDetails(),
-  });
+  const getTasksAsObjects = () => {
+    if (!taskIds) return;
+    return taskIds.map((id) => recreateTaskFromJSON(retrieveTaskById(id)));
+  };
+  const viewDetails = () => ({ id, name, taskIds });
 
-  // SETTERS (kind of)
-  const setId = (newId) => {
+  // SETTERS
+  const setName = (retrievedOrNewName) => {
+    const projectNamesInStorage = retrieveProjectNames();
+    const cleanedProjectNamesInStorage = getCleanedProjectNames();
+    const projectNameExists =
+      projectNamesInStorage.includes(retrievedOrNewName);
+
+    if (!projectNameExists || recreatingFromJSON)
+      return (name = retrievedOrNewName);
+
+    const duplicateCount = cleanedProjectNamesInStorage.filter(
+      (n) => n === retrievedOrNewName
+    ).length;
+
+    for (let suffixInt = 1; suffixInt <= duplicateCount; suffixInt++) {
+      const projectNameWithSuffix = `${retrievedOrNewName} (${suffixInt})`;
+      if (!projectNamesInStorage.includes(projectNameWithSuffix))
+        return (name = projectNameWithSuffix);
+    }
+  };
+
+  const setId = (retrievedId) => {
     if (!recreatingFromJSON)
       throw new Error(
         "Cannot update the ID of a project unless you're recreating it from localStorage in JSON format."
       );
-    id = newId;
+    id = retrievedId;
   };
-  const addTask = (taskObject) => taskObjects.push(taskObject);
-  const replaceTasks = (newArrayOfTaskObjects) =>
-    (taskObjects = newArrayOfTaskObjects);
 
-  // STORER INTO LOCALSTORAGE
-  const store = () => localStorage.setItem(name, JSON.stringify(viewDetails()));
+  const addTask = (newTaskId) => taskIds.push(newTaskId);
+  const replaceTasks = (newTaskIds) => (taskIds = newTaskIds);
+
+  // OTHER METHODS
+  const store = () => {
+    const storedProjectsArray = retrieveProjects();
+    const newProjectsArray = storedProjectsArray.filter((p) => p.id != id);
+    newProjectsArray.push(viewDetails());
+    localStorage.setItem("projects", JSON.stringify(newProjectsArray));
+  };
 
   return {
-    viewDetails,
+    getId,
     getName,
-    getTaskDetails,
     getTasksAsObjects,
+    viewDetails,
     setId,
+    setName,
     addTask,
     replaceTasks,
     store,
   };
 };
 
-const recreateProjectFromJSON = ({ id, name, tasks }) => {
+const recreateProjectFromJSON = ({ id, name, taskIds }) => {
   const project = createProject(name, true);
   project.setId(id);
-
-  const tasksReconstructed = tasks.map((t) => recreateTaskFromJSON(t));
-  project.replaceTasks(tasksReconstructed);
+  project.setName(name);
+  project.replaceTasks(taskIds);
 
   return project;
 };

@@ -11,13 +11,13 @@ const createScreenController = () => {
   const addTaskBtn = document.querySelector(".add-task");
 
   displayProjectsInNav();
-  displayPage("Inbox");
+  displayPage("inbox");
 
   //event listeners
   addTaskBtn.addEventListener("click", addTaskUsingModal);
   addProjectBtn.addEventListener("click", addProjectUsingModal);
   [brandingInSidebar, inboxLinkInSidebar].forEach((elem) =>
-    elem.addEventListener("click", () => handleNavLinkClicks("Inbox"))
+    elem.addEventListener("click", () => handleNavLinkClicks("inbox"))
   );
 };
 
