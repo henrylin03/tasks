@@ -7,6 +7,7 @@ const retrieveProjects = () => {
   }
 };
 
+const retrieveProjectIds = () => retrieveProjects().map((p) => p.id);
 const retrieveProjectNames = () => retrieveProjects().map((p) => p.name);
 const retrieveProjectById = (projectId) =>
   retrieveProjects().find((project) => project.id === projectId);
@@ -43,6 +44,7 @@ export {
   retrieveProjectByName,
   retrieveProjects,
   retrieveProjectNames,
+  retrieveProjectIds,
   retrieveTasks,
   retrieveTaskById,
 };
