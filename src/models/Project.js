@@ -60,11 +60,6 @@ const createProject = (recreatingFromJSON = false) => {
     localStorage.setItem("projects", JSON.stringify(newProjectsArray));
   };
 
-  // RUN
-  // append number in parentheses to project name if name already exists
-  // the display of the project name should be `project duplicated name (_number of existing projects with same name_)`
-  // go through each of the names in projects and remove all parentheses+number and see how many duplicates there are, try and name it and see if it already exists (if yes, then increment the next number), otherwise just name that number. this needs to be run WHEN the project is being created. when we introduce updating of name, we will also need to have this as a setter i think
-
   return {
     getId,
     getName,
@@ -81,6 +76,7 @@ const createProject = (recreatingFromJSON = false) => {
 const recreateProjectFromJSON = ({ id, name, taskIds }) => {
   const project = createProject(name, true);
   project.setId(id);
+  project.setName(name);
   project.replaceTasks(taskIds);
 
   return project;

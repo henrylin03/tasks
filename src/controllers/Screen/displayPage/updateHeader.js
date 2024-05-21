@@ -29,6 +29,7 @@ const updateHeader = (project) => {
 
   navbarLink.classList.add("selected");
   pageTitle.textContent = project.getName();
+  console.log(project.viewDetails());
   pageIcon.innerHTML = projectId === "inbox" ? SVGS.inbox : SVGS.project;
 };
 
