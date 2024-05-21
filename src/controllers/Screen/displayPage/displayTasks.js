@@ -26,8 +26,8 @@ const displayTasks = (project) => {
 
   tasksContainer.replaceChildren();
 
-  taskObjects.forEach((t) => {
-    const taskArticleElement = generateTaskDiv(t);
+  taskObjects.forEach((taskObject) => {
+    const taskArticleElement = generateTaskDiv(taskObject);
     tasksContainer.appendChild(taskArticleElement);
   });
 };

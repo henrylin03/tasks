@@ -28,6 +28,7 @@ const generateTaskDetailsModal = (taskObject) => {
   const checkbox = document.createElement("input");
   checkbox.setAttribute("type", "checkbox");
   checkbox.classList.add("checkbox");
+  //todo: add event listener for completing task
 
   // task details (right-side of modal)
   const taskDetailsDiv = document.createElement("div");
@@ -40,6 +41,8 @@ const generateTaskDetailsModal = (taskObject) => {
   taskName.setAttribute("id", "task-name-in-modal");
   taskName.setAttribute("placeholder", "Task name");
   taskName.required = true;
+  taskName.value = taskObject.getName();
+
   const toggleUrgentBtn = document.createElement("button");
   toggleUrgentBtn.setAttribute("type", "button");
   toggleUrgentBtn.classList.add("toggle-urgent-btn");
