@@ -17,7 +17,7 @@ const createScreenController = () => {
   addTaskBtn.addEventListener("click", addTaskUsingModal);
   addProjectBtn.addEventListener("click", addProjectUsingModal);
   [brandingInSidebar, inboxLinkInSidebar].forEach((elem) =>
-    elem.addEventListener("click", () => handleNavLinkClicks("Inbox"))
+    elem.addEventListener("click", () => handleNavLinkClicks("inbox"))
   );
 };
 
