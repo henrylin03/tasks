@@ -31,9 +31,8 @@ const addTaskUsingModal = () => {
 };
 
 const handleSubmit = (e) => {
-  const currentPageProjectName = document
-    .querySelector(".link.selected")
-    .getAttribute("data-project-name");
+  const currentPageProjectId =
+    document.querySelector(".link.selected").dataset.id;
 
   e.preventDefault();
 
@@ -49,7 +48,7 @@ const handleSubmit = (e) => {
   app.addTask(newTaskObject);
   form.reset();
   modal.close();
-  displayPage(currentPageProjectName);
+  displayPage(currentPageProjectId);
 };
 
 export default addTaskUsingModal;
