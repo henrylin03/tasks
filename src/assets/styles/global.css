@@ -168,6 +168,7 @@ main>.container {
 }
 
 .task {
+    min-height: 70px;
     background-color: white;
     border-radius: 10px;
     padding: 15px;
@@ -184,15 +185,14 @@ main>.container {
     filter: brightness(.99) saturate(1.2)
 }
 
-.task>.checkbox-container {
+.checkbox-container {
     display: block;
     position: relative;
     cursor: pointer;
+    z-index: 99;
 }
 
-.task .checkbox {
-    width: 15px;
-    height: 15px;
+.checkbox {
     background-color: white;
     border-radius: 50%;
     vertical-align: middle;
@@ -203,14 +203,19 @@ main>.container {
     transition: background-color .15s;
 }
 
-.task .checkbox:hover {
+.checkbox:hover {
     background-color: var(--lighter-primary-clr);
 }
 
-.task .checkbox:checked {
+.checkbox:checked {
     background-color: var(--primary-clr);
     appearance: auto;
     clip-path: circle(50% at 50% 50%);
+}
+
+.task .checkbox {
+    width: 15px;
+    height: 15px;
 }
 
 .task .right {
@@ -224,13 +229,16 @@ main>.container {
     font-size: .8rem;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 10px;
 }
 
 .task-attributes li {
     display: flex;
     align-items: center;
-    gap: 5px;
+}
+
+.task-attributes figure {
+    margin: 0 5px 0 1px;
 }
 
 .task-attributes li:not(:first-child)::before {
@@ -338,7 +346,8 @@ dialog .top {
 }
 
 #new-project-name,
-#new-task-name {
+#new-task-name,
+#task-name-in-modal {
     font-size: 1.1rem;
 }
 
@@ -360,7 +369,7 @@ dialog .top {
     display: flex;
     justify-content: end;
     gap: 15px;
-    margin-top: 13px;
+    margin-top: 15px;
 }
 
 dialog button {
@@ -389,7 +398,7 @@ dialog button:active {
     background-color: #dedede;
 }
 
-.new-task-modal.is-urgent {
+dialog.is-urgent {
     border-left: 10px solid var(--highlight-clr);
 }
 
@@ -423,4 +432,22 @@ dialog button:active {
     gap: 15px;
 }
 
-/* todo: consider using components due to the large nature of this css style sheet now! */
+/* modal for details of tasks */
+.task-details-modal form {
+    flex-direction: row;
+    width: 100%;
+}
+
+.task-details-modal .checkbox {
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
+    margin: 15px -10px 0 -5px;
+}
+
+.task-details-modal .task-details-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}

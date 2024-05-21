@@ -1,8 +1,10 @@
 import { createProject, recreateProjectFromJSON } from "../../models/Project";
 import { createTask } from "../../models/Task";
 import {
-  retrieveAllProjects,
-  retrieveProject,
+  retrieveProjectById,
+  retrieveProjectByName,
+  retrieveProjects,
+  retrieveTaskById,
 } from "../../helpers/localStorageHelpers";
 
 const createAppController = () => {
@@ -12,32 +14,36 @@ const createAppController = () => {
     newTask.setDescription(description);
     newTask.setDueDate(dueDate);
     newTask.setUrgency(urgency);
+    newTask.store();
 
-    const project = recreateProjectFromJSON(retrieveProject(projectName));
-    project.addTask(newTask);
+    const project = recreateProjectFromJSON(retrieveProjectByName(projectName));
+    project.addTask(newTask.getId());
     project.store();
   };
 
   const addProject = (newProjectName) => {
     if (!newProjectName) return;
-    createProject(newProjectName).store();
+    const newProject = createProject();
+    newProject.setName(newProjectName);
+    newProject.store();
   };
 
-  const getProjects = () =>
-    // exclude inbox, which is a project object behind the scenes
-    retrieveAllProjects()
-      .filter((project) => project.name != "Inbox")
-      .sort((projectA, projectB) => projectA.id - projectB.id);
+  const getProjects = (excludeInbox = true) => {
+    let projects = retrieveProjects();
+    if (excludeInbox)
+      projects = projects.filter((project) => project.name !== "Inbox");
+    return projects.sort((projectA, projectB) => projectA.id - projectB.id);
+  };
 
-  const getProject = (projectName) =>
-    recreateProjectFromJSON(retrieveProject(projectName));
+  const getProject = (projectId) =>
+    recreateProjectFromJSON(retrieveProjectById(projectId));
+
+  const getTask = (taskId) => retrieveTaskById(taskId);
 
   // run
   if (localStorage.length === 0) createProject("Inbox").store();
 
-  return { addTask, addProject, getProjects, getProject };
+  return { addTask, getTask, addProject, getProjects, getProject };
 };
 
 export { createAppController };
-
-// TODO: DO NOT STORE TASKS UNLESS VIEWDETAILS HAVE BEEN CALLED ON IT. BECAUSE THEN IT LIKELY MEANS THAT IT WASN'T RECONSTRUCTED FIRST BEFORE MANIPULATION AND THUS INVALID.

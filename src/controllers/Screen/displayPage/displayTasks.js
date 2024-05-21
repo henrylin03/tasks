@@ -1,4 +1,5 @@
 import { format, isToday, isPast } from "date-fns";
+import displayTaskDetailsInModal from "../modals/displayTaskDetailsInModal";
 
 // todo: make svgs easier to manipulate (we need to be able to colour them, but also center them (mask-image didn't work with flexbox - so maybe grid if we pursue that?)) - otherwise, maybe a JSON with all the SVGs inside would be good in like a data/ folder!
 const SVGS = {
@@ -21,27 +22,24 @@ const tasksContainer = document.querySelector("main .container");
 
 const displayTasks = (project) => {
   const taskObjects = project.getTasksAsObjects();
+  if (!taskObjects) return;
 
-  // clear everything
   tasksContainer.replaceChildren();
 
-  taskObjects.forEach((t) => {
-    const taskArticle = generateTaskDiv(t);
-    tasksContainer.appendChild(taskArticle);
+  taskObjects.forEach((taskObject) => {
+    const taskArticleElement = generateTaskDiv(taskObject);
+    tasksContainer.appendChild(taskArticleElement);
   });
-
-  // todo: each task card can be opened and enable modification/deletion (this might have to be done later in a separate pr)
-
-  //todo: sort tasks
-
-  return;
 };
 
 const generateTaskDiv = (task) => {
+  const taskId = task.getId();
   const taskDetails = task.viewDetails();
 
   const article = document.createElement("article");
   article.classList.add("task");
+  article.setAttribute("data-id", taskId);
+  article.addEventListener("mousedown", () => displayTaskDetailsInModal(task));
   if (taskDetails.urgency) article.classList.add("urgent");
   if (taskDetails.completed) article.classList.add("completed");
 
@@ -76,15 +74,12 @@ const generateTaskDiv = (task) => {
 };
 
 const generateTaskAttributes = (taskDetails) => {
-  const attributeListItems = [];
+  const ATTRIBUTES_NOT_GENERATED = ["id", "name", "completed"];
+  ATTRIBUTES_NOT_GENERATED.forEach((a) => delete taskDetails[a]);
 
+  const attributeListItems = [];
   for (const attribute in taskDetails) {
-    if (
-      attribute === "name" ||
-      attribute === "completed" ||
-      !taskDetails[attribute]
-    )
-      continue;
+    if (!taskDetails[attribute]) continue;
 
     const item = document.createElement("li");
     item.classList.add(attribute);

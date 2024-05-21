@@ -1,5 +1,10 @@
 import { createAppController } from "../../App/createAppController";
 import displayPage from "../displayPage";
+import {
+  toggleUrgency,
+  generateProjectOptions,
+  closeModal,
+} from "./taskModalsHandlers";
 
 const app = createAppController();
 
@@ -9,20 +14,26 @@ const taskNameInput = document.querySelector("#new-task-name");
 const descriptionInput = document.querySelector("#new-task-description");
 const dueDateInput = document.querySelector("#new-task-due-date");
 const projectDropdown = document.querySelector("#project-of-new-task");
-const urgentBtn = document.querySelector(".toggle-urgent-btn");
+const urgentBtn = document.querySelector(".new-task-modal .toggle-urgent-btn");
 const cancelBtn = document.querySelector(".new-task-modal .cancel-btn");
 
 const addTaskUsingModal = () => {
-  urgentBtn.addEventListener("mousedown", toggleUrgency);
+  urgentBtn.addEventListener("mousedown", () => toggleUrgency(modal));
   form.addEventListener("submit", handleSubmit);
-  cancelBtn.addEventListener("click", () => modal.close());
+  cancelBtn.addEventListener("click", () => closeModal(modal));
+  modal.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal(modal);
+  });
 
   // run
   modal.showModal();
-  generateProjectOptions();
+  generateProjectOptions(projectDropdown);
 };
 
 const handleSubmit = (e) => {
+  const currentPageProjectId =
+    document.querySelector(".link.selected").dataset.id;
+
   e.preventDefault();
 
   // capture all properties required to create task from form
@@ -37,20 +48,7 @@ const handleSubmit = (e) => {
   app.addTask(newTaskObject);
   form.reset();
   modal.close();
-};
-
-const toggleUrgency = () => modal.classList.toggle("is-urgent");
-
-const generateProjectOptions = () => {
-  const projectNames = app.getProjects().map((p) => p.name);
-
-  projectNames.forEach((p) => {
-    const option = document.createElement("option");
-    option.setAttribute("value", p);
-    option.textContent = p;
-
-    projectDropdown.appendChild(option);
-  });
+  displayPage(currentPageProjectId);
 };
 
 export default addTaskUsingModal;

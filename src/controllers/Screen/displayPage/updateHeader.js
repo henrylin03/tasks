@@ -21,15 +21,16 @@ const SVGS = {
 };
 
 const updateHeader = (project) => {
-  const projectName = project.getName();
+  const projectId = project.getId();
 
   const pageIcon = document.querySelector("header .left figure");
   const pageTitle = document.querySelector(".page-title");
-  const navbarLink = document.querySelector(`[data-project="${projectName}"]`);
+  const navbarLink = document.querySelector(`[data-id="${projectId}"]`);
 
   navbarLink.classList.add("selected");
   pageTitle.textContent = project.getName();
-  pageIcon.innerHTML = projectName === "Inbox" ? SVGS.inbox : SVGS.project;
+  console.log(project.viewDetails());
+  pageIcon.innerHTML = projectId === "inbox" ? SVGS.inbox : SVGS.project;
 };
 
 export default updateHeader;

@@ -1,16 +1,34 @@
-const createTask = (name) => {
+import { retrieveTasks } from "../helpers/localStorageHelpers";
+
+const createTask = (name, recreatingFromJSON = false) => {
+  let id = `T${Date.now()}`;
   let description = "";
   let dueDate = "";
   let urgency = false;
   let completed = false;
 
+  const getId = () => id;
+  const getName = () => name;
+  const getDescription = () => description;
+  const getDueDate = () => dueDate;
+  const getUrgency = () => urgency;
+  const getCompleted = () => completed;
   const viewDetails = () => ({
+    id,
     name,
     description,
     dueDate,
     urgency,
     completed,
   });
+
+  const setId = (retrievedId) => {
+    if (!recreatingFromJSON)
+      throw new Error(
+        "Cannot update the ID of a task unless you're recreating it from localStorage in JSON format."
+      );
+    id = retrievedId;
+  };
 
   const setDescription = (newDescription) => (description = newDescription);
   const setDueDate = (dueDateString) => {
@@ -26,23 +44,41 @@ const createTask = (name) => {
     completed = bool;
   };
 
+  const store = () => {
+    const storedTasksArray = retrieveTasks();
+
+    const newTasksArray = storedTasksArray.filter((t) => t.id !== id);
+    newTasksArray.push(viewDetails());
+    localStorage.setItem("tasks", JSON.stringify(newTasksArray));
+  };
+
   return {
+    getId,
+    getName,
+    getDescription,
+    getDueDate,
+    getUrgency,
+    getCompleted,
     viewDetails,
+    setId,
     setDescription,
     setDueDate,
     setUrgency,
     setCompletion,
+    store,
   };
 };
 
 const recreateTaskFromJSON = ({
+  id,
   name,
   description,
   dueDate,
   urgency,
   completed,
 }) => {
-  const task = createTask(name);
+  const task = createTask(name, true);
+  task.setId(id);
   task.setDescription(description);
   task.setDueDate(dueDate);
   task.setUrgency(urgency);
