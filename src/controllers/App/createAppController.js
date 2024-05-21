@@ -57,7 +57,9 @@ const createAppController = () => {
     const task = getTask(id);
 
     const projectHasChanged = projectId !== task.getProjectId();
-    console.log(projectHasChanged);
+    console.log("projectHasChanged: ", projectHasChanged);
+
+    return;
 
     if (projectHasChanged) return;
 

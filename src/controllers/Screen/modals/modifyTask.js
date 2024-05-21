@@ -15,9 +15,6 @@ const modifyTask = (taskObject, modalElement) => {
   );
   const taskCompletionCheckbox = modalElement.querySelector(".checkbox");
 
-  console.log(taskObject.viewDetails());
-
-  // gather all required details for the app.updateTask() method
   const updatedTaskDetails = {
     id: taskObject.getId(),
     name: taskNameElement.value,
@@ -29,9 +26,7 @@ const modifyTask = (taskObject, modalElement) => {
   };
 
   console.log(updatedTaskDetails);
-  // app.updateTask(updatedTaskDetails)
-
-  // call the app.updateTask() method
+  app.updateTask(updatedTaskDetails);
 
   // redisplay the current project page (essentially refreshing the current page) - in the future, we might want to open the page that the task moved to, assuming the task has chagned projects
 };
