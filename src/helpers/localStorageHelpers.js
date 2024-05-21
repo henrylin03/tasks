@@ -1,6 +1,6 @@
 // CHECKS
 const projectExists = (projectName) =>
-  retrieveAllProjectNames().includes(projectName);
+  retrieveProjectNames().includes(projectName);
 
 // RETRIEVERS
 const retrieveProjects = () => {
