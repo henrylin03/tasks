@@ -2,6 +2,7 @@ import { createProject, recreateProjectFromJSON } from "../../models/Project";
 import { createTask } from "../../models/Task";
 import {
   retrieveProjectById,
+  retrieveProjectByName,
   retrieveProjects,
   retrieveTaskById,
 } from "../../helpers/localStorageHelpers";

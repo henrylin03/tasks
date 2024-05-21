@@ -14,6 +14,8 @@ const retrieveProjectNames = () => {
 
 const retrieveProjectById = (projectId) =>
   retrieveProjects().find((project) => project.id === projectId);
+const retrieveProjectByName = (projectName) =>
+  retrieveProjects().find((project) => project.name === projectName);
 
 const retrieveTasks = () => {
   try {
@@ -42,6 +44,7 @@ const getCleanedProjectNames = () => {
 export {
   getCleanedProjectNames,
   retrieveProjectById,
+  retrieveProjectByName,
   retrieveProjects,
   retrieveProjectNames,
   retrieveTasks,
