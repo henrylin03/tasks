@@ -29,12 +29,15 @@ const createAppController = () => {
   };
 
   const getProjects = (excludeInbox = true) => {
-    let projects = retrieveProjects();
+    const storedProjectsInJSONFormat = retrieveProjects();
+    let projects = storedProjectsInJSONFormat.map((p) =>
+      recreateProjectFromJSON(p)
+    );
     if (excludeInbox)
-      projects = projects.filter((project) => project.name !== "Inbox");
-    return projects
-      .map((project) => recreateProjectFromJSON(project))
-      .sort((projectA, projectB) => projectA.getId() - projectB.getId());
+      projects = projects.filter((project) => project.getName() !== "Inbox");
+    return projects.sort(
+      (projectA, projectB) => projectA.getId() - projectB.getId()
+    );
   };
 
   const getProject = (projectId) =>
@@ -72,7 +75,7 @@ const createAppController = () => {
   };
 
   // run
-  if (localStorage.length === 0) createProject("Inbox").store();
+  if (localStorage.length === 0) createProject().store();
 
   return { addTask, getTask, updateTask, addProject, getProjects, getProject };
 };

@@ -6,6 +6,10 @@ const displayProjectsInNav = () => {
   const navProjectsContainer = document.querySelector(
     ".current-projects-container"
   );
+
+  const storedProjectObjects = app.getProjects(false);
+  console.log(storedProjectObjects);
+
   const projectsArray = app
     .getProjects()
     .map((getProjectObject) => createProjectLinkInNav(getProjectObject));
@@ -14,7 +18,6 @@ const displayProjectsInNav = () => {
 };
 
 const createProjectLinkInNav = (project) => {
-  console.log(project.viewDetails());
   const projectName = project.getName();
   const projectId = project.getId();
 
