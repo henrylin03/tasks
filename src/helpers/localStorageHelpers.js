@@ -34,10 +34,13 @@ const retrieveTasks = () => {
     return [];
   }
 };
+const retrieveTaskById = (taskId) =>
+  retrieveTasks().find((task) => task.id === taskId);
 
 export {
   projectExists,
   retrieveProjectByName,
   retrieveProjects,
   retrieveTasks,
+  retrieveTaskById,
 };

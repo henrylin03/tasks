@@ -7,7 +7,7 @@ const displayPage = (projectName) => {
   const project = app.getProject(projectName);
 
   updateHeader(project);
-  // displayTasks(project);
+  displayTasks(project);
 };
 
 export default displayPage;

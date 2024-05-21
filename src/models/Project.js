@@ -1,6 +1,7 @@
 import {
-  retrieveProjects,
   projectExists,
+  retrieveProjects,
+  retrieveTaskById,
 } from "../helpers/localStorageHelpers";
 
 const createProject = (name, recreatingFromJSON = false) => {
@@ -15,6 +16,7 @@ const createProject = (name, recreatingFromJSON = false) => {
   // GETTERS
   const getId = () => id;
   const getName = () => name;
+  const getTasksAsObjects = () => taskIds.map((id) => retrieveTaskById(id));
   const viewDetails = () => ({ id, name, taskIds });
 
   // SETTERS (kind of)
@@ -39,6 +41,7 @@ const createProject = (name, recreatingFromJSON = false) => {
   return {
     getId,
     getName,
+    getTasksAsObjects,
     viewDetails,
     setId,
     addTask,
