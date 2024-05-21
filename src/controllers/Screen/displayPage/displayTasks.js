@@ -1,5 +1,5 @@
 import { format, isToday, isPast } from "date-fns";
-import viewTaskDetails from "../modals/viewTaskDetails";
+import displayTaskDetailsInModal from "../modals/displayTaskDetailsInModal";
 
 // todo: make svgs easier to manipulate (we need to be able to colour them, but also center them (mask-image didn't work with flexbox - so maybe grid if we pursue that?)) - otherwise, maybe a JSON with all the SVGs inside would be good in like a data/ folder!
 const SVGS = {
@@ -39,6 +39,7 @@ const generateTaskDiv = (task) => {
   const article = document.createElement("article");
   article.classList.add("task");
   article.setAttribute("data-id", taskId);
+  article.addEventListener("mousedown", () => displayTaskDetailsInModal(task));
   if (taskDetails.urgency) article.classList.add("urgent");
   if (taskDetails.completed) article.classList.add("completed");
 
@@ -68,8 +69,6 @@ const generateTaskDiv = (task) => {
   rightDiv.appendChild(taskAttributes);
   article.appendChild(checkboxDiv);
   article.appendChild(rightDiv);
-
-  article.addEventListener("mousedown", viewTaskDetails);
 
   return article;
 };
