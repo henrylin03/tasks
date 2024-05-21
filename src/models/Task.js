@@ -20,6 +20,7 @@ const createTask = (name, recreatingFromJSON = false) => {
   const getDueDate = () => dueDate;
   const getUrgency = () => urgency;
   const getCompleted = () => completed;
+  const getProjectId = () => projectId;
   const getProjectObject = () =>
     recreateProjectFromJSON(retrieveProjectById(projectId));
   const viewDetails = () => ({
@@ -77,6 +78,7 @@ const createTask = (name, recreatingFromJSON = false) => {
     getDueDate,
     getUrgency,
     getCompleted,
+    getProjectId,
     getProjectObject,
     viewDetails,
     setId,

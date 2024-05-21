@@ -73,7 +73,7 @@ const generateTaskDetailsModal = (taskObject) => {
   const projects = document.createElement("select");
   projects.setAttribute("id", "task-project-in-modal");
   generateProjectOptions(projects);
-  projects.value = currentProjectName;
+  projects.value = taskObject.getProjectId();
 
   const buttons = document.createElement("div");
   buttons.classList.add("btn-group");
