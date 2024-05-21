@@ -17,10 +17,10 @@ const createProjectLinkInNav = (project) => {
 
   const linkDiv = document.createElement("div");
   linkDiv.classList.add("link");
-  linkDiv.setAttribute("data-project-name", projectName);
-  linkDiv.setAttribute("data-project-id", projectId);
+  linkDiv.setAttribute("data-name", projectName);
+  linkDiv.setAttribute("data-id", projectId);
 
-  linkDiv.addEventListener("click", () => handleNavLinkClicks(projectName));
+  linkDiv.addEventListener("click", () => handleNavLinkClicks(projectId));
 
   const linkAnchor = document.createElement("a");
   const iconContainer = document.createElement("figure");
@@ -39,6 +39,7 @@ const createProjectLinkInNav = (project) => {
                 <path d="M5 12l0 .01" />
                 <path d="M5 18l0 .01" />
               </svg>`;
+
   linkAnchor.appendChild(iconContainer);
   linkAnchor.appendChild(projectNameText);
   linkDiv.appendChild(linkAnchor);
