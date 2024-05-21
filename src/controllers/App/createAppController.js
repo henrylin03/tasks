@@ -2,10 +2,8 @@ import { createProject, recreateProjectFromJSON } from "../../models/Project";
 import { createTask, recreateTaskFromJSON } from "../../models/Task";
 import {
   retrieveProjectById,
-  retrieveProjectByName,
   retrieveProjects,
   retrieveTaskById,
-  retrieveTasks,
 } from "../../helpers/localStorageHelpers";
 
 const createAppController = () => {
