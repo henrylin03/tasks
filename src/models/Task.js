@@ -30,6 +30,7 @@ const createTask = (name, recreatingFromJSON = false) => {
     id = retrievedId;
   };
 
+  const setName = (newName) => (name = newName);
   const setDescription = (newDescription) => (description = newDescription);
   const setDueDate = (dueDateString) => {
     if (!dueDateString) return;
@@ -61,6 +62,7 @@ const createTask = (name, recreatingFromJSON = false) => {
     getCompleted,
     viewDetails,
     setId,
+    setName,
     setDescription,
     setDueDate,
     setUrgency,
