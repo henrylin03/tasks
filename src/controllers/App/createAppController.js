@@ -1,7 +1,7 @@
 import { createProject, recreateProjectFromJSON } from "../../models/Project";
 import { createTask } from "../../models/Task";
 import {
-  retrieveProjectByName,
+  retrieveProjectById,
   retrieveProjects,
 } from "../../helpers/localStorageHelpers";
 
@@ -33,8 +33,8 @@ const createAppController = () => {
     return projects.sort((projectA, projectB) => projectA.id - projectB.id);
   };
 
-  const getProject = (projectName) =>
-    recreateProjectFromJSON(retrieveProjectByName(projectName));
+  const getProject = (projectId) =>
+    recreateProjectFromJSON(retrieveProjectById(projectId));
 
   // run
   if (localStorage.length === 0) createProject("Inbox").store();
