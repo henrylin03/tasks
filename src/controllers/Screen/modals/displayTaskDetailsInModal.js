@@ -53,6 +53,7 @@ const generateTaskDetailsModal = (taskObject) => {
   taskDescription.setAttribute("cols", "30");
   taskDescription.setAttribute("rows", "5");
   taskDescription.setAttribute("placeholder", "Description");
+  taskDescription.value = taskObject.getDescription();
 
   const dueDateAndProjectContainer = document.createElement("div");
   dueDateAndProjectContainer.classList.add("input-container");
