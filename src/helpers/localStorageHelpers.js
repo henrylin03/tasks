@@ -17,12 +17,12 @@ const retrieveAllProjectNames = () => {
 //! project names must be unique
 const retrieveProjectByName = (projectName) => {
   const storedProjectsArray = retrieveProjects();
-  const filteredProjects = storedProjectsArray.filter(
+  const filteredProjects = storedProjectsArray.find(
     (project) => project.name === projectName
-  )[0];
+  );
 
-  if (filteredProjects.length > 1)
-    throw new Error("duplicate project names found");
+  // if (filteredProjects.length > 1)
+  //   throw new Error("duplicate project names found");
 
   return filteredProjects;
 };

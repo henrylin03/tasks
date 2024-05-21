@@ -3,6 +3,7 @@ import {
   retrieveProjects,
   retrieveTaskById,
 } from "../helpers/localStorageHelpers";
+import { recreateTaskFromJSON } from "./Task";
 
 const createProject = (name, recreatingFromJSON = false) => {
   if (!recreatingFromJSON && projectExists(name))
@@ -13,14 +14,12 @@ const createProject = (name, recreatingFromJSON = false) => {
   let id = isInitialLoadOfApp ? "inbox" : `P${Date.now()}`;
   let taskIds = [];
 
-  console.log("taskIds", taskIds);
-
   // GETTERS
   const getId = () => id;
   const getName = () => name;
   const getTasksAsObjects = () => {
     if (!taskIds) return;
-    return taskIds.map((id) => retrieveTaskById(id));
+    return taskIds.map((id) => recreateTaskFromJSON(retrieveTaskById(id)));
   };
   const viewDetails = () => ({ id, name, taskIds });
 
