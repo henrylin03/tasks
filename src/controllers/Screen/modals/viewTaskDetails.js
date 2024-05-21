@@ -4,8 +4,8 @@ import {
   closeModal,
 } from "./taskModalsHandlers";
 
-const viewAndEditTaskDetails = () => {
-  const taskDetailsModal = generateTaskDetailsModal();
+const viewTaskDetails = (taskId) => {
+  const taskDetailsModal = generateTaskDetailsModal(taskId);
 
   taskDetailsModal.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal(taskDetailsModal);
@@ -14,7 +14,7 @@ const viewAndEditTaskDetails = () => {
   taskDetailsModal.showModal();
 };
 
-const generateTaskDetailsModal = () => {
+const generateTaskDetailsModal = (taskId) => {
   const modal = document.createElement("dialog");
   modal.classList.add("task-details-modal");
 
@@ -98,6 +98,6 @@ const generateTaskDetailsModal = () => {
   return modal;
 };
 
-export default viewAndEditTaskDetails;
+export default viewTaskDetails;
 
 //todo: fix issue when user tries to check the checkbox in preview mode, the task pops open
