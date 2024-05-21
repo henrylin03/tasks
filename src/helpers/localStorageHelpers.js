@@ -10,19 +10,19 @@ const retrieveProjects = () => {
     return [];
   }
 };
-const retrieveAllProjectNames = () => {
+const retrieveProjectNames = () => {
   const storedProjectsArray = retrieveProjects();
   return storedProjectsArray.map((project) => project.name);
 };
-//! project names must be unique
+
 const retrieveProjectByName = (projectName) => {
   const storedProjectsArray = retrieveProjects();
   const filteredProjects = storedProjectsArray.find(
     (project) => project.name === projectName
   );
-
-  // if (filteredProjects.length > 1)
-  //   throw new Error("duplicate project names found");
+  //! project names must be unique
+  if (filteredProjects.length > 1)
+    throw new Error("duplicate project names found");
 
   return filteredProjects;
 };
@@ -41,6 +41,7 @@ export {
   projectExists,
   retrieveProjectByName,
   retrieveProjects,
+  retrieveProjectNames,
   retrieveTasks,
   retrieveTaskById,
 };

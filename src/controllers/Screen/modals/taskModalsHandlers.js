@@ -1,15 +1,12 @@
-import { createAppController } from "../../App/createAppController";
+import { retrieveProjectNames } from "../../../helpers/localStorageHelpers";
 
 const toggleUrgency = (modalElement) =>
   modalElement.classList.toggle("is-urgent");
 
 const generateProjectOptions = (projectDropdownElement) => {
-  const app = createAppController();
-
   projectDropdownElement.replaceChildren();
 
-  // false argument means we are not excluding 'Inbox' project here
-  const projectNames = app.getProjects(false).map((p) => p.name);
+  const projectNames = retrieveProjectNames();
   projectNames.forEach((p) => {
     const option = document.createElement("option");
     option.setAttribute("value", p);
