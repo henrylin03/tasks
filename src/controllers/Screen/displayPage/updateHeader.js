@@ -25,7 +25,8 @@ const updateHeader = (project) => {
 
   const pageIcon = document.querySelector("header .left figure");
   const pageTitle = document.querySelector(".page-title");
-  const navbarLink = document.querySelector(`[data-project-id="${projectId}"]`);
+  const navbarLink = document.querySelector(`[data-id="${projectId}"]`);
+  console.log(navbarLink);
 
   navbarLink.classList.add("selected");
   pageTitle.textContent = project.getName();
