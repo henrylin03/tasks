@@ -3,6 +3,9 @@ import {
   toggleUrgency,
   closeModal,
 } from "./taskModalsHandlers";
+import { createAppController } from "../../App/createAppController";
+
+const app = createAppController();
 
 const viewTaskDetails = (taskId) => {
   const taskDetailsModal = generateTaskDetailsModal(taskId);
