@@ -40,6 +40,11 @@ const createAppController = () => {
 
   const getTask = (taskId) => retrieveTaskById(taskId);
 
+  const modifyTask = (taskIdOrObject) => {
+    const taskObject =
+      typeof task === "string" ? getTask(task) : taskIdOrObject;
+  };
+
   // run
   if (localStorage.length === 0) createProject("Inbox").store();
 
