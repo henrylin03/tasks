@@ -21,7 +21,9 @@ const createAppController = () => {
 
   const addProject = (newProjectName) => {
     if (!newProjectName) return;
-    createProject(newProjectName).store();
+    const newProject = createProject();
+    newProject.setName(newProjectName);
+    newProject.store();
   };
 
   const getProjects = (excludeInbox = true) => {
