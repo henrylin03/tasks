@@ -1,4 +1,8 @@
-import { retrieveTasks } from "../helpers/localStorageHelpers";
+import {
+  retrieveProjectById,
+  retrieveTasks,
+} from "../helpers/localStorageHelpers";
+import { recreateProjectFromJSON } from "./Project";
 
 const createTask = (name, recreatingFromJSON = false) => {
   let id = `T${Date.now()}`;
@@ -7,7 +11,7 @@ const createTask = (name, recreatingFromJSON = false) => {
   let urgency = false;
   let completed = false;
   // a task must have only one project. 'project-less' tasks go to the Inbox
-  let mappedProjectId = "inbox";
+  let projectId = "inbox";
 
   const getId = () => id;
   const getName = () => name;
@@ -15,6 +19,8 @@ const createTask = (name, recreatingFromJSON = false) => {
   const getDueDate = () => dueDate;
   const getUrgency = () => urgency;
   const getCompleted = () => completed;
+  const getProjectObject = () =>
+    recreateProjectFromJSON(retrieveProjectById(projectId));
   const viewDetails = () => ({
     id,
     name,
@@ -22,6 +28,7 @@ const createTask = (name, recreatingFromJSON = false) => {
     dueDate,
     urgency,
     completed,
+    projectId,
   });
 
   const setId = (retrievedId) => {
@@ -62,6 +69,7 @@ const createTask = (name, recreatingFromJSON = false) => {
     getDueDate,
     getUrgency,
     getCompleted,
+    getProjectObject,
     viewDetails,
     setId,
     setName,
