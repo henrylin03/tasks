@@ -7,6 +7,7 @@ const createTask = (name, recreatingFromJSON = false) => {
   let urgency = false;
   let completed = false;
 
+  const getName = () => name;
   const getId = () => id;
   const viewDetails = () => ({
     id,
@@ -48,6 +49,7 @@ const createTask = (name, recreatingFromJSON = false) => {
   };
 
   return {
+    getName,
     getId,
     viewDetails,
     setId,
