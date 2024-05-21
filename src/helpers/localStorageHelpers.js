@@ -1,5 +1,5 @@
 // CHECKS
-const projectExists = (projectName) =>
+const projectNameExists = (projectName) =>
   retrieveProjectNames().includes(projectName);
 
 // RETRIEVERS
@@ -30,7 +30,7 @@ const retrieveTaskById = (taskId) =>
   retrieveTasks().find((task) => task.id === taskId);
 
 export {
-  projectExists,
+  projectNameExists,
   retrieveProjectById,
   retrieveProjects,
   retrieveProjectNames,

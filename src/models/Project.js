@@ -1,22 +1,18 @@
 import {
-  projectExists,
+  projectNameExists,
   retrieveProjects,
   retrieveTaskById,
 } from "../helpers/localStorageHelpers";
 import { recreateTaskFromJSON } from "./Task";
 
 const createProject = (name, recreatingFromJSON = false) => {
-  if (!recreatingFromJSON && projectExists(name))
-    throw new Error(`Project with name, "${name}" already exists`);
-
-  const isInitialLoadOfApp = localStorage.length === 0 || name === "Inbox";
-
-  let id = isInitialLoadOfApp ? "inbox" : `P${Date.now()}`;
+  let id = localStorage.length === 0 ? "inbox" : `P${Date.now()}`;
   let taskIds = [];
 
   // GETTERS
   const getId = () => id;
   const getName = () => name;
+
   const getTasksAsObjects = () => {
     if (!taskIds) return;
     return taskIds.map((id) => recreateTaskFromJSON(retrieveTaskById(id)));
