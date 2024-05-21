@@ -51,7 +51,8 @@ const createAppController = () => {
     projectName,
   }) => {
     const task = getTask(id);
-    const projectHasChanged = name !== task.getName();
+    // const projectHasChanged = projectName !== task.getName();
+    const projectHasChanged = "";
 
     if (projectHasChanged) return;
 
@@ -59,16 +60,14 @@ const createAppController = () => {
     // #1.2 then, both projects needs to be pushed back to localStorage
 
     // otherwise, no need to even touch the project!
-    const updatedTasks = retrieveTasks().filter((t) => t.id !== id);
 
-    // make modifications
     task.setName(name);
     task.setDescription(description);
     task.setDueDate(dueDate);
     task.setUrgency(urgency);
     task.setCompletion(completed);
 
-    // re-store task from localStorage
+    task.store();
   };
 
   // run
