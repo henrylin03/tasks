@@ -30,6 +30,7 @@ const generateTaskDetailsModal = (taskObject) => {
   const checkbox = document.createElement("input");
   checkbox.setAttribute("type", "checkbox");
   checkbox.classList.add("checkbox");
+  checkbox.checked = taskObject.getCompleted();
   //todo: add event listener for completing task
 
   // task details (right-side of modal)
