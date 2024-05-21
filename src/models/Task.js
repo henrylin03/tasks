@@ -6,6 +6,8 @@ const createTask = (name, recreatingFromJSON = false) => {
   let dueDate = "";
   let urgency = false;
   let completed = false;
+  // a task must have only one project. 'project-less' tasks go to the Inbox
+  let mappedProjectId = "inbox";
 
   const getId = () => id;
   const getName = () => name;
