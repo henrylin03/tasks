@@ -5,6 +5,7 @@ import {
   retrieveProjectByName,
   retrieveProjects,
   retrieveTaskById,
+  retrieveTasks,
 } from "../../helpers/localStorageHelpers";
 
 const createAppController = () => {
@@ -51,11 +52,18 @@ const createAppController = () => {
   }) => {
     const taskBeforeChanging = getTask(id);
 
-    const projectHasChanged = () => {};
-    // get the id for task (we might not need this but probably should just in case)
+    const projectHasChanged = name !== taskBeforeChanging.getName();
+
+    if (projectHasChanged) return;
+
     // #1.1: if project has changed, then task's id needs to be popped from the current project's tasks, and added to new project's tasks list
     // #1.2 then, both projects needs to be pushed back to localStorage
+
+    // otherwise, no need to even touch the project!
+
     // #2: remove task from localStorage
+    const updatedTasks = retrieveTasks().filter((task) => task.id !== id);
+
     // #3: re-store task from localStorage
   };
 
