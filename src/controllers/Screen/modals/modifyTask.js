@@ -1,4 +1,5 @@
 const modifyTask = () => {
+  e.preventDefault();
   alert("hello");
 };
 
