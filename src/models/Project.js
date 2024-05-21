@@ -13,6 +13,8 @@ const createProject = (name, recreatingFromJSON = false) => {
   let id = isInitialLoadOfApp ? "inbox" : `P${Date.now()}`;
   let taskIds = [];
 
+  console.log("taskIds", taskIds);
+
   // GETTERS
   const getId = () => id;
   const getName = () => name;
@@ -53,10 +55,10 @@ const createProject = (name, recreatingFromJSON = false) => {
   };
 };
 
-const recreateProjectFromJSON = ({ id, name, tasks }) => {
+const recreateProjectFromJSON = ({ id, name, taskIds }) => {
   const project = createProject(name, true);
   project.setId(id);
-  project.replaceTasks(tasks);
+  project.replaceTasks(taskIds);
 
   return project;
 };
