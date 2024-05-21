@@ -3,6 +3,7 @@ import { createTask } from "../../models/Task";
 import {
   retrieveProjectById,
   retrieveProjects,
+  retrieveTaskById,
 } from "../../helpers/localStorageHelpers";
 
 const createAppController = () => {
@@ -28,20 +29,20 @@ const createAppController = () => {
 
   const getProjects = (excludeInbox = true) => {
     let projects = retrieveProjects();
-
     if (excludeInbox)
       projects = projects.filter((project) => project.name !== "Inbox");
-
     return projects.sort((projectA, projectB) => projectA.id - projectB.id);
   };
 
   const getProject = (projectId) =>
     recreateProjectFromJSON(retrieveProjectById(projectId));
 
+  const getTask = (taskId) => retrieveTaskById(taskId);
+
   // run
   if (localStorage.length === 0) createProject("Inbox").store();
 
-  return { addTask, addProject, getProjects, getProject };
+  return { addTask, getTask, addProject, getProjects, getProject };
 };
 
 export { createAppController };
