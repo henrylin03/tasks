@@ -11,19 +11,17 @@ const displayTaskDetailsInModal = (taskObject) => {
   taskDetailsModal.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal(taskDetailsModal);
   });
+  // todo: add event listener for enter key to essentially do the same thing as clicking the submit button
 
   taskDetailsModal.showModal();
 };
 
 const generateTaskDetailsModal = (taskObject) => {
-  const currentProjectName = document.querySelector(".page-title").textContent;
-
   const modal = document.createElement("dialog");
   modal.classList.add("task-details-modal");
   if (taskObject.getUrgency()) modal.classList.add("is-urgent");
 
   const form = document.createElement("form");
-  form.addEventListener("submit", modifyTask);
 
   // checkbox (left-side of modal)
   const checkboxContainer = document.createElement("div");
@@ -78,10 +76,12 @@ const generateTaskDetailsModal = (taskObject) => {
   const buttons = document.createElement("div");
   buttons.classList.add("btn-group");
   const saveBtn = document.createElement("button");
-  saveBtn.type = "submit";
+  saveBtn.type = "button";
   saveBtn.classList.add("confirm-btn");
   saveBtn.classList.add("save-changes-to-task");
   saveBtn.textContent = "Save";
+  saveBtn.addEventListener("mousedown", () => modifyTask(taskObject));
+
   const cancelBtn = document.createElement("button");
   cancelBtn.type = "reset";
   cancelBtn.classList.add("cancel-btn");

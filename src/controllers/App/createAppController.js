@@ -52,11 +52,12 @@ const createAppController = () => {
     dueDate,
     urgency,
     completed,
-    projectName,
+    projectId,
   }) => {
     const task = getTask(id);
-    // const projectHasChanged = projectName !== task.getName();
-    const projectHasChanged = "";
+
+    const projectHasChanged = projectId !== task.getProjectId();
+    console.log(projectHasChanged);
 
     if (projectHasChanged) return;
 
