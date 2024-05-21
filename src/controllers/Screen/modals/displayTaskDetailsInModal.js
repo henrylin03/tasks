@@ -112,5 +112,3 @@ const generateTaskDetailsModal = (taskObject) => {
 };
 
 export default displayTaskDetailsInModal;
-
-//todo: fix issue when user tries to check the checkbox in preview mode, the task pops open
