@@ -16,6 +16,8 @@ const displayTaskDetailsInModal = (taskObject) => {
 };
 
 const generateTaskDetailsModal = (taskObject) => {
+  const currentProjectName = document.querySelector(".page-title").textContent;
+
   const modal = document.createElement("dialog");
   modal.classList.add("task-details-modal");
 
@@ -58,14 +60,17 @@ const generateTaskDetailsModal = (taskObject) => {
   const dueDateAndProjectContainer = document.createElement("div");
   dueDateAndProjectContainer.classList.add("input-container");
   const dueDate = document.createElement("input");
-  dueDate.setAttribute("input", "text");
+  dueDate.input = "text";
   dueDate.setAttribute("id", "task-due-date-in-modal");
   dueDate.setAttribute("placeholder", "Due date");
   dueDate.setAttribute("onfocus", "(this.type='date')");
   dueDate.setAttribute("onblur", "(this.type='text')");
+  dueDate.value = taskObject.getDueDate();
+
   const projects = document.createElement("select");
   projects.setAttribute("id", "task-project-in-modal");
   generateProjectOptions(projects);
+  projects.value = currentProjectName;
 
   const buttons = document.createElement("div");
   buttons.classList.add("btn-group");
