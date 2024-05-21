@@ -1,6 +1,17 @@
 // CHECKS
-const projectNameExists = (projectName) =>
-  retrieveProjectNames().includes(projectName);
+const projectNameExists = (projectName) => {
+  const storedProjectNames = retrieveProjectNames();
+
+  const cleanedProjectNames = storedProjectNames.map((projectName) => {
+    if (!projectName.includes("(")) return projectName;
+    const regexToMatchParenthesesWithNumbersInside = /\(\s*\d+\s*\)$/g;
+    return projectName
+      .replace(regexToMatchParenthesesWithNumbersInside, "")
+      .trim();
+  });
+
+  return cleanedProjectNames.includes(projectName);
+};
 
 // RETRIEVERS
 const retrieveProjects = () => {
