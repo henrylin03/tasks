@@ -4,7 +4,12 @@ const toggleUrgency = (modalElement) =>
   modalElement.classList.toggle("is-urgent");
 
 const generateProjectOptions = (projectDropdownElement) => {
+  // clear all options
   projectDropdownElement.replaceChildren();
+
+  // get all project Ids
+
+  //! WORK ON HERE!!!
 
   const projectNames = retrieveProjectNames();
   projectNames.forEach((p) => {

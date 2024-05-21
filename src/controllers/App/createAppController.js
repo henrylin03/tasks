@@ -9,15 +9,16 @@ import {
 } from "../../helpers/localStorageHelpers";
 
 const createAppController = () => {
-  const addTask = ({ name, description, dueDate, urgency, projectName }) => {
+  const addTask = ({ name, description, dueDate, urgency, projectId }) => {
     if (!name) return;
     const newTask = createTask(name);
     newTask.setDescription(description);
     newTask.setDueDate(dueDate);
     newTask.setUrgency(urgency);
+    newTask.setProjectId(projectId);
     newTask.store();
 
-    const project = recreateProjectFromJSON(retrieveProjectByName(projectName));
+    const project = newTask.getProjectObject();
     project.addTask(newTask.getId());
     project.store();
   };
