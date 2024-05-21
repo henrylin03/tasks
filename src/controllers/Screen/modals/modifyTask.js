@@ -1,4 +1,4 @@
-const modifyTask = () => {
+const modifyTask = (taskObject) => {
   e.preventDefault();
   alert("hello");
 };
