@@ -86,7 +86,7 @@ const createAppController = () => {
     taskObject.store();
   };
 
-  // run
+  // run: this creates the inbox project
   if (localStorage.length === 0) createProject().store();
 
   return {
