@@ -30,9 +30,6 @@ const modifyTask = (taskObject, modalElement) => {
   };
 
   app.updateTask(updatedTaskDetails);
-
-  // redisplay the current project page (essentially refreshing the current page) - in the future, we might want to open the page that the task moved to, assuming the task has chagned projects
-
   closeModal(modalElement);
   displayPage(currentProjectId);
 };

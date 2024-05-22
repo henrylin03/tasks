@@ -59,7 +59,11 @@ const createAppController = () => {
     const projectHasChanged = projectId !== task.getProjectId();
     console.log("projectHasChanged: ", projectHasChanged);
 
-    if (projectHasChanged) return;
+    if (projectHasChanged) {
+      // #1: remove task id from current project object
+      // #2: add task id to new project object
+      // #3: replace task's 'projectId' property to new project's id
+    }
 
     // #1.1: if project has changed, then task's id needs to be popped from the current project's tasks, and added to new project's tasks list
     // #1.2 then, both projects needs to be pushed back to localStorage
