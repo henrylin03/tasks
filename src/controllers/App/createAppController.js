@@ -59,8 +59,6 @@ const createAppController = () => {
     const projectHasChanged = projectId !== task.getProjectId();
     console.log("projectHasChanged: ", projectHasChanged);
 
-    return;
-
     if (projectHasChanged) return;
 
     // #1.1: if project has changed, then task's id needs to be popped from the current project's tasks, and added to new project's tasks list
