@@ -57,6 +57,7 @@ const generateTaskDiv = (task) => {
   const checkbox = document.createElement("input");
   checkbox.setAttribute("type", "checkbox");
   checkbox.classList.add("checkbox");
+  if (taskDetails.completed) checkbox.checked = true;
   checkbox.addEventListener("change", () => {
     app.updateTaskCompletion(task, checkbox.checked);
     displayPage(task.getProjectId());
