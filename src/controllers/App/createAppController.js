@@ -30,14 +30,18 @@ const createAppController = () => {
 
   const getProjects = (excludeInbox = true) => {
     const storedProjectsInJSONFormat = retrieveProjects();
-    let projects = storedProjectsInJSONFormat.map((p) =>
-      recreateProjectFromJSON(p)
-    );
-    if (excludeInbox)
-      projects = projects.filter((project) => project.getName() !== "Inbox");
-    return projects.sort(
-      (projectA, projectB) => projectA.getId() - projectB.getId()
-    );
+    let projects = storedProjectsInJSONFormat
+      .map((p) => recreateProjectFromJSON(p))
+      .sort((projectA, projectB) => projectA.getId() - projectB.getId());
+
+    projects = excludeInbox
+      ? projects.filter((project) => project.getName() !== "Inbox")
+      : [
+          ...projects.filter((p) => p.id === "inbox"),
+          ...projects.filter((p) => p.id !== "inbox"),
+        ];
+
+    return projects;
   };
 
   const getProject = (projectId) =>
