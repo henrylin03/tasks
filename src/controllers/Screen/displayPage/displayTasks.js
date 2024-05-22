@@ -1,5 +1,7 @@
 import { format, isToday, isPast } from "date-fns";
 import displayTaskDetailsInModal from "../modals/displayTaskDetailsInModal";
+import { createAppController } from "../../App/createAppController";
+import displayPage from ".";
 
 // todo: make svgs easier to manipulate (we need to be able to colour them, but also center them (mask-image didn't work with flexbox - so maybe grid if we pursue that?)) - otherwise, maybe a JSON with all the SVGs inside would be good in like a data/ folder!
 const SVGS = {
@@ -33,23 +35,33 @@ const displayTasks = (project) => {
 };
 
 const generateTaskDiv = (task) => {
+  const app = createAppController();
+
   const taskId = task.getId();
   const taskDetails = task.viewDetails();
 
   const article = document.createElement("article");
   article.classList.add("task");
   article.setAttribute("data-id", taskId);
-  article.addEventListener("mousedown", () => displayTaskDetailsInModal(task));
+  article.addEventListener("click", (e) => {
+    displayTaskDetailsInModal(task);
+  });
   if (taskDetails.urgency) article.classList.add("urgent");
   if (taskDetails.completed) article.classList.add("completed");
 
   // left-side
   const checkboxDiv = document.createElement("div");
   checkboxDiv.classList.add("checkbox-container");
+  checkboxDiv.addEventListener("click", (e) => e.stopPropagation());
 
   const checkbox = document.createElement("input");
   checkbox.setAttribute("type", "checkbox");
   checkbox.classList.add("checkbox");
+  if (taskDetails.completed) checkbox.checked = true;
+  checkbox.addEventListener("change", () => {
+    app.updateTaskCompletion(task, checkbox.checked);
+    displayPage(task.getProjectId());
+  });
 
   // right-side
   const rightDiv = document.createElement("div");

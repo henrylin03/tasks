@@ -37,8 +37,8 @@ const createAppController = () => {
     projects = excludeInbox
       ? projects.filter((project) => project.getName() !== "Inbox")
       : [
-          ...projects.filter((p) => p.id === "inbox"),
-          ...projects.filter((p) => p.id !== "inbox"),
+          ...projects.filter((p) => p.getId() === "inbox"),
+          ...projects.filter((p) => p.getId() !== "inbox"),
         ];
 
     return projects;
@@ -81,7 +81,12 @@ const createAppController = () => {
     task.store();
   };
 
-  // run
+  const updateTaskCompletion = (taskObject, completionStatus) => {
+    taskObject.setCompletion(completionStatus);
+    taskObject.store();
+  };
+
+  // run: this creates the inbox project
   if (localStorage.length === 0) createProject().store();
 
   return {
@@ -91,6 +96,7 @@ const createAppController = () => {
     addProject,
     getProjects,
     getProject,
+    updateTaskCompletion,
   };
 };
 
