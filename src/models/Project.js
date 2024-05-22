@@ -51,10 +51,12 @@ const createProject = (recreatingFromJSON = false) => {
     id = retrievedId;
   };
 
+  // OTHER METHODS
   const addTask = (newTaskId) => taskIds.push(newTaskId);
+  const removeTask = (taskId) =>
+    (taskIds = taskIds.filter((id) => id !== taskId));
   const replaceTasks = (newTaskIds) => (taskIds = newTaskIds);
 
-  // OTHER METHODS
   const store = () => {
     const storedProjectsArray = retrieveProjects();
     const newProjectsArray = storedProjectsArray.filter((p) => p.id != id);
@@ -70,6 +72,7 @@ const createProject = (recreatingFromJSON = false) => {
     setId,
     setName,
     addTask,
+    removeTask,
     replaceTasks,
     store,
   };
