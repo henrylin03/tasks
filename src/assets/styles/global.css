@@ -284,6 +284,7 @@ main>.container {
 .task.completed {
     background-color: var(--lightest-primary-clr);
     color: var(--dimmed);
+    border-color: transparent;
 }
 
 .task.completed figure,
