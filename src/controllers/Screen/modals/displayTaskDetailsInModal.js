@@ -9,9 +9,9 @@ const displayTaskDetailsInModal = (taskObject) => {
   const taskDetailsModal = generateTaskDetailsModal(taskObject);
 
   taskDetailsModal.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") modifyTask(taskObject, taskDetailsModal);
     if (e.key === "Escape") closeModal(taskDetailsModal);
   });
-  // todo: add event listener for enter key to essentially do the same thing as clicking the submit button
 
   taskDetailsModal.showModal();
 };
