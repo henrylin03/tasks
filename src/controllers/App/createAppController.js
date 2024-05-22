@@ -81,6 +81,11 @@ const createAppController = () => {
     task.store();
   };
 
+  const updateTaskCompletion = (taskObject, completionStatus) => {
+    taskObject.setCompletion(completionStatus);
+    taskObject.store();
+  };
+
   // run
   if (localStorage.length === 0) createProject().store();
 
@@ -91,6 +96,7 @@ const createAppController = () => {
     addProject,
     getProjects,
     getProject,
+    updateTaskCompletion,
   };
 };
 
