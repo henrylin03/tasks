@@ -218,7 +218,7 @@ main>.container {
     height: 15px;
 }
 
-.task .right {
+.task .task-details {
     display: flex;
     flex-direction: column;
     gap: 2px;

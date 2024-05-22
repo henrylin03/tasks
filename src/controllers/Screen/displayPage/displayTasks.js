@@ -49,7 +49,7 @@ const generateTaskDiv = (task) => {
   if (taskDetails.urgency) article.classList.add("urgent");
   if (taskDetails.completed) article.classList.add("completed");
 
-  // left-side
+  // checkbox
   const checkboxDiv = document.createElement("div");
   checkboxDiv.classList.add("checkbox-container");
   checkboxDiv.addEventListener("click", (e) => e.stopPropagation());
@@ -63,9 +63,9 @@ const generateTaskDiv = (task) => {
     displayPage(task.getProjectId());
   });
 
-  // right-side
-  const rightDiv = document.createElement("div");
-  rightDiv.classList.add("right");
+  // details
+  const detailsDiv = document.createElement("div");
+  detailsDiv.classList.add("task-details");
 
   const taskName = document.createElement("p");
   taskName.classList.add("task-name");
@@ -76,11 +76,14 @@ const generateTaskDiv = (task) => {
   const taskAttributeChildren = generateTaskAttributes(taskDetails);
   taskAttributeChildren.forEach((c) => taskAttributes.appendChild(c));
 
+  // trashcan ui for deletion
+
+  // create DOM node
   checkboxDiv.appendChild(checkbox);
-  rightDiv.appendChild(taskName);
-  rightDiv.appendChild(taskAttributes);
+  detailsDiv.appendChild(taskName);
+  detailsDiv.appendChild(taskAttributes);
   article.appendChild(checkboxDiv);
-  article.appendChild(rightDiv);
+  article.appendChild(detailsDiv);
 
   return article;
 };
