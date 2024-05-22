@@ -28,6 +28,8 @@ const createAppController = () => {
     newProject.store();
   };
 
+  const getTask = (taskId) => recreateTaskFromJSON(retrieveTaskById(taskId));
+
   const getProjects = (excludeInbox = true) => {
     const storedProjectsInJSONFormat = retrieveProjects();
     let projects = storedProjectsInJSONFormat
@@ -46,8 +48,6 @@ const createAppController = () => {
 
   const getProject = (projectId) =>
     recreateProjectFromJSON(retrieveProjectById(projectId));
-
-  const getTask = (taskId) => recreateTaskFromJSON(retrieveTaskById(taskId));
 
   const updateTask = ({
     id,
@@ -84,6 +84,16 @@ const createAppController = () => {
   const updateTaskCompletion = (taskObject, completionStatus) => {
     taskObject.setCompletion(completionStatus);
     taskObject.store();
+  };
+
+  const deleteTask = (taskId) => {
+    // ? not sure if for screencontroller is easier to provide taskid or the task object in totality. in which case, we may need to tweak this first part
+
+    // #1: orphan the task, by removing it from its project, identified through its project id
+
+    // #2: remove the task from localStorage
+
+    return;
   };
 
   // run: this creates the inbox project
