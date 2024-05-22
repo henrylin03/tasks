@@ -37,8 +37,8 @@ const createAppController = () => {
     projects = excludeInbox
       ? projects.filter((project) => project.getName() !== "Inbox")
       : [
-          ...projects.filter((p) => p.id === "inbox"),
-          ...projects.filter((p) => p.id !== "inbox"),
+          ...projects.filter((p) => p.getId() === "inbox"),
+          ...projects.filter((p) => p.getId() !== "inbox"),
         ];
 
     return projects;
