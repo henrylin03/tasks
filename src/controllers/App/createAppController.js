@@ -57,24 +57,25 @@ const createAppController = () => {
     const task = getTask(id);
 
     const projectHasChanged = projectId !== task.getProjectId();
+
     console.log("projectHasChanged: ", projectHasChanged);
 
     if (projectHasChanged) {
-      // #1: remove task id from current project object
-      // #2: add task id to new project object
-      // #3: replace task's 'projectId' property to new project's id
+      const currentProject = task.getProjectObject();
+      const updatedProject = getProject(projectId);
+
+      currentProject.removeTask(id);
+      currentProject.store();
+      updatedProject.addTask(id);
+      updatedProject.store();
     }
-
-    // #1.1: if project has changed, then task's id needs to be popped from the current project's tasks, and added to new project's tasks list
-    // #1.2 then, both projects needs to be pushed back to localStorage
-
-    // otherwise, no need to even touch the project!
 
     task.setName(name);
     task.setDescription(description);
     task.setDueDate(dueDate);
     task.setUrgency(urgency);
     task.setCompletion(completed);
+    task.setProjectId(projectId);
 
     task.store();
   };
@@ -82,7 +83,14 @@ const createAppController = () => {
   // run
   if (localStorage.length === 0) createProject().store();
 
-  return { addTask, getTask, updateTask, addProject, getProjects, getProject };
+  return {
+    addTask,
+    getTask,
+    updateTask,
+    addProject,
+    getProjects,
+    getProject,
+  };
 };
 
 export { createAppController };
