@@ -7,8 +7,10 @@ import {
 import { recreateTaskFromJSON } from "./Task";
 
 const createProject = (recreatingFromJSON = false) => {
-  let name = "";
-  let id = localStorage.length === 0 ? "inbox" : `P${Date.now()}`;
+  const isInitialLoadOfApp = localStorage.length === 0;
+
+  let name = isInitialLoadOfApp ? "Inbox" : "";
+  let id = isInitialLoadOfApp ? "inbox" : `P${Date.now()}`;
   let taskIds = [];
 
   // GETTERS
@@ -49,10 +51,12 @@ const createProject = (recreatingFromJSON = false) => {
     id = retrievedId;
   };
 
+  // OTHER METHODS
   const addTask = (newTaskId) => taskIds.push(newTaskId);
+  const removeTask = (taskId) =>
+    (taskIds = taskIds.filter((id) => id !== taskId));
   const replaceTasks = (newTaskIds) => (taskIds = newTaskIds);
 
-  // OTHER METHODS
   const store = () => {
     const storedProjectsArray = retrieveProjects();
     const newProjectsArray = storedProjectsArray.filter((p) => p.id != id);
@@ -68,6 +72,7 @@ const createProject = (recreatingFromJSON = false) => {
     setId,
     setName,
     addTask,
+    removeTask,
     replaceTasks,
     store,
   };
@@ -75,6 +80,7 @@ const createProject = (recreatingFromJSON = false) => {
 
 const recreateProjectFromJSON = ({ id, name, taskIds }) => {
   const project = createProject(name, true);
+
   project.setId(id);
   project.setName(name);
   project.replaceTasks(taskIds);

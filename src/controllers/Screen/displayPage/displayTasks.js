@@ -74,7 +74,7 @@ const generateTaskDiv = (task) => {
 };
 
 const generateTaskAttributes = (taskDetails) => {
-  const ATTRIBUTES_NOT_GENERATED = ["id", "name", "completed"];
+  const ATTRIBUTES_NOT_GENERATED = ["id", "name", "completed", "projectId"];
   ATTRIBUTES_NOT_GENERATED.forEach((a) => delete taskDetails[a]);
 
   const attributeListItems = [];

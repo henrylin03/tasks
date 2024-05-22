@@ -1,18 +1,22 @@
-import { retrieveProjectNames } from "../../../helpers/localStorageHelpers";
+import { createAppController } from "../../App/createAppController";
 
 const toggleUrgency = (modalElement) =>
   modalElement.classList.toggle("is-urgent");
 
 const generateProjectOptions = (projectDropdownElement) => {
+  const app = createAppController();
+
+  // clear all options
   projectDropdownElement.replaceChildren();
 
-  const projectNames = retrieveProjectNames();
-  projectNames.forEach((p) => {
-    const option = document.createElement("option");
-    option.setAttribute("value", p);
-    option.textContent = p;
+  const storedProjects = app.getProjects(false);
 
-    projectDropdownElement.appendChild(option);
+  storedProjects.forEach((project) => {
+    const optionElement = document.createElement("option");
+    optionElement.setAttribute("value", project.getId());
+    optionElement.textContent = project.getName();
+
+    projectDropdownElement.appendChild(optionElement);
   });
 };
 

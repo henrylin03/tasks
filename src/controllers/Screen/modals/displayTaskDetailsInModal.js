@@ -3,11 +3,13 @@ import {
   toggleUrgency,
   closeModal,
 } from "./taskModalsHandlers";
+import modifyTask from "./modifyTask";
 
 const displayTaskDetailsInModal = (taskObject) => {
   const taskDetailsModal = generateTaskDetailsModal(taskObject);
 
   taskDetailsModal.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") modifyTask(taskObject, taskDetailsModal);
     if (e.key === "Escape") closeModal(taskDetailsModal);
   });
 
@@ -15,8 +17,6 @@ const displayTaskDetailsInModal = (taskObject) => {
 };
 
 const generateTaskDetailsModal = (taskObject) => {
-  const currentProjectName = document.querySelector(".page-title").textContent;
-
   const modal = document.createElement("dialog");
   modal.classList.add("task-details-modal");
   if (taskObject.getUrgency()) modal.classList.add("is-urgent");
@@ -31,7 +31,6 @@ const generateTaskDetailsModal = (taskObject) => {
   checkbox.setAttribute("type", "checkbox");
   checkbox.classList.add("checkbox");
   checkbox.checked = taskObject.getCompleted();
-  //todo: add event listener for completing task
 
   // task details (right-side of modal)
   const taskDetailsDiv = document.createElement("div");
@@ -71,15 +70,17 @@ const generateTaskDetailsModal = (taskObject) => {
   const projects = document.createElement("select");
   projects.setAttribute("id", "task-project-in-modal");
   generateProjectOptions(projects);
-  projects.value = currentProjectName;
+  projects.value = taskObject.getProjectId();
 
   const buttons = document.createElement("div");
   buttons.classList.add("btn-group");
   const saveBtn = document.createElement("button");
-  saveBtn.type = "submit";
+  saveBtn.type = "button";
   saveBtn.classList.add("confirm-btn");
   saveBtn.classList.add("save-changes-to-task");
   saveBtn.textContent = "Save";
+  saveBtn.addEventListener("mousedown", () => modifyTask(taskObject, modal));
+
   const cancelBtn = document.createElement("button");
   cancelBtn.type = "reset";
   cancelBtn.classList.add("cancel-btn");
@@ -110,5 +111,3 @@ const generateTaskDetailsModal = (taskObject) => {
 };
 
 export default displayTaskDetailsInModal;
-
-//todo: fix issue when user tries to check the checkbox in preview mode, the task pops open

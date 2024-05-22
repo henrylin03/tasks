@@ -7,11 +7,8 @@ const retrieveProjects = () => {
   }
 };
 
-const retrieveProjectNames = () => {
-  const storedProjectsArray = retrieveProjects();
-  return storedProjectsArray.map((project) => project.name);
-};
-
+const retrieveProjectIds = () => retrieveProjects().map((p) => p.id);
+const retrieveProjectNames = () => retrieveProjects().map((p) => p.name);
 const retrieveProjectById = (projectId) =>
   retrieveProjects().find((project) => project.id === projectId);
 const retrieveProjectByName = (projectName) =>
@@ -47,6 +44,7 @@ export {
   retrieveProjectByName,
   retrieveProjects,
   retrieveProjectNames,
+  retrieveProjectIds,
   retrieveTasks,
   retrieveTaskById,
 };
