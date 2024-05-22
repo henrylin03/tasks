@@ -39,17 +39,23 @@ const generateTaskDiv = (task) => {
   const article = document.createElement("article");
   article.classList.add("task");
   article.setAttribute("data-id", taskId);
-  article.addEventListener("mousedown", () => displayTaskDetailsInModal(task));
+  article.addEventListener("click", (e) => {
+    displayTaskDetailsInModal(task);
+  });
   if (taskDetails.urgency) article.classList.add("urgent");
   if (taskDetails.completed) article.classList.add("completed");
 
   // left-side
   const checkboxDiv = document.createElement("div");
   checkboxDiv.classList.add("checkbox-container");
+  checkboxDiv.addEventListener("click", (e) => e.stopPropagation());
 
   const checkbox = document.createElement("input");
   checkbox.setAttribute("type", "checkbox");
   checkbox.classList.add("checkbox");
+  checkbox.addEventListener("change", (event) => {
+    alert("clicked");
+  });
 
   // right-side
   const rightDiv = document.createElement("div");
