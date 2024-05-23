@@ -268,14 +268,17 @@ main>.container {
 .delete-btn {
     visibility: hidden;
     opacity: 0;
-    background-color: transparent;
+    mask-image: url("../icons/trash-x-outline.svg");
+    mask-repeat: no-repeat;
+    background-color: var(--dimmed);
     padding: 10px;
-    border-radius: 50%;
-    transition: background-color .1s, visibility 0s, opacity .15s linear;
+    height: 23px;
+    width: 50px;
+    transition: filter .15s, visibility 0s, opacity .15s linear;
 }
 
 .delete-btn:hover {
-    background-color: var(--lighter-primary-clr);
+    filter: brightness(.6);
 }
 
 .task:hover .delete-btn {

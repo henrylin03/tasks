@@ -80,7 +80,6 @@ const generateTaskDiv = (task) => {
   const binBtn = document.createElement("button");
   binBtn.type = "button";
   binBtn.classList.add("delete-btn");
-  binBtn.textContent = "hello world";
 
   // create DOM node
   checkboxDiv.appendChild(checkbox);
