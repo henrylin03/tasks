@@ -20,13 +20,11 @@ const SVGS = {
 };
 
 const updateHeader = (project) => {
-  const projectId = project.getId();
-
   const pageIcon = document.querySelector("header .left figure");
   const pageTitle = document.querySelector(".page-title");
 
   pageTitle.textContent = project.getName();
-  pageIcon.innerHTML = projectId === "inbox" ? SVGS.inbox : SVGS.project;
+  pageIcon.innerHTML = project.getId() === "inbox" ? SVGS.inbox : SVGS.project;
 };
 
 export default updateHeader;
