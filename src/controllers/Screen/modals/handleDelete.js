@@ -32,7 +32,7 @@ const generateModal = (taskObject) => {
   deleteBtn.type = "button";
   deleteBtn.textContent = "Delete task";
   deleteBtn.addEventListener("mousedown", () => {
-    confirmDelete(taskObject);
+    createAppController().deleteTask(taskObject);
     closeModal(modal);
     displayPage(taskObject.getProjectId());
   });
@@ -47,14 +47,6 @@ const generateModal = (taskObject) => {
   document.body.appendChild(modal);
 
   return modal;
-};
-
-const confirmDelete = (taskObject) => {
-  const app = createAppController();
-
-  console.log(taskObject.viewDetails());
-  console.log("is being deleted");
-  app.deleteTask(taskObject);
 };
 
 export default handleDelete;
