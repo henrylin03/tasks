@@ -76,9 +76,11 @@ const generateTaskDiv = (task) => {
   const taskAttributeChildren = generateTaskAttributes(taskDetails);
   taskAttributeChildren.forEach((c) => taskAttributes.appendChild(c));
 
-  // trashcan ui for deletion
-  const binDiv = document.createElement("div");
-  binDiv.textContent = "hello world";
+  // rubbish bin ui for deletion
+  const binBtn = document.createElement("button");
+  binBtn.type = "button";
+  binBtn.classList.add = "delete-btn";
+  binBtn.textContent = "hello world";
 
   // create DOM node
   checkboxDiv.appendChild(checkbox);
@@ -86,7 +88,7 @@ const generateTaskDiv = (task) => {
   detailsDiv.appendChild(taskAttributes);
   article.appendChild(checkboxDiv);
   article.appendChild(detailsDiv);
-  article.appendChild(binDiv);
+  article.appendChild(binBtn);
 
   return article;
 };
