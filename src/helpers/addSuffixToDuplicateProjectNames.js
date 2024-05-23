@@ -6,17 +6,22 @@ import {
 export default function addSuffixToDuplicateProjectName(projectName) {
   const projectNamesInStorage = retrieveProjectNames();
   const cleanedProjectNamesInStorage = getCleanedProjectNames();
-  const projectNameExists = projectNamesInStorage.includes(projectName);
+  const regexToMatchParenthesesWithNumbersInside = /\(\s*\d+\s*\)$/g;
+  const cleanedProjectName = projectName
+    .replace(regexToMatchParenthesesWithNumbersInside, "")
+    .trim();
+  const projectNameExistsInStorage = projectNamesInStorage.some(
+    (name) => name === projectName
+  );
 
-  if (!projectNameExists) return projectName;
+  if (!projectNameExistsInStorage) return projectName;
 
   const duplicateCount = cleanedProjectNamesInStorage.filter(
-    (n) => n === projectName
+    (cleanedName) => cleanedName === cleanedProjectName
   ).length;
 
   for (let suffixInt = 1; suffixInt <= duplicateCount; suffixInt++) {
-    const projectNameWithSuffix = `${projectName} (${suffixInt})`;
-    if (!projectNamesInStorage.includes(projectNameWithSuffix))
-      return projectNameWithSuffix;
+    const suffixedName = `${cleanedProjectName} (${suffixInt})`;
+    if (!projectNamesInStorage.includes(suffixedName)) return suffixedName;
   }
 }

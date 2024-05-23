@@ -1,7 +1,5 @@
 import addSuffixToDuplicateProjectName from "../helpers/addSuffixToDuplicateProjectNames";
 import {
-  getCleanedProjectNames,
-  retrieveProjectNames,
   retrieveProjects,
   retrieveTaskById,
 } from "../helpers/localStorageHelpers";
