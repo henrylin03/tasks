@@ -97,13 +97,13 @@ const createAppController = () => {
     newProject.store();
   };
 
-  const renameProject = (projectId, newProjectName) => {
-    const project = getProject(projectId);
-    project.setName(newProjectName);
-    project.store();
+  const renameProject = (projectObject, newProjectName) => {
+    console.log("projectObject", projectObject.viewDetails());
+    console.log("newProjectName", newProjectName);
 
-    // if newProjectName is a duplicate, this should already be handled...
-    return;
+    if (projectObject.getId() !== "inbox")
+      projectObject.setName(newProjectName);
+    projectObject.store();
   };
 
   // run: this creates the inbox project

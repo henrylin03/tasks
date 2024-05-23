@@ -1,3 +1,6 @@
+import { createAppController } from "../../App/createAppController";
+import displayProjectsInNav from "../nav/displayProjectsInNav";
+
 const SVGS = {
   project: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -22,7 +25,11 @@ const SVGS = {
 const pageIcon = document.querySelector(".page-icon");
 const pageTitle = document.querySelector("#page-title");
 
+const app = createAppController();
+
 const updateHeader = (project) => {
+  console.log(project.viewDetails());
+
   const isInboxPage = project.getId() === "inbox";
 
   pageTitle.value = project.getName();
@@ -31,14 +38,19 @@ const updateHeader = (project) => {
 
   // add event listeners
   pageTitle.addEventListener("click", handlePageTitleClick);
-  pageTitle.addEventListener("blur", () => {
-    pageIcon.classList.remove("hidden");
-  });
+  pageTitle.addEventListener("blur", () => handlePageTitleBlur(project));
 };
 
 const handlePageTitleClick = (e) => {
   e.target.select();
   pageIcon.classList.add("hidden");
+};
+
+const handlePageTitleBlur = (project) => {
+  alert("renaming");
+  pageIcon.classList.remove("hidden");
+  app.renameProject(project, pageTitle.value);
+  displayProjectsInNav();
 };
 
 export default updateHeader;
