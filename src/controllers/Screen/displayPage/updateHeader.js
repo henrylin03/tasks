@@ -25,6 +25,9 @@ const updateHeader = (project) => {
 
   pageTitle.value = project.getName();
   pageIcon.innerHTML = project.getId() === "inbox" ? SVGS.inbox : SVGS.project;
+
+  // add event listeners
+  pageTitle.addEventListener("click", pageTitle.select);
 };
 
 export default updateHeader;
