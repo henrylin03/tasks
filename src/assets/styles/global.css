@@ -480,6 +480,9 @@ dialog.is-urgent {
 }
 
 /* modal for deletion confirmation */
+.delete-modal form {
+    gap: 10px;
+}
 
 .delete-btn {
     background-color: var(--warning-clr);
