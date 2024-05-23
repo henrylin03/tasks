@@ -373,7 +373,8 @@ dialog .top {
 
 #new-project-name,
 #new-task-name,
-#task-name-in-modal {
+#task-name-in-modal,
+h2 {
     font-size: 1.1rem;
 }
 
@@ -479,6 +480,7 @@ dialog.is-urgent {
 }
 
 /* modal for deletion confirmation */
+
 .delete-btn {
     background-color: var(--warning-clr);
     color: white;
