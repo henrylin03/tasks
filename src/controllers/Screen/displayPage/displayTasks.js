@@ -43,7 +43,6 @@ const generateTaskDiv = (task) => {
   const article = document.createElement("article");
   article.classList.add("task");
   article.setAttribute("data-id", taskId);
-  article.addEventListener("mousedown", () => displayTaskDetailsInModal(task));
   if (taskDetails.urgency) article.classList.add("urgent");
   if (taskDetails.completed) article.classList.add("completed");
 
@@ -56,10 +55,6 @@ const generateTaskDiv = (task) => {
   checkbox.setAttribute("type", "checkbox");
   checkbox.classList.add("checkbox");
   if (taskDetails.completed) checkbox.checked = true;
-  checkbox.addEventListener("change", () => {
-    app.updateTaskCompletion(task, checkbox.checked);
-    displayPage(task.getProjectId());
-  });
 
   // details
   const detailsDiv = document.createElement("div");
@@ -78,12 +73,21 @@ const generateTaskDiv = (task) => {
   const binBtn = document.createElement("button");
   binBtn.type = "button";
   binBtn.classList.add("delete-btn");
+
+  // EVENT LISTENERS
+  article.addEventListener("mousedown", () => displayTaskDetailsInModal(task));
+
+  checkbox.addEventListener("change", () => {
+    app.updateTaskCompletion(task, checkbox.checked);
+    displayPage(task.getProjectId());
+  });
+
   binBtn.addEventListener("mousedown", (e) => {
     e.stopPropagation();
     alert("bin btn clicked");
   });
 
-  // create DOM node
+  // CREATE DOM NODES
   checkboxDiv.appendChild(checkbox);
   detailsDiv.appendChild(taskName);
   detailsDiv.appendChild(taskAttributes);

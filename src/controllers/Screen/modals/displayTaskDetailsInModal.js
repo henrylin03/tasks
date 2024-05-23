@@ -3,13 +3,13 @@ import {
   toggleUrgency,
   closeModal,
 } from "./taskModalsHandlers";
-import modifyTask from "./modifyTask";
+import modifyTaskInModal from "./modifyTaskInModal";
 
 const displayTaskDetailsInModal = (taskObject) => {
   const taskDetailsModal = generateTaskDetailsModal(taskObject);
 
   taskDetailsModal.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") modifyTask(taskObject, taskDetailsModal);
+    if (e.key === "Enter") modifyTaskInModal(taskObject, taskDetailsModal);
     if (e.key === "Escape") closeModal(taskDetailsModal);
   });
 
@@ -79,7 +79,9 @@ const generateTaskDetailsModal = (taskObject) => {
   saveBtn.classList.add("confirm-btn");
   saveBtn.classList.add("save-changes-to-task");
   saveBtn.textContent = "Save";
-  saveBtn.addEventListener("mousedown", () => modifyTask(taskObject, modal));
+  saveBtn.addEventListener("mousedown", () =>
+    modifyTaskInModal(taskObject, modal)
+  );
 
   const cancelBtn = document.createElement("button");
   cancelBtn.type = "reset";

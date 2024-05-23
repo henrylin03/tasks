@@ -2,7 +2,7 @@ import { createAppController } from "../../App/createAppController";
 import { closeModal } from "./taskModalsHandlers";
 import displayPage from "../displayPage";
 
-const modifyTask = (taskObject, modalElement) => {
+const modifyTaskInModal = (taskObject, modalElement) => {
   const app = createAppController();
 
   const taskNameElement = modalElement.querySelector("#task-name-in-modal");
@@ -34,4 +34,4 @@ const modifyTask = (taskObject, modalElement) => {
   displayPage(currentProjectId);
 };
 
-export default modifyTask;
+export default modifyTaskInModal;
