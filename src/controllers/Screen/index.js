@@ -14,10 +14,10 @@ const createScreenController = () => {
   displayPage("inbox");
 
   //event listeners
-  addTaskBtn.addEventListener("click", addTaskUsingModal);
-  addProjectBtn.addEventListener("click", addProjectUsingModal);
+  addTaskBtn.addEventListener("mousedown", addTaskUsingModal);
+  addProjectBtn.addEventListener("mousedown", addProjectUsingModal);
   [brandingInSidebar, inboxLinkInSidebar].forEach((elem) =>
-    elem.addEventListener("click", () => handleNavLinkClicks("inbox"))
+    elem.addEventListener("mousedown", () => handleNavLinkClicks("inbox"))
   );
 };
 
