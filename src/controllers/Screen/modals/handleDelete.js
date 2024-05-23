@@ -1,3 +1,4 @@
+import displayPage from "../displayPage";
 import { closeModal } from "./taskModalsHandlers";
 
 const handleDelete = (taskObject) => {
@@ -29,6 +30,11 @@ const generateModal = (taskObject) => {
   deleteBtn.classList.add("delete-btn");
   deleteBtn.type = "button";
   deleteBtn.textContent = "Delete task";
+  deleteBtn.addEventListener("mousedown", () => {
+    confirmDelete(taskObject);
+    closeModal(modal);
+    displayPage(taskObject.getProjectId());
+  });
 
   buttons.appendChild(cancelBtn);
   buttons.appendChild(deleteBtn);
@@ -40,6 +46,12 @@ const generateModal = (taskObject) => {
   document.body.appendChild(modal);
 
   return modal;
+};
+
+const confirmDelete = (taskObject) => {
+  console.log(taskObject.viewDetails());
+  console.log("is being deleted");
+  // app.deleteTask()
 };
 
 export default handleDelete;
