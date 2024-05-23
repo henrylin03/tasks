@@ -94,8 +94,8 @@ const generateTaskDetailsModal = (taskObject) => {
   taskNameAndUrgencyWrapper.appendChild(toggleUrgentBtn);
   dueDateAndProjectContainer.appendChild(dueDate);
   dueDateAndProjectContainer.appendChild(projects);
-  buttons.appendChild(saveBtn);
   buttons.appendChild(cancelBtn);
+  buttons.appendChild(saveBtn);
 
   taskDetailsDiv.appendChild(taskNameAndUrgencyWrapper);
   taskDetailsDiv.appendChild(taskDescription);
