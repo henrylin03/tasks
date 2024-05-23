@@ -79,7 +79,7 @@ const generateTaskDiv = (task) => {
   // rubbish bin ui for deletion
   const binBtn = document.createElement("button");
   binBtn.type = "button";
-  binBtn.classList.add = "delete-btn";
+  binBtn.classList.add("delete-btn");
   binBtn.textContent = "hello world";
 
   // create DOM node
