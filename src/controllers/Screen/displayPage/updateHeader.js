@@ -20,7 +20,7 @@ const SVGS = {
 };
 
 const updateHeader = (project) => {
-  const pageIcon = document.querySelector("header .left figure");
+  const pageIcon = document.querySelector(".page-icon");
   const pageTitle = document.querySelector("#page-title");
 
   pageTitle.value = project.getName();
