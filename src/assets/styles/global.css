@@ -131,30 +131,52 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 10px;
 }
 
 header .left {
     color: var(--primary-clr);
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 5px;
+    margin-left: 6px;
+    flex: 1;
 }
 
-header .left figure {
+.page-icon {
     height: 35px;
+    display: block;
+}
+
+.page-icon.hidden {
+    display: none;
+}
+
+#page-title {
+    flex: 1;
+    color: var(--primary-clr);
+    font-size: 1.5rem;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    width: 100%;
+}
+
+#page-title:focus {
+    color: var(--black-clr);
+    border: 1px solid var(--dimmed);
 }
 
 .add-task {
+    display: flex;
+    justify-content: flex-end;
     color: var(--dimmed);
     transition: color .25s;
 }
 
 .add-task:hover {
     color: var(--primary-clr);
-}
-
-.add-task:active {
-    transform: scale(.97);
 }
 
 
