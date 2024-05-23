@@ -31,6 +31,9 @@ const updateHeader = (project) => {
 
   // add event listeners
   pageTitle.addEventListener("click", handlePageTitleClick);
+  pageTitle.addEventListener("blur", () => {
+    pageIcon.classList.remove("hidden");
+  });
 };
 
 const handlePageTitleClick = (e) => {
