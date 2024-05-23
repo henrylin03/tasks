@@ -97,18 +97,28 @@ const createAppController = () => {
     newProject.store();
   };
 
+  const renameProject = (projectId, newProjectName) => {
+    const project = getProject(projectId);
+    project.setName(newProjectName);
+    project.store();
+
+    // if newProjectName is a duplicate, this should already be handled...
+    return;
+  };
+
   // run: this creates the inbox project
   if (localStorage.length === 0) createProject().store();
 
   return {
-    addTask,
     getTask,
+    addTask,
     updateTask,
-    deleteTask,
-    addProject,
-    getProjects,
-    getProject,
     updateTaskCompletion,
+    deleteTask,
+    getProject,
+    getProjects,
+    addProject,
+    renameProject,
   };
 };
 
