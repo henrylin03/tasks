@@ -269,10 +269,15 @@ main>.container {
     background-color: transparent;
     padding: 10px;
     transition: background-color .15s;
+    display: none;
 }
 
 .delete-btn:hover {
     background-color: var(--lighter-primary-clr);
+}
+
+.task:hover .delete-btn {
+    display: block;
 }
 
 /* urgent task */
