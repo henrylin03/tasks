@@ -104,6 +104,10 @@ const createAppController = () => {
     // projectObject.store();
     console.log("existing Project:", projectObject.viewDetails());
     console.log("new project name: ", newProjectName);
+
+    projectObject.setName(newProjectName);
+    console.log("updated project", projectObject.viewDetails());
+    projectObject.store();
   };
 
   // run: this creates the inbox project

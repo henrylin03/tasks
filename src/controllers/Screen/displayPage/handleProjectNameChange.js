@@ -18,6 +18,8 @@ export default function handleProjectNameChange(e) {
 
       newName = addSuffixToDuplicateProjectName(newName);
       evt.target.value = newName;
+
+      app.renameProject(projectObject, newName);
     },
     { once: true }
   );
