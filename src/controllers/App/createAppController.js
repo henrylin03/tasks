@@ -98,12 +98,11 @@ const createAppController = () => {
   };
 
   const renameProject = (projectObject, newProjectName) => {
-    console.log("projectObject", projectObject.viewDetails());
-    console.log("newProjectName", newProjectName);
-
-    if (projectObject.getId() !== "inbox")
-      projectObject.setName(newProjectName);
-    projectObject.store();
+    // if (projectObject.getId() !== "inbox")
+    //   projectObject.setName(newProjectName);
+    // projectObject.store();
+    console.log("existing Project:", projectObject.viewDetails());
+    console.log("new project name: ", newProjectName);
   };
 
   // run: this creates the inbox project

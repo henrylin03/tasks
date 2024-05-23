@@ -30,6 +30,8 @@ const createProject = (recreatingFromJSON = false) => {
     if (!projectNameExists || recreatingFromJSON)
       return (name = retrievedOrNewName);
 
+    console.log("project name exists");
+
     const duplicateCount = cleanedProjectNamesInStorage.filter(
       (n) => n === retrievedOrNewName
     ).length;
