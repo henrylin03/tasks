@@ -43,16 +43,14 @@ const generateTaskDiv = (task) => {
   const article = document.createElement("article");
   article.classList.add("task");
   article.setAttribute("data-id", taskId);
-  article.addEventListener("click", (e) => {
-    displayTaskDetailsInModal(task);
-  });
+  article.addEventListener("mousedown", () => displayTaskDetailsInModal(task));
   if (taskDetails.urgency) article.classList.add("urgent");
   if (taskDetails.completed) article.classList.add("completed");
 
   // checkbox
   const checkboxDiv = document.createElement("div");
   checkboxDiv.classList.add("checkbox-container");
-  checkboxDiv.addEventListener("click", (e) => e.stopPropagation());
+  checkboxDiv.addEventListener("mousedown", (e) => e.stopPropagation());
 
   const checkbox = document.createElement("input");
   checkbox.setAttribute("type", "checkbox");
