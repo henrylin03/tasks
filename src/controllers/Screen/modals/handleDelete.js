@@ -1,3 +1,4 @@
+import { createAppController } from "../../App/createAppController";
 import displayPage from "../displayPage";
 import { closeModal } from "./taskModalsHandlers";
 
@@ -49,9 +50,11 @@ const generateModal = (taskObject) => {
 };
 
 const confirmDelete = (taskObject) => {
+  const app = createAppController();
+
   console.log(taskObject.viewDetails());
   console.log("is being deleted");
-  // app.deleteTask()
+  app.deleteTask(taskObject);
 };
 
 export default handleDelete;

@@ -86,14 +86,19 @@ const createAppController = () => {
     taskObject.store();
   };
 
-  const deleteTask = (taskId) => {
-    // ? not sure if for screencontroller is easier to provide taskid or the task object in totality. in which case, we may need to tweak this first part
+  const deleteTask = (taskObject) => {
+    console.log(taskObject.viewDetails());
+
+    const taskId = taskObject.getId();
 
     // #1: orphan the task, by removing it from its project, identified through its project id
+    const project = taskObject.getProjectObject();
+    project.removeTask(taskId);
 
     // #2: remove the task from localStorage
+    // taskObject.remove();
 
-    return;
+    // return;
   };
 
   // run: this creates the inbox project
@@ -103,6 +108,7 @@ const createAppController = () => {
     addTask,
     getTask,
     updateTask,
+    deleteTask,
     addProject,
     getProjects,
     getProject,
