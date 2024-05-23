@@ -24,8 +24,10 @@ const closeModal = (modalElement) => {
   const form = modalElement.querySelector("form");
   const isTaskDetailsModal =
     modalElement.classList.contains("task-details-modal");
+  const isDeleteModal = modalElement.classList.contains("delete-modal");
 
-  if (isTaskDetailsModal) document.body.removeChild(modalElement);
+  if (isTaskDetailsModal || isDeleteModal)
+    document.body.removeChild(modalElement);
 
   form.reset();
   modalElement.close();

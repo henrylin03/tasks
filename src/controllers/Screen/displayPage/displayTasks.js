@@ -83,7 +83,10 @@ const generateTaskDiv = (task) => {
     displayPage(task.getProjectId());
   });
 
-  binBtn.addEventListener("mousedown", handleDelete);
+  binBtn.addEventListener("mousedown", (e) => {
+    e.stopPropagation();
+    handleDelete(task);
+  });
 
   // CREATE DOM NODES
   checkboxDiv.appendChild(checkbox);

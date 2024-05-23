@@ -1,7 +1,8 @@
-const handleDelete = (e) => {
-  e.stopPropagation();
+import { closeModal } from "./taskModalsHandlers";
 
-  console.log("bin btn clicked");
+const handleDelete = (taskObject) => {
+  const modal = generateModal(taskObject);
+  modal.showModal();
 };
 
 const generateModal = (taskObject) => {
@@ -23,6 +24,7 @@ const generateModal = (taskObject) => {
   cancelBtn.classList.add("cancel-btn");
   cancelBtn.type = "reset";
   cancelBtn.textContent = "Cancel";
+  cancelBtn.addEventListener("mousedown", () => closeModal(modal));
   const deleteBtn = document.createElement("button");
   deleteBtn.classList.add("delete-btn");
   deleteBtn.type = "button";
@@ -34,6 +36,8 @@ const generateModal = (taskObject) => {
   form.appendChild(paragraph);
   form.appendChild(buttons);
   modal.appendChild(form);
+
+  document.body.appendChild(modal);
 
   return modal;
 };
