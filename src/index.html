@@ -123,22 +123,12 @@
   </dialog>
 
   <dialog class="delete-modal" open>
+    <h2>"task for project 2" will be permanently deleted</h2>
+    <p>You won't be able to undo this action.</p>
     <form>
-      <div class="task-name-input-wrapper">
-        <input type="text" id="new-task-name" placeholder="Task name" required>
-        <button type="button" class="toggle-urgent-btn"></button>
-      </div>
-      <textarea id="new-task-description" cols="30" rows="5" placeholder="Description"></textarea>
-      <div class="input-container">
-        <input type="text" id="new-task-due-date" placeholder="Due date" onfocus="(this.type='date')"
-          onblur="(this.type='text')">
-        <select id="project-of-new-task">
-          <option value="Inbox">Inbox</option>
-        </select>
-      </div>
       <div class="btn-group">
         <button class="cancel-btn" type="reset">Cancel</button>
-        <button class="confirm-btn add-task-btn" type="submit">Add</button>
+        <button class="delete-btn" type="button">Delete task</button>
       </div>
     </form>
   </dialog>

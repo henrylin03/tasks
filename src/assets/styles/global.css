@@ -265,7 +265,7 @@ main>.container {
     color: var(--highlight-clr);
 }
 
-.delete-btn {
+.delete-icon-btn {
     visibility: hidden;
     opacity: 0;
     mask-image: url("../icons/trash-x-outline.svg");
@@ -277,15 +277,15 @@ main>.container {
     transition: filter .15s, visibility 0s, opacity .15s linear;
 }
 
-.delete-btn:hover {
+.delete-icon-btn:hover {
     filter: brightness(.6);
 }
 
-.delete-btn:active {
+.delete-icon-btn:active {
     mask-image: url("../icons/trash-x-filled.svg");
 }
 
-.task:hover .delete-btn {
+.task:hover .delete-icon-btn {
     visibility: visible;
     opacity: 1;
 }
