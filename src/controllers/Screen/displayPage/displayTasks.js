@@ -78,6 +78,10 @@ const generateTaskDiv = (task) => {
   const binBtn = document.createElement("button");
   binBtn.type = "button";
   binBtn.classList.add("delete-btn");
+  binBtn.addEventListener("mousedown", (e) => {
+    e.stopPropagation();
+    alert("bin btn clicked");
+  });
 
   // create DOM node
   checkboxDiv.appendChild(checkbox);
