@@ -19,13 +19,14 @@ const updateHeader = (project) => {
             <path d="M4 13h3l3 3h4l3 -3h3" />
           </svg>`,
   };
-
   const pageIcon = document.querySelector(".page-icon");
   const pageTitle = document.querySelector("#page-title");
 
-  const isInboxPage = project.getId() === "inbox";
+  const currentProjectPageId = project.getId();
+  const isInboxPage = currentProjectPageId === "inbox";
 
   pageTitle.value = project.getName();
+  pageTitle.setAttribute("data-id", currentProjectPageId);
   pageTitle.disabled = isInboxPage;
   pageIcon.innerHTML = isInboxPage ? SVGS.inbox : SVGS.project;
 };
