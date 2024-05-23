@@ -1,5 +1,6 @@
 import addSuffixToDuplicateProjectName from "../../../helpers/addSuffixToDuplicateProjectNames";
 import { createAppController } from "../../App/createAppController";
+import displayProjectsInNav from "../nav/displayProjectsInNav";
 
 const app = createAppController();
 
@@ -18,8 +19,8 @@ export default function handleProjectNameChange(e) {
 
       newName = addSuffixToDuplicateProjectName(newName);
       evt.target.value = newName;
-
       app.renameProject(projectObject, newName);
+      displayProjectsInNav();
     },
     { once: true }
   );
