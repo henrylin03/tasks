@@ -281,6 +281,10 @@ main>.container {
     filter: brightness(.6);
 }
 
+.delete-btn:active {
+    mask-image: url("../icons/trash-x-filled.svg");
+}
+
 .task:hover .delete-btn {
     visibility: visible;
     opacity: 1;
