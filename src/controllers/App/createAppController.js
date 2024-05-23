@@ -97,18 +97,54 @@ const createAppController = () => {
     taskObject.remove();
   };
 
+  /* METHODS FOR PROJECTS */
+  const getProject = (projectId) =>
+    recreateProjectFromJSON(retrieveProjectById(projectId));
+
+  const getProjects = (excludeInbox = true) => {
+    const storedProjectsInJSONFormat = retrieveProjects();
+    let projects = storedProjectsInJSONFormat
+      .map((p) => recreateProjectFromJSON(p))
+      .sort(
+        (a, b) =>
+          Number(a.getId().substring(1)) - Number(b.getId().substring(1))
+      );
+
+    projects = excludeInbox
+      ? projects.filter((project) => project.getName() !== "Inbox")
+      : [
+          ...projects.filter((p) => p.getId() === "inbox"),
+          ...projects.filter((p) => p.getId() !== "inbox"),
+        ];
+
+    return projects;
+  };
+
+  const addProject = (newProjectName) => {
+    if (!newProjectName) return;
+    const newProject = createProject();
+    newProject.setName(newProjectName);
+    newProject.store();
+  };
+
+  const renameProject = (projectObject, newProjectName) => {
+    projectObject.setName(newProjectName);
+    projectObject.store();
+  };
+
   // run: this creates the inbox project
   if (localStorage.length === 0) createProject().store();
 
   return {
-    addTask,
     getTask,
+    addTask,
     updateTask,
-    deleteTask,
-    addProject,
-    getProjects,
-    getProject,
     updateTaskCompletion,
+    deleteTask,
+    getProject,
+    getProjects,
+    addProject,
+    renameProject,
   };
 };
 

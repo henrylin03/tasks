@@ -3,9 +3,6 @@ import { closeModal } from "./taskModalsHandlers";
 import displayProjectsInNav from "../nav/displayProjectsInNav";
 
 const modal = document.querySelector(".new-project-modal");
-const inputAndErrorMessageElements = document.querySelector(
-  ".new-project-modal .top"
-).children;
 const form = document.querySelector(".new-project-modal form");
 const input = document.querySelector("#new-project-name");
 const cancelBtn = document.querySelector(".new-project-modal .cancel-btn");
@@ -26,16 +23,9 @@ function handleSubmit(e) {
 
   const app = createAppController();
 
-  // dealing with errors when project already exists
-  try {
-    app.addProject(input.value);
-    closeModal(modal);
-    displayProjectsInNav();
-  } catch {
-    [...inputAndErrorMessageElements].forEach((elem) =>
-      elem.classList.add("error")
-    );
-  }
+  app.addProject(input.value);
+  closeModal(modal);
+  displayProjectsInNav();
 }
 
 export default addProjectUsingModal;

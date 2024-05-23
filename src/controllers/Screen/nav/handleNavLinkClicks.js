@@ -1,12 +1,14 @@
 import displayPage from "../displayPage";
 
-function handleNavLinkClicks(projectName) {
+function handleNavLinkClicks(projectId) {
   const projectsIncludingInbox = document.querySelectorAll(
     "div[class=link], div.link.selected"
   );
-  // clear all previously selected pages (link has '.selected' attached)
+  const navbarLink = document.querySelector(`[data-id="${projectId}"]`);
+
   projectsIncludingInbox.forEach((div) => div.classList.remove("selected"));
-  displayPage(projectName);
+  navbarLink.classList.add("selected");
+  displayPage(projectId);
 }
 
 export default handleNavLinkClicks;
