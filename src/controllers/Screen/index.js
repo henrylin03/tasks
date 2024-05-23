@@ -3,21 +3,24 @@ import addProjectUsingModal from "./modals/addProjectUsingModal";
 import displayProjectsInNav from "./nav/displayProjectsInNav";
 import displayPage from "./displayPage";
 import handleNavLinkClicks from "./nav/handleNavLinkClicks";
+import handleProjectNameChange from "./displayPage/handleProjectNameChange";
 
 const createScreenController = () => {
   const brandingInSidebar = document.querySelector(".branding");
   const inboxLinkInSidebar = document.querySelector("#inbox-link");
   const addProjectBtn = document.querySelector(".add-project");
   const addTaskBtn = document.querySelector(".add-task");
+  const pageTitle = document.querySelector("#page-title");
 
   displayProjectsInNav();
   displayPage("inbox");
 
   //event listeners
-  addTaskBtn.addEventListener("click", addTaskUsingModal);
-  addProjectBtn.addEventListener("click", addProjectUsingModal);
+  pageTitle.addEventListener("mousedown", handleProjectNameChange);
+  addTaskBtn.addEventListener("mousedown", addTaskUsingModal);
+  addProjectBtn.addEventListener("mousedown", addProjectUsingModal);
   [brandingInSidebar, inboxLinkInSidebar].forEach((elem) =>
-    elem.addEventListener("click", () => handleNavLinkClicks("inbox"))
+    elem.addEventListener("mousedown", () => handleNavLinkClicks("inbox"))
   );
 };
 

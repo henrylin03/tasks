@@ -1,6 +1,5 @@
+import addSuffixToDuplicateProjectName from "../helpers/addSuffixToDuplicateProjectNames";
 import {
-  getCleanedProjectNames,
-  retrieveProjectNames,
   retrieveProjects,
   retrieveTaskById,
 } from "../helpers/localStorageHelpers";
@@ -22,23 +21,8 @@ const createProject = (recreatingFromJSON = false) => {
 
   // SETTERS
   const setName = (retrievedOrNewName) => {
-    const projectNamesInStorage = retrieveProjectNames();
-    const cleanedProjectNamesInStorage = getCleanedProjectNames();
-    const projectNameExists =
-      projectNamesInStorage.includes(retrievedOrNewName);
-
-    if (!projectNameExists || recreatingFromJSON)
-      return (name = retrievedOrNewName);
-
-    const duplicateCount = cleanedProjectNamesInStorage.filter(
-      (n) => n === retrievedOrNewName
-    ).length;
-
-    for (let suffixInt = 1; suffixInt <= duplicateCount; suffixInt++) {
-      const projectNameWithSuffix = `${retrievedOrNewName} (${suffixInt})`;
-      if (!projectNamesInStorage.includes(projectNameWithSuffix))
-        return (name = projectNameWithSuffix);
-    }
+    if (recreatingFromJSON) return (name = retrievedOrNewName);
+    name = addSuffixToDuplicateProjectName(retrievedOrNewName);
   };
 
   const setId = (retrievedId) => {
