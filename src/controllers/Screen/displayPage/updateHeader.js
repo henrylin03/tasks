@@ -21,9 +21,9 @@ const SVGS = {
 
 const updateHeader = (project) => {
   const pageIcon = document.querySelector("header .left figure");
-  const pageTitle = document.querySelector(".page-title");
+  const pageTitle = document.querySelector("#page-title");
 
-  pageTitle.textContent = project.getName();
+  pageTitle.value = project.getName();
   pageIcon.innerHTML = project.getId() === "inbox" ? SVGS.inbox : SVGS.project;
 };
 
