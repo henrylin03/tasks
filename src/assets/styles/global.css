@@ -147,6 +147,7 @@ header .left figure {
 #page-title {
     color: var(--primary-clr);
     font-size: 1.8rem;
+    font-weight: 500;
 }
 
 .add-task {
