@@ -15,11 +15,13 @@ export default function addSuffixToDuplicateProjectName(projectName) {
     (name) => name === projectName
   );
 
-  if (!projectNameExistsInStorage) return projectName;
-
   const duplicateCount = cleanedProjectNamesInStorage.filter(
     (cleanedName) => cleanedName === cleanedProjectName
   ).length;
+
+  if (!projectNameExistsInStorage) return projectName;
+  if (!projectNamesInStorage.includes(cleanedProjectName))
+    return cleanedProjectName;
 
   for (let suffixInt = 1; suffixInt <= duplicateCount; suffixInt++) {
     const suffixedName = `${cleanedProjectName} (${suffixInt})`;
