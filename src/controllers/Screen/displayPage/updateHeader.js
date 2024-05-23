@@ -19,9 +19,10 @@ const SVGS = {
           </svg>`,
 };
 
+const pageIcon = document.querySelector(".page-icon");
+const pageTitle = document.querySelector("#page-title");
+
 const updateHeader = (project) => {
-  const pageIcon = document.querySelector(".page-icon");
-  const pageTitle = document.querySelector("#page-title");
   const isInboxPage = project.getId() === "inbox";
 
   pageTitle.value = project.getName();
@@ -34,6 +35,7 @@ const updateHeader = (project) => {
 
 const handlePageTitleClick = (e) => {
   e.target.select();
+  pageIcon.classList.add("hidden");
 };
 
 export default updateHeader;
