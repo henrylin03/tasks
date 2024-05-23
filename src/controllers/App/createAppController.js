@@ -93,20 +93,12 @@ const createAppController = () => {
   const addProject = (newProjectName) => {
     if (!newProjectName) return;
     const newProject = createProject();
-    console.log(newProject.viewDetails());
     newProject.setName(newProjectName);
     newProject.store();
   };
 
   const renameProject = (projectObject, newProjectName) => {
-    // if (projectObject.getId() !== "inbox")
-    //   projectObject.setName(newProjectName);
-    // projectObject.store();
-    console.log("existing Project:", projectObject.viewDetails());
-    console.log("new project name: ", newProjectName);
-
     projectObject.setName(newProjectName);
-    console.log("updated project", projectObject.viewDetails());
     projectObject.store();
   };
 
