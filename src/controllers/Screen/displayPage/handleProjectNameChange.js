@@ -1,3 +1,4 @@
+import addSuffixToDuplicateProjectName from "../../../helpers/addSuffixToDuplicateProjectNames";
 import { createAppController } from "../../App/createAppController";
 
 const app = createAppController();
@@ -10,12 +11,13 @@ export default function handleProjectNameChange(e) {
   e.target.addEventListener(
     "blur",
     (evt) => {
-      const newName = evt.target.value;
+      let newName = evt.target.value;
 
       if (oldName.trim() === newName.trim() || !newName.trim())
         return (evt.target.value = oldName);
 
-      console.log(oldName.trim() === newName.trim());
+      newName = addSuffixToDuplicateProjectName(newName);
+      evt.target.value = newName;
     },
     { once: true }
   );
