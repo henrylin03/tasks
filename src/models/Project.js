@@ -16,12 +16,8 @@ const createProject = (recreatingFromJSON = false) => {
   // GETTERS
   const getId = () => id;
   const getName = () => name;
-  const getTasksAsObjects = () => {
-    return taskIds.map((taskId) => {
-      console.log(taskId);
-      return recreateTaskFromJSON(retrieveTaskById(taskId));
-    });
-  };
+  const getTasksAsObjects = () =>
+    taskIds.map((taskId) => recreateTaskFromJSON(retrieveTaskById(taskId)));
   const viewDetails = () => ({ id, name, taskIds });
 
   // SETTERS

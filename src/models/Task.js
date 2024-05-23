@@ -72,12 +72,10 @@ const createTask = (name, recreatingFromJSON = false) => {
 
   const remove = () => {
     const storedTasksArray = retrieveTasks();
-    alert("removing");
     localStorage.setItem(
       "tasks",
       JSON.stringify(storedTasksArray.filter((t) => t.id !== id))
     );
-    console.log(localStorage);
   };
 
   return {
