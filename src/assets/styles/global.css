@@ -477,3 +477,10 @@ dialog.is-urgent {
     gap: 15px;
     width: 100%;
 }
+
+/* modal for deletion confirmation */
+.delete-btn {
+    background-color: var(--warning-clr);
+    color: white;
+    width: fit-content;
+}
