@@ -7,6 +7,9 @@ import {
 } from "../../helpers/localStorageHelpers";
 
 const createAppController = () => {
+  /* METHODS FOR TASKS */
+  const getTask = (taskId) => recreateTaskFromJSON(retrieveTaskById(taskId));
+
   const addTask = ({ name, description, dueDate, urgency, projectId }) => {
     if (!name) return;
     const newTask = createTask(name);
@@ -20,34 +23,6 @@ const createAppController = () => {
     project.addTask(newTask.getId());
     project.store();
   };
-
-  const addProject = (newProjectName) => {
-    if (!newProjectName) return;
-    const newProject = createProject();
-    newProject.setName(newProjectName);
-    newProject.store();
-  };
-
-  const getTask = (taskId) => recreateTaskFromJSON(retrieveTaskById(taskId));
-
-  const getProjects = (excludeInbox = true) => {
-    const storedProjectsInJSONFormat = retrieveProjects();
-    let projects = storedProjectsInJSONFormat
-      .map((p) => recreateProjectFromJSON(p))
-      .sort((projectA, projectB) => projectA.getId() - projectB.getId());
-
-    projects = excludeInbox
-      ? projects.filter((project) => project.getName() !== "Inbox")
-      : [
-          ...projects.filter((p) => p.getId() === "inbox"),
-          ...projects.filter((p) => p.getId() !== "inbox"),
-        ];
-
-    return projects;
-  };
-
-  const getProject = (projectId) =>
-    recreateProjectFromJSON(retrieveProjectById(projectId));
 
   const updateTask = ({
     id,
@@ -85,6 +60,33 @@ const createAppController = () => {
     taskObject.setCompletion(completionStatus);
     taskObject.store();
   };
+
+  /* METHODS FOR PROJECTS */
+  const addProject = (newProjectName) => {
+    if (!newProjectName) return;
+    const newProject = createProject();
+    newProject.setName(newProjectName);
+    newProject.store();
+  };
+
+  const getProjects = (excludeInbox = true) => {
+    const storedProjectsInJSONFormat = retrieveProjects();
+    let projects = storedProjectsInJSONFormat
+      .map((p) => recreateProjectFromJSON(p))
+      .sort((projectA, projectB) => projectA.getId() - projectB.getId());
+
+    projects = excludeInbox
+      ? projects.filter((project) => project.getName() !== "Inbox")
+      : [
+          ...projects.filter((p) => p.getId() === "inbox"),
+          ...projects.filter((p) => p.getId() !== "inbox"),
+        ];
+
+    return projects;
+  };
+
+  const getProject = (projectId) =>
+    recreateProjectFromJSON(retrieveProjectById(projectId));
 
   const deleteTask = (taskObject) => {
     const taskId = taskObject.getId();
