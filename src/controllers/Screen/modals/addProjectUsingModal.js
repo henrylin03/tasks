@@ -1,5 +1,5 @@
 import { createAppController } from "../../App/createAppController";
-import { clearFormErrorMessages, closeModal } from "./taskModalsHandlers";
+import { closeModal } from "./taskModalsHandlers";
 import displayProjectsInNav from "../nav/displayProjectsInNav";
 
 const modal = document.querySelector(".new-project-modal");
@@ -12,11 +12,7 @@ const cancelBtn = document.querySelector(".new-project-modal .cancel-btn");
 
 const addProjectUsingModal = () => {
   form.addEventListener("submit", handleSubmit);
-  input.addEventListener(
-    "input",
-    clearFormErrorMessages(inputAndErrorMessageElements)
-  );
-  cancelBtn.addEventListener("click", () => closeModal(modal));
+  cancelBtn.addEventListener("mousedown", () => closeModal(modal));
   modal.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal(modal);
   });

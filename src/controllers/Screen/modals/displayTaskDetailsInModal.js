@@ -3,13 +3,13 @@ import {
   toggleUrgency,
   closeModal,
 } from "./taskModalsHandlers";
-import modifyTask from "./modifyTask";
+import modifyTaskInModal from "./modifyTaskInModal";
 
 const displayTaskDetailsInModal = (taskObject) => {
   const taskDetailsModal = generateTaskDetailsModal(taskObject);
 
   taskDetailsModal.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") modifyTask(taskObject, taskDetailsModal);
+    if (e.key === "Enter") modifyTaskInModal(taskObject, taskDetailsModal);
     if (e.key === "Escape") closeModal(taskDetailsModal);
   });
 
@@ -79,7 +79,9 @@ const generateTaskDetailsModal = (taskObject) => {
   saveBtn.classList.add("confirm-btn");
   saveBtn.classList.add("save-changes-to-task");
   saveBtn.textContent = "Save";
-  saveBtn.addEventListener("mousedown", () => modifyTask(taskObject, modal));
+  saveBtn.addEventListener("mousedown", () =>
+    modifyTaskInModal(taskObject, modal)
+  );
 
   const cancelBtn = document.createElement("button");
   cancelBtn.type = "reset";
@@ -92,8 +94,8 @@ const generateTaskDetailsModal = (taskObject) => {
   taskNameAndUrgencyWrapper.appendChild(toggleUrgentBtn);
   dueDateAndProjectContainer.appendChild(dueDate);
   dueDateAndProjectContainer.appendChild(projects);
-  buttons.appendChild(saveBtn);
   buttons.appendChild(cancelBtn);
+  buttons.appendChild(saveBtn);
 
   taskDetailsDiv.appendChild(taskNameAndUrgencyWrapper);
   taskDetailsDiv.appendChild(taskDescription);

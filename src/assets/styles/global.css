@@ -189,7 +189,6 @@ main>.container {
     display: block;
     position: relative;
     cursor: pointer;
-    z-index: 99;
 }
 
 .checkbox {
@@ -218,10 +217,11 @@ main>.container {
     height: 15px;
 }
 
-.task .right {
+.task .task-details {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    flex: 1;
 }
 
 .task-attributes {
@@ -263,6 +263,31 @@ main>.container {
 
 .overdue {
     color: var(--highlight-clr);
+}
+
+.delete-icon-btn {
+    visibility: hidden;
+    opacity: 0;
+    mask-image: url("../icons/trash-x-outline.svg");
+    mask-repeat: no-repeat;
+    background-color: var(--dimmed);
+    padding: 10px;
+    height: 23px;
+    width: 40px;
+    transition: filter .15s, visibility 0s, opacity .15s linear;
+}
+
+.delete-icon-btn:hover {
+    filter: brightness(.6);
+}
+
+.delete-icon-btn:active {
+    mask-image: url("../icons/trash-x-filled.svg");
+}
+
+.task:hover .delete-icon-btn {
+    visibility: visible;
+    opacity: 1;
 }
 
 /* urgent task */
@@ -348,7 +373,8 @@ dialog .top {
 
 #new-project-name,
 #new-task-name,
-#task-name-in-modal {
+#task-name-in-modal,
+h2 {
     font-size: 1.1rem;
 }
 
@@ -451,4 +477,15 @@ dialog.is-urgent {
     flex-direction: column;
     gap: 15px;
     width: 100%;
+}
+
+/* modal for deletion confirmation */
+.delete-modal form {
+    gap: 10px;
+}
+
+.delete-btn {
+    background-color: var(--warning-clr);
+    color: white;
+    width: fit-content;
 }

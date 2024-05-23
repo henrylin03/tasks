@@ -2,8 +2,8 @@ import { format, isToday, isPast } from "date-fns";
 import displayTaskDetailsInModal from "../modals/displayTaskDetailsInModal";
 import { createAppController } from "../../App/createAppController";
 import displayPage from ".";
+import handleDelete from "../modals/handleDelete";
 
-// todo: make svgs easier to manipulate (we need to be able to colour them, but also center them (mask-image didn't work with flexbox - so maybe grid if we pursue that?)) - otherwise, maybe a JSON with all the SVGs inside would be good in like a data/ folder!
 const SVGS = {
   dueDate: `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -43,29 +43,22 @@ const generateTaskDiv = (task) => {
   const article = document.createElement("article");
   article.classList.add("task");
   article.setAttribute("data-id", taskId);
-  article.addEventListener("click", (e) => {
-    displayTaskDetailsInModal(task);
-  });
   if (taskDetails.urgency) article.classList.add("urgent");
   if (taskDetails.completed) article.classList.add("completed");
 
-  // left-side
+  // checkbox
   const checkboxDiv = document.createElement("div");
   checkboxDiv.classList.add("checkbox-container");
-  checkboxDiv.addEventListener("click", (e) => e.stopPropagation());
+  checkboxDiv.addEventListener("mousedown", (e) => e.stopPropagation());
 
   const checkbox = document.createElement("input");
   checkbox.setAttribute("type", "checkbox");
   checkbox.classList.add("checkbox");
   if (taskDetails.completed) checkbox.checked = true;
-  checkbox.addEventListener("change", () => {
-    app.updateTaskCompletion(task, checkbox.checked);
-    displayPage(task.getProjectId());
-  });
 
-  // right-side
-  const rightDiv = document.createElement("div");
-  rightDiv.classList.add("right");
+  // details
+  const detailsDiv = document.createElement("div");
+  detailsDiv.classList.add("task-details");
 
   const taskName = document.createElement("p");
   taskName.classList.add("task-name");
@@ -76,11 +69,31 @@ const generateTaskDiv = (task) => {
   const taskAttributeChildren = generateTaskAttributes(taskDetails);
   taskAttributeChildren.forEach((c) => taskAttributes.appendChild(c));
 
+  // rubbish bin ui for deletion
+  const binBtn = document.createElement("button");
+  binBtn.type = "button";
+  binBtn.classList.add("delete-icon-btn");
+
+  // EVENT LISTENERS
+  article.addEventListener("mousedown", () => displayTaskDetailsInModal(task));
+
+  checkbox.addEventListener("change", () => {
+    app.updateTaskCompletion(task, checkbox.checked);
+    displayPage(task.getProjectId());
+  });
+
+  binBtn.addEventListener("mousedown", (e) => {
+    e.stopPropagation();
+    handleDelete(task);
+  });
+
+  // CREATE DOM NODES
   checkboxDiv.appendChild(checkbox);
-  rightDiv.appendChild(taskName);
-  rightDiv.appendChild(taskAttributes);
+  detailsDiv.appendChild(taskName);
+  detailsDiv.appendChild(taskAttributes);
   article.appendChild(checkboxDiv);
-  article.appendChild(rightDiv);
+  article.appendChild(detailsDiv);
+  article.appendChild(binBtn);
 
   return article;
 };
