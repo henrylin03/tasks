@@ -23,7 +23,6 @@ const createProject = (recreatingFromJSON = false) => {
   const setName = (retrievedOrNewName) => {
     if (recreatingFromJSON) return (name = retrievedOrNewName);
     name = addSuffixToDuplicateProjectName(retrievedOrNewName);
-    console.log(name);
   };
 
   const setId = (retrievedId) => {

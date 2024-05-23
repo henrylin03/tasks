@@ -5,7 +5,6 @@ import {
 
 export default function addSuffixToDuplicateProjectName(projectName) {
   const projectNamesInStorage = retrieveProjectNames();
-  console.log("project names in storage", projectNamesInStorage);
   const cleanedProjectNamesInStorage = getCleanedProjectNames();
   const regexToMatchParenthesesWithNumbersInside = /\(\s*\d+\s*\)$/g;
   const cleanedProjectName = projectName
