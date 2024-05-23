@@ -28,6 +28,7 @@ const addTaskUsingModal = () => {
   // run
   modal.showModal();
   generateProjectOptions(projectDropdown);
+  setTimeout(() => taskNameInput.focus(), 0.1);
 };
 
 const handleSubmit = (e) => {
