@@ -87,18 +87,12 @@ const createAppController = () => {
   };
 
   const deleteTask = (taskObject) => {
-    console.log(taskObject.viewDetails());
-
     const taskId = taskObject.getId();
-
-    // #1: orphan the task, by removing it from its project, identified through its project id
     const project = taskObject.getProjectObject();
+
     project.removeTask(taskId);
-
-    // #2: remove the task from localStorage
-    // taskObject.remove();
-
-    // return;
+    project.store();
+    taskObject.remove();
   };
 
   // run: this creates the inbox project
