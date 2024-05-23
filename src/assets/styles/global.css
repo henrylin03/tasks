@@ -266,10 +266,11 @@ main>.container {
 }
 
 .delete-btn {
+    visibility: hidden;
+    opacity: 0;
     background-color: transparent;
     padding: 10px;
-    transition: background-color .15s;
-    display: none;
+    transition: background-color .1s, visibility 0s, opacity .15s linear;
 }
 
 .delete-btn:hover {
@@ -277,7 +278,8 @@ main>.container {
 }
 
 .task:hover .delete-btn {
-    display: block;
+    visibility: visible;
+    opacity: 1;
 }
 
 /* urgent task */
