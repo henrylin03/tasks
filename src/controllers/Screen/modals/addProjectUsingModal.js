@@ -16,6 +16,7 @@ const addProjectUsingModal = () => {
 
   // run
   modal.showModal();
+  setTimeout(() => input.focus(), 0.1);
 };
 
 function handleSubmit(e) {
