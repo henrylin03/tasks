@@ -93,6 +93,7 @@ const createAppController = () => {
   const addProject = (newProjectName) => {
     if (!newProjectName) return;
     const newProject = createProject();
+    console.log(newProject.viewDetails());
     newProject.setName(newProjectName);
     newProject.store();
   };

@@ -11,11 +11,11 @@ export default function addSuffixToDuplicateProjectName(projectName) {
   if (!projectNameExists) return projectName;
 
   const duplicateCount = cleanedProjectNamesInStorage.filter(
-    (n) => n === retrievedOrNewName
+    (n) => n === projectName
   ).length;
 
   for (let suffixInt = 1; suffixInt <= duplicateCount; suffixInt++) {
-    const projectNameWithSuffix = `${retrievedOrNewName} (${suffixInt})`;
+    const projectNameWithSuffix = `${projectName} (${suffixInt})`;
     if (!projectNamesInStorage.includes(projectNameWithSuffix))
       return projectNameWithSuffix;
   }
