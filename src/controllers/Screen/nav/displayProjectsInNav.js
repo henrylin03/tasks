@@ -1,22 +1,23 @@
 import { createAppController } from "../../App/createAppController";
 import handleNavLinkClicks from "./handleNavLinkClicks";
 
+const app = createAppController();
+const navProjectsContainer = document.querySelector(
+  ".current-projects-container"
+);
+
 const displayProjectsInNav = () => {
-  const app = createAppController();
-  const navProjectsContainer = document.querySelector(
-    ".current-projects-container"
-  );
+  navProjectsContainer.replaceChildren();
 
-  const projectsArray = app
-    .getProjects()
-    .map((getProjectObject) => createProjectLinkInNav(getProjectObject));
-
-  navProjectsContainer.replaceChildren(...projectsArray);
+  const storedProjectObjects = app.getProjects();
+  storedProjectObjects.forEach((p) => createProjectLinkInNav(p));
 };
 
 const createProjectLinkInNav = (project) => {
   const projectName = project.getName();
   const projectId = project.getId();
+
+  console.log(projectId, projectName);
 
   const linkDiv = document.createElement("div");
   linkDiv.classList.add("link");
@@ -47,7 +48,7 @@ const createProjectLinkInNav = (project) => {
   linkAnchor.appendChild(projectNameText);
   linkDiv.appendChild(linkAnchor);
 
-  return linkDiv;
+  navProjectsContainer.appendChild(linkDiv);
 };
 
 export default displayProjectsInNav;
