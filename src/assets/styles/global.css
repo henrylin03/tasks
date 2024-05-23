@@ -27,7 +27,6 @@ body {
 
 h1 {
     color: var(--primary-clr);
-    font-size: 1.8rem;
 }
 
 textarea {
@@ -143,6 +142,11 @@ header .left {
 
 header .left figure {
     height: 35px;
+}
+
+.page-title {
+    color: var(--primary-clr);
+    font-size: 1.8rem;
 }
 
 .add-task {
