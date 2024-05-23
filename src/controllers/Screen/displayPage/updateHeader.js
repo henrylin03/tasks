@@ -22,12 +22,18 @@ const SVGS = {
 const updateHeader = (project) => {
   const pageIcon = document.querySelector(".page-icon");
   const pageTitle = document.querySelector("#page-title");
+  const isInboxPage = project.getId() === "inbox";
 
   pageTitle.value = project.getName();
-  pageIcon.innerHTML = project.getId() === "inbox" ? SVGS.inbox : SVGS.project;
+  pageTitle.disabled = isInboxPage;
+  pageIcon.innerHTML = isInboxPage ? SVGS.inbox : SVGS.project;
 
   // add event listeners
-  pageTitle.addEventListener("click", pageTitle.select);
+  pageTitle.addEventListener("click", handlePageTitleClick);
+};
+
+const handlePageTitleClick = (e) => {
+  e.target.select();
 };
 
 export default updateHeader;
