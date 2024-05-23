@@ -23,6 +23,4 @@ export default function handleProjectNameChange(e) {
     },
     { once: true }
   );
-
-  return;
 }
