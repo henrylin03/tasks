@@ -267,6 +267,12 @@ main>.container {
 
 .delete-btn {
     background-color: transparent;
+    padding: 10px;
+    transition: background-color .15s;
+}
+
+.delete-btn:hover {
+    background-color: var(--lighter-primary-clr);
 }
 
 /* urgent task */
