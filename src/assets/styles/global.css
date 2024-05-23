@@ -131,6 +131,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 10px;
 }
 
 header .left {
@@ -139,6 +140,7 @@ header .left {
     align-items: center;
     gap: 5px;
     margin-left: 6px;
+    flex: 1;
 }
 
 .page-icon {
@@ -147,12 +149,14 @@ header .left {
 }
 
 #page-title {
+    flex: 1;
     color: var(--primary-clr);
     font-size: 1.5rem;
     font-weight: 500;
     background-color: transparent;
     border: none;
     padding: 10px;
+    width: 100%;
 }
 
 #page-title:focus {
@@ -160,22 +164,15 @@ header .left {
     border: 1px solid var(--dimmed);
 }
 
-#page-title:focus+.page-icon>svg {
-    display: none;
-    color: black;
-}
-
 .add-task {
+    display: flex;
+    justify-content: flex-end;
     color: var(--dimmed);
     transition: color .25s;
 }
 
 .add-task:hover {
     color: var(--primary-clr);
-}
-
-.add-task:active {
-    transform: scale(.97);
 }
 
 
