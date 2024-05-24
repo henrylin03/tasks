@@ -2,7 +2,8 @@ export default function sortTasks(taskObjectsArray) {
   if (taskObjectsArray.length === 0) return taskObjectsArray;
 
   const completedTasks = taskObjectsArray.filter((t) => t.getCompleted());
-  //   return completedTasks;
+  const incompleteTasks = taskObjectsArray.filter((t) => !t.getCompleted());
+  //   return incompleteTasks;
 
   const tasksWithDueDates = taskObjectsArray.filter((t) => t.getDueDate());
   tasksWithDueDates.sort(
