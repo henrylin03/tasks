@@ -307,10 +307,13 @@ main>.container {
     mask-image: url("../icons/trash-x-filled.svg");
 }
 
-.task:hover .delete-icon-btn {
+.task:hover .delete-icon-btn,
+.link:hover .delete-icon-btn {
     visibility: visible;
     opacity: 1;
 }
+
+
 
 /* urgent task */
 .task.urgent {
