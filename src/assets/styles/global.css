@@ -287,6 +287,7 @@ main>.container {
     color: var(--highlight-clr);
 }
 
+/* DELETING BUTTON */
 .delete-icon-btn {
     visibility: hidden;
     opacity: 0;
@@ -294,16 +295,15 @@ main>.container {
     mask-repeat: no-repeat;
     background-color: var(--dimmed);
     padding: 10px;
+    height: 23px;
     transition: filter .15s, visibility 0s, opacity .15s linear;
 }
 
 .task .delete-icon-btn {
-    height: 23px;
     width: 40px;
 }
 
 .link .delete-icon-btn {
-    height: 20px;
     width: 30px;
 }
 
@@ -320,7 +320,6 @@ main>.container {
     visibility: visible;
     opacity: 1;
 }
-
 
 
 /* urgent task */
