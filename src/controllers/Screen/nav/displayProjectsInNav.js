@@ -11,6 +11,7 @@ const displayProjectsInNav = () => {
   navProjectsContainer.replaceChildren();
 
   const storedProjectObjects = app.getProjects();
+  if (storedProjectObjects.length === 0) return;
   storedProjectObjects.forEach((p) => createProjectLinkInNav(p));
 };
 
