@@ -2,12 +2,116 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do | Organising Life's Chaos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks</title>
 </head>
 
 <body>
+  <div class="grid">
+    <nav class="sidebar">
+      <a class="branding">
+        <h1 class="logo">Tasks</h1>
+      </a>
+      <div class="divider">
+        <hr>
+      </div>
+      <div class="links-container">
+        <div class="link selected" data-id="inbox" data-name="Inbox" id="inbox-link">
+          <a>
+            <figure class="icon-container">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-inbox">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+                <path d="M4 13h3l3 3h4l3 -3h3" />
+              </svg>
+            </figure>
+            <p>Inbox</p>
+          </a>
+        </div>
+      </div>
+      <div class="links-container">
+        <h2>Projects</h2>
+        <div class="current-projects-container">
+        </div>
+        <div class="link add-project">
+          <a>
+            <figure class="icon-container">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-plus">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 5l0 14" />
+                <path d="M5 12l14 0" />
+              </svg>
+            </figure>
+            <p>Add a project</p>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <header>
+      <div class="left">
+        <figure class="page-icon"></figure>
+        <input type="text" id="page-title" class="page-title" onclick="this.select()"></input>
+      </div>
+      <div class="links-container add-task">
+        <a href="#">
+          <figure>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-plus">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M12 5l0 14" />
+              <path d="M5 12l14 0" />
+            </svg>
+          </figure>
+          <p>Add a task</p>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="container">
+      </section>
+    </main>
+  </div>
+
+  <dialog class="new-project-modal">
+    <form>
+      <div class="top">
+        <input type="text" id="new-project-name" placeholder="Project name" required>
+      </div>
+      <div class="btn-group">
+        <button class="cancel-btn" type="reset">Cancel</button>
+        <button class="confirm-btn add-project-btn" type="submit">Add</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="new-task-modal">
+    <form>
+      <div class="task-name-input-wrapper">
+        <input type="text" id="new-task-name" placeholder="Task name" required>
+        <button type="button" class="toggle-urgent-btn"></button>
+      </div>
+      <textarea id="new-task-description" cols="30" rows="5" placeholder="Description"></textarea>
+      <div class="input-container">
+        <input type="text" id="new-task-due-date" placeholder="Due date" onfocus="(this.type='date')"
+          onblur="(this.type='text')">
+        <select id="project-of-new-task">
+          <option value="Inbox">Inbox</option>
+        </select>
+      </div>
+      <div class="btn-group">
+        <button class="cancel-btn" type="reset">Cancel</button>
+        <button class="confirm-btn add-task-btn" type="submit">Add</button>
+      </div>
+    </form>
+  </dialog>
 
 </body>
 
