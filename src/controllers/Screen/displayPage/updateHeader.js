@@ -1,4 +1,4 @@
-import handleProjectNameChange from "./handleProjectNameChange";
+import addTaskUsingModal from "../modals/addTaskUsingModal";
 
 const updateHeader = (project) => {
   const SVGS = {
@@ -23,6 +23,7 @@ const updateHeader = (project) => {
   };
   const pageIcon = document.querySelector(".page-icon");
   const pageTitle = document.querySelector("#page-title");
+  const addTaskBtn = document.querySelector(".add-task");
 
   const currentProjectPageId = project.getId();
   const isInboxPage = currentProjectPageId === "inbox";
@@ -31,6 +32,9 @@ const updateHeader = (project) => {
   pageTitle.setAttribute("data-id", currentProjectPageId);
   pageTitle.disabled = isInboxPage;
   pageIcon.innerHTML = isInboxPage ? SVGS.inbox : SVGS.project;
+  addTaskBtn.addEventListener("mousedown", () =>
+    addTaskUsingModal(currentProjectPageId)
+  );
 };
 
 export default updateHeader;
