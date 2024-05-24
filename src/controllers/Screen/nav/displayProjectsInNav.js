@@ -1,4 +1,5 @@
 import { createAppController } from "../../App/createAppController";
+import confirmProjectDeletion from "../modals/deletion/confirmProjectDeletion";
 import handleNavLinkClicks from "./handleNavLinkClicks";
 
 const app = createAppController();
@@ -22,13 +23,14 @@ const createProjectLinkInNav = (project) => {
   linkDiv.setAttribute("data-name", projectName);
   linkDiv.setAttribute("data-id", projectId);
 
-  linkDiv.addEventListener("click", () => handleNavLinkClicks(projectId));
-
   const linkAnchor = document.createElement("a");
   const iconContainer = document.createElement("figure");
   iconContainer.classList.add("icon-container");
   const projectNameText = document.createElement("p");
   projectNameText.textContent = projectName;
+  const binBtn = document.createElement("button");
+  binBtn.type = "button";
+  binBtn.classList.add("delete-icon-btn");
 
   iconContainer.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -42,10 +44,20 @@ const createProjectLinkInNav = (project) => {
                 <path d="M5 18l0 .01" />
               </svg>`;
 
+  // add event listeners
+  linkAnchor.addEventListener("mousedown", () =>
+    handleNavLinkClicks(projectId)
+  );
+  binBtn.addEventListener("mousedown", (e) => {
+    e.stopPropagation();
+    confirmProjectDeletion(project);
+  });
+
+  // append to DOM
   linkAnchor.appendChild(iconContainer);
   linkAnchor.appendChild(projectNameText);
+  linkAnchor.appendChild(binBtn);
   linkDiv.appendChild(linkAnchor);
-
   navProjectsContainer.appendChild(linkDiv);
 };
 

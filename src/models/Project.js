@@ -15,6 +15,7 @@ const createProject = (recreatingFromJSON = false) => {
   // GETTERS
   const getId = () => id;
   const getName = () => name;
+  const getTaskIds = () => taskIds;
   const getTasksAsObjects = () =>
     taskIds.map((taskId) => recreateTaskFromJSON(retrieveTaskById(taskId)));
   const viewDetails = () => ({ id, name, taskIds });
@@ -46,9 +47,18 @@ const createProject = (recreatingFromJSON = false) => {
     localStorage.setItem("projects", JSON.stringify(newProjectsArray));
   };
 
+  const remove = () => {
+    const storedProjectsArray = retrieveProjects();
+    const projectsArrayWithoutSelf = storedProjectsArray.filter(
+      (p) => p.id !== id
+    );
+    localStorage.setItem("projects", JSON.stringify(projectsArrayWithoutSelf));
+  };
+
   return {
     getId,
     getName,
+    getTaskIds,
     getTasksAsObjects,
     viewDetails,
     setId,
@@ -57,6 +67,7 @@ const createProject = (recreatingFromJSON = false) => {
     removeTask,
     replaceTasks,
     store,
+    remove,
   };
 };
 

@@ -2,7 +2,7 @@ import { format, isToday, isPast } from "date-fns";
 import displayTaskDetailsInModal from "../modals/displayTaskDetailsInModal";
 import { createAppController } from "../../App/createAppController";
 import displayPage from ".";
-import handleDelete from "../modals/handleDelete";
+import confirmTaskDeletion from "../modals/deletion/confirmTaskDeletion";
 
 const SVGS = {
   dueDate: `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
@@ -84,7 +84,7 @@ const generateTaskDiv = (task) => {
 
   binBtn.addEventListener("mousedown", (e) => {
     e.stopPropagation();
-    handleDelete(task);
+    confirmTaskDeletion(task);
   });
 
   // CREATE DOM NODES

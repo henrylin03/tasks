@@ -61,7 +61,6 @@ const createAppController = () => {
     taskObject.store();
   };
 
-  /* METHODS FOR PROJECTS */
   const deleteTask = (taskObject) => {
     const taskId = taskObject.getId();
     const project = taskObject.getProjectObject();
@@ -106,6 +105,26 @@ const createAppController = () => {
     projectObject.store();
   };
 
+  const deleteProject = (projectObject) => {
+    const taskIdsArray = projectObject.getTaskIds();
+    const taskObjectsArray = projectObject.getTasksAsObjects();
+    const inbox = getProject("inbox");
+    const inboxTaskIds = inbox.getTaskIds();
+
+    taskObjectsArray.forEach((taskObject) => {
+      taskObject.setProjectId("inbox");
+      taskObject.store();
+    });
+    inboxTaskIds.push(...taskIdsArray);
+    // confirm that every task id in current project object for deletion has moved
+    if (!taskIdsArray.every((id) => inboxTaskIds.includes(id))) return;
+
+    inbox.replaceTasks(inboxTaskIds);
+    inbox.store();
+
+    projectObject.remove();
+  };
+
   // run: this creates the inbox project
   if (localStorage.length === 0) createProject().store();
 
@@ -119,6 +138,7 @@ const createAppController = () => {
     getProjects,
     addProject,
     renameProject,
+    deleteProject,
   };
 };
 

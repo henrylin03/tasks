@@ -1,5 +1,5 @@
 import { createAppController } from "../../App/createAppController";
-import { closeModal } from "./taskModalsHandlers";
+import { closeModal } from "./modalHandlers";
 import displayProjectsInNav from "../nav/displayProjectsInNav";
 
 const modal = document.querySelector(".new-project-modal");

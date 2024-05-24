@@ -49,7 +49,7 @@ textarea {
     padding: 25px 10px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
 }
 
 .sidebar .links-container {
@@ -70,17 +70,18 @@ textarea {
 
 .links-container a {
     display: flex;
-    gap: 5px;
+    gap: 25px;
     align-items: center;
+    gap: 18px;
 }
 
 .link .icon-container {
     height: 24px;
-    flex: 1;
+    margin-left: 10px;
 }
 
 .link p {
-    flex: 3;
+    flex: 1;
     max-width: max(20ch, 12vw);
     overflow: hidden;
     white-space: nowrap;
@@ -177,6 +178,10 @@ header .left {
 
 .add-task:hover {
     color: var(--primary-clr);
+}
+
+.add-task a {
+    gap: 15px;
 }
 
 
@@ -287,6 +292,7 @@ main>.container {
     color: var(--highlight-clr);
 }
 
+/* DELETING BUTTON */
 .delete-icon-btn {
     visibility: hidden;
     opacity: 0;
@@ -294,9 +300,17 @@ main>.container {
     mask-repeat: no-repeat;
     background-color: var(--dimmed);
     padding: 10px;
+    transition: filter .15s, visibility 0s, opacity .15s linear;
+}
+
+.task .delete-icon-btn {
     height: 23px;
     width: 40px;
-    transition: filter .15s, visibility 0s, opacity .15s linear;
+}
+
+.link .delete-icon-btn {
+    height: 20px;
+    width: 30px;
 }
 
 .delete-icon-btn:hover {
@@ -307,10 +321,12 @@ main>.container {
     mask-image: url("../icons/trash-x-filled.svg");
 }
 
-.task:hover .delete-icon-btn {
+.task:hover .delete-icon-btn,
+.link:hover .delete-icon-btn {
     visibility: visible;
     opacity: 1;
 }
+
 
 /* urgent task */
 .task.urgent {
@@ -503,7 +519,11 @@ dialog.is-urgent {
 
 /* modal for deletion confirmation */
 .delete-modal form {
-    gap: 10px;
+    gap: 15px;
+}
+
+.delete-modal h2 {
+    margin-bottom: 5px;
 }
 
 .delete-btn {
