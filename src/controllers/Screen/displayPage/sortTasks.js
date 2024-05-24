@@ -2,24 +2,31 @@ export default function sortTasks(taskObjectsArray) {
   if (taskObjectsArray.length === 0) return taskObjectsArray;
 
   const completedTasks = taskObjectsArray.filter((t) => t.getCompleted());
+  const completedTasksWithDueDates = completedTasks.filter((t) =>
+    t.getDueDate()
+  );
+  const completedTasksWithoutDueDates = completedTasks.filter(
+    (t) => !t.getDueDate()
+  );
+  const completedTasksSorted = [
+    ...completedTasksWithDueDates.sort(earlierDueDateComesFirst),
+    ...completedTasksWithoutDueDates.sort(earlierCreationDateComesFirst),
+  ];
+
   const incompleteTasks = taskObjectsArray.filter((t) => !t.getCompleted());
-  //   return incompleteTasks;
-
-  const tasksWithDueDates = taskObjectsArray.filter((t) => t.getDueDate());
-  tasksWithDueDates.sort(
-    (taskA, taskB) =>
-      new Date(taskA.getDueDate()) - new Date(taskB.getDueDate())
+  const incompleteTasksWithDueDates = incompleteTasks.filter((t) =>
+    t.getDueDate()
+  );
+  const incompleteTasksWithoutDueDates = incompleteTasks.filter(
+    (t) => !t.getDueDate()
   );
 
-  const tasksWithoutDueDates = taskObjectsArray.filter(
-    (t) => t.getDueDate() === ""
-  );
-  tasksWithoutDueDates.sort(
-    (taskA, taskB) =>
-      Number(taskA.getId().substring(1)) - Number(taskB.getId().substring(1))
-  );
+  const incompleteTasksSorted = [
+    ...incompleteTasksWithDueDates.sort(earlierDueDateComesFirst),
+    ...incompleteTasksWithoutDueDates.sort(earlierCreationDateComesFirst),
+  ];
 
-  return [...tasksWithDueDates, ...tasksWithoutDueDates];
+  return [...incompleteTasksSorted, ...completedTasksSorted];
 }
 
 const earlierDueDateComesFirst = (taskA, taskB) =>
