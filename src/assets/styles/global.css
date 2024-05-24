@@ -49,7 +49,7 @@ textarea {
     padding: 25px 10px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
 }
 
 .sidebar .links-container {
@@ -68,19 +68,19 @@ textarea {
     background-color: var(--lightest-primary-clr);
 }
 
-.link a {
+.links-container a {
     display: flex;
-    gap: 5px;
     align-items: center;
+    gap: 18px;
 }
 
 .link .icon-container {
     height: 24px;
-    flex: 1;
+    margin-left: 15px;
 }
 
 .link p {
-    flex: 3;
+    flex: 1;
     max-width: max(20ch, 12vw);
     overflow: hidden;
     white-space: nowrap;
