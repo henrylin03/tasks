@@ -1,10 +1,7 @@
 // RETRIEVERS
 const retrieveProjects = () => {
-  try {
-    return Object.values(JSON.parse(localStorage.getItem("projects")));
-  } catch (TypeError) {
-    return [];
-  }
+  const storedData = localStorage.getItem("projects");
+  return storedData === null ? [] : Object.values(JSON.parse(storedData));
 };
 
 const retrieveProjectIds = () => retrieveProjects().map((p) => p.id);
@@ -15,11 +12,8 @@ const retrieveProjectByName = (projectName) =>
   retrieveProjects().find((project) => project.name === projectName);
 
 const retrieveTasks = () => {
-  try {
-    return Object.values(JSON.parse(localStorage.getItem("tasks")));
-  } catch (TypeError) {
-    return [];
-  }
+  const storedData = localStorage.getItem("tasks");
+  return storedData === null ? [] : Object.values(JSON.parse(storedData));
 };
 const retrieveTaskById = (taskId) =>
   retrieveTasks().find((task) => task.id === taskId);

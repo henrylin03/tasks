@@ -6,7 +6,7 @@ import {
 import { recreateTaskFromJSON } from "./Task";
 
 const createProject = (recreatingFromJSON = false) => {
-  const isInitialLoadOfApp = localStorage.length === 0;
+  const isInitialLoadOfApp = retrieveProjects().length === 0;
 
   let name = isInitialLoadOfApp ? "Inbox" : "";
   let id = isInitialLoadOfApp ? "inbox" : `P${Date.now()}`;

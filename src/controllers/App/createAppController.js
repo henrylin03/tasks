@@ -125,8 +125,9 @@ const createAppController = () => {
     projectObject.remove();
   };
 
-  // run: this creates the inbox project
-  if (localStorage.length === 0) createProject().store();
+  // run
+  // Project factory will handle creation of Inbox
+  if (retrieveProjects().length === 0) createProject().store();
 
   return {
     getTask,
