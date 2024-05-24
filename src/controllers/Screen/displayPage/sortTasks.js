@@ -10,7 +10,15 @@ export default function sortTasks(taskObjectsArray) {
   //   tasksWithDueDates.forEach((t) => console.log(t.viewDetails()));
 
   // then, for tasks that don't have a due date, we sort by creation date (proxied by their ids)
-  const tasksNoDueDates = taskObjectsArray.filter((t) => t.getDueDate() === "");
+  const tasksWithoutDueDates = taskObjectsArray.filter(
+    (t) => t.getDueDate() === ""
+  );
+  tasksWithoutDueDates.sort(
+    (taskA, taskB) =>
+      Number(taskA.getId().substring(1)) - Number(taskB.getId().substring(1))
+  );
+
+  console.log(tasksWithoutDueDates[0].viewDetails());
 
   // use spread operator to combine them
 
@@ -21,5 +29,5 @@ export default function sortTasks(taskObjectsArray) {
 
   //  ! ensure sorting is done after every modification of every task detail too
 
-  return tasksWithDueDates; // but sorted
+  return tasksWithoutDueDates; // but sorted
 }
