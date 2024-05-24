@@ -52,6 +52,7 @@ const generateModal = (obj) => {
   // add event listeners
   deleteBtn.addEventListener("mousedown", () => {
     if (type === "task") app.deleteTask(obj);
+    else if (type === "project") app.deleteProject(obj);
     closeModal(modal);
     displayPage(projectId);
   });
