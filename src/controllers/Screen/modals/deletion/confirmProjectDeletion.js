@@ -1,6 +1,6 @@
 import { createAppController } from "../../../App/createAppController";
-import displayPage from "../../displayPage";
 import displayProjectsInNav from "../../nav/displayProjectsInNav";
+import handleNavLinkClicks from "../../nav/handleNavLinkClicks";
 import { closeModal } from "../modalHandlers";
 
 const app = createAppController();
@@ -47,7 +47,7 @@ const generateModal = (projectObject) => {
     app.deleteProject(projectObject);
     displayProjectsInNav();
     closeModal(modal);
-    displayPage("inbox");
+    handleNavLinkClicks("inbox");
   });
 
   cancelBtn.addEventListener("mousedown", () => closeModal(modal));
