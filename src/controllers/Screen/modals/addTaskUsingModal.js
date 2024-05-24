@@ -8,6 +8,7 @@ import {
 
 const app = createAppController();
 
+const pageTitle = document.querySelector("#page-title");
 const modal = document.querySelector(".new-task-modal");
 const form = document.querySelector(".new-task-modal form");
 const taskNameInput = document.querySelector("#new-task-name");
@@ -17,12 +18,9 @@ const projectDropdown = document.querySelector("#project-of-new-task");
 const urgentBtn = document.querySelector(".new-task-modal .toggle-urgent-btn");
 const cancelBtn = document.querySelector(".new-task-modal .cancel-btn");
 
-const addTaskUsingModal = (currentPageProjectId) => {
+const addTaskUsingModal = () => {
   urgentBtn.addEventListener("mousedown", () => toggleUrgency(modal));
-  form.addEventListener("submit", () => {
-    e.preventDefault();
-    handleSubmit(currentPageProjectId);
-  });
+  form.addEventListener("submit", handleSubmit);
   cancelBtn.addEventListener("click", () => closeModal(modal));
   modal.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal(modal);
@@ -31,10 +29,17 @@ const addTaskUsingModal = (currentPageProjectId) => {
   // run
   modal.showModal();
   generateProjectOptions(projectDropdown);
-  setTimeout(() => taskNameInput.focus(), 0.5);
+  console.log(pageTitle.dataset.id);
+
+  setTimeout(() => taskNameInput.focus(), 0.1);
 };
 
-const handleSubmit = (currentPageProjectId) => {
+const handleSubmit = (e) => {
+  const currentPageProjectId =
+    document.querySelector(".link.selected").dataset.id;
+
+  e.preventDefault();
+
   // capture all properties required to create task from form
   const newTaskObject = {
     name: taskNameInput.value,
