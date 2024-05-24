@@ -72,7 +72,6 @@ const createProject = (recreatingFromJSON = false) => {
 };
 
 const recreateProjectFromJSON = ({ id, name, taskIds }) => {
-  if (!id) return;
   const project = createProject(name, true);
 
   project.setId(id);
