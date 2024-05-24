@@ -27,11 +27,10 @@ const displayTasks = (project) => {
   const taskObjects = project.getTasksAsObjects();
   if (!taskObjects) return;
 
-  console.log(sortTasks(taskObjects));
-
   tasksContainer.replaceChildren();
 
-  taskObjects.forEach((taskObject) => {
+  const sortedTasks = sortTasks(taskObjects);
+  sortedTasks.forEach((taskObject) => {
     const taskArticleElement = generateTaskDiv(taskObject);
     tasksContainer.appendChild(taskArticleElement);
   });

@@ -16,5 +16,4 @@ export default function sortTasks(taskObjectsArray) {
   );
 
   return [...tasksWithDueDates, ...tasksWithoutDueDates];
-  //  ! ensure sorting is done after every modification of every task detail too
 }
