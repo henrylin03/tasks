@@ -12,12 +12,17 @@ const createScreenController = () => {
   const addTaskBtn = document.querySelector(".add-task");
   const pageTitle = document.querySelector("#page-title");
 
+  const currentPageProjectId = pageTitle.dataset.id;
+
+  // run
   displayProjectsInNav();
   displayPage("inbox");
 
   //event listeners
   pageTitle.addEventListener("mousedown", handleProjectNameChange);
-  addTaskBtn.addEventListener("mousedown", addTaskUsingModal);
+  addTaskBtn.addEventListener("mousedown", () =>
+    addTaskUsingModal(currentPageProjectId)
+  );
   addProjectBtn.addEventListener("mousedown", addProjectUsingModal);
   [brandingInSidebar, inboxLinkInSidebar].forEach((elem) =>
     elem.addEventListener("mousedown", () => handleNavLinkClicks("inbox"))
