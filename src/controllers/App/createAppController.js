@@ -111,9 +111,15 @@ const createAppController = () => {
     const inbox = getProject("inbox");
     const inboxTaskIds = inbox.getTaskIds();
 
-    console.log(taskObjectsArray);
+    taskObjectsArray.forEach((taskObject) => taskObject.setProjectId("inbox"));
+    inboxTaskIds.push(...taskIdsArray);
+    // confirm that every task id in current project object for deletion has moved
+    if (!taskIdsArray.every((id) => inboxTaskIds.includes(id))) return;
 
-    console.log("deleting");
+    taskObjectsArray.forEach((t) => console.log(t.viewDetails()));
+
+    console.log("task ids", taskIdsArray);
+    console.log("new inbox task ids", inboxTaskIds);
   };
 
   // run: this creates the inbox project
