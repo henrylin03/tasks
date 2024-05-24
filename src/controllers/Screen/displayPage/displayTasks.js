@@ -3,6 +3,7 @@ import displayTaskDetailsInModal from "../modals/displayTaskDetailsInModal";
 import { createAppController } from "../../App/createAppController";
 import displayPage from ".";
 import confirmTaskDeletion from "../modals/deletion/confirmTaskDeletion";
+import sortTasks from "./sortTasks";
 
 const SVGS = {
   dueDate: `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
@@ -25,6 +26,8 @@ const tasksContainer = document.querySelector("main .container");
 const displayTasks = (project) => {
   const taskObjects = project.getTasksAsObjects();
   if (!taskObjects) return;
+
+  console.log(sortTasks(taskObjects));
 
   tasksContainer.replaceChildren();
 
