@@ -70,13 +70,14 @@ textarea {
 
 .links-container a {
     display: flex;
+    gap: 25px;
     align-items: center;
     gap: 18px;
 }
 
 .link .icon-container {
     height: 24px;
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 .link p {
