@@ -76,6 +76,7 @@ const createAppController = () => {
 
   const getProjects = (excludeInbox = true) => {
     const storedProjectsInJSONFormat = retrieveProjects();
+    if (storedProjectsInJSONFormat.length === 0) return [];
     let projects = storedProjectsInJSONFormat
       .map((p) => recreateProjectFromJSON(p))
       .sort(
