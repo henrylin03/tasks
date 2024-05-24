@@ -293,7 +293,7 @@ main>.container {
     mask-image: url("../icons/trash-x-outline.svg");
     mask-repeat: no-repeat;
     background-color: var(--dimmed);
-
+    padding: 10px;
     transition: filter .15s, visibility 0s, opacity .15s linear;
 }
 
