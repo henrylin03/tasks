@@ -32,10 +32,8 @@ const updateHeader = (project) => {
   pageTitle.setAttribute("data-id", currentProjectPageId);
   pageTitle.disabled = isInboxPage;
   pageIcon.innerHTML = isInboxPage ? SVGS.inbox : SVGS.project;
-  addTaskBtn.addEventListener(
-    "mousedown",
-    () => addTaskUsingModal(currentProjectPageId),
-    { once: true }
+  addTaskBtn.addEventListener("mousedown", () =>
+    addTaskUsingModal(currentProjectPageId)
   );
 };
 
