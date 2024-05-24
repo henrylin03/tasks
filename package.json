@@ -8,7 +8,8 @@
   },
   "scripts": {
     "build": "webpack --config webpack.prod.js",
-    "start": "webpack serve --open --config webpack.dev.js"
+    "start": "webpack serve --open --config webpack.dev.js",
+    "publish-to-gh-pages": "git subtree push --prefix dist origin gh-pages"
   },
   "keywords": [],
   "author": "",
