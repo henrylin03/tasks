@@ -1,5 +1,5 @@
 import { createAppController } from "../../App/createAppController";
-import { closeModal } from "./taskModalsHandlers";
+import { closeModal } from "./modalHandlers";
 import displayPage from "../displayPage";
 
 const modifyTaskInModal = (taskObject, modalElement) => {

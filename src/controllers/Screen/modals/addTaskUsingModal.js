@@ -4,7 +4,7 @@ import {
   toggleUrgency,
   generateProjectOptions,
   closeModal,
-} from "./taskModalsHandlers";
+} from "./modalHandlers";
 
 const app = createAppController();
 

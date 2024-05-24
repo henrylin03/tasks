@@ -1,6 +1,6 @@
 import { createAppController } from "../../App/createAppController";
 import displayPage from "../displayPage";
-import { closeModal } from "./taskModalsHandlers";
+import { closeModal } from "./modalHandlers";
 
 const handleDelete = (taskObject) => {
   const modal = generateModal(taskObject);

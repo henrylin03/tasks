@@ -2,7 +2,7 @@ import {
   generateProjectOptions,
   toggleUrgency,
   closeModal,
-} from "./taskModalsHandlers";
+} from "./modalHandlers";
 import modifyTaskInModal from "./modifyTaskInModal";
 
 const displayTaskDetailsInModal = (taskObject) => {
