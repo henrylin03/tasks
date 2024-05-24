@@ -13,6 +13,7 @@ const generateModal = (obj) => {
   const id = obj.getId();
   const name = obj.getName();
   const type = Array.from(id)[0] === "T" ? "task" : "project";
+  const projectId = type === "project" ? obj.getId() : obj.getProjectId();
 
   const modal = document.createElement("dialog");
   modal.classList.add("delete-modal");
@@ -50,9 +51,9 @@ const generateModal = (obj) => {
 
   // add event listeners
   deleteBtn.addEventListener("mousedown", () => {
-    app.deleteTask(taskObject);
+    if (type === "task") app.deleteTask(obj);
     closeModal(modal);
-    displayPage(taskObject.getProjectId());
+    displayPage(projectId);
   });
 
   cancelBtn.addEventListener("mousedown", () => closeModal(modal));

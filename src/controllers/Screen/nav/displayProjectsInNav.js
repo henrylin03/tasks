@@ -45,10 +45,12 @@ const createProjectLinkInNav = (project) => {
               </svg>`;
 
   // add event listeners
-  linkDiv.addEventListener("mousedown", () => handleNavLinkClicks(projectId));
+  linkAnchor.addEventListener("mousedown", () =>
+    handleNavLinkClicks(projectId)
+  );
   binBtn.addEventListener("mousedown", (e) => {
     e.preventDefault();
-    alert(`${project.getName()} is to be deleted`);
+    handleDelete(project);
   });
 
   // append to DOM
