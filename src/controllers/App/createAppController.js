@@ -61,7 +61,6 @@ const createAppController = () => {
     taskObject.store();
   };
 
-  /* METHODS FOR PROJECTS */
   const deleteTask = (taskObject) => {
     const taskId = taskObject.getId();
     const project = taskObject.getProjectObject();
@@ -106,6 +105,10 @@ const createAppController = () => {
     projectObject.store();
   };
 
+  const deleteProject = (projectObject) => {
+    console.log("deleting");
+  };
+
   // run: this creates the inbox project
   if (localStorage.length === 0) createProject().store();
 
@@ -119,6 +122,7 @@ const createAppController = () => {
     getProjects,
     addProject,
     renameProject,
+    deleteProject,
   };
 };
 
