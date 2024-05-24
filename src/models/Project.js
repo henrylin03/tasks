@@ -47,6 +47,14 @@ const createProject = (recreatingFromJSON = false) => {
     localStorage.setItem("projects", JSON.stringify(newProjectsArray));
   };
 
+  const remove = () => {
+    const storedProjectsArray = retrieveProjects();
+    const projectsArrayWithoutSelf = storedProjectsArray.filter(
+      (p) => p.id !== id
+    );
+    localStorage.setItem("projects", JSON.stringify(projectsArrayWithoutSelf));
+  };
+
   return {
     getId,
     getName,
@@ -59,6 +67,7 @@ const createProject = (recreatingFromJSON = false) => {
     removeTask,
     replaceTasks,
     store,
+    remove,
   };
 };
 
