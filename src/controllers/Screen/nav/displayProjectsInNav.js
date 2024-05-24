@@ -1,4 +1,5 @@
 import { createAppController } from "../../App/createAppController";
+import handleDelete from "../modals/handleDelete";
 import handleNavLinkClicks from "./handleNavLinkClicks";
 
 const app = createAppController();
@@ -45,6 +46,10 @@ const createProjectLinkInNav = (project) => {
 
   // add event listeners
   linkDiv.addEventListener("mousedown", () => handleNavLinkClicks(projectId));
+  binBtn.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+    alert(`${project.getName()} is to be deleted`);
+  });
 
   // append to DOM
   linkAnchor.appendChild(iconContainer);
