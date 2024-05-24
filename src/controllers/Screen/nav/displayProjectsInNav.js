@@ -22,8 +22,6 @@ const createProjectLinkInNav = (project) => {
   linkDiv.setAttribute("data-name", projectName);
   linkDiv.setAttribute("data-id", projectId);
 
-  linkDiv.addEventListener("click", () => handleNavLinkClicks(projectId));
-
   const linkAnchor = document.createElement("a");
   const iconContainer = document.createElement("figure");
   iconContainer.classList.add("icon-container");
@@ -44,6 +42,11 @@ const createProjectLinkInNav = (project) => {
                 <path d="M5 12l0 .01" />
                 <path d="M5 18l0 .01" />
               </svg>`;
+
+  // add event listeners
+  linkDiv.addEventListener("mousedown", () => handleNavLinkClicks(projectId));
+
+  // append to DOM
   linkAnchor.appendChild(iconContainer);
   linkAnchor.appendChild(projectNameText);
   linkAnchor.appendChild(binBtn);
