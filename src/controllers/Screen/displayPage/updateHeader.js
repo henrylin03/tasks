@@ -1,3 +1,5 @@
+import addTaskUsingModal from "../modals/addTaskUsingModal";
+
 const updateHeader = (project) => {
   const SVGS = {
     project: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none"
@@ -21,6 +23,7 @@ const updateHeader = (project) => {
   };
   const pageIcon = document.querySelector(".page-icon");
   const pageTitle = document.querySelector("#page-title");
+  const addTaskBtn = document.querySelector(".add-task");
 
   const currentProjectPageId = project.getId();
   const isInboxPage = currentProjectPageId === "inbox";
@@ -29,6 +32,11 @@ const updateHeader = (project) => {
   pageTitle.setAttribute("data-id", currentProjectPageId);
   pageTitle.disabled = isInboxPage;
   pageIcon.innerHTML = isInboxPage ? SVGS.inbox : SVGS.project;
+  addTaskBtn.addEventListener(
+    "mousedown",
+    () => addTaskUsingModal(currentProjectPageId),
+    { once: true }
+  );
 };
 
 export default updateHeader;
