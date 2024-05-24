@@ -22,13 +22,6 @@ const generateModal = (taskObject) => {
   paragraph.textContent = "You won't be able to undo this action.";
   form.appendChild(paragraph);
 
-  // if (type === "project") {
-  //   const taskMoveParagraph = document.createElement("p");
-  //   taskMoveParagraph.textContent =
-  //     "All of its tasks will move into your Inbox.";
-  //   form.appendChild(taskMoveParagraph);
-  // }
-
   const buttons = document.createElement("div");
   buttons.classList.add("btn-group");
   const cancelBtn = document.createElement("button");
