@@ -68,7 +68,7 @@ textarea {
     background-color: var(--lightest-primary-clr);
 }
 
-.links-container a {
+.link a {
     display: flex;
     gap: 5px;
     align-items: center;
