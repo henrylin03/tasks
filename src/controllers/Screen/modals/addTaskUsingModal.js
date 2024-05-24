@@ -8,7 +8,6 @@ import {
 
 const app = createAppController();
 
-const pageTitle = document.querySelector("#page-title");
 const modal = document.querySelector(".new-task-modal");
 const form = document.querySelector(".new-task-modal form");
 const taskNameInput = document.querySelector("#new-task-name");
@@ -29,14 +28,11 @@ const addTaskUsingModal = () => {
   // run
   modal.showModal();
   generateProjectOptions(projectDropdown);
-  console.log(pageTitle.dataset.id);
-
   setTimeout(() => taskNameInput.focus(), 0.1);
 };
 
 const handleSubmit = (e) => {
-  const currentPageProjectId =
-    document.querySelector(".link.selected").dataset.id;
+  const currentPageProjectId = document.querySelector("#page-title").dataset.id;
 
   e.preventDefault();
 
