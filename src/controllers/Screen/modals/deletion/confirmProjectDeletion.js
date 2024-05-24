@@ -6,7 +6,6 @@ import { closeModal } from "../modalHandlers";
 const app = createAppController();
 
 export default function confirmProjectDeletion(projectObject) {
-  alert("deleting");
   generateModal(projectObject).showModal();
 }
 
