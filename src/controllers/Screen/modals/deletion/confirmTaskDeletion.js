@@ -4,16 +4,13 @@ import { closeModal } from "../modalHandlers";
 
 const app = createAppController();
 
-const handleDelete = (taskOrProjectObj) => {
-  const modal = generateModal(taskOrProjectObj);
+const confirmTaskDeletion = (taskObject) => {
+  const modal = generateModal(taskObject);
   modal.showModal();
 };
 
-const generateModal = (obj) => {
-  const id = obj.getId();
-  const name = obj.getName();
-  const type = Array.from(id)[0] === "T" ? "task" : "project";
-  const projectId = type === "project" ? obj.getId() : obj.getProjectId();
+const generateModal = (taskObject) => {
+  const name = taskObject.getName();
 
   const modal = document.createElement("dialog");
   modal.classList.add("delete-modal");
@@ -25,12 +22,12 @@ const generateModal = (obj) => {
   paragraph.textContent = "You won't be able to undo this action.";
   form.appendChild(paragraph);
 
-  if (type === "project") {
-    const taskMoveParagraph = document.createElement("p");
-    taskMoveParagraph.textContent =
-      "All of its tasks will move into your Inbox.";
-    form.appendChild(taskMoveParagraph);
-  }
+  // if (type === "project") {
+  //   const taskMoveParagraph = document.createElement("p");
+  //   taskMoveParagraph.textContent =
+  //     "All of its tasks will move into your Inbox.";
+  //   form.appendChild(taskMoveParagraph);
+  // }
 
   const buttons = document.createElement("div");
   buttons.classList.add("btn-group");
@@ -41,7 +38,7 @@ const generateModal = (obj) => {
   const deleteBtn = document.createElement("button");
   deleteBtn.classList.add("delete-btn");
   deleteBtn.type = "button";
-  deleteBtn.textContent = `Delete ${type}`;
+  deleteBtn.textContent = `Delete task`;
 
   buttons.appendChild(cancelBtn);
   buttons.appendChild(deleteBtn);
@@ -51,10 +48,9 @@ const generateModal = (obj) => {
 
   // add event listeners
   deleteBtn.addEventListener("mousedown", () => {
-    if (type === "task") app.deleteTask(obj);
-    else if (type === "project") app.deleteProject(obj);
+    app.deleteTask(taskObject);
     closeModal(modal);
-    displayPage(projectId);
+    displayPage(taskObject.getProjectId());
   });
 
   cancelBtn.addEventListener("mousedown", () => closeModal(modal));
@@ -62,4 +58,4 @@ const generateModal = (obj) => {
   return modal;
 };
 
-export default handleDelete;
+export default confirmTaskDeletion;

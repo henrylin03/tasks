@@ -48,7 +48,10 @@ const createProjectLinkInNav = (project) => {
   linkAnchor.addEventListener("mousedown", () =>
     handleNavLinkClicks(projectId)
   );
-  binBtn.addEventListener("mousedown", () => confirmProjectDeletion(project));
+  binBtn.addEventListener("mousedown", (e) => {
+    e.stopPropagation();
+    confirmProjectDeletion(project);
+  });
 
   // append to DOM
   linkAnchor.appendChild(iconContainer);
