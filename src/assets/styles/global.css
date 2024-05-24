@@ -179,6 +179,10 @@ header .left {
     color: var(--primary-clr);
 }
 
+.add-task a {
+    gap: 15px;
+}
+
 
 /* main */
 main>.container {
