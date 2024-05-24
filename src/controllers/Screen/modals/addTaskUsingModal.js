@@ -1,5 +1,6 @@
 import { createAppController } from "../../App/createAppController";
 import displayPage from "../displayPage";
+import displayProjectsInNav from "../nav/displayProjectsInNav";
 import {
   toggleUrgency,
   generateProjectOptions,
@@ -48,6 +49,7 @@ const handleSubmit = (currentPageProjectId) => {
   app.addTask(newTaskObject);
   form.reset();
   modal.close();
+  displayProjectsInNav();
   displayPage(currentPageProjectId);
 };
 

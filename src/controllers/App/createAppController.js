@@ -107,10 +107,11 @@ const createAppController = () => {
 
   const deleteProject = (projectObject) => {
     const taskIdsArray = projectObject.getTaskIds();
+    const taskObjectsArray = projectObject.getTasksAsObjects();
     const inbox = getProject("inbox");
     const inboxTaskIds = inbox.getTaskIds();
 
-    console.log(inboxTaskIds);
+    console.log(taskObjectsArray);
 
     console.log("deleting");
   };
