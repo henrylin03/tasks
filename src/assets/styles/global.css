@@ -519,7 +519,11 @@ dialog.is-urgent {
 
 /* modal for deletion confirmation */
 .delete-modal form {
-    gap: 10px;
+    gap: 15px;
+}
+
+.delete-modal h2 {
+    margin-bottom: 5px;
 }
 
 .delete-btn {
