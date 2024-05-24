@@ -1,6 +1,6 @@
-import { createAppController } from "../../App/createAppController";
-import displayPage from "../displayPage";
-import { closeModal } from "./modalHandlers";
+import { createAppController } from "../../../App/createAppController";
+import displayPage from "../../displayPage";
+import { closeModal } from "../modalHandlers";
 
 const app = createAppController();
 
