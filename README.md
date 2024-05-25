@@ -3,6 +3,7 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 <br>
+<br>
 <div align="center">
     <a href="https://henrylin.io/tasks/">
         <img src="./src/favicon.png" alt="logo" width="100" height="auto">
