@@ -1,6 +1,6 @@
 import { createAppController } from "../../App/createAppController";
 import { closeModal } from "./modalHandlers";
-import displayPage from "../displayPage";
+import handleNavLinkClicks from "../nav/handleNavLinkClicks";
 
 const modifyTaskInModal = (taskObject, modalElement) => {
   const app = createAppController();
@@ -31,7 +31,7 @@ const modifyTaskInModal = (taskObject, modalElement) => {
 
   app.updateTask(updatedTaskDetails);
   closeModal(modalElement);
-  displayPage(currentProjectId);
+  handleNavLinkClicks(currentProjectId);
 };
 
 export default modifyTaskInModal;
