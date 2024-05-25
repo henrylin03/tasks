@@ -13,9 +13,9 @@ Use Tasks as your to-do list for work, vacation, family and anything else.
 
 Track what needs to be done, what has been done, and by when.
 
-[![Screenshot](./docs/preview-screenshot.png)](https://henrylin.io/tasks)
+[![Screenshot](./docs/screenshots/preview-screenshot.png)](https://henrylin.io/tasks)
 
-The web app uses persistent storage. This means that your data is saved even if you close your tab/browser.
+Tasks uses persistent storage. This means your data is saved even if you close your tab/browser.
 
 ### Technologies
 
@@ -26,19 +26,23 @@ The web app uses persistent storage. This means that your data is saved even if 
 
 ## Usage
 
-### Adding a project
+Once **[Tasks](https://henrylin.io/tasks)** loads, you should see a list of tasks in your inbox or, if it's your first time, a blank inbox.
 
-### Adding a task
+Your inbox stores once-off tasks, and any tasks you haven't categorised yet into a "project". A project is a collection of tasks that all try and achieve the same goal. For example, you might have a project called "Japan trip" and lists out all the tasks you need to do before you holiday there. You can see all of your projects to the left.
 
-### Renaming a project
+![screenshot of Japan trip example](./docs/screenshots/preview-screenshot-japan.png)
 
-### Modifying a task
+You can expand any tasks by clicking on it. In the popup, you can also edit any of the details as things evolve.
 
-### Completing a task
+<div align="center">
+    <img src="./docs/screenshots/screenshot-tasks-details.png" alt="screenshot of expanded task" width=450px>
+</div>
 
-### Deleting a task
+Once a task is done, you can tick the checkbox, and the tasks will go to the bottom of your inbox or project.
 
-### Deleting a project
+<div align="center">
+    <img src="./docs/screenshots/screenshot-completed-task.png" alt="screenshot of completed task, sorted to be at the bottom of preview" width=100%>
+</div>
 
 ## Contributing
 
