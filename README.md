@@ -3,6 +3,7 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 <br>
+<br>
 <div align="center">
     <a href="https://henrylin.io/tasks/">
         <img src="./src/favicon.png" alt="logo" width="100" height="auto">
@@ -13,7 +14,7 @@
 
 ## About
 
-Use Tasks as your to-do list for work, vacation, family and anything else you want to get done.
+Use Tasks as your to-do list for work, personal life, family and anything else you need and want to get done.
 
 [![Screenshot](./docs/screenshots/preview-screenshot.png)](https://henrylin.io/tasks)
 
