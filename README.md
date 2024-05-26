@@ -14,7 +14,7 @@
 
 ## About
 
-Use Tasks as your to-do list for work, personal life, family and anything else you need and want to get done.
+Use Tasks to better manage your to-dos for work, personal life, family and anything else!
 
 [![Screenshot](./docs/screenshots/preview-screenshot.png)](https://henrylin.io/tasks)
 
