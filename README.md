@@ -10,22 +10,22 @@
         <img src="./src/favicon.png" alt="logo" width="100" height="auto">
     </a>
     <a href="https://henrylin.io/tasks"><h3 align="center">Tasks</h3></a>
-    <p align="center">Vanilla-JS web app to help you manage your to-dos</p>
+    <p align="center">Vanilla-JS web app to help manage your to-dos</p>
 </div>
 
 ## About
 
-Use Tasks as your to-do list for work, personal life, family and anything else you need and want to get done.
+Use Tasks to manage your various to-do lists for all aspects of your life.
 
 [![Screenshot](./docs/screenshots/preview-screenshot.png)](https://henrylin.io/tasks)
 
-Tasks uses persistent storage. This means your data is saved even if you close your tab/browser.
+Tasks uses persistent storage, so your data will still be there when you open your browser up again!
 
 ### Technologies
 
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=black)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=html5&logoColor=black)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=black)
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=html5&logoColor=black)
+![JavaScript](https://img.shields.io/badge/Vanilla-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 [![Webpack](https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=webpack&logoColor=black)](https://webpack.js.org/)
 
 ## Usage
