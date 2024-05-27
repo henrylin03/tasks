@@ -3,10 +3,10 @@ export default function sortTasks(taskObjectsArray) {
 
   const completedTasks = taskObjectsArray.filter((t) => t.getCompleted());
   const completedTasksWithDueDates = completedTasks.filter((t) =>
-    t.getDueDate()
+    t.getDueDate(),
   );
   const completedTasksWithoutDueDates = completedTasks.filter(
-    (t) => !t.getDueDate()
+    (t) => !t.getDueDate(),
   );
   const completedTasksSorted = [
     ...completedTasksWithDueDates.sort(earlierDueDateComesFirst),
@@ -15,10 +15,10 @@ export default function sortTasks(taskObjectsArray) {
 
   const incompleteTasks = taskObjectsArray.filter((t) => !t.getCompleted());
   const incompleteTasksWithDueDates = incompleteTasks.filter((t) =>
-    t.getDueDate()
+    t.getDueDate(),
   );
   const incompleteTasksWithoutDueDates = incompleteTasks.filter(
-    (t) => !t.getDueDate()
+    (t) => !t.getDueDate(),
   );
 
   const incompleteTasksSorted = [

@@ -17,7 +17,7 @@ const createScreenController = () => {
   pageTitle.addEventListener("mousedown", handleProjectNameChange);
   addProjectBtn.addEventListener("mousedown", addProjectUsingModal);
   [brandingInSidebar, inboxLinkInSidebar].forEach((elem) =>
-    elem.addEventListener("mousedown", () => handleNavLinkClicks("inbox"))
+    elem.addEventListener("mousedown", () => handleNavLinkClicks("inbox")),
   );
 };
 

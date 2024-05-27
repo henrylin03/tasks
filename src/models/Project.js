@@ -29,7 +29,7 @@ const createProject = (recreatingFromJSON = false) => {
   const setId = (retrievedId) => {
     if (!recreatingFromJSON)
       throw new Error(
-        "Cannot update the ID of a project unless you're recreating it from localStorage in JSON format."
+        "Cannot update the ID of a project unless you're recreating it from localStorage in JSON format.",
       );
     id = retrievedId;
   };
@@ -50,7 +50,7 @@ const createProject = (recreatingFromJSON = false) => {
   const remove = () => {
     const storedProjectsArray = retrieveProjects();
     const projectsArrayWithoutSelf = storedProjectsArray.filter(
-      (p) => p.id !== id
+      (p) => p.id !== id,
     );
     localStorage.setItem("projects", JSON.stringify(projectsArrayWithoutSelf));
   };

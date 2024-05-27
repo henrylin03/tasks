@@ -4,7 +4,7 @@ import handleNavLinkClicks from "./handleNavLinkClicks";
 
 const app = createAppController();
 const navProjectsContainer = document.querySelector(
-  ".current-projects-container"
+  ".current-projects-container",
 );
 
 const displayProjectsInNav = () => {
@@ -46,7 +46,7 @@ const createProjectLinkInNav = (project) => {
 
   // add event listeners
   linkAnchor.addEventListener("mousedown", () =>
-    handleNavLinkClicks(projectId)
+    handleNavLinkClicks(projectId),
   );
   binBtn.addEventListener("mousedown", (e) => {
     e.stopPropagation();

@@ -80,7 +80,7 @@ const generateTaskDetailsModal = (taskObject) => {
   saveBtn.classList.add("save-changes-to-task");
   saveBtn.textContent = "Save";
   saveBtn.addEventListener("mousedown", () =>
-    modifyTaskInModal(taskObject, modal)
+    modifyTaskInModal(taskObject, modal),
   );
 
   const cancelBtn = document.createElement("button");
