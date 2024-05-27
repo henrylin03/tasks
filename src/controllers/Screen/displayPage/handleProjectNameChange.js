@@ -22,6 +22,6 @@ export default function handleProjectNameChange(e) {
       app.renameProject(projectObject, newName);
       displayProjectsInNav();
     },
-    { once: true }
+    { once: true },
   );
 }

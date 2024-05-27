@@ -2,7 +2,7 @@ import displayPage from "../displayPage";
 
 function handleNavLinkClicks(projectId) {
   const projectsIncludingInbox = document.querySelectorAll(
-    "div[class=link], div.link.selected"
+    "div[class=link], div.link.selected",
   );
   const navbarLink = document.querySelector(`[data-id="${projectId}"]`);
 

@@ -80,7 +80,7 @@ const createAppController = () => {
       .map((p) => recreateProjectFromJSON(p))
       .sort(
         (a, b) =>
-          Number(a.getId().substring(1)) - Number(b.getId().substring(1))
+          Number(a.getId().substring(1)) - Number(b.getId().substring(1)),
       );
 
     projects = excludeInbox

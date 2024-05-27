@@ -11,11 +11,11 @@ export default function addSuffixToDuplicateProjectName(projectName) {
     .replace(regexToMatchParenthesesWithNumbersInside, "")
     .trim();
   const projectNameExistsInStorage = projectNamesInStorage.some(
-    (name) => name === projectName
+    (name) => name === projectName,
   );
 
   const duplicateCount = cleanedProjectNamesInStorage.filter(
-    (cleanedName) => cleanedName === cleanedProjectName
+    (cleanedName) => cleanedName === cleanedProjectName,
   ).length;
 
   if (!projectNameExistsInStorage) return projectName;

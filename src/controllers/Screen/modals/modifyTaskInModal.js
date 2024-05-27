@@ -7,13 +7,13 @@ const modifyTaskInModal = (taskObject, modalElement) => {
 
   const taskNameElement = modalElement.querySelector("#task-name-in-modal");
   const taskDescriptionElement = modalElement.querySelector(
-    "#task-description-in-modal"
+    "#task-description-in-modal",
   );
   const taskDueDateElement = modalElement.querySelector(
-    "#task-due-date-in-modal"
+    "#task-due-date-in-modal",
   );
   const taskProjectElement = modalElement.querySelector(
-    "#task-project-in-modal"
+    "#task-project-in-modal",
   );
   const taskCompletionCheckbox = modalElement.querySelector(".checkbox");
 

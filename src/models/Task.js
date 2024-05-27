@@ -36,7 +36,7 @@ const createTask = (name, recreatingFromJSON = false) => {
   const setId = (retrievedId) => {
     if (!recreatingFromJSON)
       throw new Error(
-        "Cannot update the ID of a task unless you're recreating it from localStorage in JSON format."
+        "Cannot update the ID of a task unless you're recreating it from localStorage in JSON format.",
       );
     id = retrievedId;
   };
@@ -74,7 +74,7 @@ const createTask = (name, recreatingFromJSON = false) => {
     const storedTasksArray = retrieveTasks();
     localStorage.setItem(
       "tasks",
-      JSON.stringify(storedTasksArray.filter((t) => t.id !== id))
+      JSON.stringify(storedTasksArray.filter((t) => t.id !== id)),
     );
   };
 
