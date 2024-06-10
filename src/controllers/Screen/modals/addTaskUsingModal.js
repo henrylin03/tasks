@@ -56,8 +56,6 @@ const handleSubmit = () => {
   form.reset();
   modal.close();
   displayProjectsInNav();
-  console.log(newTaskObject);
-  console.log(newTaskObject.projectId);
   handleNavLinkClicks(newTaskObject.projectId);
 };
 
