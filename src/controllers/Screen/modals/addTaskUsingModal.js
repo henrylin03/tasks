@@ -25,7 +25,7 @@ const addTaskUsingModal = (currentPageProjectId) => {
     (e) => {
       e.preventDefault();
       e.stopPropagation();
-      handleSubmit(currentPageProjectId);
+      handleSubmit();
     },
     { once: true },
   );
@@ -41,7 +41,9 @@ const addTaskUsingModal = (currentPageProjectId) => {
   setTimeout(() => taskNameInput.focus(), 0.1);
 };
 
-const handleSubmit = (currentPageProjectId) => {
+const handleSubmit = () => {
+  if (!taskNameInput.value) return;
+
   const newTaskObject = {
     name: taskNameInput.value,
     description: descriptionInput.value,
@@ -54,8 +56,9 @@ const handleSubmit = (currentPageProjectId) => {
   form.reset();
   modal.close();
   displayProjectsInNav();
+  console.log(newTaskObject);
   console.log(newTaskObject.projectId);
-  handleNavLinkClicks(currentPageProjectId);
+  handleNavLinkClicks(newTaskObject.projectId);
 };
 
 export default addTaskUsingModal;
