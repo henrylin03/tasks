@@ -16,7 +16,7 @@ const addProjectUsingModal = () => {
 
   // run
   modal.showModal();
-  setTimeout(() => input.focus(), 0.1);
+  focusOnInput();
 };
 
 function handleSubmit(e) {
@@ -28,5 +28,7 @@ function handleSubmit(e) {
   closeModal(modal);
   displayProjectsInNav();
 }
+
+const focusOnInput = () => setTimeout(() => input.focus(), 0.1);
 
 export default addProjectUsingModal;
