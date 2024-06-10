@@ -98,6 +98,8 @@ const createAppController = () => {
     const newProject = createProject();
     newProject.setName(newProjectName);
     newProject.store();
+
+    return newProject.getId();
   };
 
   const renameProject = (projectObject, newProjectName) => {

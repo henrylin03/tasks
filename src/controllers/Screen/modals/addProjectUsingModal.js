@@ -1,6 +1,7 @@
 import { createAppController } from "../../App/createAppController";
 import { closeModal } from "./modalHandlers";
 import displayProjectsInNav from "../nav/displayProjectsInNav";
+import handleNavLinkClicks from "../nav/handleNavLinkClicks";
 
 const modal = document.querySelector(".new-project-modal");
 const form = document.querySelector(".new-project-modal form");
@@ -16,17 +17,20 @@ const addProjectUsingModal = () => {
 
   // run
   modal.showModal();
-  setTimeout(() => input.focus(), 0.1);
+  focusOnInput();
 };
 
-function handleSubmit(e) {
+const handleSubmit = (e) => {
   e.preventDefault();
 
   const app = createAppController();
 
-  app.addProject(input.value);
+  const newProjectId = app.addProject(input.value);
   closeModal(modal);
   displayProjectsInNav();
-}
+  handleNavLinkClicks(newProjectId);
+};
+
+const focusOnInput = () => setTimeout(() => input.focus(), 0.1);
 
 export default addProjectUsingModal;
