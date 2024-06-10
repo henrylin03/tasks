@@ -37,7 +37,6 @@ const addTaskUsingModal = (currentPageProjectId) => {
 };
 
 const handleSubmit = (currentPageProjectId) => {
-  // capture all properties required to create task from form
   const newTaskObject = {
     name: taskNameInput.value,
     description: descriptionInput.value,
