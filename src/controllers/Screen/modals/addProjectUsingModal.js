@@ -25,16 +25,12 @@ const handleSubmit = (e) => {
 
   const app = createAppController();
 
-  app.addProject(input.value);
+  const newProjectId = app.addProject(input.value);
   closeModal(modal);
   displayProjectsInNav();
-  displayNewlyCreatedProjectPage();
+  handleNavLinkClicks(newProjectId);
 };
 
 const focusOnInput = () => setTimeout(() => input.focus(), 0.1);
-
-const displayNewlyCreatedProjectPage = () => {
-  return;
-};
 
 export default addProjectUsingModal;
