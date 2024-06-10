@@ -19,7 +19,7 @@ const addProjectUsingModal = () => {
   focusOnInput();
 };
 
-function handleSubmit(e) {
+const handleSubmit = (e) => {
   e.preventDefault();
 
   const app = createAppController();
@@ -27,7 +27,7 @@ function handleSubmit(e) {
   app.addProject(input.value);
   closeModal(modal);
   displayProjectsInNav();
-}
+};
 
 const focusOnInput = () => setTimeout(() => input.focus(), 0.1);
 
