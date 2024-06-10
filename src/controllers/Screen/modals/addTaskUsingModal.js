@@ -20,10 +20,15 @@ const cancelBtn = document.querySelector(".new-task-modal .cancel-btn");
 
 const addTaskUsingModal = (currentPageProjectId) => {
   urgentBtn.addEventListener("mousedown", () => toggleUrgency(modal));
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    handleSubmit(currentPageProjectId);
-  });
+  form.addEventListener(
+    "submit",
+    (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      handleSubmit();
+    },
+    { once: true },
+  );
   cancelBtn.addEventListener("click", () => closeModal(modal));
   modal.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal(modal);
@@ -36,8 +41,9 @@ const addTaskUsingModal = (currentPageProjectId) => {
   setTimeout(() => taskNameInput.focus(), 0.1);
 };
 
-const handleSubmit = (currentPageProjectId) => {
-  // capture all properties required to create task from form
+const handleSubmit = () => {
+  if (!taskNameInput.value) return;
+
   const newTaskObject = {
     name: taskNameInput.value,
     description: descriptionInput.value,
@@ -50,7 +56,7 @@ const handleSubmit = (currentPageProjectId) => {
   form.reset();
   modal.close();
   displayProjectsInNav();
-  handleNavLinkClicks(currentPageProjectId);
+  handleNavLinkClicks(newTaskObject.projectId);
 };
 
 export default addTaskUsingModal;
