@@ -143,8 +143,18 @@ header .left {
 }
 
 .page-icon {
+  width: 35px;
   height: 35px;
   display: block;
+  background-color: var(--primary-clr);
+}
+
+.page-icon.inbox {
+  mask-image: url("../icons/inbox.svg");
+}
+
+.page-icon.project {
+  mask-image: url("../icons/list.svg");
 }
 
 .page-icon.hidden {
