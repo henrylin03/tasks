@@ -276,10 +276,15 @@ main>.container {
 
 .task-attributes .dueDate-icon {
   mask-image: url("../icons/calendar-due.svg");
+  background-color: var(--dimmed);
 }
 
 .task-attributes .overdue .dueDate-icon {
   background-color: var(--highlight-clr);
+}
+
+.task-attributes .today .dueDate-icon {
+  background-color: var(--primary-clr);
 }
 
 .task-attributes li:not(:first-child)::before {
