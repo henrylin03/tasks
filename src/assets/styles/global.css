@@ -76,7 +76,13 @@ textarea {
 
 .link .icon-container {
   height: 24px;
-  margin-left: 10px;
+  width: 24px;
+  margin-left: 8px;
+}
+
+.link .icon-container.project-icon {
+  mask-image: url("../icons/list.svg");
+  background-color: black;
 }
 
 .link p {
@@ -143,12 +149,18 @@ header .left {
 }
 
 .page-icon {
+  width: 35px;
   height: 35px;
   display: block;
+  background-color: var(--primary-clr);
 }
 
-.page-icon.hidden {
-  display: none;
+.page-icon.inbox {
+  mask-image: url("../icons/inbox.svg");
+}
+
+.page-icon.project {
+  mask-image: url("../icons/list.svg");
 }
 
 #page-title {
@@ -183,7 +195,7 @@ header .left {
 }
 
 /* main */
-main > .container {
+main>.container {
   width: 90%;
   margin: 0 auto;
   display: flex;
@@ -259,10 +271,32 @@ main > .container {
 .task-attributes li {
   display: flex;
   align-items: center;
+  gap: 2px;
 }
 
 .task-attributes figure {
-  margin: 0 5px 0 1px;
+  margin: 0 5px 0 -3px;
+  width: 16px;
+  height: 16px;
+  mask-position: center;
+}
+
+.task-attributes .urgency-icon {
+  mask-image: url("../icons/exclamation-circle.svg");
+  background-color: var(--highlight-clr);
+}
+
+.task-attributes .dueDate-icon {
+  mask-image: url("../icons/calendar-due.svg");
+  background-color: var(--dimmed);
+}
+
+.task-attributes .overdue .dueDate-icon {
+  background-color: var(--highlight-clr);
+}
+
+.task-attributes .today .dueDate-icon {
+  background-color: var(--primary-clr);
 }
 
 .task-attributes li:not(:first-child)::before {
