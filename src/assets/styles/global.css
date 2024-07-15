@@ -183,7 +183,7 @@ header .left {
 }
 
 /* main */
-main > .container {
+main>.container {
   width: 90%;
   margin: 0 auto;
   display: flex;
@@ -259,10 +259,27 @@ main > .container {
 .task-attributes li {
   display: flex;
   align-items: center;
+  gap: 2px;
 }
 
 .task-attributes figure {
-  margin: 0 5px 0 1px;
+  margin: 0 5px 0 -3px;
+  width: 20px;
+  height: 20px;
+  mask-position: center;
+}
+
+.task-attributes .urgency-icon {
+  mask-image: url("../icons/exclamation-circle.svg");
+  background-color: var(--highlight-clr);
+}
+
+.task-attributes .dueDate-icon {
+  mask-image: url("../icons/calendar-due.svg");
+}
+
+.task-attributes .overdue .dueDate-icon {
+  background-color: var(--highlight-clr);
 }
 
 .task-attributes li:not(:first-child)::before {
