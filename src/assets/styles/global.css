@@ -76,7 +76,13 @@ textarea {
 
 .link .icon-container {
   height: 24px;
-  margin-left: 10px;
+  width: 24px;
+  margin-left: 8px;
+}
+
+.link .icon-container.project-icon {
+  mask-image: url("../icons/list.svg");
+  background-color: black;
 }
 
 .link p {
