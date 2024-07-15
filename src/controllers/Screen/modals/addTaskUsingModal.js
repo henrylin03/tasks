@@ -29,7 +29,7 @@ const addTaskUsingModal = (currentPageProjectId) => {
     },
     { once: true },
   );
-  cancelBtn.addEventListener("click", () => closeModal(modal));
+  cancelBtn.addEventListener("mousedown", () => closeModal(modal));
   modal.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal(modal);
   });
