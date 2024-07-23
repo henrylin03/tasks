@@ -363,7 +363,7 @@ main>.container {
 
 /* urgent task */
 .task.urgent {
-  border-left: 10px solid var(--highlight-clr);
+  border-color: var(--highlight-clr);
 }
 
 .task.urgent .checkbox-container {
@@ -529,6 +529,10 @@ dialog.is-urgent {
 }
 
 /* modal for details of tasks */
+.task-details-modal {
+  border-left: 10px solid transparent;
+}
+
 .task-details-modal form {
   flex-direction: row;
   width: 100%;
