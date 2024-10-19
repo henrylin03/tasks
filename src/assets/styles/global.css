@@ -363,7 +363,7 @@ main>.container {
 
 /* urgent task */
 .task.urgent {
-  border-color: var(--highlight-clr);
+  border-left: 10px solid var(--highlight-clr);
 }
 
 .task.urgent .checkbox-container {
